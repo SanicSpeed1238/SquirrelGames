@@ -3,16 +3,16 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     [Header("Object Prefabs")]
-    [SerializeField] private GameObject antObject;
     [SerializeField] private GameObject squirrelObject;
+    [SerializeField] private GameObject antObject;
 
     [Header("Spawner Values")]
     [Range(0.1f, 3.0f)]
     public float spawnRate;
     [Range(0, 100)]
-    public int antSpawnRate;
-    [Range(0, 100)]
     public int squirrelSpawnRate;
+    [Range(0, 100)]
+    public int antSpawnRate;
 
     // Variables Needed
     private float positionRange;
@@ -32,6 +32,23 @@ public class ObjectSpawner : MonoBehaviour
     {
         Vector3 offset = transform.right * Random.Range(-positionRange, positionRange);
         Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z) + offset;
-        Instantiate(antObject, spawnPosition, transform.rotation);
+
+        GameObject spawnedObject = GetRandomObject();
+        Instantiate(spawnedObject, spawnPosition, transform.rotation);
+    }
+
+    private GameObject GetRandomObject()
+    {
+        int totalRate = squirrelSpawnRate + antSpawnRate;
+        int randomValue = Random.Range(0, totalRate);
+
+        if (randomValue < squirrelSpawnRate)
+        {
+            return squirrelObject;
+        }
+        else
+        {
+            return antObject;
+        }
     }
 }
