@@ -11,7 +11,10 @@ public class AcornScript : MonoBehaviour
         rb.angularVelocity = new Vector3(0,3,0); 
     }
 
-    void OnTrigger
+    void OnTriggerEnter()
+    {
+        Debug.Log("bnsemdfa");  
+    }
 
     void FixedUpdate()
     {
