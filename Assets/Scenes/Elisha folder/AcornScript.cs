@@ -11,9 +11,14 @@ public class AcornScript : MonoBehaviour
         rb.angularVelocity = new Vector3(0,3,0); 
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("bnsemdfa");  
+        if(collision.tag == "Player") 
+        {
+            collision.GetComponent<AcornCounter>().acorns += 1; 
+        }
+        Debug.Log(collision.GetComponent<AcornCounter>().acorns); 
+        Destroy(gameObject);
     }
 
     void FixedUpdate()
