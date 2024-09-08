@@ -46,14 +46,16 @@ public class HammerController : MonoBehaviour
 
             if(hitObject.objType == ObjectScript.ObjectType.Ant)
             {
-                // Do Something
+                hitObject.transform.localScale = new Vector3(1.4f, .1f, 1.4f);
+                hitObject.GetComponentInChildren<Animator>().enabled = false;
+                hitObject.moveSpeed = 0;
+                hitObject.onSquish();
+
             }
-            if(hitObject.objType == ObjectScript.ObjectType.Squirrel)
+            if (hitObject.objType == ObjectScript.ObjectType.Squirrel)
             {
                 // Do Something
             }
-            
-            Destroy(other.gameObject);
         }
     }
 }

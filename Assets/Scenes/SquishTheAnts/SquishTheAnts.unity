@@ -4969,8 +4969,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
-  rangeX: 6
-  rangeYTop: 8
+  rangeX: 10
+  rangeYTop: 10
   rangeYBottom: -5
   hammerAnimator: {fileID: 2033425944}
   smashEffect: {fileID: 2033425947}

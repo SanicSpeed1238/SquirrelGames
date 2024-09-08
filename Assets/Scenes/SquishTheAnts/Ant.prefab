@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objType: 2
+  SquishTime: 1.5
+  TransparentAnt: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
+  Transparency: {x: 0, y: 0, z: 0, w: 0}
   moveSpeed: 7
 --- !u!54 &8395338633561122436
 Rigidbody:
