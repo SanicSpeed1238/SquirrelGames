@@ -13,7 +13,8 @@ public class AcornScript : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.tag == "Player") 
+        
+        if(collision.tag == "Player")
         {
             collision.GetComponent<AcornCounter>().acorns += 1; 
         }
