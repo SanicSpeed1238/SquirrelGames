@@ -4,50 +4,45 @@ public class ObjectScript : MonoBehaviour
 {
     public enum ObjectType
     {
-        None,
-        Squirrel,
         Ant
     }
-    public ObjectType objType = ObjectType.None;
-    public float SquishTime = 1.5f; // how long the ant spends squished
+    public ObjectType objType = ObjectType.Ant;
+    public float AntSquishTime = 1.5f; // how long the ant spends squished
     public Material TransparentAnt;
     public Vector4 Transparency;
-    private bool Squished;
-
+    private bool AntSquished;
     [Range(1f, 10f)]
     public float moveSpeed;
 
     private void Update()
     {
         transform.Translate((moveSpeed * Time.deltaTime * transform.forward), Space.World);
-        if (Squished)
+        if (AntSquished)
         {
-            SquishTime -= Time.deltaTime;
-            if (SquishTime < 1)
+            AntSquishTime -= Time.deltaTime;
+            if (AntSquishTime < 1)
             {
-                Transparency.w = SquishTime;
+                Transparency.w = AntSquishTime;
                 gameObject.GetComponentInChildren<Renderer>().material.color = Transparency;
             }
-            if (SquishTime < 0)
+            if (AntSquishTime < 0)
             {
                 Destroy(gameObject);
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Deadzone"))
+        if (other.CompareTag("Deadzone"))
         {
             Destroy(gameObject);
         }
     }
-    public void onSquish()
+    public void onAntSquish()
     {
-        Squished = true;
+        AntSquished = true;
         gameObject.GetComponentInChildren<Renderer>().material = TransparentAnt;
         Transparency = GetComponentInChildren<Renderer>().material.color;
     }
-
 }

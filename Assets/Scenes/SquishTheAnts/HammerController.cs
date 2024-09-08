@@ -40,22 +40,24 @@ public class HammerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponentInParent<ObjectScript>() != null)
-        {
-            ObjectScript hitObject = other.GetComponentInParent<ObjectScript>();
 
-            if(hitObject.objType == ObjectScript.ObjectType.Ant)
+            if(other.GetComponentInParent<Ant>())
             {
+                Ant hitObject = other.GetComponentInParent<Ant>();
                 hitObject.transform.localScale = new Vector3(1.4f, .1f, 1.4f);
                 hitObject.GetComponentInChildren<Animator>().enabled = false;
                 hitObject.moveSpeed = 0;
-                hitObject.onSquish();
+                hitObject.onAntSquish();
 
             }
-            if (hitObject.objType == ObjectScript.ObjectType.Squirrel)
+            if (other.GetComponentInParent<SquirrelScript>())
             {
-                // Do Something
+                SquirrelScript hitObject = other.GetComponentInParent<SquirrelScript>();
+                hitObject.transform.localScale = new Vector3(3, .1f, 3);
+                hitObject.GetComponentInChildren<Animator>().enabled = false;
+                hitObject.moveSpeed = 0;
+                hitObject.onSquirrelSquish();
+
             }
-        }
     }
 }

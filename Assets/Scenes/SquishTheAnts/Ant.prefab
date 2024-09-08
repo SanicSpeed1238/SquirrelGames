@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7097505232937420517}
-  - component: {fileID: -1491477549999425488}
   - component: {fileID: 8395338633561122436}
   m_Layer: 0
   m_Name: Ant
@@ -34,23 +33,6 @@ Transform:
   - {fileID: 5904044807301426994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1491477549999425488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291907533956918691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e623de1181b9e448a8678d90408dddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objType: 2
-  SquishTime: 1.5
-  TransparentAnt: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
-  Transparency: {x: 0, y: 0, z: 0, w: 0}
-  moveSpeed: 7
 --- !u!54 &8395338633561122436
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,6 +138,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af0f045ad4270a545a70a13d27d2c585, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8185643916253563690}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: af0f045ad4270a545a70a13d27d2c585, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4442692829113561203}
   m_SourcePrefab: {fileID: 100100000, guid: af0f045ad4270a545a70a13d27d2c585, type: 3}
 --- !u!4 &5904044807301426994 stripped
 Transform:
@@ -209,3 +194,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0.55, z: 2.2}
   m_Center: {x: 0, y: 0.22, z: -0.3}
+--- !u!114 &4442692829113561203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531540884750644616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9e1f747b1c0674c8b82f2c8f3d975c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objType: 0
+  AntSquishTime: 1.5
+  TransparentAnt: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
+  Transparency: {x: 0, y: 0, z: 0, w: 0}
+  moveSpeed: 7
