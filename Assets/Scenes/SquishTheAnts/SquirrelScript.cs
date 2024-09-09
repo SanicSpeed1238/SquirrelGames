@@ -39,7 +39,6 @@ public class SquirrelScript : MonoBehaviour
         if (!SquirrelSquished)
         {
             SquirrelSquished = true;
-            gameObject.GetComponentInChildren<Renderer>().material = TransparentSquirrel;
             smashEffect.Play();
         }
     }

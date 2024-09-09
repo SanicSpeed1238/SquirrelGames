@@ -8,7 +8,7 @@ public class HammerController : MonoBehaviour
     public float rangeX;
     public float rangeYTop;
     public float rangeYBottom;
-
+    public GameObject UiManager;
     [Header("Important Components")]
     [SerializeField] private Animator hammerAnimator;
     [SerializeField] private ParticleSystem smashEffect;
@@ -48,7 +48,8 @@ public class HammerController : MonoBehaviour
                 hitObject.GetComponentInChildren<Animator>().enabled = false;
                 hitObject.moveSpeed = 0;
                 hitObject.onAntSquish();
-
+                hitObject.GetComponent<BoxCollider>().enabled = false;
+                UiManager.GetComponent<UiScript>().onAntSquish();
             }
             if (other.GetComponentInParent<SquirrelScript>())
             {
@@ -57,7 +58,8 @@ public class HammerController : MonoBehaviour
                 hitObject.GetComponentInChildren<Animator>().enabled = false;
                 hitObject.moveSpeed = 0;
                 hitObject.onSquirrelSquish();
-
+                hitObject.GetComponent<BoxCollider>().enabled = false;
+                UiManager.GetComponent<UiScript>().onSquirrelSquish();
             }
     }
 }
