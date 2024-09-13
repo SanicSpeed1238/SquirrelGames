@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -11,11 +12,18 @@ public class playerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody rb;
     public Vector3 soup;
-
+    public GameObject forest;
+    private GameObject[] trees;
+    private int WhichTreeIsSquirrelOn = 0; // starts on the leftmost tree, 0 corresponds to the tree in the array
     // Start is called before the first frame update
     void Start()
     {
-
+        trees = new GameObject[forest.transform.childCount];
+        for (int i = 0; i < trees.Length; i++)
+        {
+            trees[i] = forest.transform.GetChild(i).gameObject;
+        }
+        
     }
 
     // Update is called once per frame
@@ -24,11 +32,11 @@ public class playerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && !isMoving)
             StartCoroutine(MovePlayerVert(Vector3.up));
         if (Input.GetKey(KeyCode.A) && !isMoving)
-            StartCoroutine(MovePlayerHori(Vector3.left - new Vector3(3, 0, 0)));
+            StartCoroutine(MovePlayerHori(Vector3.left));
         if (Input.GetKey(KeyCode.S) && !isMoving)
             StartCoroutine(MovePlayerVert(Vector3.down));
         if (Input.GetKey(KeyCode.D) && !isMoving)
-            StartCoroutine(MovePlayerHori(Vector3.right + new Vector3(3, 0, 0)));
+            StartCoroutine(MovePlayerHori(Vector3.right));
     }
 
     private IEnumerator MovePlayerVert(Vector3 direction)
@@ -54,8 +62,30 @@ public class playerController : MonoBehaviour
         isMoving = true;
         float elapsedTime = 0;
         origPos = transform.position;
-        targetPos = origPos + direction;
-
+        if (WhichTreeIsSquirrelOn == 0 && direction == Vector3.left) // if we are on leftmost tree and we press left dont go anywhere
+        {
+            targetPos = origPos;
+        }
+        else if (WhichTreeIsSquirrelOn == trees.Length - 1 && direction == Vector3.right) // if we are on right most tree and press right dont go anywhere
+        {
+            targetPos = origPos;
+        }
+        else
+        {
+            targetPos = origPos;
+            
+            if (direction.x < 0)
+            {
+                WhichTreeIsSquirrelOn -= 1;
+                targetPos.x = trees[WhichTreeIsSquirrelOn].transform.position.x;
+            }
+            else
+            {
+                WhichTreeIsSquirrelOn += 1;
+                targetPos.x = trees[WhichTreeIsSquirrelOn].transform.position.x;
+            }
+        }
+        Debug.Log(WhichTreeIsSquirrelOn);
         while (elapsedTime < timeToMove)
         {
             transform.position = Vector3.Lerp(origPos, targetPos, (elapsedTime / timeToMove));

@@ -575,6 +575,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 1177727584}
   soup: {x: 0, y: 0, z: 0}
+  forest: {fileID: 1021806609}
 --- !u!54 &1177727584
 Rigidbody:
   m_ObjectHideFlags: 0
