@@ -15,41 +15,40 @@ public class HammerController : MonoBehaviour
     [SerializeField] private ParticleSystem smashEffect;
 
     // Other Variables Needed
-    [HideInInspector] public int playerID;
-    private Vector2 movementInput;
-    private bool actionPressed;
-    private SmashManager gameManager;
+    private int playerID;
     private int playerScore;
-
-    private void Start()
-    {
-        gameManager = GameObject.Find("Game Manager").GetComponent<SmashManager>();
-        playerScore = 0;
-    }
+    private bool actionPressed;
+    private Vector2 movementInput;
+    private SmashManager gameManager;
+    private MinigameStartup minigameStartup;
 
     private void Update()
     {
+        // If game is not playing, ignore player input
+        if (!gameManager.gamePlaying) return;
+
         // Move the hammer left, right, up, and down while keeping it in bounds
+        MoveHammer();
+
+        // Swing the hammer when the player presses the action button
+        if (actionPressed) SmashHammer();
+    }
+
+    private void MoveHammer()
+    {
         Vector3 newPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(movementInput.x, 0, movementInput.y);
         newPosition.x = Mathf.Clamp(newPosition.x, -rangeX, rangeX);
         newPosition.z = Mathf.Clamp(newPosition.z, rangeYBottom, rangeYTop);
         transform.position = newPosition;
-
-        // Swing the hammer when the player presses the action button
-        if (actionPressed)
-        {
-            SmashHammer();
-        }
     }
-
     private void SmashHammer() // Player can swing hammer again when current swing animation finishes
-    {
-        actionPressed = false;
+    {      
         if(hammerAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Idle"))
         {
             hammerAnimator.SetTrigger("Smash");
             smashEffect.Play();
-        }      
+        }
+        actionPressed = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,11 +58,21 @@ public class HammerController : MonoBehaviour
         if(other.GetComponentInParent<SmashObject>() != null)
         {
             other.GetComponentInParent<SmashObject>().SquishObject();
+
             playerScore += other.GetComponentInParent<SmashObject>().points;
+            if (playerScore < 0) playerScore = 0;
             gameManager.UpdateScore(playerID, playerScore);
         }
     }
 
+    public void ConfigurePlayer(int IDNumber) // Initializes hammer game object
+    {
+        playerID = IDNumber;
+        playerScore = 0;
+
+        gameManager = GameObject.FindAnyObjectByType<SmashManager>();
+        minigameStartup = GameObject.FindAnyObjectByType<MinigameStartup>();
+    }
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer
     {
         movementInput = context.ReadValue<Vector2>();
@@ -71,5 +80,13 @@ public class HammerController : MonoBehaviour
     public void OnAction(InputAction.CallbackContext context) // Input for swinging hammer
     {
         actionPressed = context.ReadValueAsButton();
+    }
+    public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
+    {
+        if(!gameManager.gameStarted)
+        {
+            gameManager.gameStarted = context.ReadValueAsButton();
+            minigameStartup.StartGame();
+        }
     }
 }

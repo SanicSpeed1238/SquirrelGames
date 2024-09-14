@@ -50,7 +50,7 @@ MonoBehaviour:
   moveSpeed: 6
   points: -3
   squishTime: 1
-  squishScale: {x: 1.3, y: 0.1, z: 1.3}
+  squishScale: {x: 2, y: 0.1, z: 1.3}
   transparentMaterial: {fileID: 2100000, guid: ae84d4a8479edc34a8add2031909deaf, type: 2}
 --- !u!54 &56138238709302931
 Rigidbody:

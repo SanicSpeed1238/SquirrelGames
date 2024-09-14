@@ -1,34 +1,57 @@
 using UnityEngine;
+using System.Collections;
 
 public class SmashSpawner : MonoBehaviour
 {
+    [Header("Spawner Values")]
+    [Range(1f, 5f)]
+    public float spawnTimeRate; // How long it takes before game objects are spawned
+    [Range(0.1f, 1f)]
+    public float spawnTimeRateDecrease; // How much the spawn time rate should decrease
+    [Range(5, 20)]
+    public int increaseTimeInterval; // How long it takes before the spawn time rate is lowered
+
     [Header("Object Prefabs")]
     [SerializeField] private GameObject squirrelObject;
     [SerializeField] private GameObject antObject;
 
-    [Header("Spawner Values")]
-    [Range(0.1f, 3.0f)]
-    public float spawnRate;
+    [Header("Object Appearance Rates")]
     [Range(0, 100)]
-    public int squirrelSpawnRate;
+    public int squirrelSpawnRate; // Percentage of how likely a Squirrel will spawn
     [Range(0, 100)]
-    public int antSpawnRate;
+    public int antSpawnRate; // Percentage of how likely an Ant will spawn
 
     // Other Variables Needed
+    private SmashManager gameManager;
     private float positionRange;
+    private float increaseSpawnRateTimer;
 
     private void Start()
     {
+        gameManager = GameObject.FindAnyObjectByType<SmashManager>();
         positionRange = transform.localScale.x / 2;
-        StartSpawning();
+        increaseSpawnRateTimer = 0f;
+
+        StartCoroutine(SpawnObjects());
     }
 
-    public void StartSpawning()
+    private void Update()
     {
-        InvokeRepeating(nameof(SpawnObjects), 1f, spawnRate);
+        if(gameManager.gamePlaying) IncreaseSpawnRate();
     }
 
-    private void SpawnObjects() // Spawns a random game object within a certain range of the spawner object
+    IEnumerator SpawnObjects() // Spawns game objects while the game is playing
+    {
+        yield return new WaitUntil(() => gameManager.gamePlaying);
+
+        while (gameManager.gamePlaying)
+        {
+            yield return new WaitForSeconds(spawnTimeRate + Random.Range(-0.5f, 0.1f));
+            SpawnGameObject();
+        }
+    }
+
+    private void SpawnGameObject() // Spawns a random game object within a certain range of the spawner object
     {
         Vector3 offset = transform.right * Random.Range(-positionRange, positionRange);
         Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z) + offset;
@@ -49,6 +72,18 @@ public class SmashSpawner : MonoBehaviour
         else
         {
             return antObject;
+        }
+    }
+
+    private void IncreaseSpawnRate() // Increases the spawn rate by decreasing the time it takes to spawn objects
+    {
+        increaseSpawnRateTimer += Time.deltaTime;
+
+        if(increaseSpawnRateTimer >= increaseTimeInterval)
+        {
+            spawnTimeRate -= spawnTimeRateDecrease;
+            if (spawnTimeRate < 0.6f) spawnTimeRate = 0.6f;
+            increaseSpawnRateTimer = 0f;
         }
     }
 }
