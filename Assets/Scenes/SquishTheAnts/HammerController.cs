@@ -65,10 +65,13 @@ public class HammerController : MonoBehaviour
         }
     }
 
-    public void ConfigurePlayer(int IDNumber) // Initializes hammer game object
+    public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
     {
         playerID = IDNumber;
+        GetComponentInChildren<Outline>().OutlineColor = playerColor;
+
         playerScore = 0;
+        transform.position = startPosition.position;
 
         gameManager = GameObject.FindAnyObjectByType<SmashManager>();
         minigameStartup = GameObject.FindAnyObjectByType<MinigameStartup>();

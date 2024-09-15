@@ -26,16 +26,19 @@ public class MinigameStartup : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerController)
     {
-        playerController.gameObject.GetComponent<HammerController>().ConfigurePlayer(playerController.playerIndex + 1);
-        playerController.gameObject.transform.position = spawnPositions[playerController.playerIndex].position;
-        playerController.gameObject.GetComponentInChildren<Outline>().OutlineColor = playerColors[playerController.playerIndex];
+        int playerID = playerController.playerIndex;
 
-        string playerTextObject = "Player" + (playerController.playerIndex + 1).ToString();
+        // Initializes new hammer gameobject according to Player ID number
+        playerController.gameObject.GetComponent<HammerController>().
+            ConfigurePlayer((playerID + 1), playerColors[playerID], spawnPositions[playerID]);
+
+        // Updates the text on the startup screen
+        string playerTextObject = "Player" + (playerID + 1).ToString();
         joinedPlayers.transform.Find(playerTextObject).GetComponentInChildren<TextMeshProUGUI>().text = ("READY");
-        if (playerController.playerIndex == 1) startText.SetActive(true);
+        if (playerID == 1) startText.SetActive(true);
     }
 
-    public void StartGame()
+    public void StartGame() // Disables joining and hides the startup screen when player pushes Start
     {
         playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
         startScreen.SetActive(false);
