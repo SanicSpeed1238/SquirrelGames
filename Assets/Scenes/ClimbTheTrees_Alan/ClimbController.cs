@@ -17,17 +17,30 @@ public class ClimbController : MonoBehaviour
     private float horizontalInput;
     private int currentTreeIndex;
     private bool isJumping;
+    private bool justJumped = false;
+    public float jumpCoolDown;
+    private float jumpTimer;
     private Vector3 moveToPosition;
 
     private void Start()
     {
         currentTreeIndex = 2;
+        jumpTimer = jumpCoolDown;
     }
 
     private void Update()
     {
         MoveUpAndDown();
         MoveLeftAndRight();
+        if (justJumped)
+        {
+            jumpTimer -= Time.deltaTime;
+            if (jumpTimer < 0)
+            {
+                jumpTimer = jumpCoolDown;
+                justJumped = false;
+            }
+        }
     }
 
     private void MoveUpAndDown()
@@ -62,19 +75,21 @@ public class ClimbController : MonoBehaviour
 
         if (horizontalInput != 0)
         {
-            if (!isJumping)
+            if (!isJumping && !justJumped)
             {
                 if(jumpRight && currentTreeIndex < treePositions.Length - 1)
                 {
                     currentTreeIndex++;
                     moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, transform.position.y, transform.position.z);
                     isJumping = true;
+                    justJumped = true;
                 }
                 else if (!jumpRight && currentTreeIndex > 0)
                 {
                     currentTreeIndex--;
                     moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, transform.position.y, transform.position.z);
                     isJumping = true;
+                    justJumped = true;
                 }
             }
         }
