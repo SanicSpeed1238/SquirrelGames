@@ -27,7 +27,7 @@ public class ClimbController : MonoBehaviour
 
     private void Start()
     {
-        currentTreeIndex = 2;
+        currentTreeIndex = 3;
         jumpTimer = jumpCoolDown;
         stunTimer = 0.0f;
     }
@@ -78,7 +78,7 @@ public class ClimbController : MonoBehaviour
 
         if (horizontalInput != 0)
         {
-            if (!isJumping && !justJumped)
+            if (!justJumped)
             {
                 if(jumpRight && currentTreeIndex < treePositions.Length - 1)
                 {

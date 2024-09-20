@@ -11,7 +11,7 @@ public class TreeHazardSpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnNewCollectable), 0, spawnRate);
+        InvokeRepeating(nameof(SpawnNewCollectable), spawnRate, spawnRate);
     }
 
     public void SpawnNewCollectable()
