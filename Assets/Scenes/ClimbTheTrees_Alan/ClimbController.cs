@@ -5,7 +5,9 @@ public class ClimbController : MonoBehaviour
     [Header("Movement Values")]
     public float moveSpeed;
     public float jumpSpeed;
+    public float jumpCoolDown;
     public float fallSpeed;
+    public float knockBackSpeed;
     public float maxHeight;
 
     [Header("Important Components")]
@@ -17,30 +19,31 @@ public class ClimbController : MonoBehaviour
     private float horizontalInput;
     private int currentTreeIndex;
     private bool isJumping;
-    private bool justJumped = false;
-    public float jumpCoolDown;
+    private bool justJumped;
     private float jumpTimer;
+    private bool isStunned;
+    private float stunTimer;
     private Vector3 moveToPosition;
 
     private void Start()
     {
         currentTreeIndex = 2;
         jumpTimer = jumpCoolDown;
+        stunTimer = 0.0f;
     }
 
     private void Update()
     {
-        MoveUpAndDown();
-        MoveLeftAndRight();
-        if (justJumped)
+        if(!isStunned)
         {
-            jumpTimer -= Time.deltaTime;
-            if (jumpTimer < 0)
-            {
-                jumpTimer = jumpCoolDown;
-                justJumped = false;
-            }
+            MoveUpAndDown();
+            MoveLeftAndRight();
+            JumpCooldown();
         }
+        else
+        {
+            StunSquirrel();
+        }      
     }
 
     private void MoveUpAndDown()
@@ -105,6 +108,47 @@ public class ClimbController : MonoBehaviour
             {
                 isJumping = false;
             }
+        }
+    }
+
+    private void JumpCooldown()
+    {
+        if (justJumped)
+        {
+            jumpTimer -= Time.deltaTime;
+            if (jumpTimer < 0)
+            {
+                jumpTimer = jumpCoolDown;
+                justJumped = false;
+            }
+        }
+    }
+
+    public void SquishSquirrel(float stunDuration)
+    {
+        if(!isStunned)
+        {
+            fallSpeed *= knockBackSpeed;
+            stunTimer = stunDuration;
+            isStunned = true;
+        }
+    }
+    private void StunSquirrel()
+    {
+        if(stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+
+            moveToPosition = transform.position + Time.deltaTime * new Vector3(0, -fallSpeed, 0);
+            transform.position = moveToPosition;
+            squirrelAnimator.speed = 0;
+        }
+        else
+        {
+            fallSpeed /= knockBackSpeed;
+            jumpTimer = jumpCoolDown;
+            justJumped = false;
+            isStunned = false;
         }
     }
 }
