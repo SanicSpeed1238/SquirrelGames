@@ -53,6 +53,7 @@ MonoBehaviour:
   squishTime: 1.5
   squishScale: {x: 1.4, y: 0.1, z: 1.4}
   transparentMaterial: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
+  smashedEffect: {fileID: 8780254985063514360, guid: be14d2a3320059340864bb58463a70bb, type: 3}
 --- !u!65 &640683728100093689
 BoxCollider:
   m_ObjectHideFlags: 0

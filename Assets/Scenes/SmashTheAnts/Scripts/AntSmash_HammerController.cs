@@ -20,7 +20,7 @@ public class AntSmash_HammerController : MonoBehaviour
     private bool actionPressed;
     private Vector2 movementInput;
     private AntSmash_GameManager gameManager;
-    private AntSmash_MinigameStartup minigameStartup;
+    private AntSmash_MinigameSetup minigameSetup;
 
     private void Update()
     {
@@ -75,7 +75,7 @@ public class AntSmash_HammerController : MonoBehaviour
         transform.position = startPosition.position;
 
         gameManager = GameObject.FindAnyObjectByType<AntSmash_GameManager>();
-        minigameStartup = GameObject.FindAnyObjectByType<AntSmash_MinigameStartup>();
+        minigameSetup = GameObject.FindAnyObjectByType<AntSmash_MinigameSetup>();
     }
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer
     {
@@ -84,12 +84,17 @@ public class AntSmash_HammerController : MonoBehaviour
     public void OnAction(InputAction.CallbackContext context) // Input for swinging hammer
     {
         actionPressed = context.ReadValueAsButton();
+
+        if(!gameManager.gameStarted && context.ReadValueAsButton() == true)
+        {
+            minigameSetup.ConfirmJoin(playerID);
+        }
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
         if(!gameManager.gameStarted)
         {
-            minigameStartup.StartGame();
+            minigameSetup.StartGame();
         }
     }
 }

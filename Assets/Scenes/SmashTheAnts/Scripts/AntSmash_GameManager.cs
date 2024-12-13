@@ -8,28 +8,38 @@ public class AntSmash_GameManager : MonoBehaviour
     [Header("Gameplay Attributes")]
     public float startupTime;
     public float gameLength;
+    [HideInInspector] public bool gameStarted;
+    [HideInInspector] public bool gamePlaying;
 
-    [Header("Important Components")]
+    [Header("Game UI Components")]
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI messageUI;
     public GameObject scoresUI;
+    private float gameTime;
+    private int[] playerScores;
 
-    [Header("Opening Cutscene Components")]
-    public PlayableDirector playableDirector;
+    [Header("UI Components")]
     public GameObject startScreen;
     public GameObject transitionScreen;
     public GameObject gameUIScreen;
 
-    // Other Variables Needed
-    [HideInInspector] public bool gameStarted;
-    [HideInInspector] public bool gamePlaying;
-    private float gameTime;
-    private int[] playerScores;
+    [Header("Cutscene Components")]
+    public GameObject openingCutscene;
+    public GameObject gameCamera;    
+    private PlayableDirector playableDirector;
 
     private void Awake()
     {      
+        gameCamera.SetActive(false);
+        openingCutscene.SetActive(true);
+        playableDirector = openingCutscene.GetComponentInChildren<PlayableDirector>();
+
+        startScreen.SetActive(true);
+        gameUIScreen.SetActive(false);
+
         timeUI.text = string.Empty;
         messageUI.text = string.Empty;
+
         gameTime = gameLength;
         playerScores = new int[4];
     }
@@ -95,28 +105,37 @@ public class AntSmash_GameManager : MonoBehaviour
     }
     IEnumerator StartGame()
     {
-        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Start");
-        gameUIScreen.SetActive(false);
+        // Transitioning to the Opening Cutscene
         gameStarted = true;
-    
-        yield return new WaitForSeconds(1.0f);
-        startScreen.SetActive(false);
-
+        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");        
         yield return new WaitForSeconds(1.5f);
+        gameUIScreen.SetActive(false);
+        startScreen.SetActive(false);
         playableDirector.Play();
 
+        // Transitioning to the Game Camera
         yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
-        yield return new WaitForSeconds(0.5f);
+        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
+        yield return new WaitForSeconds(1.0f);
+        playableDirector.gameObject.SetActive(false);
+        openingCutscene.SetActive(false);
+        gameCamera.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
         gameUIScreen.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
-        messageUI.text = ("READY...");
-
+        // Countdown to Start Gameplay
         yield return new WaitForSeconds(startupTime);
+        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, startupTime / 2).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
+        messageUI.text = ("READY...");
+        yield return new WaitForSeconds(startupTime);
+        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, startupTime / 4).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
         messageUI.text = ("GO !!!");
         messageUI.fontSize += 50;
         gamePlaying = true;
 
+        // Finish Up StartGame Coroutine
         yield return new WaitForSeconds(1f);
         messageUI.text = string.Empty;
         messageUI.fontSize -= 50;

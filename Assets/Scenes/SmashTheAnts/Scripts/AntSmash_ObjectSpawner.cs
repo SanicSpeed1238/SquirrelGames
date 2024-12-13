@@ -14,12 +14,18 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
     [Header("Object Prefabs")]
     [SerializeField] private GameObject squirrelObject;
     [SerializeField] private GameObject antObject;
+    [SerializeField] private GameObject fireAntObject;
+    [SerializeField] private GameObject goldenAntObject;
 
-    [Header("Object Appearance Rates")]
+    [Header("Object Appearance Rates (Must Add up to 100)")]
     [Range(0, 100)]
     public int squirrelSpawnRate; // Percentage of how likely a Squirrel will spawn
     [Range(0, 100)]
     public int antSpawnRate; // Percentage of how likely an Ant will spawn
+    [Range(0, 100)]
+    public int fireAntSpawnRate; // Percentage of how likely a Fire Ant will spawn
+    [Range(0, 100)]
+    public int goldenAntSpawnRate; // Percentage of how likely a Golden Ant will spawn
 
     // Other Variables Needed
     private AntSmash_GameManager gameManager;
@@ -62,16 +68,23 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
 
     private GameObject GetRandomObject() // Randomly chooses a game object based on their appearance rate
     {
-        int totalRate = squirrelSpawnRate + antSpawnRate;
-        int randomValue = Random.Range(0, totalRate);
+        int randomValue = Random.Range(1, 101);
 
-        if (randomValue < squirrelSpawnRate)
+        if (randomValue <= antSpawnRate)
         {
-            return squirrelObject;
+            return antObject;
+        }
+        else if (randomValue <= antSpawnRate + fireAntSpawnRate)
+        {
+            return fireAntObject;
+        }
+        else if (randomValue <= antSpawnRate + fireAntSpawnRate + goldenAntSpawnRate)
+        {
+            return goldenAntObject;
         }
         else
         {
-            return antObject;
+            return squirrelObject;
         }
     }
 
