@@ -6,7 +6,6 @@ using TMPro;
 public class AntSmash_GameManager : MonoBehaviour
 {
     [Header("Gameplay Attributes")]
-    public float startupTime;
     public float gameLength;
     [HideInInspector] public bool gameStarted;
     [HideInInspector] public bool gamePlaying;
@@ -27,6 +26,18 @@ public class AntSmash_GameManager : MonoBehaviour
     public GameObject openingCutscene;
     public GameObject gameCamera;    
     private PlayableDirector playableDirector;
+
+    // UI Animation Variables
+    private readonly float countdownDelay = 2.0f;
+    private readonly float readyAppearSpeed = 1.0f;
+    private readonly float readyDisplayDuration = 1.5f;
+    private readonly float goDisplayDuration = 1.5f;
+    private readonly float goDisappearSpeed = 0.2f;
+    private readonly float finishAppearSpeed = 1.0f;
+    private readonly float finishDisplayDuration = 1.5f;
+    private readonly float finishDisappearSpeed = 0.2f;
+    private readonly float endingDelay = 2.0f;
+    private readonly float fontSizeIncrease = 100f;
 
     private void Awake()
     {      
@@ -95,7 +106,7 @@ public class AntSmash_GameManager : MonoBehaviour
                 winningPlayer = i+1;
             }
         }
-
+     
         messageUI.text = ("PLAYER " + winningPlayer + " WINS!");
     }
     
@@ -124,32 +135,43 @@ public class AntSmash_GameManager : MonoBehaviour
         gameUIScreen.SetActive(true);
 
         // Countdown to Start Gameplay
-        yield return new WaitForSeconds(startupTime);
+
+        yield return new WaitForSeconds(countdownDelay);
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, startupTime / 2).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
         messageUI.text = ("READY...");
-        yield return new WaitForSeconds(startupTime);
-        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, startupTime / 4).setDelay(0.1f).setEase(LeanTweenType.easeOutExpo);
-        messageUI.text = ("GO !!!");
-        messageUI.fontSize += 50;
-        gamePlaying = true;
+
+        yield return new WaitForSeconds(readyDisplayDuration);
+        messageUI.fontSize += fontSizeIncrease;
+        messageUI.text = ("GO !!!");       
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, goDisappearSpeed).setDelay(goDisplayDuration).setEase(LeanTweenType.linear);
 
         // Finish Up StartGame Coroutine
-        yield return new WaitForSeconds(1f);
+        gamePlaying = true;
+        yield return new WaitForSeconds(goDisplayDuration + goDisappearSpeed);
         messageUI.text = string.Empty;
-        messageUI.fontSize -= 50;
+        messageUI.fontSize -= fontSizeIncrease;
+        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
     }
+
     IEnumerator EndGame()
     {
         gamePlaying = false;
+
+        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, finishAppearSpeed).setEase(LeanTweenType.easeOutExpo);
+        messageUI.fontSize += fontSizeIncrease;
         messageUI.text = ("FINISH!");
+        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, finishDisappearSpeed).setDelay(finishDisplayDuration).setEase(LeanTweenType.linear);
 
-        yield return new WaitForSeconds(2f);
-        messageUI.text = string.Empty;
+        yield return new WaitForSeconds(finishDisplayDuration);
         timeUI.text = string.Empty;
+        yield return new WaitForSeconds(finishDisappearSpeed);
+        messageUI.text = string.Empty;
+        messageUI.fontSize -= fontSizeIncrease;
+        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(endingDelay);
         GetWinner();
     }
 }

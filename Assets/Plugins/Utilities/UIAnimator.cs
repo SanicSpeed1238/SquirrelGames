@@ -62,7 +62,7 @@ public class UIAnimator : MonoBehaviour
     private void GrowAnimation()
     {
         GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(GetComponent<RectTransform>(), grow_TargetScale, grow_Duration).setDelay(0.1f).setEase(grow_EaseType);
+        LeanTween.scale(GetComponent<RectTransform>(), grow_TargetScale, grow_Duration).setEase(grow_EaseType);
         idleDelay = grow_Duration;
         StartIdleAnimation();
     }
@@ -73,9 +73,9 @@ public class UIAnimator : MonoBehaviour
             (GetComponent<RectTransform>().anchoredPosition.x - moveIn_XOffset, GetComponent<RectTransform>().anchoredPosition.y - moveIn_YOffset);
 
         LeanTween.moveX(GetComponent<RectTransform>(), GetComponent<RectTransform>().anchoredPosition.x + moveIn_XOffset,
-            moveIn_Duration).setDelay(0.1f + moveIn_Delay).setEase(moveIn_EaseType);
+            moveIn_Duration).setDelay(moveIn_Delay).setEase(moveIn_EaseType);
         LeanTween.moveY(GetComponent<RectTransform>(), GetComponent<RectTransform>().anchoredPosition.y + moveIn_YOffset,
-            moveIn_Duration).setDelay(0.1f + moveIn_Delay).setEase(moveIn_EaseType);
+            moveIn_Duration).setDelay(moveIn_Delay).setEase(moveIn_EaseType);
 
         idleDelay = moveIn_Duration;
         StartIdleAnimation();
