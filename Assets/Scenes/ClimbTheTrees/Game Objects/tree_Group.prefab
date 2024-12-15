@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2bbb68bb01dac46826635a8090c809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.5
   treeObject: {fileID: 8094480502012096669}
-  treeSpawnerName: Tree Spawner
 --- !u!114 &245175497388721273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bc36ddf668c0e4daa8ec4343434282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  deadHeight: -10
+  baseSpeed: 0
   rotateObject: 0
   rotationSpeed: 0
 --- !u!1001 &58649793348723944

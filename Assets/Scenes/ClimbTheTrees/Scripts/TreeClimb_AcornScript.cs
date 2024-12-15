@@ -7,7 +7,7 @@ public class TreeClimb_AcornScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<TreeClimb_PlayerController>() != null)
+        if (other.GetComponent<TreeClimb_PlayerController>() != null)
         {
             Destroy(gameObject);
         }

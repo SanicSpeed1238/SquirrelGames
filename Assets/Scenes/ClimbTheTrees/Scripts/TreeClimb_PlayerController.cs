@@ -6,7 +6,6 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpSpeed;
     public float jumpCoolDown;
-    public float fallSpeed;
     public float knockBackSpeed;
     public float maxHeight;
 
@@ -17,27 +16,34 @@ public class TreeClimb_PlayerController : MonoBehaviour
     // Other Variables Needed
     private float verticalInput;
     private float horizontalInput;
+
     private int currentTreeIndex;
     private bool isJumping;
     private bool justJumped;
     private float jumpTimer;
+
     private bool isStunned;
     private float stunTimer;
+
     private Vector3 moveToPosition;
+    private float fallSpeed;
 
     private void Start()
     {
         currentTreeIndex = 3;
         jumpTimer = jumpCoolDown;
+
         stunTimer = 0.0f;
+
+        fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
     }
 
     private void Update()
     {
         if(!isStunned)
         {
-            MoveUpAndDown();
             MoveLeftAndRight();
+            MoveUpAndDown();           
             JumpCooldown();
         }
         else

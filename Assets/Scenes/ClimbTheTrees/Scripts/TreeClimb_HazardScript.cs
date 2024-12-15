@@ -7,9 +7,9 @@ public class TreeClimb_HazardScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<TreeClimb_PlayerController>() != null)
+        if (other.GetComponent<TreeClimb_PlayerController>() != null)
         {
-            other.GetComponentInParent<TreeClimb_PlayerController>().SquishSquirrel(stunDuration);
+            other.GetComponent<TreeClimb_PlayerController>().SquishSquirrel(stunDuration);
             Destroy(gameObject);
         }
     }

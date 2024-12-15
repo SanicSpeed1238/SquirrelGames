@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class TreeClimb_ObjectPhysics : MonoBehaviour
 {
-    [Header("Movement Values")]
-    public float moveSpeed;
+    [Header("Fall Speed Values")]
+    public float baseSpeed;
 
     [Header("Rotation Values")]
     public bool rotateObject;
     public float rotationSpeed;
 
     // Other Variables Needed
-    private readonly float deadHeight = -10;
+    private readonly float destroyHeight = -10f;
 
     private void Update()
     {
@@ -20,9 +20,9 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
 
     private void MoveDown()
     {
-        transform.Translate((moveSpeed * Time.deltaTime * -transform.up), Space.World);
+        transform.Translate((baseSpeed * Time.deltaTime * -transform.up), Space.World);
 
-        if (transform.position.y < deadHeight)
+        if (transform.position.y < destroyHeight)
         {
             Destroy(gameObject);
         }
