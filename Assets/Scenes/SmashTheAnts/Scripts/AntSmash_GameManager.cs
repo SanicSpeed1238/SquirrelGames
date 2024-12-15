@@ -34,7 +34,7 @@ public class AntSmash_GameManager : MonoBehaviour
     private readonly float goDisplayDuration = 1.5f;
     private readonly float goDisappearSpeed = 0.2f;
     private readonly float finishAppearSpeed = 1.0f;
-    private readonly float finishDisplayDuration = 1.5f;
+    private readonly float finishDisplayDuration = 2.0f;
     private readonly float finishDisappearSpeed = 0.2f;
     private readonly float endingDelay = 2.0f;
     private readonly float fontSizeIncrease = 100f;
