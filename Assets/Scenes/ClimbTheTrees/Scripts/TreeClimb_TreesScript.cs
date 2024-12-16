@@ -3,6 +3,7 @@ using UnityEngine;
 public class TreeClimb_TreesScript : MonoBehaviour
 {
     [Header("Movement Values")]
+    [Range(0.5f, 1.5f)]
     public float moveSpeed;
 
     [Header("Important Components")]  
@@ -15,7 +16,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate((moveSpeed * Time.deltaTime * -transform.up), Space.World);
+        transform.Translate((moveSpeed * Time.deltaTime * -Vector3.up), Space.World);
 
         if (transform.position.y <= 0.0f && !newTreeSpawned)
         {

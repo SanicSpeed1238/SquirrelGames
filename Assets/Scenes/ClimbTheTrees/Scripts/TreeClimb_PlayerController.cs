@@ -10,8 +10,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public float maxHeight;
 
     [Header("Important Components")]
-    [SerializeField] private Animator squirrelAnimator;
-    [SerializeField] private Transform[] treePositions;
+    public Animator squirrelAnimator;
+    public Transform[] treePositions;
 
     // Other Variables Needed
     private float verticalInput;
