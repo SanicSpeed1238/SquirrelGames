@@ -11,8 +11,8 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     // Other Variables Needed
     private bool newTreeSpawned;
-    private readonly float treesHeight = 8.0f;
-    private readonly float destroyHeight = -10f;
+    private readonly float treesHeight = 10.0f;
+    private readonly float destroyHeight = -20f;
 
     private void Update()
     {
@@ -31,7 +31,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     public void SpawnNewChunk()
     {
-        Vector3 newTreeSpawnPosition = new Vector3(transform.position.x, transform.position.y + treesHeight, transform.position.z);
+        Vector3 newTreeSpawnPosition = new(transform.position.x, transform.position.y + treesHeight, transform.position.z);
         Instantiate(treeObject, newTreeSpawnPosition, Quaternion.identity);
     }
 }

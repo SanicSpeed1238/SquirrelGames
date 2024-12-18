@@ -1,25 +1,31 @@
 using UnityEngine;
+using System.Collections;
 
 public class TreeClimb_AcornSpawner : MonoBehaviour
 {
     [Header("Spawn Attributes")]
-    public float spawnRate;
+    [Range(0.5f, 1.0f)]
+    public float spawnTime;
 
     [Header("Important Components")]
-    public GameObject[] collectableObjects;
+    public GameObject[] acornPrefabs;
     public Transform[] treePositions;
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnNewCollectable), 0, spawnRate);
+        StartCoroutine(SpawnAcorn());
     }
 
-    public void SpawnNewCollectable()
+    IEnumerator SpawnAcorn()
     {
-        GameObject newCollectable = collectableObjects[Random.Range(0, collectableObjects.Length)];
+        while(true)
+        {
+            yield return new WaitForSeconds(spawnTime - Random.Range(0f, 0.5f));
 
-        Vector3 spawnPosition = transform.position;
-        spawnPosition.x = treePositions[Random.Range(0, treePositions.Length)].transform.position.x;
-        Instantiate(newCollectable, spawnPosition, Quaternion.identity);
+            GameObject newCollectable = acornPrefabs[Random.Range(0, acornPrefabs.Length)];
+            Vector3 spawnPosition = transform.position;
+            spawnPosition.x = treePositions[Random.Range(0, treePositions.Length)].transform.position.x;
+            Instantiate(newCollectable, spawnPosition, Quaternion.identity);
+        }     
     }
 }

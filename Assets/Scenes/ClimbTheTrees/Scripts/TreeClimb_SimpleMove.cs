@@ -3,7 +3,7 @@ using UnityEngine;
 public class TreeClimb_SimpleMove : MonoBehaviour
 {
     private float moveSpeed;
-    private readonly float destroyHeight = -10f;
+    private readonly float destroyHeight = -100f;
 
     private void Start()
     {
