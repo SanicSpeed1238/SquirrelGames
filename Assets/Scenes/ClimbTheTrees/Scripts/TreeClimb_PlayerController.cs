@@ -4,13 +4,13 @@ using System.Collections;
 public class TreeClimb_PlayerController : MonoBehaviour
 {
     [Header("Movement Values")]
-    [Range(1f, 10f)]
+    [Range(10f, 20f)]
     public float moveSpeed;
-    [Range(10f, 15f)]
+    [Range(20f, 30f)]
     public float jumpSpeed;
     [Range(0.1f, 0.5f)]
     public float jumpDelay;
-    [Range(1f, 2f)]
+    [Range(1f, 3f)]
     public float invincibilityDuration;
 
     [Header("Important Components")]
@@ -24,10 +24,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private float horizontalInput; 
     
     private readonly float minHeight = -1f;
-    private readonly float maxHeight = 7f;
-    private readonly float verticalRaycastLength = 1f;
-    private readonly float horizontalRaycastLength = 2f;
-    private LayerMask playersLayer;
+    private readonly float maxHeight = 14f;
+    private LayerMask raycastLayer;
     private Vector3 moveToPosition;
 
     private int currentTreeIndex;
@@ -50,7 +48,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
         originalScale = squirrelModel.transform.localScale;       
-        playersLayer = LayerMask.GetMask("Player");
+        raycastLayer = LayerMask.GetMask("Player", "Important Objects");
     }
 
     private void Update()
@@ -148,10 +146,13 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private float VerifyVerticalMovement(Vector3 direction)
     {
+        float verticalRaycastLength = 1f;
         Vector3 raycastOrigin = transform.position;
         raycastOrigin.y += direction == Vector3.up ? .5f : -.5f;
 
-        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, playersLayer))
+        //Debug.DrawRay(raycastOrigin, direction * verticalRaycastLength, Color.yellow);
+
+        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, raycastLayer))
         {
             return this.gameObject.transform.position.y;
         }
@@ -159,24 +160,27 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
     private bool VerifyHorizontalMovement(Vector3 direction)
     {
-        Vector3 raycastOrigin = transform.position;
-        raycastOrigin.x += direction == Vector3.right ? .5f : -.5f;
+        float horizontalRaycastLength = 5.5f;
+        Vector3 boxHalfExtents = new(1f, 1f, 1f);
+        Vector3 boxOrigin = transform.position;
+        boxOrigin.x += direction == Vector3.right ? 0.5f : -0.5f;
 
-        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, horizontalRaycastLength, playersLayer))
+        if (Physics.BoxCast(boxOrigin, boxHalfExtents, direction, out RaycastHit _, Quaternion.identity, horizontalRaycastLength, raycastLayer))
         {
             return false;
         }
         else return true;
     }
 
-    public void SquishSquirrel(float stunForce, float squishScale) // Called from the HazardScript
+    public bool CanSquishSquirrel() // Called from HazardScript
     {
-        if(!isStunned && !isInvincible)
-        {
-            squirrelModel.transform.localScale = new(originalScale.x, originalScale.y, squishScale);
-
-            StartCoroutine(StunSquirrel(stunForce));
-        }
+        if (!isStunned && !isInvincible) return true;
+        else return false;
+    }
+    public void SquishSquirrel(float stunForce, float squishScale) // Called from HazardScript
+    {
+        squirrelModel.transform.localScale = new(originalScale.x, originalScale.y, squishScale);
+        StartCoroutine(StunSquirrel(stunForce));
     }
     IEnumerator StunSquirrel(float stunDuration)
     {

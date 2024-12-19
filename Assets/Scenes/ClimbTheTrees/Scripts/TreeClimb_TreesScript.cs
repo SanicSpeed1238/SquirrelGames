@@ -11,7 +11,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     // Other Variables Needed
     private bool newTreeSpawned;
-    private readonly float treesHeight = 10.0f;
+    private readonly float treesHeight = 16.0f;
     private readonly float destroyHeight = -20f;
 
     private void Update()

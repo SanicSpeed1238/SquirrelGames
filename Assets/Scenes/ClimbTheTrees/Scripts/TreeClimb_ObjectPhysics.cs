@@ -5,7 +5,7 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
     [Header("Fall Speed Values")]
     [Range(1.0f, 5.0f)]
     public float baseSpeed;
-    [Range(1.0f, 10.0f)]
+    [Range(5.0f, 25.0f)]
     public float fallAcceleration;
 
     [Header("Rotation Values")]
@@ -15,23 +15,33 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
     public float rotationSpeed;
 
     // Other Variables Needed
+    private bool freeFalling;
+    private float currentSpeed;
     private readonly float destroyHeight = -10f;
+    private Rigidbody objectRB;
+
+    private void Start()
+    {
+        freeFalling = false;
+        currentSpeed = baseSpeed;
+        objectRB = GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
-        MoveDown();
-        RotateObject();
+        if (!freeFalling)
+        {
+            MoveDown();
+            RotateObject();
+        }     
+
+        CheckPosition();
     }
 
     private void MoveDown()
     {
-        baseSpeed += fallAcceleration * Time.deltaTime;
-        transform.Translate((baseSpeed * Time.deltaTime * -Vector3.up), Space.World);
-
-        if (transform.position.y < destroyHeight)
-        {
-            Destroy(gameObject);
-        }
+        currentSpeed += fallAcceleration * Time.deltaTime;
+        objectRB.velocity = currentSpeed * Vector3.down;
     }
 
     private void RotateObject()
@@ -41,6 +51,26 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
             rotateY ? rotationSpeed * Time.deltaTime : 0f,
             rotateZ ? rotationSpeed * Time.deltaTime : 0f
         );
-        transform.Rotate(rotationVector, Space.Self);
+
+        Quaternion newRotation = objectRB.rotation * Quaternion.Euler(rotationVector);
+        objectRB.MoveRotation(newRotation);
+    }
+
+    private void CheckPosition()
+    {
+        if (transform.position.y < destroyHeight)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void EnableFreefall(float forwardForce, Vector3 rotationForce)
+    {
+        freeFalling = true;
+
+        objectRB.velocity = Vector3.zero;
+        objectRB.useGravity = true;
+        objectRB.AddForce(new Vector3(0, 0, -forwardForce), ForceMode.Impulse);
+        objectRB.AddTorque(rotationForce, ForceMode.Impulse);
     }
 }

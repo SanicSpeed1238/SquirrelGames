@@ -7720,7 +7720,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -335, y: 400}
-  m_SizeDelta: {x: 1350, y: 250}
+  m_SizeDelta: {x: 1200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243052613
 MonoBehaviour:
@@ -11396,7 +11396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 75}
+  m_AnchoredPosition: {x: 520, y: 75}
   m_SizeDelta: {x: 675, y: 425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674541651
@@ -12886,8 +12886,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -405, y: 75}
-  m_SizeDelta: {x: 950, y: 500}
+  m_AnchoredPosition: {x: -375, y: 75}
+  m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901663040
 MonoBehaviour:
@@ -12909,8 +12909,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move the hammer around and press the 'A' button to smash ants running across
-    the ground! But be careful and don't squish the squirrels!!!
+  m_text: Move your hammer around and press the 'A' button to smash the ants running
+    across the ground! But be careful and don't squish the squirrels!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51332152c9aceaa4abb018e766270567, type: 2}
   m_sharedMaterial: {fileID: 7023625774661737528, guid: 51332152c9aceaa4abb018e766270567, type: 2}

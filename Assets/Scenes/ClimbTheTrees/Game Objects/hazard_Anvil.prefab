@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5486004310033531550}
   - component: {fileID: 7980661183452405941}
   - component: {fileID: 4102252077098518792}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hazard_Anvil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19bc31ce532d4048a809db2a2558007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 2
   squishFactor: 0.25
+  stunDuration: 2
+  forwardImpulse: 2
+  rotationImpulse: {x: 0, y: 0, z: 1}
 --- !u!114 &5486004310033531550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 1
-  fallAcceleration: 10
+  fallAcceleration: 25
   rotateX: 0
   rotateY: 0
   rotateZ: 0
@@ -87,8 +89,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 2, y: 4, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!54 &4102252077098518792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,15 +128,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalScale.x
-      value: 175
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5794718
+      value: 6.285714
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalScale.z
-      value: 101.55695
+      value: 157.14285
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalPosition.x
@@ -142,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.025251282
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,6 +189,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_Name
       value: mdl_Anvil
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

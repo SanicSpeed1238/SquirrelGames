@@ -9,10 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Important Objects
   - Water
   - UI
-  - Orthographic
+  - Player
   - 
   - 
   - 
