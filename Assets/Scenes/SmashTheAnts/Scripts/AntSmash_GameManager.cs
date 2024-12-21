@@ -3,50 +3,22 @@ using UnityEngine.Playables;
 using System.Collections;
 using TMPro;
 
-public class AntSmash_GameManager : MonoBehaviour
+public class AntSmash_GameManager : Base_GameManager
 {
-    [Header("Gameplay Attributes")]
-    public float gameLength;
-    [HideInInspector] public bool gameStarted;
-    [HideInInspector] public bool gamePlaying;
-
     [Header("Game UI Components")]
-    public TextMeshProUGUI timeUI;
     public TextMeshProUGUI messageUI;
+    public TextMeshProUGUI timeUI;   
     public GameObject scoresUI;
     private float gameTime;
     private int[] playerScores;
 
-    [Header("UI Components")]
-    public GameObject startScreen;
-    public GameObject transitionScreen;
-    public GameObject gameUIScreen;
-
-    [Header("Cutscene Components")]
-    public GameObject openingCutscene;
-    public GameObject gameCamera;    
-    private PlayableDirector playableDirector;
-
-    // UI Animation Variables
-    private readonly float countdownDelay = 2.0f;
-    private readonly float readyAppearSpeed = 1.0f;
-    private readonly float readyDisplayDuration = 1.5f;
-    private readonly float goDisplayDuration = 1.5f;
-    private readonly float goDisappearSpeed = 0.2f;
-    private readonly float finishAppearSpeed = 1.0f;
-    private readonly float finishDisplayDuration = 2.0f;
-    private readonly float finishDisappearSpeed = 0.2f;
-    private readonly float endingDelay = 2.0f;
-    private readonly float fontSizeIncrease = 100f;
+    [Header("Gameplay Attributes")]
+    [Range(30f, 60f)]
+    public float gameLength;
 
     private void Awake()
-    {      
-        gameCamera.SetActive(false);
-        openingCutscene.SetActive(true);
-        playableDirector = openingCutscene.GetComponentInChildren<PlayableDirector>();
-
-        startScreen.SetActive(true);
-        gameUIScreen.SetActive(false);
+    {
+        Base_GameManager_Awake();
 
         timeUI.text = string.Empty;
         messageUI.text = string.Empty;
@@ -59,7 +31,6 @@ public class AntSmash_GameManager : MonoBehaviour
     {
         if(gamePlaying) UpdateGameTime();
     }
-
     private void UpdateGameTime()
     {
         gameTime -= Time.deltaTime;
@@ -67,7 +38,7 @@ public class AntSmash_GameManager : MonoBehaviour
         if (Mathf.Round(gameTime) == 0)
         {
             gameTime = 0.0f;
-            StartCoroutine(EndGame());
+            StartCoroutine(EndMinigame());
         }
 
         timeUI.text = gameTime.ToString("F0");
@@ -110,21 +81,24 @@ public class AntSmash_GameManager : MonoBehaviour
         messageUI.text = ("PLAYER " + winningPlayer + " WINS!");
     }
     
-    public void StartMinigame()
+    public override void StartGame()
     {
-        StartCoroutine(StartGame());
+        StartCoroutine(StartMinigame());
     }
-    IEnumerator StartGame()
+    IEnumerator StartMinigame()
     {
         // Transitioning to the Opening Cutscene
+        // -------------------------------------        
         gameStarted = true;
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");        
         yield return new WaitForSeconds(1.5f);
         gameUIScreen.SetActive(false);
         startScreen.SetActive(false);
+        PlayableDirector playableDirector = openingCutscene.GetComponentInChildren<PlayableDirector>();
         playableDirector.Play();
 
         // Transitioning to the Game Camera
+        // --------------------------------      
         yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
         yield return new WaitForSeconds(1.0f);
@@ -135,27 +109,29 @@ public class AntSmash_GameManager : MonoBehaviour
         gameUIScreen.SetActive(true);
 
         // Countdown to Start Gameplay
-
+        // ---------------------------        
         yield return new WaitForSeconds(countdownDelay);
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
         LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
-        messageUI.text = ("READY...");
-
+        messageUI.text = ("READY...");       
         yield return new WaitForSeconds(readyDisplayDuration);
         messageUI.fontSize += fontSizeIncrease;
         messageUI.text = ("GO !!!");       
         LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, goDisappearSpeed).setDelay(goDisplayDuration).setEase(LeanTweenType.linear);
 
-        // Finish Up StartGame Coroutine
-        gamePlaying = true;
+        // Finish Up StartMinigame Coroutine
+        // ---------------------------------  
+        gamePlaying = true;       
         yield return new WaitForSeconds(goDisplayDuration + goDisappearSpeed);
         messageUI.text = string.Empty;
         messageUI.fontSize -= fontSizeIncrease;
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
     }
 
-    IEnumerator EndGame()
+    IEnumerator EndMinigame()
     {
+        // TEMPORARY
+
         gamePlaying = false;
 
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;

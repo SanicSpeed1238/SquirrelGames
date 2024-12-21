@@ -3,16 +3,17 @@ using UnityEngine;
 public class TreeClimb_TreesScript : MonoBehaviour
 {
     [Header("Movement Values")]
-    [Range(0.5f, 1.5f)]
+    [Range(1f, 3f)]
     public float moveSpeed;
 
-    [Header("Important Components")]  
-    public GameObject treeObject;
+    [Header("Tree Group Type")]
+    public bool hasTreeTop;
 
     // Other Variables Needed
-    private bool newTreeSpawned;
+    private TreeClimb_GameManager gameManager;
     private readonly float treesHeight = 16.0f;
     private readonly float destroyHeight = -20f;
+    private bool newTreeSpawned;
 
     private void Update()
     {
@@ -22,6 +23,9 @@ public class TreeClimb_TreesScript : MonoBehaviour
         {
             SpawnNewChunk();
             newTreeSpawned = true;
+
+            if (hasTreeTop)
+                gameManager.RemoveTreeLanes();
         }
         else if (transform.position.y < destroyHeight)
         {
@@ -30,8 +34,14 @@ public class TreeClimb_TreesScript : MonoBehaviour
     }
 
     public void SpawnNewChunk()
-    {
-        Vector3 newTreeSpawnPosition = new(transform.position.x, transform.position.y + treesHeight, transform.position.z);
-        Instantiate(treeObject, newTreeSpawnPosition, Quaternion.identity);
+    {  
+        gameManager = GameObject.FindAnyObjectByType<TreeClimb_GameManager>();
+        GameObject nextTreeGroup = gameManager.GetNextTreeGroup();
+
+        if (nextTreeGroup != null)
+        {
+            Vector3 newTreeSpawnPosition = new(transform.position.x, transform.position.y + treesHeight, transform.position.z);
+            Instantiate(nextTreeGroup, newTreeSpawnPosition, Quaternion.identity);
+        }     
     }
 }
