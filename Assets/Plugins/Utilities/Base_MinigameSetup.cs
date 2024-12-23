@@ -4,19 +4,19 @@ using System.Collections;
 
 public class Base_MinigameSetup : MonoBehaviour
 {
-    [Header("Start Screen Components")]
-    public float joinDelaySeconds;
+    [Header("Start Screen Components")]   
     public GameObject joinedPlayers;
     public GameObject startText;
-
-    [Header("Player Spawn Positions")]
-    public Transform[] spawnPositions;
 
     [Header("Player Colors")]
     public Color[] playerColors;
 
+    [Header("Player Spawn Positions")]
+    public Transform[] spawnPositions;
+
     // Other Variables Needed
     private PlayerInputManager playerInputManager;
+    private readonly float joinDelaySeconds = 3f;
 
     private void Awake()
     {

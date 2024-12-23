@@ -16,11 +16,12 @@ public class AntSmash_HammerController : MonoBehaviour
 
     // Other Variables Needed
     private int playerID;
+    private AntSmash_GameManager gameManager;
+    private AntSmash_MinigameSetup minigameSetup;
+
     private int playerScore;
     private bool actionPressed;
     private Vector2 movementInput;
-    private AntSmash_GameManager gameManager;
-    private AntSmash_MinigameSetup minigameSetup;
 
     private void Update()
     {
@@ -68,14 +69,15 @@ public class AntSmash_HammerController : MonoBehaviour
 
     public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
     {
-        playerID = IDNumber;
-        GetComponentInChildren<Outline>().OutlineColor = playerColor;
-
-        playerScore = 0;
-        transform.position = startPosition.position;
-
         gameManager = GameObject.FindAnyObjectByType<AntSmash_GameManager>();
         minigameSetup = GameObject.FindAnyObjectByType<AntSmash_MinigameSetup>();
+
+        playerID = IDNumber;
+        transform.position = startPosition.position;
+
+        playerScore = 0;
+        
+        GetComponentInChildren<Outline>().OutlineColor = playerColor;
     }
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer
     {

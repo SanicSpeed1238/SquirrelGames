@@ -15,6 +15,7 @@ public class TreeClimb_GameManager : Base_GameManager
     public Transform[] treePositions;
     public GameObject[] treeSequence;
     private int currentSequenceIndex;
+    private readonly int[] treeStartingIndex = {1, 2, 4, 5};
 
     private void Awake()
     {
@@ -39,5 +40,10 @@ public class TreeClimb_GameManager : Base_GameManager
         Transform[] newTreePositions = new Transform[treePositions.Length - 2];
         Array.Copy(treePositions, 1, newTreePositions, 0, newTreePositions.Length);
         treePositions = newTreePositions;
+    }
+
+    public int GetStartingIndex(int playerID)
+    {
+        return treeStartingIndex[playerID - 1];
     }
 }
