@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class TreeClimb_PlayerController : MonoBehaviour
 {
@@ -16,9 +17,13 @@ public class TreeClimb_PlayerController : MonoBehaviour
     [Header("Important Components")]
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
-    public Transform[] treePositions;
 
     // Other Variables Needed
+    private int playerID;
+    private TreeClimb_GameManager gameManager;
+    private TreeClimb_MinigameSetup minigameSetup;
+
+    private int playerScore;
     private bool isAlive;
     private float verticalInput;
     private float horizontalInput; 
@@ -33,6 +38,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private bool jumpPerformed;
     private float jumpTimer;
     private Vector3 jumpDirection;
+    private Transform[] treePositions;
 
     private bool isStunned;
     private bool isInvincible;
@@ -44,8 +50,6 @@ public class TreeClimb_PlayerController : MonoBehaviour
         isAlive = true;
        
         jumpTimer = jumpDelay;
-        currentTreeIndex = 3;
-
         fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
         originalScale = squirrelModel.transform.localScale;       
         raycastLayer = LayerMask.GetMask("Player", "Important Objects");
@@ -214,6 +218,39 @@ public class TreeClimb_PlayerController : MonoBehaviour
             horizontalInput = 0;
 
             transform.position = new(0, -10, 0);
+        }
+    }
+
+    public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
+    {
+        gameManager = GameObject.FindAnyObjectByType<TreeClimb_GameManager>();
+        minigameSetup = GameObject.FindAnyObjectByType<TreeClimb_MinigameSetup>();
+
+        playerID = IDNumber;
+        transform.position = startPosition.position;
+
+        playerScore = 0;
+        currentTreeIndex = gameManager.GetStartingIndex(playerID);
+        treePositions = gameManager.treePositions;
+    }
+    public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
+    {
+        // = context.ReadValue<Vector2>();
+    }
+    public void OnAction(InputAction.CallbackContext context) // Action button not used.
+    {
+        // = context.ReadValueAsButton();
+
+        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
+        {
+            minigameSetup.ConfirmJoin(playerID);
+        }
+    }
+    public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
+    {
+        if (!gameManager.gameStarted)
+        {
+            minigameSetup.StartGame();
         }
     }
 }

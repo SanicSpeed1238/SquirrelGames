@@ -27,7 +27,7 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
         objectRB = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!freeFalling)
         {
@@ -40,21 +40,22 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
 
     private void MoveDown()
     {
-        currentSpeed += fallAcceleration * Time.deltaTime;
+        currentSpeed += fallAcceleration * Time.fixedDeltaTime;
         objectRB.velocity = currentSpeed * Vector3.down;
     }
 
     private void RotateObject()
     {
         Vector3 rotationVector = new(
-            rotateX ? rotationSpeed * Time.deltaTime : 0f,
-            rotateY ? rotationSpeed * Time.deltaTime : 0f,
-            rotateZ ? rotationSpeed * Time.deltaTime : 0f
+            rotateX ? rotationSpeed * Time.fixedDeltaTime : 0f,
+            rotateY ? rotationSpeed * Time.fixedDeltaTime : 0f,
+            rotateZ ? rotationSpeed * Time.fixedDeltaTime : 0f
         );
 
         Quaternion newRotation = objectRB.rotation * Quaternion.Euler(rotationVector);
         objectRB.MoveRotation(newRotation);
     }
+
 
     private void CheckPosition()
     {
