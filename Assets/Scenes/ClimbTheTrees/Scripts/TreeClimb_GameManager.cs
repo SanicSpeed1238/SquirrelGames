@@ -1,19 +1,14 @@
 using UnityEngine;
-using UnityEngine.Playables;
-using System.Collections;
-using TMPro;
 using System;
+using TMPro;
 
 public class TreeClimb_GameManager : Base_GameManager
 {
-    [Header("Game UI Components")]
-    public TextMeshProUGUI messageUI;
-    public GameObject scoresUI;
-    private int[] playerScores;
-
     [Header("Gameplay Attributes")]
     public Transform[] treePositions;
     public GameObject[] treeSequence;
+
+    // Variables Needed
     private int currentSequenceIndex;
     private readonly int[] treeStartingIndex = {1, 2, 4, 5};
 
@@ -21,6 +16,11 @@ public class TreeClimb_GameManager : Base_GameManager
     {
         //Base_GameManager_Awake();
         currentSequenceIndex = -1;
+    }
+
+    public int GetStartingIndex(int playerID)
+    {
+        return treeStartingIndex[playerID - 1];
     }
 
     public GameObject GetNextTreeGroup()
@@ -40,10 +40,5 @@ public class TreeClimb_GameManager : Base_GameManager
         Transform[] newTreePositions = new Transform[treePositions.Length - 2];
         Array.Copy(treePositions, 1, newTreePositions, 0, newTreePositions.Length);
         treePositions = newTreePositions;
-    }
-
-    public int GetStartingIndex(int playerID)
-    {
-        return treeStartingIndex[playerID - 1];
     }
 }
