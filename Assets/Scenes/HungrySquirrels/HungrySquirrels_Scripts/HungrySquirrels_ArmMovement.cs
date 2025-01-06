@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HungrySquirrels_ArmMovement : MonoBehaviour
@@ -8,7 +9,7 @@ public class HungrySquirrels_ArmMovement : MonoBehaviour
     public float ext_Speed = 10f;
     public float arm_Max;
     public float arm_Min;
-    private float curr_Arm_Length = 0f;
+    //private float curr_Arm_Length = 0f;
 
     private Rigidbody rb;
 
@@ -26,23 +27,30 @@ public class HungrySquirrels_ArmMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxis("Vertical");//Forward & Backward Input
-    
+        ExtendArm(moveInput);
+
     }
 
     private void FixedUpdate()
     {
-        ExtendArm(moveInput);
+        
     }
 
     void ExtendArm(float Input)
     {
         translate = Input * ext_Speed * Time.fixedDeltaTime;
-        if (transform.localPosition.x <= arm_Min)
+        if (transform.localPosition.x < arm_Min)
+        {
             transform.localPosition = new Vector3(arm_Min, 0, 0);
-        else if (transform.localPosition.x >= arm_Max)
+        }
+        else if (transform.localPosition.x > arm_Max)
+        {
             transform.localPosition = new Vector3(arm_Max, 0, 0);
+        }
         else
+        {
             transform.Translate(translate, 0, 0, Space.Self);
+        }
         //rb_Grabber.MovePosition(rb_Grabber.position * translate);
     }
     void ShrinkArm(float Input)
