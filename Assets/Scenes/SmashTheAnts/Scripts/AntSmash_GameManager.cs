@@ -61,7 +61,7 @@ public class AntSmash_GameManager : Base_GameManager
     {
         int highestScore = 1;
 
-        for (int i = 1; i < playerScores.Length; i++)
+        for (int i = 0; i < playerScores.Length; i++)
         {
             if (playerScores[i] > highestScore)
             {
@@ -73,7 +73,7 @@ public class AntSmash_GameManager : Base_GameManager
         {
             if (playerScores[i] == highestScore)
             {
-                playersWon[i] = true;
+                resultsScreen.GetComponent<CS_MinigameResults>().playersWon[i] = true;
             }
         }
     }

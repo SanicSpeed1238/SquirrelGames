@@ -14546,7 +14546,7 @@ GameObject:
   - component: {fileID: 1531456487505494038}
   - component: {fileID: 5928752869741753268}
   m_Layer: 0
-  m_Name: SmashEffect_FireAnt
+  m_Name: smashfx_AntFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,16 +5,17 @@ using System.Collections;
 
 public class Base_GameManager : MonoBehaviour
 {
-    [Header("Cutscene Components")]
-    public GameObject openingCutscene;
-    public GameObject endingCutscene;
+    [Header("Camera Components")]
     public GameObject gameCamera;
+    public GameObject openingCutscene;
+    public GameObject resultsCutscene; 
 
     [Header("UI Components")]
-    public GameObject transitionScreen;
-    public GameObject startScreen;
-    public GameObject pauseScreen;
     public GameObject gameUIScreen;
+    public GameObject pauseScreen;
+    public GameObject resultsScreen;
+    public GameObject startScreen;
+    public GameObject transitionScreen;
 
     [Header("Game UI Components")]
     public TextMeshProUGUI messageUI;
@@ -24,8 +25,6 @@ public class Base_GameManager : MonoBehaviour
     // Game States
     [HideInInspector] public bool gameStarted;
     [HideInInspector] public bool gamePlaying;
-    [HideInInspector] public bool[] playersJoined = new bool[4];
-    [HideInInspector] public bool[] playersWon = new bool[4];
 
     // UI Animation Variables
     protected readonly float countdownDelay = 2.0f;
@@ -40,15 +39,16 @@ public class Base_GameManager : MonoBehaviour
     protected readonly float fontSizeIncrease = 100f;
 
     protected void Base_GameManager_Awake()
-    {
-        gameCamera.SetActive(false);
-        endingCutscene.SetActive(false);
-        openingCutscene.SetActive(true);
-
-        gameUIScreen.SetActive(false);
-        pauseScreen.SetActive(false);
+    {     
+        openingCutscene.SetActive(false);
+        resultsCutscene.SetActive(false);
+        gameCamera.SetActive(true);
+     
         startScreen.SetActive(true);
-        
+        resultsScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+        gameUIScreen.SetActive(false);
+
         timeUI.text = string.Empty;
         messageUI.text = string.Empty;
     }
@@ -87,9 +87,9 @@ public class Base_GameManager : MonoBehaviour
         gameStarted = true;
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
         yield return new WaitForSeconds(1.5f);
-        gameUIScreen.SetActive(false);
         startScreen.SetActive(false);
-        PlayableDirector playableDirector = openingCutscene.GetComponentInChildren<PlayableDirector>();
+        openingCutscene.SetActive(true);
+        PlayableDirector playableDirector = openingCutscene.GetComponent<PlayableDirector>();
         playableDirector.Play();
 
         // Transitioning to the Game Camera
@@ -125,16 +125,20 @@ public class Base_GameManager : MonoBehaviour
 
     IEnumerator EndMinigame()
     {
-        // TEMPORARY
-
+        // Stop the Minigame
+        // -----------------
         gamePlaying = false;
 
+        // Display the "Finish!" Message
+        // -----------------------------
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
         LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, finishAppearSpeed).setEase(LeanTweenType.easeOutExpo);
         messageUI.fontSize += fontSizeIncrease;
         messageUI.text = ("FINISH!");
         LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, finishDisappearSpeed).setDelay(finishDisplayDuration).setEase(LeanTweenType.linear);
 
+        // Clear the "Finish!" Message
+        // ---------------------------
         yield return new WaitForSeconds(finishDisplayDuration);
         timeUI.text = string.Empty;
         yield return new WaitForSeconds(finishDisappearSpeed);
@@ -142,6 +146,21 @@ public class Base_GameManager : MonoBehaviour
         messageUI.fontSize -= fontSizeIncrease;
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
 
+        // Transitioning to the Results Cutscene
+        // -------------------------------------
         yield return new WaitForSeconds(endingDelay);
+        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
+        yield return new WaitForSeconds(1.5f);
+        gameUIScreen.SetActive(false);
+        gameCamera.SetActive(false);
+        resultsCutscene.SetActive(true);
+        PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
+        playableDirector.Play();
+
+        // Play the Results Cutscene
+        // -------------------------
+        yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
+        resultsScreen.GetComponent<CS_MinigameResults>().DisplayWinners();
+        resultsScreen.SetActive(true);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CS_EventSystem : MonoBehaviour
+public class CS_MinigameEventSystem : MonoBehaviour
 {
     private void Awake()
     {
