@@ -6,9 +6,11 @@ public class CS_MinigamePause : MonoBehaviour
     public GameObject resumeButton;
     public GameObject quitButton;
 
+    private Base_GameManager gameManager;
+
     private void Awake()
     {
-        Base_GameManager gameManager = GameObject.FindAnyObjectByType<Base_GameManager>();
+        gameManager = GetComponent<Base_GameManager>();
 
         resumeButton.GetComponent<Button>().onClick.AddListener(() => gameManager.PauseGame(false));
     }

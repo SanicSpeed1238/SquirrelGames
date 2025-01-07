@@ -26,10 +26,14 @@ public class Base_GameManager : MonoBehaviour
     [HideInInspector] public bool gameStarted;
     [HideInInspector] public bool gamePlaying;
 
+    // Important References
+    protected CS_MinigameMusic musicPlayer;
+    protected CS_MinigameResults minigameResults;
+
     // UI Animation Variables
     protected readonly float countdownDelay = 2.0f;
     protected readonly float readyAppearSpeed = 1.0f;
-    protected readonly float readyDisplayDuration = 1.5f;
+    protected readonly float readyDisplayDuration = 2f;
     protected readonly float goDisplayDuration = 1.5f;
     protected readonly float goDisappearSpeed = 0.2f;
     protected readonly float finishAppearSpeed = 1.0f;
@@ -51,6 +55,9 @@ public class Base_GameManager : MonoBehaviour
 
         timeUI.text = string.Empty;
         messageUI.text = string.Empty;
+
+        musicPlayer = GameObject.FindAnyObjectByType<CS_MinigameMusic>();
+        minigameResults = GetComponent<CS_MinigameResults>();
     }
 
     public void PauseGame(bool pause)
@@ -86,6 +93,7 @@ public class Base_GameManager : MonoBehaviour
         // -------------------------------------        
         gameStarted = true;
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
+        musicPlayer.FadeOutMusic(1.5f);
         yield return new WaitForSeconds(1.5f);
         startScreen.SetActive(false);
         openingCutscene.SetActive(true);
@@ -106,6 +114,7 @@ public class Base_GameManager : MonoBehaviour
         // Countdown to Start Gameplay
         // ---------------------------        
         yield return new WaitForSeconds(countdownDelay);
+        musicPlayer.PlayGameMusic();
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
         LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
         messageUI.text = ("READY...");
@@ -128,6 +137,7 @@ public class Base_GameManager : MonoBehaviour
         // Stop the Minigame
         // -----------------
         gamePlaying = false;
+        musicPlayer.StopMusic();
 
         // Display the "Finish!" Message
         // -----------------------------
@@ -160,7 +170,8 @@ public class Base_GameManager : MonoBehaviour
         // Play the Results Cutscene
         // -------------------------
         yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
-        resultsScreen.GetComponent<CS_MinigameResults>().DisplayWinners();
+        minigameResults.DisplayWinners();
+        minigameResults.PlayResultsMusic();
         resultsScreen.SetActive(true);
     }
 }

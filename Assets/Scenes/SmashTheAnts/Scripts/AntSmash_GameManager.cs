@@ -3,6 +3,8 @@ using TMPro;
 
 public class AntSmash_GameManager : Base_GameManager
 {
+    public static AntSmash_GameManager Instance;
+
     [Header("Gameplay Attributes")]
     [Range(30f, 60f)]
     public float gameLength;
@@ -14,7 +16,10 @@ public class AntSmash_GameManager : Base_GameManager
     private void Awake()
     {
         Base_GameManager_Awake();
-
+        Instance = this;       
+    }
+    private void Start()
+    {
         gameTime = gameLength;
         playerScores = new int[4];
     }
@@ -73,7 +78,7 @@ public class AntSmash_GameManager : Base_GameManager
         {
             if (playerScores[i] == highestScore)
             {
-                resultsScreen.GetComponent<CS_MinigameResults>().playersWon[i] = true;
+                minigameResults.playersWon[i] = true;
             }
         }
     }

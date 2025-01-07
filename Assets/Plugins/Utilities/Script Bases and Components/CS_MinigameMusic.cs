@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CS_MinigameMusic : MonoBehaviour
 {
@@ -6,7 +7,60 @@ public class CS_MinigameMusic : MonoBehaviour
     [SerializeField] private AudioClip gameMusic;
     [SerializeField] private AudioClip setupMusic;
 
-    [Header("Track List")]
-    [SerializeField] private AudioClip openingTrack;
-    [SerializeField] private AudioClip resultsTrack;
+    private AudioSource musicPlayer;
+
+    private void Start()
+    {
+        InitializeMusic();
+
+        PlaySetupMusic();
+    }
+
+    private void InitializeMusic()
+    {
+        musicPlayer = GetComponent<AudioSource>();
+
+        musicPlayer.clip = gameMusic;
+        musicPlayer.Play();
+        musicPlayer.Stop();
+
+        musicPlayer.clip = setupMusic;
+        musicPlayer.Play();
+        musicPlayer.Stop();
+    }
+
+    public void PlaySetupMusic()
+    {
+        musicPlayer.clip = setupMusic;
+        musicPlayer.Play();
+    }
+
+    public void PlayGameMusic()
+    {
+        musicPlayer.clip = gameMusic;
+        musicPlayer.Play();
+    }
+
+    public void FadeOutMusic(float duration)
+    {
+        StartCoroutine(FadeOutCurrentClip(duration));
+    }
+    IEnumerator FadeOutCurrentClip(float duration)
+    {
+        float startVolume = musicPlayer.volume;
+
+        while (musicPlayer.volume > 0)
+        {
+            musicPlayer.volume -= startVolume * Time.deltaTime / duration;
+            yield return null;
+        }
+
+        musicPlayer.Stop();
+        musicPlayer.volume = startVolume;
+    }
+
+    public void StopMusic()
+    {
+        musicPlayer.Stop();
+    }
 }

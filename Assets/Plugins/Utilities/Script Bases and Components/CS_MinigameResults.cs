@@ -6,6 +6,7 @@ public class CS_MinigameResults : MonoBehaviour
     [HideInInspector] public bool[] playersWon = new bool[4];
 
     public TextMeshProUGUI winnersText;
+    public AudioSource resultsMusic;
 
     public void DisplayWinners()
     {
@@ -26,5 +27,10 @@ public class CS_MinigameResults : MonoBehaviour
         else playersWonText = "TIE...";
 
         winnersText.text = playersWonText;
+    }
+
+    public void PlayResultsMusic()
+    {
+        resultsMusic.Play();
     }
 }

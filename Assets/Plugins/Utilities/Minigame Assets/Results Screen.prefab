@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4893854745101976102}
-  - component: {fileID: 6007627431698415079}
   m_Layer: 5
   m_Name: Results Screen
   m_TagString: Untagged
@@ -37,20 +36,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6007627431698415079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3932959947463281936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281878d02e1b04f44a7887df13941d48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersWon: 00000000
-  winnersText: {fileID: 5686884257889256987}
 --- !u!1 &5875859405378813466
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,19 +183,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9bc3436f8f1124aa4be4552c842990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
-  grow_Duration: 0
-  grow_EaseType: 0
+  appearAnimation: 1
+  grow_TargetScale: {x: 1, y: 1, z: 1}
+  grow_Duration: 0.5
+  grow_EaseType: 24
   moveIn_XOffset: 0
-  moveIn_YOffset: -500
-  moveIn_Duration: 1
-  moveIn_Delay: 0.5
-  moveIn_EaseType: 24
-  idleAnimation: 2
+  moveIn_YOffset: 0
+  moveIn_Duration: 0
+  moveIn_Delay: 0
+  moveIn_EaseType: 0
+  idleAnimation: 0
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 1.2, y: 1.2, z: 1.2}
-  pulsing_Duration: 1
+  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_Duration: 0
   pulsing_EaseType: 37
