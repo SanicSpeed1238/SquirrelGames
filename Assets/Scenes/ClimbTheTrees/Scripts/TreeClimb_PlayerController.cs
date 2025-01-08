@@ -19,19 +19,20 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public Animator squirrelAnimator;
 
     // Other Variables Needed
-    private int playerID;
-    private TreeClimb_GameManager gameManager;
-    private TreeClimb_MinigameSetup minigameSetup;
-
-    private int playerScore;
-    private bool isAlive;
     private float verticalInput;
-    private float horizontalInput; 
+    private float horizontalInput;
+    private bool canInputHorizontal;
+
+    private bool isAlive;
+    private bool isFinished;
+    private int playerID;
+    private int playerScore; 
     
-    private readonly float minHeight = -1f;
+    private readonly float minHeight = -2f;
     private readonly float maxHeight = 14f;
     private LayerMask raycastLayer;
     private Vector3 moveToPosition;
+    private GameObject finishPosition;
 
     private int currentTreeIndex;
     private bool isJumping;
@@ -48,22 +49,33 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private void Start()
     {
         isAlive = true;
-       
+        playerScore = 0;
+
+        canInputHorizontal = true;
         jumpTimer = jumpDelay;
+
         fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
-        originalScale = squirrelModel.transform.localScale;       
         raycastLayer = LayerMask.GetMask("Player", "Important Objects");
+
+        originalScale = squirrelModel.transform.localScale;     
     }
 
     private void Update()
     {
         if(isAlive)
         {
-            MoveVertically();
-            MoveHorizontally();
+            if (!isFinished)
+            {
+                if (!TreeClimb_GameManager.Instance.gamePlaying) return;
 
-            CheckIfEliminated();
-        }  
+                MoveVertically();
+                MoveHorizontally(); 
+            }
+            else
+            {
+                MoveToFinishPosition();
+            }
+        } 
     }
 
     private void MoveVertically()
@@ -71,36 +83,34 @@ public class TreeClimb_PlayerController : MonoBehaviour
         if (isJumping) // If player is in the middle of jumping, cancel up/down movement
             return;
 
-        verticalInput = Input.GetAxis("Vertical");
-
         if (verticalInput != 0 && !isStunned) // Move the player up/down the visible tree space
         {
             moveToPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(0, verticalInput, 0);
-            squirrelAnimator.speed = 1;
         }
         else
         {
-            moveToPosition = transform.position + Time.deltaTime * new Vector3(0, -fallSpeed, 0);
-            squirrelAnimator.speed = 0;
+            if(TreeClimb_GameManager.Instance.treesMoving)
+                moveToPosition = transform.position + Time.deltaTime * new Vector3(0, -fallSpeed, 0);
         }
         
         // Check if there is another player blocking the direction this player is trying to move in
         moveToPosition.y = Mathf.Clamp(moveToPosition.y, VerifyVerticalMovement(Vector3.down), VerifyVerticalMovement(Vector3.up));
         transform.position = moveToPosition;
+
+        // Check if the player has fallen behind
+        if (transform.position.y < minHeight)
+        {
+            EliminatePlayer();
+        }
     }
     private void MoveHorizontally()
     {
         if (isStunned) // If player is stunned, disable jumping
             return;
 
-        // Jump input only registered when tapping the left stick in a specific direction
-        if (Input.GetKeyDown(KeyCode.D)) horizontalInput = 1;
-        else if (Input.GetKeyDown(KeyCode.A)) horizontalInput = -1;
-        else horizontalInput = 0;
-
         // Calculate the direction the player is trying to jump in
-        if (horizontalInput > .5f) jumpDirection = Vector3.right;
-        else if (horizontalInput < -.5f) jumpDirection = Vector3.left;
+        if (horizontalInput == 1) jumpDirection = Vector3.right;
+        else if (horizontalInput == -1) jumpDirection = Vector3.left;
         else jumpDirection = Vector3.zero;
 
         if (jumpDirection != Vector3.zero)
@@ -197,7 +207,6 @@ public class TreeClimb_PlayerController : MonoBehaviour
         LeanTween.scale(squirrelModel, originalScale, .5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(EnableInvincibility());
     }
-
     IEnumerator EnableInvincibility()
     {
         isInvincible = true;
@@ -207,50 +216,91 @@ public class TreeClimb_PlayerController : MonoBehaviour
         isInvincible = false;
     }
 
-    private void CheckIfEliminated() 
+    public void AddToPlayerScore(int points)
     {
-        // Player is out when they fall below the minHeight
-        if (transform.position.y < minHeight)
+        if (isAlive)
         {
-            isAlive = false;
+            playerScore += points;
+            TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore);
+        }  
+    }
 
-            verticalInput = 0;
-            horizontalInput = 0;
+    private void EliminatePlayer() 
+    {
+        isAlive = false;
+        verticalInput = 0;
+        horizontalInput = 0;
 
-            transform.position = new(0, -10, 0);
+        transform.position = new(0, -10, 0);
+
+        playerScore = 0;
+        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore);
+    }
+
+    private void MoveToFinishPosition()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, finishPosition.transform.position, moveSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            isFinished = true;
+            TreeClimb_GameManager.Instance.UpdatePlayersFinished(playerID);
+
+            string playerFinishPosition = "Player" + playerID;
+            finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
     public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
     {
-        gameManager = GameObject.FindAnyObjectByType<TreeClimb_GameManager>();
-        minigameSetup = GameObject.FindAnyObjectByType<TreeClimb_MinigameSetup>();
-
         playerID = IDNumber;
         transform.position = startPosition.position;
 
-        playerScore = 0;
-        currentTreeIndex = gameManager.GetStartingIndex(playerID);
-        treePositions = gameManager.treePositions;
+        currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
+        treePositions = TreeClimb_GameManager.Instance.treePositions;
     }
     public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
     {
-        // = context.ReadValue<Vector2>();
+        verticalInput = context.ReadValue<Vector2>().y;
+
+        // Jump input only registered when TAPPING in a direction
+        float xInput = context.ReadValue<Vector2>().x;
+        if (xInput > .5 && canInputHorizontal)
+        {
+            horizontalInput = 1;
+            canInputHorizontal = false;
+        }
+        else if (xInput < -.5 && canInputHorizontal)
+        {
+            horizontalInput = -1;
+            canInputHorizontal = false;
+        }
+        else if (-.1 < xInput && xInput < .1)
+        {
+            horizontalInput = 0;
+            canInputHorizontal = true;
+        }
+        else
+        {
+            horizontalInput = 0;
+        }
     }
     public void OnAction(InputAction.CallbackContext context) // Action button not used.
     {
-        // = context.ReadValueAsButton();
-
-        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
+        if (!TreeClimb_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
         {
-            minigameSetup.ConfirmJoin(playerID);
+            TreeClimb_MinigameSetup.Instance.ConfirmJoin(playerID);
         }
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
-        if (!gameManager.gameStarted)
+        if (!TreeClimb_GameManager.Instance.gameStarted)
         {
-            minigameSetup.StartGame();
+            TreeClimb_MinigameSetup.Instance.StartGame();
         }
     }
 }

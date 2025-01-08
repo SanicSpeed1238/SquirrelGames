@@ -16,13 +16,14 @@ public class TreeClimb_TreesScript : MonoBehaviour
     public float moveSpeed;
 
     // Other Variables Needed
-    private TreeClimb_GameManager gameManager;
     private readonly float treesHeight = 15f;
-    private float destroyHeight = -20f;
+    private float destroyHeight = -25f;
     private bool newTreeSpawned;
 
     private void Update()
     {
+        if (!TreeClimb_GameManager.Instance.gamePlaying) return;
+
         transform.Translate((moveSpeed * Time.deltaTime * -Vector3.up), Space.World);
 
         if (transform.position.y <= 0.0f && !newTreeSpawned)
@@ -31,7 +32,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
             newTreeSpawned = true;
 
             if (treeGroupType == TreeGroup.Treetops)
-                gameManager.RemoveTreeLanes();
+                TreeClimb_GameManager.Instance.RemoveTreeLanes();
             else if (treeGroupType == TreeGroup.Goal)
                 destroyHeight /= 2f;
         }
@@ -40,6 +41,8 @@ public class TreeClimb_TreesScript : MonoBehaviour
             if (treeGroupType == TreeGroup.Goal)
             {
                 moveSpeed = 0f;
+                TreeClimb_GameManager.Instance.treesMoving = false;
+
                 this.enabled = false;
                 return;
             }
@@ -50,8 +53,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     public void SpawnNewChunk()
     {  
-        gameManager = GameObject.FindAnyObjectByType<TreeClimb_GameManager>();
-        GameObject nextTreeGroup = gameManager.GetNextTreeGroup();
+        GameObject nextTreeGroup = TreeClimb_GameManager.Instance.GetNextTreeGroup();
 
         if (nextTreeGroup != null)
         {

@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6562972903930995639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5643497232624507451, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_text
+      value: Collect acorns as you climb your way to the top of the trees! But watch
+        out for falling hazards and don't squish the squirrel!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985894318468091369, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_Name
+      value: Startup Screen Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494851595772612637, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_text
+      value: CLIMB THE TREES!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abffb943881a1274ba352746abd67e0b, type: 3}

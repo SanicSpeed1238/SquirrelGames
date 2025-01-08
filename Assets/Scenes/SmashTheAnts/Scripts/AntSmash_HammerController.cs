@@ -79,6 +79,7 @@ public class AntSmash_HammerController : MonoBehaviour
         
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
     }
+
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer
     {
         movementInput = context.ReadValue<Vector2>();
@@ -87,16 +88,15 @@ public class AntSmash_HammerController : MonoBehaviour
     {
         actionPressed = context.ReadValueAsButton();
 
-        if(!gameManager.gameStarted && context.ReadValueAsButton() == true)
-        {
+        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
             minigameSetup.ConfirmJoin(playerID);
-        }
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
-        if(!gameManager.gameStarted)
-        {
+        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
             minigameSetup.StartGame();
-        }
+
+        if (gameManager.gamePlaying && context.ReadValueAsButton() == true)
+            gameManager.PauseGame(true);
     }
 }

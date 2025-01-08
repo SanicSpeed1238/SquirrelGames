@@ -9,6 +9,8 @@ public class TreeClimb_AcornScript : MonoBehaviour
     {
         if (other.GetComponent<TreeClimb_PlayerController>() != null)
         {
+            other.GetComponent<TreeClimb_PlayerController>().AddToPlayerScore(points);
+
             Destroy(gameObject);
         }
     }
