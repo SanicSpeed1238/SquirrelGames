@@ -49,7 +49,7 @@ public class BigNut_PlayerController : MonoBehaviour
                     Vector3 slopeDirection = rotation * slopeNormal;
 
                     Vector3 movement = slopeDirection * input * moveSpeed * Time.deltaTime;
-
+                    Debug.Log(movement);
                     controller.Move(movement);
                 }
             }
@@ -62,8 +62,6 @@ public class BigNut_PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.gameObject.tag == "HidyHole");
-
         if (collision.gameObject.tag == "HidyHole")
         {
             isHiding = true;
@@ -75,7 +73,6 @@ public class BigNut_PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "HidyHole")
         {
             isHiding = false;
-            Debug.Log("UnHide");
         }
     }
 
