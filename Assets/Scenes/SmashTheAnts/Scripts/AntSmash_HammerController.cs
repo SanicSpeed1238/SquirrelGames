@@ -16,9 +16,6 @@ public class AntSmash_HammerController : MonoBehaviour
 
     // Other Variables Needed
     private int playerID;
-    private AntSmash_GameManager gameManager;
-    private AntSmash_MinigameSetup minigameSetup;
-
     private int playerScore;
     private bool actionPressed;
     private Vector2 movementInput;
@@ -26,7 +23,7 @@ public class AntSmash_HammerController : MonoBehaviour
     private void Update()
     {
         // If game is not playing, ignore player input
-        if (!gameManager.gamePlaying) return;
+        if (!AntSmash_GameManager.Instance.gamePlaying) return;
 
         // Move the hammer left, right, up, and down while keeping it in bounds
         MoveHammer();
@@ -63,15 +60,12 @@ public class AntSmash_HammerController : MonoBehaviour
             int addedScore = other.GetComponent<AntSmash_ObjectScript>().points;
             playerScore += addedScore;
             if (playerScore < 0) playerScore = 0;
-            gameManager.UpdateScore(playerID, playerScore, addedScore);
+            AntSmash_GameManager.Instance.UpdateScore(playerID, playerScore, addedScore);
         }
     }
 
     public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
     {
-        gameManager = GameObject.FindAnyObjectByType<AntSmash_GameManager>();
-        minigameSetup = GameObject.FindAnyObjectByType<AntSmash_MinigameSetup>();
-
         playerID = IDNumber;
         transform.position = startPosition.position;
 
@@ -88,15 +82,15 @@ public class AntSmash_HammerController : MonoBehaviour
     {
         actionPressed = context.ReadValueAsButton();
 
-        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
-            minigameSetup.ConfirmJoin(playerID);
+        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
+            AntSmash_MinigameSetup.Instance.ConfirmJoin(playerID);
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
-        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
-            minigameSetup.StartGame();
+        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
+            AntSmash_MinigameSetup.Instance.StartGame();
 
-        if (gameManager.gamePlaying && context.ReadValueAsButton() == true)
-            gameManager.PauseGame(true);
+        if (AntSmash_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
+            AntSmash_GameManager.Instance.PauseGame(true);
     }
 }
