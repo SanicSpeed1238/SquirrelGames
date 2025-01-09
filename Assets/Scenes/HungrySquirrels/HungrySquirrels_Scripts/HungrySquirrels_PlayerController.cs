@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HungrySquirrels_PlayerController : MonoBehaviour
 {
     //Controls the speed of rotation for character
     public float rot_Speed = 120f;
-    //public float ext_Speed = 10f;
    
     //Shows which player the character is connected to for multiplayer(if it is viable)
     public int playerID = 0;
 
-    //private Rigidbody rb;
+    //Referencing the arm to stop movement when collision with wall or player happens
+    public HungrySquirrels_ArmMovement arm;
 
     private float rotationInput;
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();//The Entire Player Character
+        arm = FindObjectOfType<HungrySquirrels_ArmMovement>();
+
+        //Sets default position and rotation of character when chosen as a specific playerID
         switch (playerID)
         {
             case 0:
@@ -47,10 +51,8 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //moveInput = Input.GetAxis("Vertical");//Forward & Backward Input
         rotationInput = Input.GetAxis("Horizontal");//Left & Right input
-        RotateArm(rotationInput);
-
+        RotateArm(rotationInput);//More consistent rotation than in fixed update
     }
 
     private void FixedUpdate()
@@ -60,8 +62,22 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
 
     void RotateArm(float Input)
     {
-        float rotation = Input * rot_Speed * Time.fixedDeltaTime;
-        transform.Rotate(Vector3.up, rotation);
-        //print(rb.rotation);
+        float rotation = Input * rot_Speed * Time.fixedDeltaTime;//Applies rot_speed to input
+        //Commented code was used for collision by using switches to stop movement code
+        //switch (arm.stopright, arm.stopleft, arm.stoptop, arm.stopbottom)
+        //{
+        //    case (true, false, false, false):
+        //        break;
+        //    case (false, true, false, false):
+        //        break;
+        //    case (false, false, true, false):
+        //        break;
+        //    case (false, false, true, true):
+        //        break;
+            //default:
+                transform.Rotate(Vector3.up, rotation);//Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
+                //break;
+        //}
+        //print(rb.rotation);//Print statemenet was for Bug testing pruposes
     }
 }
