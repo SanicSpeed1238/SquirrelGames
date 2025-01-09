@@ -12,27 +12,26 @@ public class AntSmash_HammerController : MonoBehaviour
 
     [Header("Important Components")]
     [SerializeField] private Animator hammerAnimator;
+    [SerializeField] private AudioSource slamSound;
     [SerializeField] private ParticleSystem smashEffect;
 
     // Other Variables Needed
+    protected Vector2 movementInput;
+    protected bool actionPressed;
+
     private int playerID;
     private int playerScore;
-    private bool actionPressed;
-    private Vector2 movementInput;
-
+    
     private void Update()
     {
-        // If game is not playing, ignore player input
-        if (!AntSmash_GameManager.Instance.gamePlaying) return;
+        if (!AntSmash_GameManager.Instance.gamePlaying) 
+            return;
 
-        // Move the hammer left, right, up, and down while keeping it in bounds
         MoveHammer();
-
-        // Swing the hammer when the player presses the action button
         if (actionPressed) SmashHammer();
     }
 
-    private void MoveHammer()
+    private void MoveHammer() // Player can move the hammer within the play area
     {
         Vector3 newPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(movementInput.x, 0, movementInput.y);
         newPosition.x = Mathf.Clamp(newPosition.x, -rangeX, rangeX);
@@ -45,6 +44,9 @@ public class AntSmash_HammerController : MonoBehaviour
         {
             hammerAnimator.SetTrigger("Smash");
             smashEffect.Play();
+
+            slamSound.pitch = Random.Range(0.5f, 1.0f);
+            slamSound.PlayOneShot(slamSound.clip);
         }
         actionPressed = false;
     }
@@ -64,13 +66,12 @@ public class AntSmash_HammerController : MonoBehaviour
         }
     }
 
-    public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
     {
         playerID = IDNumber;
-        transform.position = startPosition.position;
 
         playerScore = 0;
-        
+        transform.position = startPosition.position;    
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
     }
 

@@ -28,11 +28,11 @@ public class AntSmash_ObjectScript : MonoBehaviour
 
     private void Update()
     {
-        if (!isSquished) // If object is still alive, have them move forward
+        if (!isSquished)
         {
             transform.Translate((moveSpeed * Time.deltaTime * transform.forward), Space.World);
         }
-        else // Show squish animation if object has been squished by the player
+        else
         {
             ShowSquished();
         }
@@ -40,7 +40,6 @@ public class AntSmash_ObjectScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Destroy object if it goes too far offscreen
         if (other.CompareTag("Deadzone"))
         {
             Destroy(gameObject);

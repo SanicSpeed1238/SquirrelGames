@@ -8,6 +8,9 @@ public class Base_MinigameSetup : MonoBehaviour
     public GameObject joinedPlayers;
     public GameObject startText;
 
+    [Header("Computer Player")]
+    public GameObject computerPlayer;
+
     [Header("Player Colors")]
     public Color[] playerColors;
 
@@ -17,6 +20,7 @@ public class Base_MinigameSetup : MonoBehaviour
     // Other Variables Needed
     private PlayerInputManager playerInputManager;
     private readonly float joinDelaySeconds = 3f;
+    private int lastJoinedPlayer;
 
     protected void Base_MinigameSetup_Awake()
     {
@@ -37,19 +41,19 @@ public class Base_MinigameSetup : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerController)
     {
-        int playerID = playerController.playerIndex;
+        int playerID = playerController.playerIndex + 1;
+        lastJoinedPlayer = playerID;
 
         // Initializes player GameObject with player ID and any other necessary attributes
         SetUpPlayer(playerController, playerID);
 
         // Updates the icon on the startup screen
-        string playerTextObject = "Player" + (playerID + 1).ToString();
+        string playerTextObject = "Player" + playerID.ToString();
         GameObject playerIconObject = joinedPlayers.transform.Find(playerTextObject).gameObject;
-
         playerIconObject.transform.Find("Unready").gameObject.SetActive(false);
         playerIconObject.transform.Find("Ready").gameObject.SetActive(true);
 
-        if ((playerID == 1) || (playerID == 0 && Application.isEditor)) startText.SetActive(true);
+        if (playerID == 1) startText.SetActive(true);
     }
     public void ConfirmJoin(int playerID)
     {
@@ -60,15 +64,30 @@ public class Base_MinigameSetup : MonoBehaviour
             .setOnComplete(() => { playerIconObject.GetComponent<RectTransform>().localScale = Vector3.one; });
     }
 
-    // Override this function with a "ConfigurePlayer" function found within the Player GameObject!
+    // Override this function with a "InitializePlayer" function found within the Player GameObject!
     protected virtual void SetUpPlayer(PlayerInput playerController, int playerID)
     {
         Debug.LogWarning("No PlayerSetup has been defined.");
+    }
+    // Override this function using the same "InitializePlayer" function found within the Player GameObject!
+    protected virtual void SetUpComputer(GameObject computerController, int playerID)
+    {
+        Debug.LogWarning("No ComputerSetup has been defined.");
     }
 
     public void StartGame() // Disables joining and hides the startup screen when player pushes Start
     {
         playerInputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
+
+        if (computerPlayer != null)
+        {
+            for (int ID = (lastJoinedPlayer + 1); ID <= 4; ID++)
+            {
+                GameObject newComputer = Instantiate(computerPlayer);
+                SetUpComputer(newComputer, ID);
+            }
+        }
+
         GameObject.FindAnyObjectByType<Base_GameManager>().StartGame();
     }
 }

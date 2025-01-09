@@ -46,20 +46,6 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private float fallSpeed;
     private Vector3 originalScale;
 
-    private void Start()
-    {
-        isAlive = true;
-        playerScore = 0;
-
-        canInputHorizontal = true;
-        jumpTimer = jumpDelay;
-
-        fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
-        raycastLayer = LayerMask.GetMask("Player", "Important Objects");
-
-        originalScale = squirrelModel.transform.localScale;     
-    }
-
     private void Update()
     {
         if(isAlive)
@@ -255,13 +241,24 @@ public class TreeClimb_PlayerController : MonoBehaviour
         }
     }
 
-    public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
     {
         playerID = IDNumber;
-        transform.position = startPosition.position;
+
+        isAlive = true;
+        playerScore = 0;
 
         currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
         treePositions = TreeClimb_GameManager.Instance.treePositions;
+        transform.position = startPosition.position;
+
+        fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
+        raycastLayer = LayerMask.GetMask("Player", "Important Objects");
+
+        canInputHorizontal = true;
+        jumpTimer = jumpDelay;
+
+        originalScale = squirrelModel.transform.localScale;
     }
     public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
     {
