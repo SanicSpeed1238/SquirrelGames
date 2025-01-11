@@ -39,20 +39,24 @@ public class BigNut_BirbScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, birbDestination.position) == 0)
+        if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.position) > maxDistanceFromCharacter)
         {
+            shadow.localScale = Vector3.zero;
             Destroy(gameObject);
         }
 
         if (!reachedPlayer)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, 0.02f);
-            shadow.localScale += new Vector3(0.003f, 0, 0.003f);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, 0.01f);
+            shadow.localScale += new Vector3(0.005f, 0, 0.005f);
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, 0.02f);
-            shadow.localScale -= new Vector3(0.003f, 0, 0.003f);
+            transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, 0.08f);
+            if (shadow.localScale.x > 0)
+            {
+                shadow.localScale -= new Vector3(0.01f, 0, 0.01f);
+            }
         }
     }
 

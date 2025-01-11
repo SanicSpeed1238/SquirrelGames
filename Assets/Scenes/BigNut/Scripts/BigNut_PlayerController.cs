@@ -13,8 +13,6 @@ public class BigNut_PlayerController : MonoBehaviour
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
 
-    public LayerMask groundMask;
-
     // Other Variables Needed
     private bool isAlive;
     private bool isHiding;
@@ -37,21 +35,13 @@ public class BigNut_PlayerController : MonoBehaviour
         if (isAlive)
         {
             squirrelAnimator.speed = 0;
-            float input = Input.GetAxisRaw("Horizontal");
-            if (input != 0)
+            float xinput = Input.GetAxisRaw("Horizontal");
+            float zinput = Input.GetAxisRaw("Vertical");
+            if (xinput != 0 || zinput != 0)
             {
                 squirrelAnimator.speed = 1;
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position - Vector3.down * 0.07f, Vector3.down, out hit, 1.5f, groundMask))
-                {
-                    Vector3 slopeNormal = hit.normal;
-                    Quaternion rotation = Quaternion.Euler(90, 0, 0);
-                    Vector3 slopeDirection = rotation * slopeNormal;
-
-                    Vector3 movement = slopeDirection * input * moveSpeed * Time.deltaTime;
-                    Debug.Log(movement);
-                    controller.Move(movement);
-                }
+                Vector3 movement = transform.right * xinput + transform.forward * zinput;
+                controller.Move(movement*moveSpeed*Time.deltaTime);
             }
         }
         else
