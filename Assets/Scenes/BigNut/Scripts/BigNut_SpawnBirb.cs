@@ -30,6 +30,6 @@ public class BigNut_SpawnBirb : MonoBehaviour
 
     private void SpawnBirb()
     {
-        Instantiate(birb, transform.position, Quaternion.identity).transform.position);
+        Instantiate(birb, transform.position, Quaternion.identity);
     }
 }
