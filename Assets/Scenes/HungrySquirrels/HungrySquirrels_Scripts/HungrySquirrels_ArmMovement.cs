@@ -9,7 +9,12 @@ public class HungrySquirrels_ArmMovement : MonoBehaviour
     public float ext_Speed = 10f;
     public float arm_Max;
     public float arm_Min;
-    //private float curr_Arm_Length = 0f;
+
+    //Setting bools for if the object is within touching distance of another object for collision
+    public bool stopright;
+    public bool stopleft;
+    public bool stoptop;
+    public bool stopbottom;
 
     private Rigidbody rb;
 
@@ -20,24 +25,29 @@ public class HungrySquirrels_ArmMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();//The Arm Area
+        rb = GetComponent<Rigidbody>();//The Arm Area(Kind of obsolete with the transform code)
     }
 
     // Update is called once per frame
     void Update()
     {
         moveInput = Input.GetAxis("Vertical");//Forward & Backward Input
-        ExtendArm(moveInput);
+        ExtendArm(moveInput);//Extending arm code moved to here instead of fixed update due to the arm locking up at the minimum and maximums.
 
     }
 
     private void FixedUpdate()
     {
-        
+        //Raycasting for collision with walls or any solids(currently disabled in the mainbody/rotation script)
+        stopright = Physics.Raycast(transform.position, Vector3.right, .67f);
+        stopleft = Physics.Raycast(transform.position, Vector3.left, .67f);
+        stoptop = Physics.Raycast(transform.position, Vector3.forward, .67f);
+        stopbottom = Physics.Raycast(transform.position, Vector3.back, .67f);
     }
 
     void ExtendArm(float Input)
     {
+        //Arm extend & dextend code
         translate = Input * ext_Speed * Time.fixedDeltaTime;
         if (transform.localPosition.x < arm_Min)
         {
@@ -51,10 +61,6 @@ public class HungrySquirrels_ArmMovement : MonoBehaviour
         {
             transform.Translate(translate, 0, 0, Space.Self);
         }
-        //rb_Grabber.MovePosition(rb_Grabber.position * translate);
     }
-    void ShrinkArm(float Input)
-    { 
-        
-    }
+
 }

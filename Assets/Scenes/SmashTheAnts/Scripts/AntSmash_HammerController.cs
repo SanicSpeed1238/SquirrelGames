@@ -12,30 +12,26 @@ public class AntSmash_HammerController : MonoBehaviour
 
     [Header("Important Components")]
     [SerializeField] private Animator hammerAnimator;
+    [SerializeField] private AudioSource slamSound;
     [SerializeField] private ParticleSystem smashEffect;
 
     // Other Variables Needed
+    protected Vector2 movementInput;
+    protected bool actionPressed;
+
     private int playerID;
-    private AntSmash_GameManager gameManager;
-    private AntSmash_MinigameSetup minigameSetup;
-
     private int playerScore;
-    private bool actionPressed;
-    private Vector2 movementInput;
-
+    
     private void Update()
     {
-        // If game is not playing, ignore player input
-        if (!gameManager.gamePlaying) return;
+        if (!AntSmash_GameManager.Instance.gamePlaying) 
+            return;
 
-        // Move the hammer left, right, up, and down while keeping it in bounds
         MoveHammer();
-
-        // Swing the hammer when the player presses the action button
         if (actionPressed) SmashHammer();
     }
 
-    private void MoveHammer()
+    private void MoveHammer() // Player can move the hammer within the play area
     {
         Vector3 newPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(movementInput.x, 0, movementInput.y);
         newPosition.x = Mathf.Clamp(newPosition.x, -rangeX, rangeX);
@@ -48,6 +44,9 @@ public class AntSmash_HammerController : MonoBehaviour
         {
             hammerAnimator.SetTrigger("Smash");
             smashEffect.Play();
+
+            slamSound.pitch = Random.Range(0.5f, 1.0f);
+            slamSound.PlayOneShot(slamSound.clip);
         }
         actionPressed = false;
     }
@@ -63,20 +62,16 @@ public class AntSmash_HammerController : MonoBehaviour
             int addedScore = other.GetComponent<AntSmash_ObjectScript>().points;
             playerScore += addedScore;
             if (playerScore < 0) playerScore = 0;
-            gameManager.UpdateScore(playerID, playerScore, addedScore);
+            AntSmash_GameManager.Instance.UpdateScore(playerID, playerScore, addedScore);
         }
     }
 
-    public void ConfigurePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
     {
-        gameManager = GameObject.FindAnyObjectByType<AntSmash_GameManager>();
-        minigameSetup = GameObject.FindAnyObjectByType<AntSmash_MinigameSetup>();
-
         playerID = IDNumber;
-        transform.position = startPosition.position;
 
         playerScore = 0;
-        
+        transform.position = startPosition.position;    
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
     }
 
@@ -88,15 +83,15 @@ public class AntSmash_HammerController : MonoBehaviour
     {
         actionPressed = context.ReadValueAsButton();
 
-        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
-            minigameSetup.ConfirmJoin(playerID);
+        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
+            AntSmash_MinigameSetup.Instance.ConfirmJoin(playerID);
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
-        if (!gameManager.gameStarted && context.ReadValueAsButton() == true)
-            minigameSetup.StartGame();
+        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
+            AntSmash_MinigameSetup.Instance.StartGame();
 
-        if (gameManager.gamePlaying && context.ReadValueAsButton() == true)
-            gameManager.PauseGame(true);
+        if (AntSmash_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
+            AntSmash_GameManager.Instance.PauseGame(true);
     }
 }

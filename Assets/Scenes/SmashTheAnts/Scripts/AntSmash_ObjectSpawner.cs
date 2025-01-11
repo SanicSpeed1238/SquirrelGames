@@ -28,13 +28,11 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
     public int goldenAntSpawnRate; // Percentage of how likely a Golden Ant will spawn
 
     // Other Variables Needed
-    private AntSmash_GameManager gameManager;
     private float positionRange;
     private float increaseSpawnRateTimer;
 
     private void Start()
     {
-        gameManager = GameObject.FindAnyObjectByType<AntSmash_GameManager>();
         positionRange = transform.localScale.x / 2;
         increaseSpawnRateTimer = 0f;
 
@@ -43,14 +41,14 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(gameManager.gamePlaying) IncreaseSpawnRate();
+        if(AntSmash_GameManager.Instance.gamePlaying) IncreaseSpawnRate();
     }
 
     IEnumerator SpawnObjects() // Spawns game objects while the game is playing
     {
-        yield return new WaitUntil(() => gameManager.gamePlaying);
+        yield return new WaitUntil(() => AntSmash_GameManager.Instance.gamePlaying);
 
-        while (gameManager.gamePlaying)
+        while (AntSmash_GameManager.Instance.gamePlaying)
         {
             yield return new WaitForSeconds(spawnTimeRate + Random.Range(-0.5f, 0.1f));
             SpawnGameObject();

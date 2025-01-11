@@ -8110,7 +8110,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5450
+  m_VersionIndex: 5465
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8163,7 +8163,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7aaf33ed154a9f54e82f448440c4236b, type: 2}
+  - {fileID: 2100000, guid: 6c7dc08b7a2eaba418d0b05407f6a576, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8297,6 +8297,7 @@ MonoBehaviour:
   rangeYTop: 2
   rangeYBottom: -6.5
   hammerAnimator: {fileID: 6843601955790575930}
+  slamSound: {fileID: 7025733039910558927}
   smashEffect: {fileID: 2176075624798428498}
 --- !u!54 &2619408586307272773
 Rigidbody:
@@ -8533,7 +8534,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b06dc31c3946b954ab62d869c2bbad73, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

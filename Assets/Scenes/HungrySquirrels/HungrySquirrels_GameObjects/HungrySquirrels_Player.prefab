@@ -228,6 +228,10 @@ MonoBehaviour:
   ext_Speed: 3
   arm_Max: 10
   arm_Min: 0
+  stopright: 0
+  stopleft: 0
+  stoptop: 0
+  stopbottom: 0
 --- !u!65 &6335211588108841881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -245,9 +249,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Size: {x: 1.2, y: 1.2, z: 1.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6794723723835466134
 GameObject:
@@ -328,3 +332,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rot_Speed: 10
   playerID: 0
+  arm: {fileID: 0}
