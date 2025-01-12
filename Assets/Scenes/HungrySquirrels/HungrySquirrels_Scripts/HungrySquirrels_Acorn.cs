@@ -21,8 +21,7 @@ public class HungrySquirrels_Acorn : MonoBehaviour
     {
         if(other.GetComponentInParent<HungrySquirrels_ArmMovement>()!=null)
         {
-            Destroy(gameObject);
-            //print("AAAAAA");
+            
         }
     }
 }
