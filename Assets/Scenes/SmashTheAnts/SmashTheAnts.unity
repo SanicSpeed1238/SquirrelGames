@@ -2089,8 +2089,8 @@ MonoBehaviour:
   playerColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.19607843, b: 1, a: 1}
-  - {r: 1, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.7058824, g: 0.5882353, b: 0, a: 1}
+  - {r: 0, g: 0.7830189, b: 0, a: 1}
   spawnPositions:
   - {fileID: 332546806}
   - {fileID: 113977670}
@@ -4315,15 +4315,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimeRate: 1.25
-  spawnTimeRateDecrease: 0.4
-  increaseTimeInterval: 7
+  spawnTimeRate: 1
+  spawnTimeRateDecrease: 0.25
+  increaseTimeInterval: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 291907533956918691, guid: 3987ca05e8c731846a3b52fbd12741e2, type: 3}
   goldenAntObject: {fileID: 291907533956918691, guid: f63cf4cd120e57546938dd13729c788d, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
+  squirrelSpawnRate: 15
+  antSpawnRate: 70
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!1 &1054441829
@@ -6373,15 +6373,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimeRate: 1.25
-  spawnTimeRateDecrease: 0.4
-  increaseTimeInterval: 7
+  spawnTimeRate: 1
+  spawnTimeRateDecrease: 0.25
+  increaseTimeInterval: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 291907533956918691, guid: 3987ca05e8c731846a3b52fbd12741e2, type: 3}
   goldenAntObject: {fileID: 291907533956918691, guid: f63cf4cd120e57546938dd13729c788d, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
+  squirrelSpawnRate: 15
+  antSpawnRate: 70
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!65 &1564303851
@@ -9034,15 +9034,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimeRate: 1.25
-  spawnTimeRateDecrease: 0.4
-  increaseTimeInterval: 7
+  spawnTimeRate: 1
+  spawnTimeRateDecrease: 0.25
+  increaseTimeInterval: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 291907533956918691, guid: 3987ca05e8c731846a3b52fbd12741e2, type: 3}
   goldenAntObject: {fileID: 291907533956918691, guid: f63cf4cd120e57546938dd13729c788d, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
+  squirrelSpawnRate: 15
+  antSpawnRate: 70
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!65 &2054532137
