@@ -122,7 +122,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &98328200
+--- !u!1001 &162618980
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -132,7 +132,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
       propertyPath: playerID
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
+      propertyPath: ext_Speed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
+      propertyPath: rot_Clamp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
+      propertyPath: rot_Speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -176,11 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914939328233772526, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
       propertyPath: m_Name
-      value: HungrySquirrels_Player.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8914939328233772526, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: HungrySquirrels_Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -865,63 +873,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &1086400077
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831158193442745272, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8914939328233772526, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: m_Name
-      value: HungrySquirrels_Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
 --- !u!1 &1242810287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,5 +1124,4 @@ SceneRoots:
   - {fileID: 953353060}
   - {fileID: 402263065}
   - {fileID: 1024262874}
-  - {fileID: 1086400077}
-  - {fileID: 98328200}
+  - {fileID: 162618980}
