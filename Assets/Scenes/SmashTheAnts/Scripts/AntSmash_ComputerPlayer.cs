@@ -4,13 +4,13 @@ using System.Collections;
 public class AntSmash_ComputerPlayer : AntSmash_HammerController
 {
     // Variables Needed
-    Vector3 targetPosition;
-    Coroutine actionCoroutine;
+    private Vector3 targetPosition;
+    private Coroutine actionCoroutine;
+    private readonly float delayBetweenActionInput = 0.25f;
 
     private void Start()
     {
         SetMovementInput();
-        SetActionInput();
     }
 
     private void LateUpdate()
@@ -42,14 +42,11 @@ public class AntSmash_ComputerPlayer : AntSmash_HammerController
 
     private void SetActionInput()
     {
-        if(actionCoroutine == null)
-        {
-            actionCoroutine = StartCoroutine(ActionInputCoroutine());
-        }
+        actionCoroutine ??= StartCoroutine(ActionInputCoroutine());
     }
     IEnumerator ActionInputCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(0f, 0.5f));
+        yield return new WaitForSeconds(Random.Range(0f, delayBetweenActionInput));
         actionPressed = true;
 
         yield return new WaitUntil(() => actionPressed == false);

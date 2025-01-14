@@ -10,6 +10,8 @@ TagManager:
   - Birb
   - BirbDestination
   - BirbShadow
+  - Pickup
+  - Hazard
   layers:
   - Default
   - TransparentFX

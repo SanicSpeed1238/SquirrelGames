@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SmashTheAnts/SmashTheAnts.unity
+    guid: 29e6a69dc467bb347ad2205b668722a7
   m_configObjects: {}

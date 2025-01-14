@@ -4,11 +4,11 @@ using System.Collections;
 public class AntSmash_ObjectSpawner : MonoBehaviour
 {
     [Header("Spawner Values")]
-    [Range(1f, 5f)]
+    [Range(0.75f, 1.75f)]
     public float spawnTimeRate; // How long it takes before game objects are spawned
     [Range(0.1f, 1f)]
     public float spawnTimeRateDecrease; // How much the spawn time rate should decrease
-    [Range(5, 20)]
+    [Range(1, 10)]
     public int increaseTimeInterval; // How long it takes before the spawn time rate is lowered
 
     [Header("Object Prefabs")]
@@ -50,7 +50,7 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
 
         while (AntSmash_GameManager.Instance.gamePlaying)
         {
-            yield return new WaitForSeconds(spawnTimeRate + Random.Range(-0.5f, 0.1f));
+            yield return new WaitForSeconds(spawnTimeRate + Random.Range(-0.5f, 0.0f));
             SpawnGameObject();
         }
     }
@@ -93,7 +93,7 @@ public class AntSmash_ObjectSpawner : MonoBehaviour
         if(increaseSpawnRateTimer >= increaseTimeInterval)
         {
             spawnTimeRate -= spawnTimeRateDecrease;
-            if (spawnTimeRate < 0.6f) spawnTimeRate = 0.6f;
+            if (spawnTimeRate < 0.51f) spawnTimeRate = 0.51f;
             increaseSpawnRateTimer = 0f;
         }
     }
