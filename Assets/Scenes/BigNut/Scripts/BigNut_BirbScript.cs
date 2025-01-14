@@ -7,55 +7,61 @@ public class BigNut_BirbScript : MonoBehaviour
 {
     public Transform player;
     public Transform birbDestination;
+    public Transform birbSource;
 
     public Transform shadow;
 
     public float maxDistanceFromCharacter = 100f;
 
     private bool reachedPlayer = false;
+    private bool spawned = false;
+    private float spawnTime;
 
     // Start is called before the first frame update
 
     void Start()
     {
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }    
-        
-        if (birbDestination == null)
-        {
-            birbDestination = GameObject.FindGameObjectWithTag("BirbDestination").transform;
-        }
-
-        if (shadow == null)
-        {
-            shadow = GameObject.FindGameObjectWithTag("BirbShadow").transform;
-        }
         shadow.localScale = Vector3.zero;
+        spawnTime = Random.Range(1, 4);
+        transform.position = birbSource.position;
     }
 
 
     // Update is called once per frame
     void Update()
-    {
-        if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.position) > maxDistanceFromCharacter)
+    {        
+        if (spawned)
         {
-            shadow.localScale = Vector3.zero;
-            Destroy(gameObject);
-        }
 
-        if (!reachedPlayer)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, 0.01f);
-            shadow.localScale += new Vector3(0.005f, 0, 0.005f);
+            if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.position) > maxDistanceFromCharacter)
+            {
+                shadow.localScale = Vector3.zero;
+                spawned = false;
+            }
+
+            if (!reachedPlayer)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, 0.02f);
+                shadow.localScale += new Vector3(0.005f, 0, 0.005f);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, 0.08f);
+                if (shadow.localScale.x > 0)
+                {
+                    shadow.localScale -= new Vector3(0.01f, 0, 0.01f);
+                }
+            }
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, 0.08f);
-            if (shadow.localScale.x > 0)
+            spawnTime -= Time.deltaTime;
+            if (spawnTime <= 0)
             {
-                shadow.localScale -= new Vector3(0.01f, 0, 0.01f);
+                transform.position = birbSource.position;
+                spawned = true;
+                spawnTime = Random.Range(1, 4);
+                reachedPlayer = false;
             }
         }
     }
