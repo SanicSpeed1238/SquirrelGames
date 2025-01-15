@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TreeClimb_MinigameSetup : Base_MinigameSetup
@@ -13,6 +14,12 @@ public class TreeClimb_MinigameSetup : Base_MinigameSetup
     protected override void SetUpPlayer(PlayerInput playerController, int playerID)
     {
         playerController.gameObject.GetComponent<TreeClimb_PlayerController>().
-            InitializePlayer(playerID, playerColors[playerID - 1], spawnPositions[playerID - 1]);
+            InitializePlayer(playerID, spawnPositions[playerID - 1]);
+    }
+
+    protected override void SetUpComputer(GameObject computerController, int playerID)
+    {
+        computerController.GetComponent<TreeClimb_PlayerController>().
+            InitializePlayer(playerID, spawnPositions[playerID - 1]);
     }
 }

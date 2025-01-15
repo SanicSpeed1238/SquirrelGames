@@ -13,16 +13,10 @@ public class TreeClimb_HazardScript : MonoBehaviour
     public float forwardImpulse;
     public Vector3 rotationImpulse;
 
-    private void OnTriggerEnter(Collider other)
+    public void SquishSquirrel(TreeClimb_PlayerController player)
     {
-        if (other.GetComponent<TreeClimb_PlayerController>() != null)
-        {
-            if (other.GetComponent<TreeClimb_PlayerController>().CanSquishSquirrel())
-            {
-                other.GetComponent<TreeClimb_PlayerController>().SquishSquirrel(stunDuration, squishFactor);               
-                GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
-                GetComponent<BoxCollider>().enabled = false;
-            }          
-        }
+        player.SquishSquirrel(stunDuration, squishFactor);
+        GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
+        GetComponent<BoxCollider>().enabled = false;
     }
 }

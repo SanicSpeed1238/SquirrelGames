@@ -31,7 +31,7 @@ public class TreeClimb_GameManager : Base_GameManager
         treesMoving = true;
 
         playerScores = new int[4];
-        playersFinished = new bool[2];
+        playersFinished = new bool[4];
     }
 
     public int GetStartingIndex(int playerID)

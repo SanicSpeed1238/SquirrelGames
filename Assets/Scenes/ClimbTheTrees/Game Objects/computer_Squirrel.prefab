@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1480594792566326788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3169884579526367810, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884579526367810, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169884579526367810, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_Name
+      value: computer_Squirrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3279260588326544882, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+    - {fileID: 3169884579526367810, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: -8297760913819227473}
+  m_SourcePrefab: {fileID: 100100000, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+--- !u!1 &149355023127073300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1629947392992039952, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+  m_PrefabInstance: {fileID: 1480594792566326788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2750126855435771431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+  m_PrefabInstance: {fileID: 1480594792566326788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8297760913819227473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2750126855435771431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea8c55462f02c8419e3f7eed983eda3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  jumpSpeed: 30
+  jumpDelay: 0.5
+  invincibilityDuration: 1.5
+  squirrelModel: {fileID: 149355023127073300}
+  squirrelAnimator: {fileID: 3229411155215546781}
+--- !u!95 &3229411155215546781 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4061417056602161049, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+  m_PrefabInstance: {fileID: 1480594792566326788}
+  m_PrefabAsset: {fileID: 0}

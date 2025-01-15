@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   jumpSpeed: 30
-  jumpDelay: 0.1
+  jumpDelay: 0.5
   invincibilityDuration: 1.5
   squirrelModel: {fileID: 1629947392992039952}
   squirrelAnimator: {fileID: 4061417056602161049}
@@ -69,7 +69,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -175,18 +175,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4a2a4ab3-6b59-4448-83e0-f67729265dce
     m_ActionName: Player1/Start[/XInputControllerWindows/start]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 18f8c268-a235-4a1a-af1b-79c2997381fb
-    m_ActionName: Player/Action2[/XInputControllerWindows/buttonEast]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 74eb89bb-7c20-4e1a-af95-be430e8d2767
-    m_ActionName: Player/Action3[/XInputControllerWindows/buttonWest]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 80a48214-204e-41d4-8ff0-b139b3f91ddc
-    m_ActionName: Player/Action4[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player

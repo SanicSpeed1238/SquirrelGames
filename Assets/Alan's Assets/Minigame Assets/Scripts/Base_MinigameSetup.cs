@@ -11,11 +11,11 @@ public class Base_MinigameSetup : MonoBehaviour
     [Header("Computer Player")]
     public GameObject computerPlayer;
 
-    [Header("Player Colors")]
-    public Color[] playerColors;
-
     [Header("Player Spawn Positions")]
     public Transform[] spawnPositions;
+
+    [Header("Player Colors")]
+    public Color[] playerColors;
 
     // Other Variables Needed
     private PlayerInputManager playerInputManager;

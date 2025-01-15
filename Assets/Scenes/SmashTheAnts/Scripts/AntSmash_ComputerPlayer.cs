@@ -4,7 +4,9 @@ using System.Collections;
 public class AntSmash_ComputerPlayer : AntSmash_HammerController
 {
     // Variables Needed
+
     private Vector3 targetPosition;
+
     private Coroutine actionCoroutine;
     private readonly float delayBetweenActionInput = 0.25f;
 
@@ -42,6 +44,7 @@ public class AntSmash_ComputerPlayer : AntSmash_HammerController
 
     private void SetActionInput()
     {
+        // Press the actionInput at random time intervals
         actionCoroutine ??= StartCoroutine(ActionInputCoroutine());
     }
     IEnumerator ActionInputCoroutine()

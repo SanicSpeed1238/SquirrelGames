@@ -5,13 +5,12 @@ public class TreeClimb_AcornScript : MonoBehaviour
     [Header("Attributes")]
     public int points;
 
-    private void OnTriggerEnter(Collider other)
+    public void CollectAcorn(TreeClimb_PlayerController player)
     {
-        if (other.GetComponent<TreeClimb_PlayerController>() != null)
-        {
-            other.GetComponent<TreeClimb_PlayerController>().AddToPlayerScore(points);
+        // FX
 
-            Destroy(gameObject);
-        }
+        player.AddToPlayerScore(points);
+
+        Destroy(gameObject);
     }
 }
