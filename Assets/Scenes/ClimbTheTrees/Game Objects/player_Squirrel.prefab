@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8445479415082808222}
   - component: {fileID: 3279260588326544882}
-  - component: {fileID: 3076440681694187211}
-  - component: {fileID: 3111971352373500016}
+  - component: {fileID: 416299912439726197}
+  - component: {fileID: 323500465752699716}
   - component: {fileID: 3169884579526367810}
   m_Layer: 6
   m_Name: player_Squirrel
@@ -54,7 +54,7 @@ MonoBehaviour:
   invincibilityDuration: 1.5
   squirrelModel: {fileID: 1629947392992039952}
   squirrelAnimator: {fileID: 4061417056602161049}
---- !u!65 &3076440681694187211
+--- !u!65 &416299912439726197
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,12 +70,12 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!54 &3111971352373500016
+--- !u!54 &323500465752699716
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,10 +98,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &3169884579526367810
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,16 +2,7 @@ using UnityEngine;
 
 public class AntSmash_ObjectScript : MonoBehaviour
 {
-    public enum ObjectType
-    {
-        Squirrel,
-        Ant,
-        FireAnt,
-        GoldenAnt
-    }
-
     [Header("Gameplay Attributes")]
-    public ObjectType objType = ObjectType.Ant;
     [Range(1f, 10f)]
     public float moveSpeed;
     [Range(-3, 3)]

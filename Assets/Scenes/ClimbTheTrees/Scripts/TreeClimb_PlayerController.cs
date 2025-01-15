@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System;
 
 public class TreeClimb_PlayerController : MonoBehaviour
 {
@@ -21,38 +22,40 @@ public class TreeClimb_PlayerController : MonoBehaviour
     // Other Variables Needed
     private float verticalInput;
     private float horizontalInput;
-    private bool canInputHorizontal;
 
     private bool isAlive;
     private bool isFinished;
     private int playerID;
     private int playerScore; 
     
+    private Vector3 moveToPosition;
+    private Rigidbody playerRB;
     private readonly float minHeight = -2f;
     private readonly float maxHeight = 14f;
-    private LayerMask raycastLayer;
-    private Vector3 moveToPosition;
-    private GameObject finishPosition;
 
     private int currentTreeIndex;
     private bool isJumping;
-    private bool jumpPerformed;
     private float jumpTimer;
     private Vector3 jumpDirection;
     private Transform[] treePositions;
+    private GameObject finishPosition;
 
-    private bool isStunned;
-    private bool isInvincible;
     private float fallSpeed;
+    private bool isStunned;
+    private bool isInvincible;  
     private Vector3 originalScale;
 
-    private void Update()
+    private LayerMask playerLayer;
+    private LayerMask treeLayer;
+
+    private void FixedUpdate()
     {
         if(isAlive)
         {
             if (!isFinished)
             {
-                if (!TreeClimb_GameManager.Instance.gamePlaying) return;
+                if (!TreeClimb_GameManager.Instance.gamePlaying)
+                    return;
 
                 MoveVertically();
                 MoveHorizontally(); 
@@ -64,27 +67,33 @@ public class TreeClimb_PlayerController : MonoBehaviour
         } 
     }
 
-    private void MoveVertically()
+    private void MoveVertically() // Moves up and down the tree the player is currently on
     {
-        if (isJumping) // If player is in the middle of jumping, cancel up/down movement
-            return;
-
-        if (verticalInput != 0 && !isStunned) // Move the player up/down the visible tree space
+        if (isJumping) // If the player is in the middle of jumping, ignore vertical input
         {
-            moveToPosition = transform.position + moveSpeed * Time.deltaTime * new Vector3(0, verticalInput, 0);
+            return;
+        }
+        else
+        {
+            moveToPosition = playerRB.position;
+        }
+
+        if (verticalInput != 0 && !isStunned) // Move the player based on input. Otherwise, move them down with tree
+        {
+            moveToPosition += moveSpeed * Time.fixedDeltaTime * new Vector3(0, verticalInput, 0);
         }
         else
         {
             if(TreeClimb_GameManager.Instance.treesMoving)
-                moveToPosition = transform.position + Time.deltaTime * new Vector3(0, -fallSpeed, 0);
+                moveToPosition += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
         }
         
-        // Check if there is another player blocking the direction this player is trying to move in
+        // Check if the player is actually able to move in the desired direction
         moveToPosition.y = Mathf.Clamp(moveToPosition.y, VerifyVerticalMovement(Vector3.down), VerifyVerticalMovement(Vector3.up));
-        transform.position = moveToPosition;
+        playerRB.MovePosition(moveToPosition);
 
         // Check if the player has fallen behind
-        if (transform.position.y < minHeight)
+        if (playerRB.position.y < minHeight)
         {
             EliminatePlayer();
         }
@@ -103,20 +112,18 @@ public class TreeClimb_PlayerController : MonoBehaviour
         {
             // Check if there is another player blocking the direction this player is trying to jump in
             // If no other player is blocking this player's jump, check if there is a tree to jump to
-            if (VerifyHorizontalMovement(jumpDirection) && !jumpPerformed)
+            if (VerifyHorizontalMovement(jumpDirection) && !isJumping)
             {
-                if(jumpDirection == Vector3.right && currentTreeIndex < (treePositions.Length - 1))
+                if (jumpDirection == Vector3.right && currentTreeIndex < (treePositions.Length - 1))
                 {
                     currentTreeIndex++;
-                    moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, transform.position.y, transform.position.z);
-                    jumpPerformed = true;
+                    moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, playerRB.position.y, playerRB.position.z);
                     isJumping = true;                   
                 }
                 else if (jumpDirection == Vector3.left && currentTreeIndex > 0)
                 {
                     currentTreeIndex--;
-                    moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, transform.position.y, transform.position.z);
-                    jumpPerformed = true;
+                    moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, playerRB.position.y, playerRB.position.z);
                     isJumping = true;
                 }
             }   
@@ -124,11 +131,12 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         if (isJumping) // Translate player to the new position
         {
-            if (transform.position != moveToPosition)
+            if (playerRB.position != moveToPosition)
             {
                 isInvincible = true;
-                float step = jumpSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, moveToPosition, step);                
+                float step = jumpSpeed * Time.fixedDeltaTime;
+                Vector3 newPosition = Vector3.MoveTowards(playerRB.position, moveToPosition, step);
+                playerRB.MovePosition(newPosition);
             }
             else
             {
@@ -140,32 +148,38 @@ public class TreeClimb_PlayerController : MonoBehaviour
         else // Delay between new jump inputs
         {
             if (jumpTimer > 0) jumpTimer -= Time.deltaTime;
-            else jumpPerformed = false;
         }
     }
 
-    private float VerifyVerticalMovement(Vector3 direction)
+    private float VerifyVerticalMovement(Vector3 direction) // Checks if a player or the top of a tree is blocking their path
     {
         float verticalRaycastLength = 1f;
-        Vector3 raycastOrigin = transform.position;
+        Vector3 raycastOrigin = playerRB.position;
         raycastOrigin.y += direction == Vector3.up ? .5f : -.5f;
 
-        //Debug.DrawRay(raycastOrigin, direction * verticalRaycastLength, Color.yellow);
+        //Debug.DrawRay(raycastOrigin, direction * verticalRaycastLength, Color.red);
 
-        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, raycastLayer))
+        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, playerLayer))
         {
-            return this.gameObject.transform.position.y;
+            return playerRB.position.y;
         }
-        else return direction == Vector3.up ? maxHeight : minHeight - 1;
-    }
-    private bool VerifyHorizontalMovement(Vector3 direction)
-    {
-        float horizontalRaycastLength = 5.5f;
-        Vector3 boxHalfExtents = new(1f, 1f, 1f);
-        Vector3 boxOrigin = transform.position;
-        boxOrigin.x += direction == Vector3.right ? 0.5f : -0.5f;
+        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, treeLayer))
+        {
+            Vector3 moveDown = playerRB.position;
+            moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
+            return moveDown.y;
+        }
 
-        if (Physics.BoxCast(boxOrigin, boxHalfExtents, direction, out RaycastHit _, Quaternion.identity, horizontalRaycastLength, raycastLayer))
+        return direction == Vector3.up ? maxHeight : minHeight - 1;
+    }
+    private bool VerifyHorizontalMovement(Vector3 direction) // Checks if there is actually a tree to jump to
+    {
+        float horizontalRaycastLength = 5f;
+        Vector3 raycastOrigin = playerRB.position;
+
+        //Debug.DrawRay(raycastOrigin, direction * horizontalRaycastLength, Color.blue);
+
+        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, horizontalRaycastLength, treeLayer))
         {
             return false;
         }
@@ -230,6 +244,16 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.GetComponent<TreeClimb_AcornScript>() != null)
+        {
+
+        }
+
+        if (other.gameObject.GetComponent<TreeClimb_HazardScript>() != null)
+        {
+
+        }
+
         if (other.CompareTag("Finish"))
         {
             isFinished = true;
@@ -248,43 +272,41 @@ public class TreeClimb_PlayerController : MonoBehaviour
         isAlive = true;
         playerScore = 0;
 
-        currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
-        treePositions = TreeClimb_GameManager.Instance.treePositions;
-        transform.position = startPosition.position;
+        playerRB = GetComponent<Rigidbody>();
+        playerRB.position = startPosition.position;
+        originalScale = squirrelModel.transform.localScale;
 
         fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
-        raycastLayer = LayerMask.GetMask("Player", "Important Objects");
-
-        canInputHorizontal = true;
         jumpTimer = jumpDelay;
 
-        originalScale = squirrelModel.transform.localScale;
+        currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
+        treePositions = TreeClimb_GameManager.Instance.treePositions;
+
+        playerLayer = LayerMask.GetMask("Player");
+        treeLayer = LayerMask.GetMask("Tree");
     }
     public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
     {
         verticalInput = context.ReadValue<Vector2>().y;
 
-        // Jump input only registered when TAPPING in a direction
-        float xInput = context.ReadValue<Vector2>().x;
-        if (xInput > .5 && canInputHorizontal)
+        #region GetHorizontalInput
+        if (TreeClimb_GameManager.Instance.gamePlaying)
         {
-            horizontalInput = 1;
-            canInputHorizontal = false;
+            float xInput = context.ReadValue<Vector2>().x;
+            if (xInput > .5)
+            {
+                horizontalInput = 1;
+            }
+            else if (xInput < -.5)
+            {
+                horizontalInput = -1;
+            }
+            else
+            {
+                horizontalInput = 0;
+            }       
         }
-        else if (xInput < -.5 && canInputHorizontal)
-        {
-            horizontalInput = -1;
-            canInputHorizontal = false;
-        }
-        else if (-.1 < xInput && xInput < .1)
-        {
-            horizontalInput = 0;
-            canInputHorizontal = true;
-        }
-        else
-        {
-            horizontalInput = 0;
-        }
+        #endregion
     }
     public void OnAction(InputAction.CallbackContext context) // Action button not used.
     {
@@ -295,9 +317,10 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
     public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
     {
-        if (!TreeClimb_GameManager.Instance.gameStarted)
-        {
+        if (!TreeClimb_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
             TreeClimb_MinigameSetup.Instance.StartGame();
-        }
+
+        if (TreeClimb_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
+            TreeClimb_GameManager.Instance.PauseGame(true);
     }
 }

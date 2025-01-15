@@ -14,22 +14,23 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
     public bool rotateZ;
     public float rotationSpeed;
 
+    [Header("Important Components")]
+    [SerializeField] private GameObject objectMesh;
+
     // Other Variables Needed
-    private bool freeFalling;
+    private Rigidbody objectRB;
     private float currentSpeed;
     private readonly float destroyHeight = -10f;
-    private Rigidbody objectRB;
 
     private void Start()
     {
-        freeFalling = false;
         currentSpeed = baseSpeed;
         objectRB = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        if (!freeFalling)
+        if (objectRB.isKinematic)
         {
             MoveDown();
             RotateObject();
@@ -40,26 +41,29 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
 
     private void MoveDown()
     {
-        currentSpeed += fallAcceleration * Time.fixedDeltaTime;
-        objectRB.velocity = currentSpeed * Vector3.down;
+        float deltaTime = Time.fixedDeltaTime;
+        currentSpeed += fallAcceleration * deltaTime;
+
+        Vector3 newPosition = objectRB.position + currentSpeed * deltaTime * Vector3.down;
+        objectRB.MovePosition(newPosition);
     }
 
     private void RotateObject()
     {
+        float deltaTime = Time.fixedDeltaTime;
+
         Vector3 rotationVector = new(
-            rotateX ? rotationSpeed * Time.fixedDeltaTime : 0f,
-            rotateY ? rotationSpeed * Time.fixedDeltaTime : 0f,
-            rotateZ ? rotationSpeed * Time.fixedDeltaTime : 0f
+            rotateX ? rotationSpeed * deltaTime : 0f,
+            rotateY ? rotationSpeed * deltaTime : 0f,
+            rotateZ ? rotationSpeed * deltaTime : 0f
         );
 
-        Quaternion newRotation = objectRB.rotation * Quaternion.Euler(rotationVector);
-        objectRB.MoveRotation(newRotation);
+        objectMesh.transform.rotation *= Quaternion.Euler(rotationVector);
     }
-
 
     private void CheckPosition()
     {
-        if (transform.position.y < destroyHeight)
+        if (objectRB.position.y < destroyHeight)
         {
             Destroy(gameObject);
         }
@@ -67,10 +71,8 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
 
     public void EnableFreefall(float forwardForce, Vector3 rotationForce)
     {
-        freeFalling = true;
-
-        objectRB.velocity = Vector3.zero;
-        objectRB.useGravity = true;
+        objectRB.isKinematic = false;
+        objectRB.velocity = Vector3.zero;     
         objectRB.AddForce(new Vector3(0, 0, -forwardForce), ForceMode.Impulse);
         objectRB.AddTorque(rotationForce, ForceMode.Impulse);
     }

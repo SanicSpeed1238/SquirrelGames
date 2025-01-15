@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8094249477609989201}
   - component: {fileID: 6990849120382523447}
   - component: {fileID: 2241335514502304232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crosshair Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8220,7 +8220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1035418910822888696}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8428,7 +8428,7 @@ GameObject:
   - component: {fileID: 1566252211611958684}
   - component: {fileID: 7025733039910558927}
   - component: {fileID: 2176075624798428498}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hit Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

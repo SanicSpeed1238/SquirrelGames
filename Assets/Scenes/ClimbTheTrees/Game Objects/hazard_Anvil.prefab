@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5486004310033531550}
   - component: {fileID: 7980661183452405941}
   - component: {fileID: 4102252077098518792}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: hazard_Anvil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,6 +70,7 @@ MonoBehaviour:
   rotateY: 0
   rotateZ: 0
   rotationSpeed: 0
+  objectMesh: {fileID: 3688674306857423501}
 --- !u!65 &7980661183452405941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,8 +114,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -192,13 +193,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
+--- !u!1 &3688674306857423501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
+  m_PrefabInstance: {fileID: 4607644681773641692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4069878649307301943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}

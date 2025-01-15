@@ -19,14 +19,23 @@ public class TreeClimb_TreesScript : MonoBehaviour
     private readonly float treesHeight = 15f;
     private float destroyHeight = -25f;
     private bool newTreeSpawned;
+    private Rigidbody treeRB;
 
-    private void Update()
+    private void Start()
+    {
+        treeRB = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
     {
         if (!TreeClimb_GameManager.Instance.gamePlaying) return;
 
-        transform.Translate((moveSpeed * Time.deltaTime * -Vector3.up), Space.World);
+        // Moves the set of trees down
+        Vector3 movement = moveSpeed * Time.fixedDeltaTime * Vector3.down;
+        treeRB.MovePosition(treeRB.position + movement);
 
-        if (transform.position.y <= 0.0f && !newTreeSpawned)
+        // Performs a function based on the TreeGroup type once this object has fallen below a certain height
+        if (treeRB.position.y <= 0.0f && !newTreeSpawned)
         {
             SpawnNewChunk();
             newTreeSpawned = true;
@@ -36,7 +45,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
             else if (treeGroupType == TreeGroup.Goal)
                 destroyHeight /= 2f;
         }
-        else if (transform.position.y < destroyHeight)
+        else if (treeRB.position.y < destroyHeight)
         {
             if (treeGroupType == TreeGroup.Goal)
             {
@@ -57,7 +66,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
         if (nextTreeGroup != null)
         {
-            Vector3 newTreeSpawnPosition = new(transform.position.x, transform.position.y + treesHeight, transform.position.z);
+            Vector3 newTreeSpawnPosition = new(treeRB.position.x, treeRB.position.y + treesHeight, treeRB.position.z);
             Instantiate(nextTreeGroup, newTreeSpawnPosition, Quaternion.identity);
         }     
     }

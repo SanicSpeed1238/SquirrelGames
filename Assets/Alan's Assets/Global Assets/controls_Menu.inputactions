@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputs",
+    "name": "controls_Menu",
     "maps": [
         {
             "name": "Player",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Action1",
+                    "name": "Select",
                     "type": "Button",
                     "id": "f93a1034-5856-4f04-ae30-f4d0afe0723f",
                     "expectedControlType": "Button",
@@ -24,27 +24,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Action2",
+                    "name": "Back",
                     "type": "Button",
                     "id": "18f8c268-a235-4a1a-af1b-79c2997381fb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Action3",
-                    "type": "Button",
-                    "id": "74eb89bb-7c20-4e1a-af95-be430e8d2767",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Action4",
-                    "type": "Button",
-                    "id": "80a48214-204e-41d4-8ff0-b139b3f91ddc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -123,7 +105,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Action1",
+                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -145,29 +127,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Action2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bec1881b-a402-4124-8b28-57b68e8ca6eb",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Action3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0d45dae9-a2c4-4d02-8280-b321de3074fc",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Action4",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8334403107765437348}
   - component: {fileID: 6833690694777372153}
+  - component: {fileID: -3243785780837793057}
   m_Layer: 0
   m_Name: tree_Group_5_Top
   m_TagString: Untagged
@@ -53,6 +54,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeGroupType: 1
   moveSpeed: 2.5
+--- !u!54 &-3243785780837793057
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448863876475028597}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &1679679835475582038
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147420678018506392}
   - component: {fileID: 3867226934368536231}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Unclimbable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,12 +128,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.5}
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3048569252873013267
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007333593037355918}
   - component: {fileID: 2427140945619716066}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Unclimbable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,12 +181,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 3, z: 1}
-  m_Center: {x: 0, y: 2, z: -0.5}
+  m_Size: {x: 1, y: 3, z: 2}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &3729703651763518283
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8569835712918921740}
   - component: {fileID: 3212568464913038853}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Unclimbable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,12 +234,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 3, z: 1}
-  m_Center: {x: 0, y: 2, z: -0.5}
+  m_Size: {x: 1, y: 3, z: 2}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &5671256450774497034
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2912673142413795983}
   - component: {fileID: 7813915654812571200}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Unclimbable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,12 +287,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.5}
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1186884008881202435
 PrefabInstance:
   m_ObjectHideFlags: 0
