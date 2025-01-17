@@ -2086,16 +2086,16 @@ MonoBehaviour:
   joinedPlayers: {fileID: 660913854}
   startText: {fileID: 1531168321}
   computerPlayer: {fileID: 6710749470464069144, guid: e660b93ae1fd22747b7cdd5c1be2c2d1, type: 3}
-  playerColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.27450982, b: 1, a: 1}
-  - {r: 1, g: 0.78431374, b: 0, a: 1}
-  - {r: 0, g: 0.88235295, b: 0, a: 1}
   spawnPositions:
   - {fileID: 332546806}
   - {fileID: 113977670}
   - {fileID: 2121664984}
   - {fileID: 862555452}
+  playerColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.27450982, b: 1, a: 1}
+  - {r: 1, g: 0.78431374, b: 0, a: 1}
+  - {r: 0, g: 0.78431374, b: 0, a: 1}
 --- !u!4 &427688208
 Transform:
   m_ObjectHideFlags: 0

@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e623de1181b9e448a8678d90408dddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objType: 0
   moveSpeed: 6
   points: -3
   squishTime: 1

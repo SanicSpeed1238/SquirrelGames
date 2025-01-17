@@ -17,7 +17,8 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     // Other Variables Needed
     private readonly float treesHeight = 15f;
-    private float destroyHeight = -25f;
+    private readonly float destroyHeight = -25f;
+    private readonly float stopHeight = -4f;
     private bool newTreeSpawned;
     private Rigidbody treeRB;
 
@@ -28,46 +29,49 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!TreeClimb_GameManager.Instance.gamePlaying) return;
-
         // Moves the set of trees down
-        Vector3 movement = moveSpeed * Time.fixedDeltaTime * Vector3.down;
-        treeRB.MovePosition(treeRB.position + movement);
-
+        if (TreeClimb_GameManager.Instance.gamePlaying || treeGroupType == TreeGroup.Goal)
+        {
+            Vector3 movement = moveSpeed * Time.fixedDeltaTime * Vector3.down;
+            treeRB.MovePosition(treeRB.position + movement);
+        }
+          
+        /*
         // Performs a function based on the TreeGroup type once this object has fallen below a certain height
+        */
+
+        // Spawns the next chunk of trees based on the game manager
         if (treeRB.position.y <= 0.0f && !newTreeSpawned)
         {
-            SpawnNewChunk();
-            newTreeSpawned = true;
-
-            if (treeGroupType == TreeGroup.Treetops)
-                TreeClimb_GameManager.Instance.RemoveTreeLanes();
-            else if (treeGroupType == TreeGroup.Goal)
-                destroyHeight /= 2f;
+            SpawnNewChunk();            
         }
+        // Destroys the gameobject if it has gone too low on the y-axis
         else if (treeRB.position.y < destroyHeight)
         {
-            if (treeGroupType == TreeGroup.Goal)
-            {
-                moveSpeed = 0f;
-                TreeClimb_GameManager.Instance.treesMoving = false;
-
-                this.enabled = false;
-                return;
-            }
-
             Destroy(gameObject);
+        }
+        // If this tree group is a Goal, stop moving the trees, as well as the player, down automatically
+        else if (treeRB.position.y <= stopHeight && treeGroupType == TreeGroup.Goal)
+        {
+            moveSpeed = 0f;
+            TreeClimb_GameManager.Instance.treesMoving = false;
         }
     }
 
     public void SpawnNewChunk()
-    {  
+    {
+        newTreeSpawned = true;
         GameObject nextTreeGroup = TreeClimb_GameManager.Instance.GetNextTreeGroup();
 
         if (nextTreeGroup != null)
         {
             Vector3 newTreeSpawnPosition = new(treeRB.position.x, treeRB.position.y + treesHeight, treeRB.position.z);
             Instantiate(nextTreeGroup, newTreeSpawnPosition, Quaternion.identity);
+
+            if (nextTreeGroup.GetComponent<TreeClimb_TreesScript>().treeGroupType == TreeGroup.Treetops)
+            {
+                TreeClimb_GameManager.Instance.RemoveTreeLanes();
+            }
         }     
     }
 }
