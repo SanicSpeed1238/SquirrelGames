@@ -18,6 +18,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     //Referencing the arm to stop movement when collision with wall or player happens
     public GameObject arm;
     public BoxCollider hitBox;
+    //public LayerMask acornLayer;
     protected float translate;
     protected bool pressed;
 
@@ -102,7 +103,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             }
         }
 
-        if (transform.localPosition.x < 0)
+        if (arm.transform.localPosition.x < 0)
         {
             collectActive = false;
             collided = false;
@@ -113,31 +114,32 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.gameObject.tag)
-        {
-            case "Pickup":
+
+        //switch (other.gameObject.tag)
+        //{
+        //    case "Pickup":
                 //if (moveInput > 0 && collectActive == false)
                 //{
                 //    collectActive = true;
                 //}
                 //if (collectActive == true)
                 //{
-                    collided = true;
-                    Destroy(other);
+        //            collided = true;
+        //            Destroy(other);
                 //    print("Works");
                 //}
                 //else
                 //{
                 //    print("Uh Oh");
                 //}
-                break;
-            case "Player":
-                collided = true;
-                break;
-            default:
-                collided = true;
-                break;
-        }
+        //        break;
+        //    case "Player":
+        //        collided = true;
+        //        break;
+        //    default:
+        //        collided = true;
+        //        break;
+        //}
 
     }
 }
