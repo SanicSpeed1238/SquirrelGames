@@ -10,28 +10,33 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
 {
     //Controls the speed of rotation for character
     public float rot_Speed = 5f;
+    //Controls Arm Speed
     public float ext_Speed = 0.2f;
 
     //Shows which player the character is connected to for multiplayer(if it is viable)
     public int playerID = 0;
 
     //Referencing the arm to stop movement when collision with wall or player happens
-    public GameObject arm;
-    public BoxCollider hitBox;
-    //public LayerMask acornLayer;
-    protected float translate;
-    protected bool pressed;
+    public GameObject arm;//Reference to Arm Child/Cube.1
+    public BoxCollider hitBox;//Hit box for arm
 
-    private float rotationInput;
-    protected float curr_Rot;
+    protected float translate;//Moves Arm forward(put a negative at front to go backwards)
+    protected bool pressed;//Checks if button has already been pressed
+
+    //Rotation Controls
+    private float rotationInput;//Check for keys/input for rotation
+    protected float curr_Rot;//Checks for current rotation of the Player
+    public float rot_Max;//Maximum rotation of Player/Limits
     
-    private float moveInput;
-    protected bool collectActive;
-    public bool collided;
+    //Arm Controls
+    public float moveInput;//Check for key/input for rotation
+    public bool collectActive;//Checks for if acorn has been collected for arm to retract
+    public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
+
     // Start is called before the first frame update
     void Start()
     {
-        hitBox = arm.GetComponent<BoxCollider>();
+        hitBox = arm.GetComponent<BoxCollider>();//Sets Arm Collision Trigger
         //Sets default position and rotation of character when chosen as a specific playerID
         switch (playerID)
         {
@@ -70,10 +75,11 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     void RotateArm(float Input)
     {
         float rotation = Input * rot_Speed * Time.deltaTime * 60;//Applies rot_speed to input
+        //See if arm is moving so player cannot rotate
         if (pressed == false)
         {
             //Limit's The Rotation of arm so they can stay within the box
-            if ((rotationInput < 0 && curr_Rot > -50) || (rotationInput > 0 && curr_Rot < 50))
+            if ((rotationInput < 0 && curr_Rot > -rot_Max) || (rotationInput > 0 && curr_Rot < rot_Max))
             {
                 //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
                 transform.Rotate(Vector3.up, rotation);
@@ -85,30 +91,31 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     void ExtendArm(float Input)
     {
         //Arm extend & dextend code
-        translate = ext_Speed * Time.deltaTime * 60;
+        translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
         if (Input > 0)
         {
-            pressed = true;
+            pressed = true;//To Stop player rotation
         }
 
-        if (pressed == true)
+        if (pressed == true)//Starts moving when pressed
         {
-            if (collided == true)
+            if (collided == true)//When collision, arm moves backward
             {
                 arm.transform.Translate(-translate, 0, 0, Space.Self);
             }
-            else
+            else//Else, keep moving forward
             {
                 arm.transform.Translate(translate, 0, 0, Space.Self);
             }
         }
 
-        if (arm.transform.localPosition.x < 0)
+        if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
+            //Change previous values false to enable arm rotation & interaction
             collectActive = false;
             collided = false;
             pressed = false;
-            arm.transform.localPosition = new Vector3(0, 0, 0);
+            arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
         }
     }
 

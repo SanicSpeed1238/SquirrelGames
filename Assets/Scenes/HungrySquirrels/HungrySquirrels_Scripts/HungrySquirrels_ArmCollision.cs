@@ -21,23 +21,28 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         hitBox = GetComponent<BoxCollider>();
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                other.gameObject.GetComponent<HungrySquirrels_Acorn>().AcornCollected(mainBody);
+                if (mainBody.moveInput > 0 && mainBody.collectActive == false)
+                {
+                    mainBody.collectActive = true;
+                }
+                if (mainBody.collectActive == true)
+                {
+                    other.gameObject.GetComponent<HungrySquirrels_Acorn>().AcornCollected(mainBody);
+                }
+                
                 break;
-            case "Player":
+            case "Player"://If player collides with other player arm, knock acorn up
                 mainBody.collided = true;
                 break;
+            case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
+                break;
             default:
-                mainBody.collided=true;
+                mainBody.collided=true;//If player collided with wall, bounce back
                 break;
         }
 
