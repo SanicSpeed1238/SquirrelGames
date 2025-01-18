@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  jumpSpeed: 30
+  jumpSpeed: 20
+  bounceSpeed: 15
   jumpDelay: 0.5
   invincibilityDuration: 1.5
   squirrelModel: {fileID: 149355023127073300}

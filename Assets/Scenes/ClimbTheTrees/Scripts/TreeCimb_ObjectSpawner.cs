@@ -4,8 +4,8 @@ using System.Collections;
 public class TreeClimb_ObjectSpawner : MonoBehaviour
 {
     [Header("Spawn Attributes")]
-    [Range(0.5f, 3.0f)]
-    public float spawnTime;
+    [Range(0.1f, 2.0f)]
+    public float spawnTimer;
 
     [Header("Important Components")]
     public GameObject[] objectPrefabs;
@@ -22,7 +22,7 @@ public class TreeClimb_ObjectSpawner : MonoBehaviour
             yield return new WaitUntil(() => TreeClimb_GameManager.Instance.gamePlaying);
             yield return new WaitUntil(() => TreeClimb_GameManager.Instance.objectsSpawning);
 
-            yield return new WaitForSeconds(spawnTime - Random.Range(0f, 0.15f));
+            yield return new WaitForSeconds(spawnTimer - Random.Range(0f, 0.15f));
 
             GameObject newCollectable = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
             Vector3 spawnPosition = transform.position;

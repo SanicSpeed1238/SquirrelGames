@@ -14,8 +14,10 @@ public class TreeClimb_PlayerController : MonoBehaviour
     [Header("Movement Values")]
     [Range(10f, 20f)]
     public float moveSpeed;
-    [Range(20f, 30f)]
+    [Range(10f, 20f)]
     public float jumpSpeed;
+    [Range(10f, 20f)]
+    public float bounceSpeed;
     [Range(0.1f, 1f)]
     public float jumpDelay;
     [Range(1f, 3f)]
@@ -47,6 +49,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private Transform[] treePositions;
     private GameObject finishPosition;
 
+    private bool isBouncing;
     private bool isInvincible;
     private TreeClimb_PlayerState state;
 
@@ -143,13 +146,14 @@ public class TreeClimb_PlayerController : MonoBehaviour
                 {
                     if (playerRB.position != moveToPosition)
                     {
-                        float step = jumpSpeed * Time.fixedDeltaTime;
+                        float step = (!isBouncing ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
                         Vector3 newPosition = Vector3.MoveTowards(playerRB.position, moveToPosition, step);
                         playerRB.MovePosition(newPosition);
                     }
                     else
                     {
                         jumpTimer = jumpDelay;
+                        isBouncing = false;
                         state = TreeClimb_PlayerState.Climbing;
                     }
                     break;
@@ -194,6 +198,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private void BounceSquirrel() // Reverse the jump direction if colliding with another player or hazard
     {
+        isBouncing = true;
         jumpDirection = -jumpDirection;
 
         if (jumpDirection == Vector3.right && currentTreeIndex < (treePositions.Length - 1))
