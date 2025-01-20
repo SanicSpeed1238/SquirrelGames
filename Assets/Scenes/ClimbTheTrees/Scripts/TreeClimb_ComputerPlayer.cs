@@ -6,8 +6,8 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
 
     private float currentVerticalInput;
     private float currentVerticalMoveTimer;
-    private readonly float maxTimeMovingUp = 3f;
-    private readonly float maxTimeMovingDown = 1f;
+    private readonly float minTimeMoving = 1f;
+    private readonly float maxTimeMoving = 3f;
     private readonly float maxDistanceBetweenBounds = 2f;
 
     private float currentJumpTimer;
@@ -16,7 +16,7 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
     private void Start()
     {
         currentVerticalInput = 1;
-        currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingUp);
+        currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
     }
 
     private void LateUpdate()
@@ -50,23 +50,23 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
         if (currentVerticalInput < 0)
         {
             currentVerticalInput = Random.Range(0.1f, 1.0f);
-            currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingUp);
+            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
-        else if (currentVerticalInput >= 0)
+        else if (currentVerticalInput > 0)
         {
-            currentVerticalInput = Random.Range(-1.0f, 0.0f);
-            currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingDown);
+            currentVerticalInput = Random.Range(-1.0f, -0.1f);
+            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
     }
     private bool CheckVerticalDistance()
     {
         float playerY = playerRB.position.y;
 
-        if (playerY - minHeight <= maxDistanceBetweenBounds)
+        if (currentVerticalInput < 0 && playerY - minHeight <= maxDistanceBetweenBounds)
         {
             return true;
         }
-        else if (maxHeight - playerY <= maxDistanceBetweenBounds)
+        else if (currentVerticalInput > 0 && maxHeight - playerY <= maxDistanceBetweenBounds)
         {
             return true;
         }
@@ -92,12 +92,13 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
                 {
                     horizontalInput = -1;
                 }
+                currentJumpTimer = jumpDelay;
             }
             else
             {
                 horizontalInput = 0;
+                currentJumpTimer = 0.1f;
             }
-            currentJumpTimer = jumpDelay;
         }
         else
         {

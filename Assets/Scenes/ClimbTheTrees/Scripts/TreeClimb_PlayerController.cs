@@ -53,8 +53,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private bool isInvincible;
     private TreeClimb_PlayerState state;
 
-    private LayerMask playerLayer;
-    private LayerMask treeLayer;
+    protected LayerMask playerLayer;
+    protected LayerMask treeLayer;
 
     private void FixedUpdate()
     {
@@ -171,7 +171,16 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, playerLayer))
         {
-            return playerRB.position.y;
+            if (direction == Vector3.up)
+            {
+                Vector3 moveDown = playerRB.position;
+                moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
+                return moveDown.y;
+            }
+            else
+            {
+                return playerRB.position.y;
+            }   
         }
         if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, treeLayer))
         {
@@ -219,7 +228,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
     IEnumerator SquishCoroutine(float stunDuration, float squishScale)
     {
-        squirrelModel.transform.localScale = new(originalScale.x, originalScale.y, squishScale);
+        squirrelModel.transform.localScale = new(originalScale.x, squishScale, originalScale.z);
 
         state = TreeClimb_PlayerState.Squished;
         yield return new WaitForSeconds(stunDuration);
@@ -295,7 +304,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         }
     }
 
-    public void InitializePlayer(int IDNumber, Transform startPosition) // Initializes squirrel game object
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
     {
         playerID = IDNumber;
 
@@ -305,9 +314,11 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         playerRB = GetComponent<Rigidbody>();
         playerRB.position = startPosition.position;
-        originalScale = squirrelModel.transform.localScale;
 
-        fallSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
+        originalScale = squirrelModel.transform.localScale;
+        GetComponentInChildren<Outline>().OutlineColor = playerColor;
+
+        fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
         jumpTimer = jumpDelay;
 
         currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);

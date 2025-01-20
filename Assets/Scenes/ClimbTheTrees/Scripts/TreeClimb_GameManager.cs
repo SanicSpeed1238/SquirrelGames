@@ -7,6 +7,8 @@ public class TreeClimb_GameManager : Base_GameManager
     public static TreeClimb_GameManager Instance;
 
     [Header("Gameplay Attributes")]
+    [Range(1f,3f)]
+    public float gameMoveSpeed;
     public Transform[] treePositions;
     public GameObject[] treeSequence;
 

@@ -1906,6 +1906,7 @@ MonoBehaviour:
   scoresUI: {fileID: 754590331}
   gameStarted: 0
   gamePlaying: 0
+  gameMoveSpeed: 2.5
   treePositions:
   - {fileID: 840690042}
   - {fileID: 2048109808}
@@ -2540,9 +2541,9 @@ MonoBehaviour:
   - {fileID: 325739985}
   playerColors:
   - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 1, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.27450982, b: 1, a: 1}
+  - {r: 1, g: 0.78431374, b: 0, a: 1}
+  - {r: 0, g: 0.78431374, b: 0, a: 1}
 --- !u!4 &1778955909
 Transform:
   m_ObjectHideFlags: 0

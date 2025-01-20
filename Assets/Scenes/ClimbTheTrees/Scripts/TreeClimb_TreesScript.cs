@@ -11,20 +11,18 @@ public class TreeClimb_TreesScript : MonoBehaviour
     [Header("Tree Group Type")]
     public TreeGroup treeGroupType = TreeGroup.Trunks;
 
-    [Header("Movement Values")]
-    [Range(1f, 3f)]
-    public float moveSpeed;
-
     // Other Variables Needed
+    private Rigidbody treeRB;
+    private float moveSpeed;
     private readonly float treesHeight = 15f;
     private readonly float destroyHeight = -25f;
     private readonly float stopHeight = -4f;
     private bool newTreeSpawned;
-    private Rigidbody treeRB;
 
     private void Start()
     {
         treeRB = GetComponent<Rigidbody>();
+        moveSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
     }
 
     private void FixedUpdate()
