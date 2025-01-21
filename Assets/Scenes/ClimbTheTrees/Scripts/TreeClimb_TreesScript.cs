@@ -68,7 +68,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
             if (nextTreeGroup.GetComponent<TreeClimb_TreesScript>().treeGroupType == TreeGroup.Treetops)
             {
-                TreeClimb_GameManager.Instance.RemoveTreeLanes();
+                TreeClimb_GameManager.Instance.treeLanesRemoved++;
             }
         }     
     }

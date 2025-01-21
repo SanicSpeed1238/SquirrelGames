@@ -15,6 +15,7 @@ public class TreeClimb_GameManager : Base_GameManager
     // Variables Needed
     [HideInInspector] public bool objectsSpawning;
     [HideInInspector] public bool treesMoving;
+    [HideInInspector] public int treeLanesRemoved;
     private bool[] playersFinished;
     private int[] playerScores;
     private int currentSequenceIndex;
@@ -28,6 +29,7 @@ public class TreeClimb_GameManager : Base_GameManager
     private void Start()
     {
         currentSequenceIndex = -1;
+        treeLanesRemoved = 0;
 
         objectsSpawning = true;
         treesMoving = true;
@@ -39,6 +41,15 @@ public class TreeClimb_GameManager : Base_GameManager
     public int GetStartingIndex(int playerID)
     {
         return treeStartingIndex[playerID - 1];
+    }
+
+    public int GetRandomTreeLane()
+    {
+        int startingIndex = treeLanesRemoved;
+        int endingIndex = treePositions.Length - treeLanesRemoved;
+
+        int randomIndex = UnityEngine.Random.Range(startingIndex, endingIndex);
+        return randomIndex;
     }
 
     public GameObject GetNextTreeGroup()
@@ -55,15 +66,6 @@ public class TreeClimb_GameManager : Base_GameManager
             return treeSequence[currentSequenceIndex];
         }
         else return null;
-    }
-
-    public void RemoveTreeLanes()
-    {
-        if (treePositions.Length <= 3) return;
-
-        Transform[] newTreePositions = new Transform[treePositions.Length - 2];
-        Array.Copy(treePositions, 1, newTreePositions, 0, newTreePositions.Length);
-        treePositions = newTreePositions;
     }
 
     public void UpdateScore(int playerID, int newScore)

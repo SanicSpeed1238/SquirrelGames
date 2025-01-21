@@ -3,6 +3,16 @@ using System.Collections;
 
 public class TreeClimb_ObjectSpawner : MonoBehaviour
 {
+    public enum SpawnerType
+    {
+        None,
+        Acorn,
+        Hazard,
+    }
+
+    [Header("Spawner Type")]
+    public SpawnerType spawnerType;
+
     [Header("Spawn Attributes")]
     [Range(0.1f, 2.0f)]
     public float spawnTimer;
@@ -24,10 +34,18 @@ public class TreeClimb_ObjectSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(spawnTimer - Random.Range(0f, 0.15f));
 
-            GameObject newCollectable = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
+            GameObject newObject = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
+            
             Vector3 spawnPosition = transform.position;
-            spawnPosition.x = TreeClimb_GameManager.Instance.treePositions[Random.Range(0, TreeClimb_GameManager.Instance.treePositions.Length)].transform.position.x;
-            Instantiate(newCollectable, spawnPosition, Quaternion.identity);
+            int treeIndex = TreeClimb_GameManager.Instance.GetRandomTreeLane();
+            spawnPosition.x = TreeClimb_GameManager.Instance.treePositions[treeIndex].transform.position.x;
+            
+            GameObject spawnedObject = Instantiate(newObject, spawnPosition, Quaternion.identity);
+
+            if (spawnerType == SpawnerType.Hazard)
+            {
+                spawnedObject.GetComponent<TreeClimb_HazardScript>().SetTreeIndex(treeIndex);
+            }
         }
     }
 }
