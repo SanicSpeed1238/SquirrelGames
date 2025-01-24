@@ -3791,6 +3791,7 @@ MonoBehaviour:
   - {fileID: 6017754041197184479, guid: 0a62f3463b09ff8419822782ce66996d, type: 3}
   objectsSpawning: 0
   treesMoving: 0
+  finalTimerStarted: 0
   treeLanesRemoved: 0
 --- !u!4 &1602040022
 Transform:
@@ -4723,6 +4724,7 @@ MonoBehaviour:
   - {r: 0, g: 0.27450982, b: 1, a: 1}
   - {r: 1, g: 0.78431374, b: 0, a: 1}
   - {r: 0, g: 0.78431374, b: 0, a: 1}
+  playersInGame: []
 --- !u!4 &1778955909
 Transform:
   m_ObjectHideFlags: 0

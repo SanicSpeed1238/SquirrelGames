@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class AntSmash_ObjectSpawner : MonoBehaviour
+public class AntSmash_AnimalSpawner : MonoBehaviour
 {
     [Header("Spawner Values")]
     [Range(0.75f, 1.5f)]

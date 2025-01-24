@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AntSmash_ObjectScript : MonoBehaviour
+public class AntSmash_AnimalScript : MonoBehaviour
 {
     [Header("Gameplay Attributes")]
     [Range(1f, 10f)]
@@ -42,9 +42,9 @@ public class AntSmash_ObjectScript : MonoBehaviour
         isSquished = true;
 
         moveSpeed = 0f;
-        squishTimer = squishTime;      
+        squishTimer = squishTime;
 
-        transform.localScale = squishScale;
+        GetComponent<CS_SquishModel>().SquishPermanently(squishScale);
         gameObject.GetComponentInChildren<Renderer>().material = transparentMaterial;
         transparentValue = GetComponentInChildren<Renderer>().material.color;
 

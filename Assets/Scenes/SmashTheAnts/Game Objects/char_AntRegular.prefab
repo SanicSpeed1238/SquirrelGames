@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7097505232937420517}
   - component: {fileID: 1216028521759408374}
+  - component: {fileID: 3305312142341648547}
   - component: {fileID: 640683728100093689}
   - component: {fileID: 6714903720868410625}
   m_Layer: 0
@@ -47,13 +48,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e623de1181b9e448a8678d90408dddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objType: 1
   moveSpeed: 8
   points: 1
   squishTime: 1.5
   squishScale: {x: 1.4, y: 0.1, z: 1.4}
   transparentMaterial: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
   smashedEffect: {fileID: 8780254985063514360, guid: be14d2a3320059340864bb58463a70bb, type: 3}
+--- !u!114 &3305312142341648547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291907533956918691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5434e970a2703a4491f45085d58d5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &640683728100093689
 BoxCollider:
   m_ObjectHideFlags: 0

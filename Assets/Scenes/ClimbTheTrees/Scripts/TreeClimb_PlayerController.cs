@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
-using System;
 
 public class TreeClimb_PlayerController : MonoBehaviour
 {
@@ -13,13 +12,13 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
 
     [Header("Movement Values")]
-    [Range(10f, 20f)]
+    [Range(5f, 20f)]
     public float moveUpSpeed;
-    [Range(10f, 20f)]
+    [Range(5f, 20f)]
     public float moveDownSpeed;
-    [Range(10f, 20f)]
+    [Range(5f, 20f)]
     public float jumpSpeed;
-    [Range(10f, 20f)]
+    [Range(5f, 20f)]
     public float bounceSpeed;
     [Range(0.1f, 1f)]
     public float jumpDelay;
@@ -53,15 +52,15 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private Transform[] treePositions;
     private GameObject finishPosition;
 
+    private LayerMask playerLayer;
+    private LayerMask treeLayer;
+
     private Vector3 originalScale;
 
     protected bool isBlocked;
     protected bool isBouncing;
     protected bool isInvincible;
     protected TreeClimb_PlayerState state;
-
-    private LayerMask playerLayer;
-    private LayerMask treeLayer;
 
     private void FixedUpdate()
     {
@@ -79,7 +78,12 @@ public class TreeClimb_PlayerController : MonoBehaviour
             {
                 MoveToFinishPosition();
             }
-        } 
+        }
+        else
+        {
+            if (playerRB.position.y < -10)
+                playerRB.isKinematic = true;
+        }
     }
 
     private void MoveVertically() // Moves up and down the tree the player is currently on
@@ -139,6 +143,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
             case TreeClimb_PlayerState.Jumping:
                 {
+                    // If the player is in the jumping state, automatically move in the assigned direction
                     if (playerRB.position != moveToPosition)
                     {
                         float step = (!isBouncing ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
@@ -147,11 +152,13 @@ public class TreeClimb_PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        jumpTimer = jumpDelay;
                         previousTreeIndex = currentTreeIndex;
-                        isBlocked = false;
                         isBouncing = false;
+                        isBlocked = false;                        
+                        
                         state = TreeClimb_PlayerState.Climbing;
+                        jumpDirection = Vector3.zero;
+                        jumpTimer = jumpDelay;
                     }
                     break;
                 }
@@ -160,11 +167,11 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private float VerifyVerticalMovement(Vector3 direction) // Checks if a player or the top of a tree is blocking their path
     {
-        float verticalRaycastLength = 1f;
-        Vector3 raycastOrigin = playerRB.position;
-        raycastOrigin.y += direction == Vector3.up ? .5f : -.5f;
+        float verticalCastLength = 1f;
+        Vector3 boxSize = new(4f, 2f, 2f);
+        Vector3 castOrigin = playerRB.position;
 
-        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, playerLayer))
+        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, playerLayer))
         {
             if (direction == Vector3.up)
             {
@@ -177,7 +184,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
                 return playerRB.position.y;
             }   
         }
-        if (Physics.Raycast(raycastOrigin, direction, out RaycastHit _, verticalRaycastLength, treeLayer))
+        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, treeLayer))
         {
             isBlocked = true;
             Vector3 moveDown = playerRB.position;
@@ -189,8 +196,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
     private bool VerifyHorizontalMovement(Vector3 direction) // Checks if there is actually a tree to jump to
     {
-        float horizontalCastLength = 5f;
-        Vector3 boxSize = new(1f, 2f, 1f);
+        float horizontalCastLength = 4f;
+        Vector3 boxSize = new(2f, 4f, 2f);
         Vector3 castOrigin = playerRB.position;
 
         if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, horizontalCastLength, treeLayer))
@@ -221,20 +228,44 @@ public class TreeClimb_PlayerController : MonoBehaviour
         jumpDirection = -jumpDirection;
         SetJumpDirection();
     }
-
-    public void SquishSquirrel(float stunForce, float squishScale)
-    {       
-        StartCoroutine(SquishCoroutine(stunForce, squishScale));
-    }
-    IEnumerator SquishCoroutine(float stunDuration, float squishScale)
+    public void VerifySquirrelsBouncing(Vector3 otherJumpDirection, Rigidbody otherRB)
     {
-        squirrelModel.transform.localScale = new(originalScale.x, squishScale, originalScale.z);
+        if (jumpDirection == otherJumpDirection)
+        {
+            if (playerRB.position.x < otherRB.position.x)
+            {
+                if (jumpDirection != Vector3.left)
+                {
+                    BounceSquirrel();
+                }
+            }
+            else
+            {
+                if (jumpDirection != Vector3.right)
+                {
+                    BounceSquirrel();
+                }
+            }
+        }
+        else
+        {
+            BounceSquirrel();
+        }
+    } // Used to fix player collision issues
+
+    public void SquishSquirrel(float stunForce, float squishFactor)
+    {       
+        StartCoroutine(SquishCoroutine(stunForce, squishFactor));
+    }
+    IEnumerator SquishCoroutine(float stunDuration, float squishFactor)
+    {
+        Vector3 squishScale = new(originalScale.x, squishFactor, originalScale.z);
+        squirrelModel.GetComponent<CS_SquishModel>().SquishTemporarily(squishScale, stunDuration);
 
         state = TreeClimb_PlayerState.Squished;
         yield return new WaitForSeconds(stunDuration);
         state = TreeClimb_PlayerState.Climbing;
 
-        LeanTween.scale(squirrelModel, originalScale, .5f).setEase(LeanTweenType.easeOutElastic);
         StartCoroutine(EnableInvincibility());
     }
     IEnumerator EnableInvincibility()
@@ -260,8 +291,10 @@ public class TreeClimb_PlayerController : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, finishPosition.transform.position, moveSpeed * Time.deltaTime);
     }
 
-    private void EliminatePlayer() 
+    public void EliminatePlayer() 
     {
+        if (isFinished) return;
+
         isAlive = false;
         verticalInput = 0;
         horizontalInput = 0;
@@ -277,55 +310,48 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<TreeClimb_AcornScript>() != null)
+        if (other.gameObject.TryGetComponent<TreeClimb_AcornScript>(out var acorn))
         {
-            other.gameObject.GetComponent<TreeClimb_AcornScript>().CollectAcorn(this);
+            acorn.CollectAcorn(this);
         }
 
-        if (other.gameObject.GetComponent<TreeClimb_HazardScript>() != null)
+        if (other.gameObject.TryGetComponent<TreeClimb_HazardScript>(out var hazard))
         {
             if (state == TreeClimb_PlayerState.Climbing && !isInvincible)
             {
-                other.gameObject.GetComponent<TreeClimb_HazardScript>().SquishSquirrel(this);
+                hazard.SquishSquirrel(this);
             }             
             else if (state == TreeClimb_PlayerState.Jumping)
             {
-                if (previousTreeIndex != other.GetComponent<TreeClimb_HazardScript>().GetTreeIndex())
+                if (previousTreeIndex != hazard.GetTreeIndex())
                 {
                     BounceSquirrel();
                 }
             }              
         }
 
-        if (other.GetComponent<TreeClimb_PlayerController>() != null)
+        if (other.gameObject.TryGetComponent<TreeClimb_PlayerController>(out var otherPlayer))
         {
             if (state == TreeClimb_PlayerState.Jumping)
             {
-                if (previousTreeIndex != other.GetComponent<TreeClimb_PlayerController>().GetTreeIndex())
-                {
-                    BounceSquirrel();
-                }
+                VerifySquirrelsBouncing(jumpDirection, otherPlayer.GetComponent<Rigidbody>());
             }
         }
 
         if (other.CompareTag("Finish"))
         {
             isFinished = true;
+            AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
             TreeClimb_GameManager.Instance.UpdatePlayersFinished(playerID);
 
             string playerFinishPosition = "Player" + playerID;
             finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
-            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        if (other.CompareTag("Deadzone") && !isBouncing)
+        if (other.CompareTag("Deadzone") && isBouncing)
         {
             EliminatePlayer();
         }
-    }
-    public int GetTreeIndex() // Used for collision purposes
-    {
-        return previousTreeIndex;
     }
 
     public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object

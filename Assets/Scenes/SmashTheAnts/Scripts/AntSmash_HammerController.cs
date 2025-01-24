@@ -55,11 +55,11 @@ public class AntSmash_HammerController : MonoBehaviour
     {
         // If hammer detects an object that can be squished, calls object's SquishObject function
         // Also adds or subtracts appropriate amount of points and updates score UI
-        if(other.GetComponent<AntSmash_ObjectScript>() != null)
+        if(other.gameObject.TryGetComponent<AntSmash_AnimalScript>(out var animal))
         {
-            other.GetComponent<AntSmash_ObjectScript>().SquishObject();
+            animal.SquishObject();
 
-            int addedScore = other.GetComponent<AntSmash_ObjectScript>().points;
+            int addedScore = animal.points;
             playerScore += addedScore;
             if (playerScore < 0) playerScore = 0;
             AntSmash_GameManager.Instance.UpdateScore(playerID, playerScore, addedScore);
