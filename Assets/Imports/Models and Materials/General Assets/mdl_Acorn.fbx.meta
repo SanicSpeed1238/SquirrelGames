@@ -3,7 +3,12 @@ guid: 129ee6f21fff37a449178459a3a0ecab
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AcornBase
+    second: {fileID: 2100000, guid: 40085a4a159af7d46bb1884f7042840e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
