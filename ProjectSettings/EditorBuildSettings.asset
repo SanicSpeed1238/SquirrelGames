@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menus and Other/Minigame Selection/Minigame Selection.unity
+    guid: ffa698dfe2bcc634693bb26a5a76b9c5
+  - enabled: 1
     path: Assets/Scenes/SmashTheAnts/SmashTheAnts.unity
     guid: 29e6a69dc467bb347ad2205b668722a7
+  - enabled: 1
+    path: Assets/Scenes/ClimbTheTrees/ClimbTheTrees.unity
+    guid: 1a13977e100a26c43a65cf4b1a5ef77d
   m_configObjects: {}

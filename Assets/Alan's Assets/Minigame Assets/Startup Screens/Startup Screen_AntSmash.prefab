@@ -99,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494851595772612637, guid: abffb943881a1274ba352746abd67e0b, type: 3}
       propertyPath: m_text
-      value: SMASH THE ANTS!
+      value: ANT ATTACKERS!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

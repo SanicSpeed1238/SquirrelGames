@@ -15,7 +15,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7985894318468091369, guid: abffb943881a1274ba352746abd67e0b, type: 3}
       propertyPath: m_Name
-      value: Startup Screen Variant
+      value: Startup Screen_TreeClimb
       objectReference: {fileID: 0}
     - target: {fileID: 8215544057110728864, guid: abffb943881a1274ba352746abd67e0b, type: 3}
       propertyPath: m_Pivot.x
@@ -99,7 +99,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494851595772612637, guid: abffb943881a1274ba352746abd67e0b, type: 3}
       propertyPath: m_text
-      value: CLIMB THE TREES!
+      value: TREE TOP TUMBLE!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

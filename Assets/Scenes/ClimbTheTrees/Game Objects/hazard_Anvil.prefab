@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishFactor: 0.25
-  stunDuration: 1
+  stunDuration: 1.5
   forwardImpulse: 2
   rotationImpulse: {x: 0, y: 0, z: 1}
 --- !u!114 &5486004310033531550
