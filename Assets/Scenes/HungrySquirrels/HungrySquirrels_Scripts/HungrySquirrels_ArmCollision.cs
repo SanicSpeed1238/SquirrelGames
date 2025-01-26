@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HungrySquirrels_ArmCollision : MonoBehaviour
@@ -40,6 +37,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 mainBody.collided = true;
                 break;
             case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
+                print("AAAAAAA");
                 break;
             default:
                 mainBody.collided=true;//If player collided with wall, bounce back

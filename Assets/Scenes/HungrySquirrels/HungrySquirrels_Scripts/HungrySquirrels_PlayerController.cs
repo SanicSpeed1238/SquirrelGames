@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Presets;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
-using UnityEngine.UIElements;
 
 public class HungrySquirrels_PlayerController : MonoBehaviour
 {
@@ -117,36 +111,5 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        //switch (other.gameObject.tag)
-        //{
-        //    case "Pickup":
-                //if (moveInput > 0 && collectActive == false)
-                //{
-                //    collectActive = true;
-                //}
-                //if (collectActive == true)
-                //{
-        //            collided = true;
-        //            Destroy(other);
-                //    print("Works");
-                //}
-                //else
-                //{
-                //    print("Uh Oh");
-                //}
-        //        break;
-        //    case "Player":
-        //        collided = true;
-        //        break;
-        //    default:
-        //        collided = true;
-        //        break;
-        //}
-
     }
 }
