@@ -7,7 +7,7 @@ public class TreeClimb_SimpleMove : MonoBehaviour
 
     private void Start()
     {
-        moveSpeed = GameObject.FindAnyObjectByType<TreeClimb_TreesScript>().moveSpeed;
+        moveSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
     }
 
     private void Update()

@@ -1,0 +1,69 @@
+using UnityEngine;
+
+public class AntSmash_AnimalScript : MonoBehaviour
+{
+    [Header("Gameplay Attributes")]
+    [Range(1f, 10f)]
+    public float moveSpeed;
+    [Range(-3, 3)]
+    public int points;
+
+    [Header("Squish Attributes")]
+    [SerializeField] private float squishTime;
+    [SerializeField] private Vector3 squishScale;
+    [SerializeField] private Material transparentMaterial;
+    [SerializeField] private GameObject smashedEffect;
+    private bool isSquished;
+    private float squishTimer;
+    private Vector4 transparentValue;
+
+    private void Update()
+    {
+        if (!isSquished)
+        {
+            transform.Translate((moveSpeed * Time.deltaTime * transform.forward), Space.World);
+        }
+        else
+        {
+            ShowSquished();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Deadzone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void SquishObject() // Starts the squish animation and reconfigures components
+    {
+        isSquished = true;
+
+        moveSpeed = 0f;
+        squishTimer = squishTime;
+
+        GetComponent<CS_SquishModel>().SquishPermanently(squishScale);
+        gameObject.GetComponentInChildren<Renderer>().material = transparentMaterial;
+        transparentValue = GetComponentInChildren<Renderer>().material.color;
+
+        GetComponentInChildren<Animator>().enabled = false;
+        GetComponentInChildren<BoxCollider>().enabled = false;
+
+        Instantiate(smashedEffect, transform.position, Quaternion.identity);
+    }
+    private void ShowSquished() // Plays the squish animation and destroys object when done
+    {
+        squishTimer -= Time.deltaTime;
+        if (squishTimer < 1)
+        {
+            transparentValue.w = squishTimer;
+            gameObject.GetComponentInChildren<Renderer>().material.color = transparentValue;
+        }
+        if (squishTimer < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+}

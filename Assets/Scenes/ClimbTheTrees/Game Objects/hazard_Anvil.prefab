@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squishFactor: 0.25
-  stunDuration: 2
+  stunDuration: 1.5
   forwardImpulse: 2
   rotationImpulse: {x: 0, y: 0, z: 1}
 --- !u!114 &5486004310033531550
@@ -90,7 +90,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 4, z: 2}
+  m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!54 &4102252077098518792
 Rigidbody:

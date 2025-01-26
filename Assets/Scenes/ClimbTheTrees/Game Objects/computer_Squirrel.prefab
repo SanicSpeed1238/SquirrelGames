@@ -38,23 +38,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 0.99984777
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.01745245
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 270
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -74,11 +74,6 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: -8297760913819227473}
   m_SourcePrefab: {fileID: 100100000, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
---- !u!1 &149355023127073300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1629947392992039952, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
-  m_PrefabInstance: {fileID: 1480594792566326788}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2750126855435771431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
@@ -96,15 +91,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea8c55462f02c8419e3f7eed983eda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveUpSpeed: 20
+  moveDownSpeed: 15
   jumpSpeed: 20
-  bounceSpeed: 15
-  jumpDelay: 0.5
+  bounceSpeed: 8
+  jumpDelay: 0.25
   invincibilityDuration: 1.5
-  squirrelModel: {fileID: 149355023127073300}
-  squirrelAnimator: {fileID: 3229411155215546781}
---- !u!95 &3229411155215546781 stripped
+  squirrelModel: {fileID: 6422452780694919676}
+  squirrelAnimator: {fileID: 5310198260948240288}
+--- !u!95 &5310198260948240288 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 4061417056602161049, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6718733140120175012, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+  m_PrefabInstance: {fileID: 1480594792566326788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6422452780694919676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5597134139468799992, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
   m_PrefabInstance: {fileID: 1480594792566326788}
   m_PrefabAsset: {fileID: 0}

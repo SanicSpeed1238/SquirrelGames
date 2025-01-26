@@ -18,13 +18,15 @@ public class Base_MinigameSetup : MonoBehaviour
     public Color[] playerColors;
 
     // Other Variables Needed
-    private PlayerInputManager playerInputManager;
+    [HideInInspector] public GameObject[] playersInGame;
+    private PlayerInputManager playerInputManager;    
     private readonly float joinDelaySeconds = 3f;
     private int lastJoinedPlayer;
 
     protected void Base_MinigameSetup_Awake()
     {
         playerInputManager = GetComponentInParent<PlayerInputManager>();
+        playersInGame = new GameObject[4];
 
         StartCoroutine(WaitToJoin());
     }
@@ -45,6 +47,7 @@ public class Base_MinigameSetup : MonoBehaviour
         lastJoinedPlayer = playerID;
 
         // Initializes player GameObject with player ID and any other necessary attributes
+        playersInGame[playerController.playerIndex] = playerController.gameObject;
         SetUpPlayer(playerController, playerID);
 
         // Updates the icon on the startup screen
@@ -84,6 +87,7 @@ public class Base_MinigameSetup : MonoBehaviour
             for (int ID = (lastJoinedPlayer + 1); ID <= 4; ID++)
             {
                 GameObject newComputer = Instantiate(computerPlayer);
+                playersInGame[ID - 1] = newComputer;
                 SetUpComputer(newComputer, ID);
             }
         }

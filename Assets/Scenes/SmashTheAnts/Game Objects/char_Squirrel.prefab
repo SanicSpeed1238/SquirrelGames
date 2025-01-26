@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514667773373864376}
   - component: {fileID: 4633260823250150503}
+  - component: {fileID: 7442604918378552540}
   - component: {fileID: 2285221393644218151}
   - component: {fileID: 4049876566648505176}
   m_Layer: 0
@@ -53,6 +54,18 @@ MonoBehaviour:
   squishScale: {x: 2, y: 0.1, z: 1.3}
   transparentMaterial: {fileID: 2100000, guid: ae84d4a8479edc34a8add2031909deaf, type: 2}
   smashedEffect: {fileID: 3590338355044222090, guid: d69a57ac3f17a6a4da27fe0450fedf04, type: 3}
+--- !u!114 &7442604918378552540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846196140059087682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5434e970a2703a4491f45085d58d5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2285221393644218151
 BoxCollider:
   m_ObjectHideFlags: 0

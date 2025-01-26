@@ -11,20 +11,19 @@ public class TreeClimb_TreesScript : MonoBehaviour
     [Header("Tree Group Type")]
     public TreeGroup treeGroupType = TreeGroup.Trunks;
 
-    [Header("Movement Values")]
-    [Range(1f, 3f)]
-    public float moveSpeed;
-
     // Other Variables Needed
+    private Rigidbody treeRB;
+    private float moveSpeed;
     private readonly float treesHeight = 15f;
     private readonly float destroyHeight = -25f;
-    private readonly float stopHeight = -4f;
+    private readonly float stopHeight = 4f;
+    private readonly float finishHeight = -4f;
     private bool newTreeSpawned;
-    private Rigidbody treeRB;
 
     private void Start()
     {
         treeRB = GetComponent<Rigidbody>();
+        moveSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
     }
 
     private void FixedUpdate()
@@ -40,21 +39,35 @@ public class TreeClimb_TreesScript : MonoBehaviour
         // Performs a function based on the TreeGroup type once this object has fallen below a certain height
         */
 
-        // Spawns the next chunk of trees based on the game manager
-        if (treeRB.position.y <= 0.0f && !newTreeSpawned)
+        if (treeGroupType == TreeGroup.Trunks || treeGroupType == TreeGroup.Treetops)
         {
-            SpawnNewChunk();            
+            if (treeRB.position.y <= 0.0f)
+            {
+                if (!newTreeSpawned)
+                {
+                    SpawnNewChunk();
+                }
+                else if (treeRB.position.y < destroyHeight)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
-        // Destroys the gameobject if it has gone too low on the y-axis
-        else if (treeRB.position.y < destroyHeight)
+        else if (treeGroupType == TreeGroup.Goal)
         {
-            Destroy(gameObject);
-        }
-        // If this tree group is a Goal, stop moving the trees, as well as the player, down automatically
-        else if (treeRB.position.y <= stopHeight && treeGroupType == TreeGroup.Goal)
-        {
-            moveSpeed = 0f;
-            TreeClimb_GameManager.Instance.treesMoving = false;
+            if (treeRB.position.y <= stopHeight)
+            {
+                if (TreeClimb_GameManager.Instance.objectsSpawning)
+                {
+                    TreeClimb_GameManager.Instance.objectsSpawning = false;
+                }
+                else if (TreeClimb_GameManager.Instance.treesMoving && treeRB.position.y <= finishHeight)
+                {
+                    moveSpeed = 0f;
+                    TreeClimb_GameManager.Instance.treesMoving = false;
+                    TreeClimb_GameManager.Instance.finalTimerStarted = true;
+                }
+            }         
         }
     }
 
@@ -70,7 +83,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
 
             if (nextTreeGroup.GetComponent<TreeClimb_TreesScript>().treeGroupType == TreeGroup.Treetops)
             {
-                TreeClimb_GameManager.Instance.RemoveTreeLanes();
+                TreeClimb_GameManager.Instance.treeLanesRemoved++;
             }
         }     
     }

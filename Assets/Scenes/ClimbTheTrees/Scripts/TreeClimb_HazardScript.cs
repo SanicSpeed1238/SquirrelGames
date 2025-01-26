@@ -13,10 +13,22 @@ public class TreeClimb_HazardScript : MonoBehaviour
     public float forwardImpulse;
     public Vector3 rotationImpulse;
 
+    // Other Variables Needed
+    private int treeIndex;
+
     public void SquishSquirrel(TreeClimb_PlayerController player)
     {
         player.SquishSquirrel(stunDuration, squishFactor);
         GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
         GetComponent<BoxCollider>().enabled = false;
+    }
+
+    public void SetTreeIndex(int index)
+    {
+        treeIndex = index;
+    }
+    public int GetTreeIndex() // Used for collision purposes
+    {
+        return treeIndex;
     }
 }

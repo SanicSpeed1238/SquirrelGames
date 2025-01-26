@@ -6,8 +6,8 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
 
     private float currentVerticalInput;
     private float currentVerticalMoveTimer;
-    private readonly float maxTimeMovingUp = 3f;
-    private readonly float maxTimeMovingDown = 1f;
+    private readonly float minTimeMoving = 1f;
+    private readonly float maxTimeMoving = 3f;
     private readonly float maxDistanceBetweenBounds = 2f;
 
     private float currentJumpTimer;
@@ -16,7 +16,7 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
     private void Start()
     {
         currentVerticalInput = 1;
-        currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingUp);
+        currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
     }
 
     private void LateUpdate()
@@ -50,23 +50,23 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
         if (currentVerticalInput < 0)
         {
             currentVerticalInput = Random.Range(0.1f, 1.0f);
-            currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingUp);
+            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
-        else if (currentVerticalInput >= 0)
+        else if (currentVerticalInput > 0)
         {
-            currentVerticalInput = Random.Range(-1.0f, 0.0f);
-            currentVerticalMoveTimer = Random.Range(0.1f, maxTimeMovingDown);
+            currentVerticalInput = Random.Range(-1.0f, -0.1f);
+            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
     }
     private bool CheckVerticalDistance()
     {
         float playerY = playerRB.position.y;
 
-        if (playerY - minHeight <= maxDistanceBetweenBounds)
+        if (currentVerticalInput < 0 && playerY - (minHeight + 1) <= maxDistanceBetweenBounds)
         {
             return true;
         }
-        else if (maxHeight - playerY <= maxDistanceBetweenBounds)
+        else if (currentVerticalInput > 0 && maxHeight - playerY <= maxDistanceBetweenBounds)
         {
             return true;
         }
@@ -81,23 +81,30 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
         // Jump at random time intervals and randomly choose left/right
         if (currentJumpTimer < 0)
         {
+            currentJumpTimer = 0.01f;
             int randomInputValue = Random.Range(1, 101);
-            if (randomInputValue <= jumpFrequency)
+
+            if (isBlocked)
             {
-                if (Random.value >= 0.5f)
-                {
+                if (currentTreeIndex == TreeClimb_GameManager.Instance.treeLanesRemoved) 
                     horizontalInput = 1;
-                }
-                else
-                {
+                else if (currentTreeIndex == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
                     horizontalInput = -1;
-                }
+            }
+            else if (randomInputValue <= jumpFrequency)
+            {
+                if (Random.value >= 0.5f) horizontalInput = 1;
+                else horizontalInput = -1;
+
+                if (currentTreeIndex == 0 + TreeClimb_GameManager.Instance.treeLanesRemoved) 
+                    horizontalInput = 1;
+                else if (currentTreeIndex == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
+                    horizontalInput = -1;    
             }
             else
             {
                 horizontalInput = 0;
             }
-            currentJumpTimer = jumpDelay;
         }
         else
         {
