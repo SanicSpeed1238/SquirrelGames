@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6203048300575610727}
   - component: {fileID: 3471401693381450176}
   - component: {fileID: 6729155890038798853}
+  - component: {fileID: 5794154856725703022}
   m_Layer: 5
   m_Name: button_Minigame
   m_TagString: Untagged
@@ -121,6 +122,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5794154856725703022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758695904631422874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9bc3436f8f1124aa4be4552c842990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearAnimation: 2
+  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_Duration: 0
+  grow_EaseType: 0
+  moveIn_XOffset: 2000
+  moveIn_YOffset: 0
+  moveIn_Duration: 0.5
+  moveIn_Delay: 0
+  moveIn_EaseType: 1
+  idleAnimation: 0
+  floating_PositionOffset: 0
+  floating_Duration: 0
+  floating_EaseType: 0
+  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_Duration: 0
+  pulsing_EaseType: 0
 --- !u!1 &5200826329837319649
 GameObject:
   m_ObjectHideFlags: 0

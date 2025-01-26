@@ -39,7 +39,7 @@ public class Base_GameManager : MonoBehaviour
     protected readonly float finishAppearSpeed = 1.0f;
     protected readonly float finishDisplayDuration = 2.0f;
     protected readonly float finishDisappearSpeed = 0.2f;
-    protected readonly float endingDelay = 2.0f;
+    protected readonly float resultsDelay = 2.0f;
     protected readonly float fontSizeIncrease = 100f;
 
     protected void Base_GameManager_Awake()
@@ -65,17 +65,17 @@ public class Base_GameManager : MonoBehaviour
         if (pause)
         {
             pauseScreen.SetActive(true);
-
-            Time.timeScale = 0;
-            gamePlaying = false;
+            pauseScreen.GetComponent<CS_MinigamePause>().PauseMinigame();
         }
         else
         {
             pauseScreen.SetActive(false);
-
-            Time.timeScale = 1;
-            gamePlaying = true;
+            pauseScreen.GetComponent<CS_MinigamePause>().ResumeMinigame();
         }
+    }
+    public void QuitGame()
+    {
+        pauseScreen.GetComponent<CS_MinigamePause>().QuitMinigame();
     }
 
     public void StartGame()
@@ -158,7 +158,7 @@ public class Base_GameManager : MonoBehaviour
 
         // Transitioning to the Results Cutscene
         // -------------------------------------
-        yield return new WaitForSeconds(endingDelay);
+        yield return new WaitForSeconds(resultsDelay);
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
         yield return new WaitForSeconds(1.5f);
         gameUIScreen.SetActive(false);
@@ -170,8 +170,8 @@ public class Base_GameManager : MonoBehaviour
         // Play the Results Cutscene
         // -------------------------
         yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
-        minigameResults.DisplayWinners();
-        minigameResults.PlayResultsMusic();
+        minigameResults.PlayResultsSequence();
+        minigameResults.DisplayWinnersText();       
         resultsScreen.SetActive(true);
     }
 }

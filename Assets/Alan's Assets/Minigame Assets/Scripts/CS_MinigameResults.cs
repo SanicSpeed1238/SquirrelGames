@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using EasyTransition;
 
 public class CS_MinigameResults : MonoBehaviour
 {
@@ -7,8 +8,11 @@ public class CS_MinigameResults : MonoBehaviour
 
     public TextMeshProUGUI winnersText;
     public AudioSource resultsMusic;
+    public TransitionSettings endingTransition;
 
-    public void DisplayWinners()
+    private readonly string minigameSelectSceneName = "Minigame Selection";
+
+    public void DisplayWinnersText()
     {
         string playersWonText = "";
         int playersWonNum = 0;
@@ -29,8 +33,9 @@ public class CS_MinigameResults : MonoBehaviour
         winnersText.text = playersWonText;
     }
 
-    public void PlayResultsMusic()
+    public void PlayResultsSequence()
     {
         resultsMusic.Play();
+        TransitionManager.Instance().Transition(minigameSelectSceneName, endingTransition, resultsMusic.clip.length + 1);
     }
 }

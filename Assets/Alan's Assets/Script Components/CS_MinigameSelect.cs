@@ -10,6 +10,11 @@ public class CS_MinigameSelect : MonoBehaviour
         TransitionManager.Instance().Transition(sceneName, minigameTransition, 0f);
     }
 
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     // TEMPORARY
     private void Update()
     {

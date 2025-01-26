@@ -95,7 +95,7 @@ MonoBehaviour:
   moveDownSpeed: 15
   jumpSpeed: 20
   bounceSpeed: 8
-  jumpDelay: 0.3
+  jumpDelay: 0.25
   invincibilityDuration: 1.5
   squirrelModel: {fileID: 6422452780694919676}
   squirrelAnimator: {fileID: 5310198260948240288}
