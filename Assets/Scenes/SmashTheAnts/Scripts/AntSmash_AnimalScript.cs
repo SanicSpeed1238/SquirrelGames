@@ -65,12 +65,12 @@ public class AntSmash_AnimalScript : MonoBehaviour
     private void ShowSquished() // Plays the squish animation and destroys object when done
     {
         squishedTimer -= Time.deltaTime;
-        if (squishedTimer < 1)
+        if (squishedTimer > 0.0f)
         {
             transparentValue.w = squishedTimer;
             materialRender.material.color = transparentValue;
         }
-        if (squishedTimer < 0)
+        else
         {
             Destroy(gameObject);
         }

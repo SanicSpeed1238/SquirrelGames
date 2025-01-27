@@ -301,11 +301,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     public void AddToPlayerScore(int points)
     {
-        if (isAlive)
-        {
-            playerScore += points;
-            TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, points);
-        }  
+        playerScore += points;
+        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, points);
     }
 
     private void MoveToFinishPosition()
@@ -334,12 +331,15 @@ public class TreeClimb_PlayerController : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<TreeClimb_AcornScript>(out var acorn))
         {
-            acorn.CollectAcorn(this);
+            if (isAlive && !isFinished)
+            {
+                acorn.CollectAcorn(this);
+            }       
         }
 
         if (other.gameObject.TryGetComponent<TreeClimb_HazardScript>(out var hazard))
         {
-            if (state == TreeClimb_PlayerState.Climbing && !isInvincible)
+            if (state == TreeClimb_PlayerState.Climbing && !isInvincible && !isFinished)
             {
                 hazard.SquishSquirrel(this);
             }             
@@ -362,17 +362,20 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
-            isFinished = true;
-            AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
-            TreeClimb_GameManager.Instance.UpdatePlayersFinished(playerID);
+            if (!isFinished)
+            {
+                isFinished = true;
+                AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
+                TreeClimb_GameManager.Instance.UpdatePlayersFinished(playerID);
 
-            string playerFinishPosition = "Player" + playerID;
-            finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
+                string playerFinishPosition = "Player" + playerID;
+                finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
+            }          
         }
 
         if (other.CompareTag("Deadzone") && isBouncing)
         {
-            EliminatePlayer();
+            if (isAlive) EliminatePlayer();
         }
     }
 

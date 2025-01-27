@@ -51,7 +51,7 @@ MonoBehaviour:
   moveSpeed: 7
   points: -3
   squishedDuration: 0.75
-  squishedScale: {x: 2, y: 0.1, z: 1.2}
+  squishedScale: {x: 2, y: 0.1, z: 0.9}
   squishedMaterial: {fileID: 2100000, guid: f62b9a14cfa51c34f868c00003765527, type: 2}
   smashedEffect: {fileID: 3590338355044222090, guid: d69a57ac3f17a6a4da27fe0450fedf04, type: 3}
 --- !u!114 &7442604918378552540

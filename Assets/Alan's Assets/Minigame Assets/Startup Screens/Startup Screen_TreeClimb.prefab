@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 8d9392238405d844e9ace242184f2b53, type: 3}
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564985596789993530, guid: abffb943881a1274ba352746abd67e0b, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5643497232624507451, guid: abffb943881a1274ba352746abd67e0b, type: 3}
       propertyPath: m_text
       value: Collect acorns as you climb your way to the top of the trees! Watch
