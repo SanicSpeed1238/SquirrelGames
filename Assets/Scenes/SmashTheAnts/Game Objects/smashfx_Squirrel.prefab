@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1968474918331994422}
   - component: {fileID: 1761431149701715477}
   m_Layer: 0
-  m_Name: smashfx_Squirrel
+  m_Name: smashFX_Squirrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

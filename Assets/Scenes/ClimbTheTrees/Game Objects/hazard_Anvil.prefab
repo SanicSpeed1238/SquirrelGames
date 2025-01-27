@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squishFactor: 0.25
   stunDuration: 1.5
+  impactEffect: {fileID: 8780254985063514360, guid: f224eb75ed89c3742999567553056220, type: 3}
   forwardImpulse: 2
   rotationImpulse: {x: 0, y: 0, z: 1}
 --- !u!114 &5486004310033531550

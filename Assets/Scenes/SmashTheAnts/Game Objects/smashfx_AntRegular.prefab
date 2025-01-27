@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 16373419010591841}
   - component: {fileID: 3026570927917438977}
   m_Layer: 3
-  m_Name: smashfx_AntRegular
+  m_Name: smashFX_AntRegular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

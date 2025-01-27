@@ -50,9 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   points: 1
-  squishTime: 1.5
-  squishScale: {x: 1.4, y: 0.1, z: 1.4}
-  transparentMaterial: {fileID: 2100000, guid: 312718498cb113e44988dcc3ea683c96, type: 2}
+  squishedDuration: 0.5
+  squishedScale: {x: 1.4, y: 0.1, z: 1.4}
+  squishedMaterial: {fileID: 2100000, guid: 4e84f9df3b8e9644e9ddcbd65bffbc22, type: 2}
   smashedEffect: {fileID: 8780254985063514360, guid: be14d2a3320059340864bb58463a70bb, type: 3}
 --- !u!114 &3305312142341648547
 MonoBehaviour:

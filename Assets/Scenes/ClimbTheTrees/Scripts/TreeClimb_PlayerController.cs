@@ -28,6 +28,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     [Header("Important Components")]
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
+    public GameObject bounceEffect;
+    public Material invincibleMaterial;
 
     // Other Variables Needed
     protected float verticalInput;
@@ -56,6 +58,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private LayerMask treeLayer;
 
     private Vector3 originalScale;
+    private Material originalMaterial;
+    private Renderer materialRender;
 
     protected bool isBlocked;
     protected bool isBouncing;
@@ -225,7 +229,20 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private void BounceSquirrel() // Reverse the jump direction if colliding with another player or hazard
     {
         isBouncing = true;
+
+        Vector3 impactPosition = playerRB.position;
         jumpDirection = -jumpDirection;
+        if (jumpDirection == Vector3.right)
+        {
+            impactPosition.x += 0.1f;
+            Instantiate(bounceEffect, impactPosition, Quaternion.identity);
+        }
+        else
+        {
+            impactPosition.x -= 0.1f;
+            Instantiate(bounceEffect, impactPosition, Quaternion.identity);
+        }
+
         SetJumpDirection();
     }
     public void VerifySquirrelsBouncing(Vector3 otherJumpDirection, Rigidbody otherRB)
@@ -271,9 +288,14 @@ public class TreeClimb_PlayerController : MonoBehaviour
     IEnumerator EnableInvincibility()
     {
         isInvincible = true;
+        Vector4 transparentColor = invincibleMaterial.color;
+        transparentColor.w = 0.2f;
+        invincibleMaterial.color = transparentColor;
+        materialRender.material = invincibleMaterial;
 
         yield return new WaitForSeconds(invincibilityDuration);
 
+        materialRender.material = originalMaterial;
         isInvincible = false;
     }
 
@@ -282,7 +304,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         if (isAlive)
         {
             playerScore += points;
-            TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore);
+            TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, points);
         }  
     }
 
@@ -305,7 +327,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
 
         playerScore = 0;
-        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore);
+        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -366,6 +388,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
         playerRB.position = startPosition.position;
 
         originalScale = squirrelModel.transform.localScale;
+        originalMaterial = squirrelModel.GetComponentInChildren<Renderer>().material;
+        materialRender = GetComponentInChildren<Renderer>();
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
 
         fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;

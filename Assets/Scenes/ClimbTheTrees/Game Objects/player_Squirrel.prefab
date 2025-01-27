@@ -51,11 +51,13 @@ MonoBehaviour:
   moveUpSpeed: 20
   moveDownSpeed: 15
   jumpSpeed: 20
-  bounceSpeed: 8
+  bounceSpeed: 12
   jumpDelay: 0.25
   invincibilityDuration: 1.5
   squirrelModel: {fileID: 5597134139468799992}
   squirrelAnimator: {fileID: 6718733140120175012}
+  bounceEffect: {fileID: 8517170131646953734, guid: f0121cc4b718b464db795f9369add1f7, type: 3}
+  invincibleMaterial: {fileID: 2100000, guid: 4119e5900b606694798ee2f354fb6d91, type: 2}
 --- !u!65 &416299912439726197
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: m_Name
-      value: char_AntRegular Variant
+      value: char_AntFire
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: points
@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: smashedEffect
       value: 
       objectReference: {fileID: 7864862286300773501, guid: 1a6fe1b9679359e4398a7508ff9d6f65, type: 3}
+    - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
+      propertyPath: squishedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a4257c409ca9cb4cbda48c7d00f496d, type: 2}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: transparentMaterial
       value: 

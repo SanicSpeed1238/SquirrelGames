@@ -9,13 +9,22 @@ public class AntSmash_AnimalScript : MonoBehaviour
     public int points;
 
     [Header("Squish Attributes")]
-    [SerializeField] private float squishTime;
-    [SerializeField] private Vector3 squishScale;
-    [SerializeField] private Material transparentMaterial;
-    [SerializeField] private GameObject smashedEffect;
+    [Range(0.1f, 1f)]
+    public float squishedDuration;
+    public Vector3 squishedScale;
+    public Material squishedMaterial;
+    public GameObject smashedEffect;
+
+    // Other Variables Needed
     private bool isSquished;
-    private float squishTimer;
+    private float squishedTimer;
+    private Renderer materialRender;
     private Vector4 transparentValue;
+
+    private void Start()
+    {
+        materialRender = GetComponentInChildren<Renderer>();
+    }
 
     private void Update()
     {
@@ -42,11 +51,11 @@ public class AntSmash_AnimalScript : MonoBehaviour
         isSquished = true;
 
         moveSpeed = 0f;
-        squishTimer = squishTime;
+        squishedTimer = squishedDuration + 1f;
 
-        GetComponent<CS_SquishModel>().SquishPermanently(squishScale);
-        gameObject.GetComponentInChildren<Renderer>().material = transparentMaterial;
-        transparentValue = GetComponentInChildren<Renderer>().material.color;
+        GetComponent<CS_SquishModel>().SquishPermanently(squishedScale);
+        materialRender.material = squishedMaterial;
+        transparentValue = materialRender.material.color;
 
         GetComponentInChildren<Animator>().enabled = false;
         GetComponentInChildren<BoxCollider>().enabled = false;
@@ -55,13 +64,13 @@ public class AntSmash_AnimalScript : MonoBehaviour
     }
     private void ShowSquished() // Plays the squish animation and destroys object when done
     {
-        squishTimer -= Time.deltaTime;
-        if (squishTimer < 1)
+        squishedTimer -= Time.deltaTime;
+        if (squishedTimer < 1)
         {
-            transparentValue.w = squishTimer;
-            gameObject.GetComponentInChildren<Renderer>().material.color = transparentValue;
+            transparentValue.w = squishedTimer;
+            materialRender.material.color = transparentValue;
         }
-        if (squishTimer < 0)
+        if (squishedTimer < 0)
         {
             Destroy(gameObject);
         }

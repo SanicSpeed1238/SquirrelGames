@@ -14571,7 +14571,7 @@ GameObject:
   - component: {fileID: 7791516750874001369}
   - component: {fileID: 5928752869741753268}
   m_Layer: 0
-  m_Name: smashfx_AntFire
+  m_Name: smashFX_AntFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

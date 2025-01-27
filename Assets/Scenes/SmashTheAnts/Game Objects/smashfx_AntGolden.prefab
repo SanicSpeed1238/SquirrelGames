@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6512348064350832877}
   - component: {fileID: 4166528684213100703}
   m_Layer: 0
-  m_Name: smashfx_AntGolden
+  m_Name: smashFX_AntGolden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

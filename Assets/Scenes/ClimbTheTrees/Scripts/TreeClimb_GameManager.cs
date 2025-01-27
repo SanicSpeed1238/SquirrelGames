@@ -96,18 +96,21 @@ public class TreeClimb_GameManager : Base_GameManager
         else return null;
     }
 
-    public void UpdateScore(int playerID, int newScore)
+    public void UpdateScore(int playerID, int newScore, int addedScore)
     {
         string playerTextObject = "Player" + playerID;
         GameObject playerScoreUI = scoresUI.transform.Find(playerTextObject).gameObject;
 
         if (newScore > 0)
         {
-            playerScores[playerID - 1] = newScore;
-            playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = newScore.ToString("D2");
+            if (addedScore > 0)
+            {
+                playerScores[playerID - 1] = newScore;
+                playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = newScore.ToString("D2");
 
-            playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Add");
-            playerScoreUI.GetComponentInChildren<Animator>().SetTrigger("Add");
+                playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Add");
+                playerScoreUI.GetComponentInChildren<Animator>().SetTrigger("Add");
+            }          
         }
         else
         {

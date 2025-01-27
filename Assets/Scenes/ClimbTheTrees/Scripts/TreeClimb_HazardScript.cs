@@ -7,6 +7,7 @@ public class TreeClimb_HazardScript : MonoBehaviour
     public float squishFactor;
     [Range(0.5f, 3.0f)]
     public float stunDuration;
+    public GameObject impactEffect;
 
     [Header("Freefall Attributes")]
     [Range(1f, 10f)]
@@ -19,6 +20,9 @@ public class TreeClimb_HazardScript : MonoBehaviour
     public void SquishSquirrel(TreeClimb_PlayerController player)
     {
         player.SquishSquirrel(stunDuration, squishFactor);
+
+        Instantiate(impactEffect, GetComponent<Rigidbody>().position, Quaternion.identity);
+
         GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
         GetComponent<BoxCollider>().enabled = false;
     }
