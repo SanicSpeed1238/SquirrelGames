@@ -41,17 +41,17 @@ public class CS_MinigameMusic : MonoBehaviour
         musicPlayer.Play();
     }
 
-    public void FadeOutMusic(float duration)
+    public void FadeOutMusic(float fadeOutSpeed)
     {
-        StartCoroutine(FadeOutCurrentClip(duration));
+        StartCoroutine(FadeOutCurrentClip(fadeOutSpeed));
     }
-    IEnumerator FadeOutCurrentClip(float duration)
+    IEnumerator FadeOutCurrentClip(float fadeOutSpeed)
     {
         float startVolume = musicPlayer.volume;
 
         while (musicPlayer.volume > 0)
         {
-            musicPlayer.volume -= startVolume * Time.deltaTime / duration;
+            musicPlayer.volume -= startVolume * Time.deltaTime / fadeOutSpeed;
             yield return null;
         }
 

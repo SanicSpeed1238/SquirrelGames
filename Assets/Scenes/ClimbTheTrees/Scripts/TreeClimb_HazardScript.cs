@@ -3,10 +3,10 @@ using UnityEngine;
 public class TreeClimb_HazardScript : MonoBehaviour
 {
     [Header("Squish Attributes")]
-    [Range(0.25f, 0.75f)]
-    public float squishFactor;
     [Range(0.5f, 3.0f)]
     public float stunDuration;
+    [Range(0.25f, 0.75f)]
+    public float squishFactor;   
     public GameObject impactEffect;
 
     [Header("Freefall Attributes")]

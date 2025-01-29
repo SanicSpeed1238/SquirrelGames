@@ -60,6 +60,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private Vector3 originalScale;
     private Material originalMaterial;
     private Renderer materialRender;
+    private readonly float stunMultiplier = 0.15f;
 
     protected bool isBlocked;
     protected bool isBouncing;
@@ -276,11 +277,13 @@ public class TreeClimb_PlayerController : MonoBehaviour
     }
     IEnumerator SquishCoroutine(float stunDuration, float squishFactor)
     {
+        float totalStunDuration = stunDuration + (playerRB.position.y * stunMultiplier);
+
         Vector3 squishScale = new(originalScale.x, squishFactor, originalScale.z);
-        squirrelModel.GetComponent<CS_SquishModel>().SquishTemporarily(squishScale, stunDuration);
+        squirrelModel.GetComponent<CS_SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
 
         state = TreeClimb_PlayerState.Squished;
-        yield return new WaitForSeconds(stunDuration);
+        yield return new WaitForSeconds(totalStunDuration);
         state = TreeClimb_PlayerState.Climbing;
 
         StartCoroutine(EnableInvincibility());
@@ -331,7 +334,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<TreeClimb_AcornScript>(out var acorn))
         {
-            if (isAlive && !isFinished)
+            if (state != TreeClimb_PlayerState.Squished && (isAlive && !isFinished))
             {
                 acorn.CollectAcorn(this);
             }       
@@ -339,7 +342,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<TreeClimb_HazardScript>(out var hazard))
         {
-            if (state == TreeClimb_PlayerState.Climbing && !isInvincible && !isFinished)
+            if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isFinished && !isInvincible))
             {
                 hazard.SquishSquirrel(this);
             }             

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7142733350544086275, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
       propertyPath: m_Name
-      value: computer_Hammer
+      value: playerCPU_Hammer
       objectReference: {fileID: 0}
     - target: {fileID: 7379629290639573706, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
       propertyPath: m_VersionIndex
@@ -66,9 +66,9 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 4844198132165272685}
   m_SourcePrefab: {fileID: 100100000, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
---- !u!198 &2320392252592866889 stripped
+--- !u!198 &1382096358550611469 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2176075624798428498, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3255953431602920726, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
   m_PrefabInstance: {fileID: 4467932801322375963}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6710749470464069144 stripped
@@ -92,9 +92,10 @@ MonoBehaviour:
   rangeX: 7
   rangeYTop: 2
   rangeYBottom: -6.5
+  hammerModel: {fileID: 8130060306246395903}
   hammerAnimator: {fileID: 6987355221486862881}
   slamSound: {fileID: 6881821065714780116}
-  smashEffect: {fileID: 2320392252592866889}
+  smashEffect: {fileID: 1382096358550611469}
 --- !u!82 &6881821065714780116 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7025733039910558927, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
@@ -103,5 +104,10 @@ AudioSource:
 --- !u!95 &6987355221486862881 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6843601955790575930, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
+  m_PrefabInstance: {fileID: 4467932801322375963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8130060306246395903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5679760357723421924, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
   m_PrefabInstance: {fileID: 4467932801322375963}
   m_PrefabAsset: {fileID: 0}

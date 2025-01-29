@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+  collectEffect: {fileID: 3904828898367977972, guid: 2c4d26d9095ddb0468803eb22f28cb77, type: 3}
 --- !u!114 &5972093774886542056
 MonoBehaviour:
   m_ObjectHideFlags: 0

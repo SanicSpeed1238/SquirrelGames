@@ -8,7 +8,11 @@ public class Base_GameManager : MonoBehaviour
     [Header("Camera Components")]
     public GameObject gameCamera;
     public GameObject openingCutscene;
-    public GameObject resultsCutscene; 
+    public GameObject resultsCutscene;
+
+    [Header("Audio Cues")]
+    public AudioSource audioSource;
+    public AudioClip finishSound;
 
     [Header("UI Components")]
     public GameObject gameUIScreen;
@@ -33,7 +37,7 @@ public class Base_GameManager : MonoBehaviour
     // UI Animation Variables
     protected readonly float countdownDelay = 2.0f;
     protected readonly float readyAppearSpeed = 1.0f;
-    protected readonly float readyDisplayDuration = 2f;
+    protected readonly float readyDisplayDuration = 3f;
     protected readonly float goDisplayDuration = 1.5f;
     protected readonly float goDisappearSpeed = 0.2f;
     protected readonly float finishAppearSpeed = 1.0f;
@@ -137,7 +141,8 @@ public class Base_GameManager : MonoBehaviour
         // Stop the Minigame
         // -----------------
         gamePlaying = false;
-        musicPlayer.StopMusic();
+        audioSource.PlayOneShot(finishSound);
+        musicPlayer.FadeOutMusic(0.5f);
 
         // Display the "Finish!" Message
         // -----------------------------

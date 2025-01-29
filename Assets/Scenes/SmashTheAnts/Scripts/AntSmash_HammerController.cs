@@ -11,6 +11,7 @@ public class AntSmash_HammerController : MonoBehaviour
     public float rangeYBottom;
 
     [Header("Important Components")]
+    [SerializeField] private GameObject hammerModel;
     [SerializeField] private Animator hammerAnimator;
     [SerializeField] private AudioSource slamSound;
     [SerializeField] private ParticleSystem smashEffect;
@@ -28,7 +29,7 @@ public class AntSmash_HammerController : MonoBehaviour
             return;
 
         MoveHammer();
-        if (actionPressed) SmashHammer();
+        SmashHammer();
     }
 
     private void MoveHammer() // Player can move the hammer within the play area
@@ -39,16 +40,19 @@ public class AntSmash_HammerController : MonoBehaviour
         transform.position = newPosition;
     }
     private void SmashHammer() // Player can swing hammer again when current swing animation finishes
-    {      
-        if(hammerAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Idle"))
+    {   
+        if (actionPressed)
         {
-            hammerAnimator.SetTrigger("Smash");
-            smashEffect.Play();
+            if (hammerAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Idle"))
+            {
+                hammerAnimator.SetTrigger("Smash");
+                smashEffect.Play();
 
-            slamSound.pitch = Random.Range(0.5f, 1.0f);
-            slamSound.PlayOneShot(slamSound.clip);
-        }
-        actionPressed = false;
+                slamSound.pitch = Random.Range(0.5f, 1.0f);
+                slamSound.PlayOneShot(slamSound.clip);
+            }
+            actionPressed = false;
+        } 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,8 +75,11 @@ public class AntSmash_HammerController : MonoBehaviour
         playerID = IDNumber;
 
         playerScore = 0;
-        transform.position = startPosition.position;    
+        transform.position = startPosition.position;
+        
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
+        playerColor.a = 0.5f;
+        hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;
     }
 
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer

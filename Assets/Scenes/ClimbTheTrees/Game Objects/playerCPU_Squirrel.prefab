@@ -96,7 +96,7 @@ MonoBehaviour:
   jumpSpeed: 20
   bounceSpeed: 12
   jumpDelay: 0.25
-  invincibilityDuration: 1.5
+  invincibilityDuration: 1.1
   squirrelModel: {fileID: 6422452780694919676}
   squirrelAnimator: {fileID: 5310198260948240288}
   bounceEffect: {fileID: 8517170131646953734, guid: f0121cc4b718b464db795f9369add1f7, type: 3}
