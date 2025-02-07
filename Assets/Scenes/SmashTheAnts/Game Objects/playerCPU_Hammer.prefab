@@ -57,26 +57,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8937800387871726742, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
     - {fileID: 1334215001036035921, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7142733350544086275, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 4844198132165272685}
+      insertIndex: -1
+      addedObject: {fileID: 8814973510458781440}
   m_SourcePrefab: {fileID: 100100000, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
---- !u!198 &1382096358550611469 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3255953431602920726, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-  m_PrefabInstance: {fileID: 4467932801322375963}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6710749470464069144 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7142733350544086275, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
   m_PrefabInstance: {fileID: 4467932801322375963}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4844198132165272685
+--- !u!114 &8814973510458781440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,26 +82,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e54969135fabb340b2c064a39f1505f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
-  rangeX: 7
-  rangeYTop: 2
-  rangeYBottom: -6.5
-  hammerModel: {fileID: 8130060306246395903}
-  hammerAnimator: {fileID: 6987355221486862881}
-  slamSound: {fileID: 6881821065714780116}
-  smashEffect: {fileID: 1382096358550611469}
---- !u!82 &6881821065714780116 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7025733039910558927, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-  m_PrefabInstance: {fileID: 4467932801322375963}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6987355221486862881 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6843601955790575930, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-  m_PrefabInstance: {fileID: 4467932801322375963}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8130060306246395903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5679760357723421924, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-  m_PrefabInstance: {fileID: 4467932801322375963}
-  m_PrefabAsset: {fileID: 0}

@@ -1,25 +1,34 @@
 using UnityEngine;
 
-public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
+[RequireComponent(typeof(TreeClimb_PlayerController))]
+public class TreeClimb_ComputerPlayer : MonoBehaviour
 {
     // Variables Needed
+    private TreeClimb_PlayerController controller;
 
+    // Variables for Vertical Left Stick input
     private float currentVerticalInput;
     private float currentVerticalMoveTimer;
     private readonly float minTimeMoving = 1f;
     private readonly float maxTimeMoving = 3f;
     private readonly float maxDistanceBetweenBounds = 2f;
 
+    // Variables for Horizontal Left Stick input
     private float currentJumpTimer;
     private readonly int jumpFrequency = 25;
-    
+
+    private void Awake()
+    {
+        controller = GetComponent<TreeClimb_PlayerController>();
+    }
+
     private void Start()
     {
         currentVerticalInput = 1;
         currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (!TreeClimb_GameManager.Instance.gamePlaying)
             return;
@@ -43,7 +52,7 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
 
             currentVerticalMoveTimer -= Time.deltaTime;
         }
-        verticalInput = currentVerticalInput;
+        controller.SetVerticalInput(currentVerticalInput);
     }
     private void SwitchVerticalInput()
     {
@@ -60,13 +69,13 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
     }
     private bool CheckVerticalDistance()
     {
-        float playerY = playerRB.position.y;
+        float playerY = transform.position.y;
 
-        if (currentVerticalInput < 0 && playerY - (minHeight + 1) <= maxDistanceBetweenBounds)
+        if (currentVerticalInput < 0 && playerY - (controller.minHeight + 1) <= maxDistanceBetweenBounds)
         {
             return true;
         }
-        else if (currentVerticalInput > 0 && maxHeight - playerY <= maxDistanceBetweenBounds)
+        else if (currentVerticalInput > 0 && controller.maxHeight - playerY <= maxDistanceBetweenBounds)
         {
             return true;
         }
@@ -84,26 +93,26 @@ public class TreeClimb_ComputerPlayer : TreeClimb_PlayerController
             currentJumpTimer = 0.01f;
             int randomInputValue = Random.Range(1, 101);
 
-            if (isBlocked)
+            if (controller.GetBlockedState())
             {
-                if (currentTreeIndex == TreeClimb_GameManager.Instance.treeLanesRemoved) 
-                    horizontalInput = 1;
-                else if (currentTreeIndex == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
-                    horizontalInput = -1;
+                if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treeLanesRemoved)
+                    controller.SetHorizontalInput(1);
+                else if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved))
+                    controller.SetHorizontalInput(-1);
             }
             else if (randomInputValue <= jumpFrequency)
             {
-                if (Random.value >= 0.5f) horizontalInput = 1;
-                else horizontalInput = -1;
+                if (Random.value >= 0.5f) controller.SetHorizontalInput(1);
+                else controller.SetHorizontalInput(-1);
 
-                if (currentTreeIndex == 0 + TreeClimb_GameManager.Instance.treeLanesRemoved) 
-                    horizontalInput = 1;
-                else if (currentTreeIndex == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
-                    horizontalInput = -1;    
+                if (controller.GetCurrentTreeIndex() == 0 + TreeClimb_GameManager.Instance.treeLanesRemoved) 
+                    controller.SetHorizontalInput(1);
+                else if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
+                    controller.SetHorizontalInput(-1);    
             }
             else
             {
-                horizontalInput = 0;
+                controller.SetHorizontalInput(0);
             }
         }
         else

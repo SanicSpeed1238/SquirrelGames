@@ -24,6 +24,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public float jumpDelay;
     [Range(1f, 3f)]
     public float invincibilityDuration;
+    public float minHeight = 1f;
+    public float maxHeight = 14f;
 
     [Header("Important Components")]
     public GameObject squirrelModel;
@@ -32,23 +34,22 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public Material invincibleMaterial;
 
     // Other Variables Needed
-    protected float verticalInput;
-    protected float horizontalInput;
+
+    private float verticalInput;
+    private float horizontalInput;
 
     private bool isAlive;
     private bool isFinished;
     private int playerID;
     private int playerScore;
 
-    protected Rigidbody playerRB;
+    private Rigidbody playerRB;
     private Vector3 moveToPosition;
     private float moveSpeed;
     private float fallSpeed;
-    protected readonly float minHeight = 1f;
-    protected readonly float maxHeight = 14f;
 
-    protected int previousTreeIndex;
-    protected int currentTreeIndex;
+    private int previousTreeIndex;
+    private int currentTreeIndex;
     private float jumpTimer;
     private Vector3 jumpDirection;
     private Transform[] treePositions;
@@ -62,10 +63,36 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private Renderer materialRender;
     private readonly float stunMultiplier = 0.15f;
 
-    protected bool isBlocked;
-    protected bool isBouncing;
-    protected bool isInvincible;
-    protected TreeClimb_PlayerState state;
+    private bool isBlocked;
+    private bool isBouncing;
+    private bool isInvincible;
+    private TreeClimb_PlayerState state;
+
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
+    {
+        playerID = IDNumber;
+
+        playerScore = 0;
+        isAlive = true;
+        state = TreeClimb_PlayerState.Climbing;
+
+        playerRB = GetComponent<Rigidbody>();
+        playerRB.position = startPosition.position;
+
+        originalScale = squirrelModel.transform.localScale;
+        originalMaterial = squirrelModel.GetComponentInChildren<Renderer>().material;
+        materialRender = GetComponentInChildren<Renderer>();
+        GetComponentInChildren<Outline>().OutlineColor = playerColor;
+
+        fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
+        jumpTimer = jumpDelay;
+
+        currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
+        treePositions = TreeClimb_GameManager.Instance.treePositions;
+
+        playerLayer = LayerMask.GetMask("Player");
+        treeLayer = LayerMask.GetMask("Tree");
+    }
 
     private void FixedUpdate()
     {
@@ -382,31 +409,8 @@ public class TreeClimb_PlayerController : MonoBehaviour
         }
     }
 
-    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
-    {
-        playerID = IDNumber;
-
-        playerScore = 0;
-        isAlive = true;
-        state = TreeClimb_PlayerState.Climbing;
-
-        playerRB = GetComponent<Rigidbody>();
-        playerRB.position = startPosition.position;
-
-        originalScale = squirrelModel.transform.localScale;
-        originalMaterial = squirrelModel.GetComponentInChildren<Renderer>().material;
-        materialRender = GetComponentInChildren<Renderer>();
-        GetComponentInChildren<Outline>().OutlineColor = playerColor;
-
-        fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
-        jumpTimer = jumpDelay;
-
-        currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
-        treePositions = TreeClimb_GameManager.Instance.treePositions;
-
-        playerLayer = LayerMask.GetMask("Player");
-        treeLayer = LayerMask.GetMask("Tree");
-    }
+    // Methods for retrieving HUMAN input
+    // ----------------------------------
     public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
     {
         verticalInput = context.ReadValue<Vector2>().y;
@@ -444,5 +448,24 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
         if (TreeClimb_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
             TreeClimb_GameManager.Instance.PauseGame(true);
+    }
+
+    // Methods for calculating COMPUTER input
+    // --------------------------------------
+    public void SetVerticalInput(float input)
+    {
+        verticalInput = input;
+    }
+    public void SetHorizontalInput(float input)
+    {
+        horizontalInput = input;
+    }
+    public int GetCurrentTreeIndex()
+    {
+        return currentTreeIndex;
+    }
+    public bool GetBlockedState()
+    {
+        return isBlocked;
     }
 }

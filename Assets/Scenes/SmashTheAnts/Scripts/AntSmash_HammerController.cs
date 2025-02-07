@@ -17,12 +17,25 @@ public class AntSmash_HammerController : MonoBehaviour
     [SerializeField] private ParticleSystem smashEffect;
 
     // Other Variables Needed
-    protected Vector2 movementInput;
-    protected bool actionPressed;
+
+    private Vector2 movementInput;
+    private bool actionPressed;
 
     private int playerID;
     private int playerScore;
-    
+
+    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
+    {
+        playerID = IDNumber;
+
+        playerScore = 0;
+        transform.position = startPosition.position;
+
+        GetComponentInChildren<Outline>().OutlineColor = playerColor;
+        playerColor.a = 0.5f;
+        hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;
+    }
+
     private void Update()
     {
         if (!AntSmash_GameManager.Instance.gamePlaying) 
@@ -70,18 +83,8 @@ public class AntSmash_HammerController : MonoBehaviour
         }
     }
 
-    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
-    {
-        playerID = IDNumber;
-
-        playerScore = 0;
-        transform.position = startPosition.position;
-        
-        GetComponentInChildren<Outline>().OutlineColor = playerColor;
-        playerColor.a = 0.5f;
-        hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;
-    }
-
+    // Methods for retrieving HUMAN input
+    // ----------------------------------
     public void OnMove(InputAction.CallbackContext context) // Input for moving hammer
     {
         movementInput = context.ReadValue<Vector2>();
@@ -100,5 +103,20 @@ public class AntSmash_HammerController : MonoBehaviour
 
         if (AntSmash_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
             AntSmash_GameManager.Instance.PauseGame(true);
+    }
+
+    // Methods for calculating COMPUTER input
+    // -------------------------------------
+    public void SetLeftStickInput(Vector2 input)
+    {
+        movementInput = input;
+    }
+    public void SetActionInput(bool input)
+    {
+        actionPressed = input;
+    }
+    public bool GetActionInputState()
+    {
+        return actionPressed;
     }
 }
