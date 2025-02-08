@@ -12,6 +12,9 @@ TagManager:
   - BirbShadow
   - Pickup
   - Hazard
+  - FxTemporaire
+  - Apple
+  - Acorn
   layers:
   - Default
   - TransparentFX
