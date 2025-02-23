@@ -17,15 +17,15 @@ public class BigNut_SpawnBirb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Birb").Length == 0)
-        {
-            spawnTime -= Time.deltaTime;
-            if (spawnTime <= 0)
-            {
-                SpawnBirb();
-                spawnTime = Random.Range(3, 10);
-            }
-        }                
+        //if (GameObject.FindGameObjectsWithTag("Birb").Length == 0)
+        //{
+        //    spawnTime -= Time.deltaTime;
+        //    if (spawnTime <= 0)
+        //    {
+        //        SpawnBirb();
+        //        spawnTime = Random.Range(3, 10);
+        //    }
+        //}                
     }
 
     private void SpawnBirb()

@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BigNut_PlayerController : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class BigNut_PlayerController : MonoBehaviour
     private CharacterController controller;
 
     private Transform birbThatCaught;
+
+    private float pushDistance = 0.5f;
 
 
     // Start is called before the first frame update
@@ -54,6 +58,13 @@ public class BigNut_PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "HidyHole")
         {
+            BigNut_HidyHole hidyHole = collision.gameObject.GetComponent<BigNut_HidyHole>();
+            if (hidyHole.HidingPlayer != null)
+            {
+                Vector3 direction = (hidyHole.HidingPlayer.transform.position - gameObject.transform.position).normalized;
+                hidyHole.HidingPlayer.GetComponent<CharacterController>().Move(direction*pushDistance);
+            }
+            hidyHole.HidingPlayer = this.gameObject;
             isHiding = true;
         }
     }

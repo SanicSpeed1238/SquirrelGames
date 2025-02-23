@@ -29,7 +29,7 @@ public class BigNut_BirbScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {
         if (spawned)
         {
 
