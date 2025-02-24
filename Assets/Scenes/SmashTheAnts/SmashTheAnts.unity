@@ -5697,7 +5697,7 @@ MonoBehaviour:
   scoresUI: {fileID: 2385747230567780242}
   gameStarted: 0
   gamePlaying: 0
-  gameLength: 45
+  gameLength: 55
 --- !u!4 &1350667697
 Transform:
   m_ObjectHideFlags: 0

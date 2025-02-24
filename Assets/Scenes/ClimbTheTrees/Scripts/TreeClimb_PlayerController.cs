@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class TreeClimb_PlayerController : MonoBehaviour
 {
-    protected enum TreeClimb_PlayerState
+    private enum TreeClimb_PlayerState
     {
         Climbing,
         Jumping,
