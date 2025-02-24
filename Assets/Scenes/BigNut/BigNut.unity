@@ -1560,7 +1560,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 41.3
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1586,13 +1586,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836248580}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18211849, y: 0.68325174, z: -0.18211849, w: 0.68325174}
-  m_LocalPosition: {x: -39.89, y: 14, z: 9}
+  m_LocalRotation: {x: 0.24225056, y: 0.6643152, z: -0.24225056, w: 0.6643152}
+  m_LocalPosition: {x: -32.15, y: 14, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 29.85, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.07, y: 90, z: 0}
 --- !u!114 &836248584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,6 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  p2: 1
   squirrelModel: {fileID: 1498250689}
   squirrelAnimator: {fileID: 1498250690}
 --- !u!4 &1652156578
@@ -2504,7 +2505,7 @@ Transform:
   m_GameObject: {fileID: 1652156573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -27.054962, y: -0.050000012, z: 1.3}
+  m_LocalPosition: {x: -21.7, y: -0.050000012, z: 8.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2704,7 +2705,7 @@ Transform:
   m_GameObject: {fileID: 1918994802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -27.054962, y: -0.050000012, z: 9}
+  m_LocalPosition: {x: -21.57, y: -0.050000012, z: 6.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2727,6 +2728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  p2: 0
   squirrelModel: {fileID: 115138616}
   squirrelAnimator: {fileID: 115138618}
 --- !u!143 &1918994808

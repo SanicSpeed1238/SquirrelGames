@@ -10,6 +10,7 @@ public class BigNut_PlayerController : MonoBehaviour
 {
     [Header("Movement Values")]
     public float moveSpeed;
+    public bool p2;
 
     [Header("Important Components")]
     public GameObject squirrelModel;
@@ -36,11 +37,18 @@ public class BigNut_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float xinput;
+        float zinput;
+
         if (isAlive)
         {
             squirrelAnimator.speed = 0;
-            float xinput = Input.GetAxisRaw("Horizontal");
-            float zinput = Input.GetAxisRaw("Vertical");
+
+            if(!p2) xinput = Input.GetAxisRaw("Horizontal2");
+            else xinput = Input.GetAxisRaw("Horizontal");
+            if (!p2) zinput = Input.GetAxisRaw("Vertical2");
+            else zinput = Input.GetAxisRaw("Vertical");
+
             if (xinput != 0 || zinput != 0)
             {
                 squirrelAnimator.speed = 1;
