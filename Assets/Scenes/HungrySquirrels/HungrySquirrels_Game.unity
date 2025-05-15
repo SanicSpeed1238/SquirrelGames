@@ -409,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HungrySquirrel_BombHazard
       objectReference: {fileID: 0}
+    - target: {fileID: 2011133521171909697, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3683393256851002591, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.25

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HungrySquirrels_PlayerController : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     void Update()
     {
         rotationInput = Input.GetAxis("Horizontal");//Left & Right input
-        moveInput = Input.GetAxis("Vertical");//Forward & Backward Input
+        moveInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 0.1f);//Forward & Backward Input
         RotateArm(rotationInput);//More consistent rotation than in fixed update
         ExtendArm(moveInput);//Moving Arm Input(I need to apply button input for simplicity sake)
     }
@@ -86,7 +87,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     {
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
-        if (Input > 0)
+        /*if (Input > 0)
         {
             pressed = true;//To Stop player rotation
         }
@@ -101,6 +102,21 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             {
                 arm.transform.Translate(translate, 0, 0, Space.Self);
             }
+        }*/
+
+        if (Input > 0.1 && collided == false)
+        {
+            arm.transform.Translate(translate, 0, 0, Space.Self);
+            pressed = true;
+        }
+        else if (Input < 0.1 && collided == false)
+        {
+            arm.transform.Translate(-translate, 0, 0, Space.Self);
+            pressed = false;
+        }
+        else if (collided == true)
+        {
+            arm.transform.Translate(-translate, 0, 0, Space.Self);
         }
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
