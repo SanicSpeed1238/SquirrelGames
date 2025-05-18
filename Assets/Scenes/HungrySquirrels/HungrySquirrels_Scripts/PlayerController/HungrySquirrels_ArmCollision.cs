@@ -23,7 +23,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                if (mainBody.moveInput > 0 && mainBody.collectActive == false)
+                if (mainBody.moveInput == true && mainBody.collectActive == false)
                 {
                     mainBody.collectActive = true;
                 }

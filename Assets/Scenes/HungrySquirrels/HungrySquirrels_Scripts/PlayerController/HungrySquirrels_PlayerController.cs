@@ -24,7 +24,8 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     public float rot_Max;//Maximum rotation of Player/Limits
     
     //Arm Controls
-    public float moveInput;//Check for key/input for rotation
+    public bool moveInput { get; private set; }//Check for key/input for rotation
+    [SerializeField] private Key buttonName;
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
 
@@ -62,7 +63,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     void Update()
     {
         rotationInput = Input.GetAxis("Horizontal");//Left & Right input
-        moveInput = Mathf.Clamp(Input.GetAxis("Vertical"), 0f, 0.1f);//Forward & Backward Input
+        moveInput = Input.GetKey(KeyCode.W/*JoystickButton14*/);//Forward & Backward Input
         RotateArm(rotationInput);//More consistent rotation than in fixed update
         ExtendArm(moveInput);//Moving Arm Input(I need to apply button input for simplicity sake)
     }
@@ -83,7 +84,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         }
     }
 
-    void ExtendArm(float Input)
+    void ExtendArm(bool Input)
     {
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
@@ -104,19 +105,20 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             }
         }*/
 
-        if (Input > 0.1 && collided == false)
+        if (Input == true && collided == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
             pressed = true;
+            
         }
-        else if (Input < 0.1 && collided == false)
+        else if (Input == false && collided == false)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
-            pressed = false;
+            //pressed = false;
         }
         else if (collided == true)
         {
-            arm.transform.Translate(-translate, 0, 0, Space.Self);
+            arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
         }
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
