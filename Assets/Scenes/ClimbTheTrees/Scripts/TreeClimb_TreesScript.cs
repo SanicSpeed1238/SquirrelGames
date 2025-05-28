@@ -29,7 +29,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
     private void FixedUpdate()
     {
         // Moves the set of trees down
-        if (TreeClimb_GameManager.Instance.gamePlaying || treeGroupType == TreeGroup.Goal)
+        if (CS_GameManager.Instance.gamePlaying || treeGroupType == TreeGroup.Goal)
         {
             Vector3 movement = moveSpeed * Time.fixedDeltaTime * Vector3.down;
             treeRB.MovePosition(treeRB.position + movement);

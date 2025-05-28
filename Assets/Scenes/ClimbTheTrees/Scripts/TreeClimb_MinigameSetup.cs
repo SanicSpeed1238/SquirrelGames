@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class TreeClimb_MinigameSetup : Base_MinigameSetup
+/*
+public class TreeClimb_MinigameSetup : MonoBehaviour
 {
     public static TreeClimb_MinigameSetup Instance;
 
     private void Awake()
     {
-        Base_MinigameSetup_Awake();
         Instance = this;
     }
 
@@ -22,4 +21,4 @@ public class TreeClimb_MinigameSetup : Base_MinigameSetup
         computerController.GetComponent<TreeClimb_PlayerController>().
             InitializePlayer(playerID, playerColors[playerID - 1], spawnPositions[playerID - 1]);
     }
-}
+}*/

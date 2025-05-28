@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-public class AntSmash_MinigameSetup : Base_MinigameSetup
+/*
+public class AntSmash_MinigameSetup : MonoBehaviour
 {
     public static AntSmash_MinigameSetup Instance;
 
@@ -22,4 +22,4 @@ public class AntSmash_MinigameSetup : Base_MinigameSetup
         computerController.GetComponent<AntSmash_HammerController>().
             InitializePlayer(playerID, playerColors[playerID - 1], spawnPositions[playerID - 1]);
     }
-}
+}*/

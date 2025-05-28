@@ -38,7 +38,7 @@ public class AntSmash_HammerController : MonoBehaviour
 
     private void Update()
     {
-        if (!AntSmash_GameManager.Instance.gamePlaying) 
+        if (!CS_GameManager.Instance.gamePlaying) 
             return;
 
         MoveHammer();
@@ -79,7 +79,7 @@ public class AntSmash_HammerController : MonoBehaviour
             int addedScore = animal.points;
             playerScore += addedScore;
             if (playerScore < 0) playerScore = 0;
-            AntSmash_GameManager.Instance.UpdateScore(playerID, playerScore, addedScore);
+            CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, addedScore);
         }
     }
 
@@ -92,17 +92,6 @@ public class AntSmash_HammerController : MonoBehaviour
     public void OnAction(InputAction.CallbackContext context) // Input for swinging hammer
     {
         actionPressed = context.ReadValueAsButton();
-
-        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
-            AntSmash_MinigameSetup.Instance.ConfirmJoin(playerID);
-    }
-    public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
-    {
-        if (!AntSmash_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
-            AntSmash_MinigameSetup.Instance.StartGame();
-
-        if (AntSmash_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
-            AntSmash_GameManager.Instance.PauseGame(true);
     }
 
     // Methods for calculating COMPUTER input

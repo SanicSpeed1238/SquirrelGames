@@ -100,7 +100,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         {
             if (!isFinished)
             {
-                if (!TreeClimb_GameManager.Instance.gamePlaying)
+                if (!CS_GameManager.Instance.gamePlaying)
                     return;
 
                 MoveVertically();
@@ -296,7 +296,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         {
             BounceSquirrel();
         }
-    } // Used to fix player collision issues
+    }
 
     public void SquishSquirrel(float stunForce, float squishFactor)
     {       
@@ -332,7 +332,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
     public void AddToPlayerScore(int points)
     {
         playerScore += points;
-        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, points);
+        CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, points);
     }
 
     private void MoveToFinishPosition()
@@ -354,7 +354,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
 
         playerScore = 0;
-        TreeClimb_GameManager.Instance.UpdateScore(playerID, playerScore, 0);
+        CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -396,7 +396,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
             {
                 isFinished = true;
                 AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
-                TreeClimb_GameManager.Instance.UpdatePlayersFinished(playerID);
+                CS_GameManager.Instance.UpdatePlayerFinished(playerID);
 
                 string playerFinishPosition = "Player" + playerID;
                 finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
@@ -416,7 +416,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         verticalInput = context.ReadValue<Vector2>().y;
 
         #region GetHorizontalInput
-        if (TreeClimb_GameManager.Instance.gamePlaying)
+        if (CS_GameManager.Instance.gamePlaying)
         {
             float xInput = context.ReadValue<Vector2>().x;
             if (xInput > .5)
@@ -434,20 +434,9 @@ public class TreeClimb_PlayerController : MonoBehaviour
         }
         #endregion
     }
-    public void OnAction(InputAction.CallbackContext context) // Action button not used.
+    public void OnAction(InputAction.CallbackContext context) // Input not used.
     {
-        if (!TreeClimb_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
-        {
-            TreeClimb_MinigameSetup.Instance.ConfirmJoin(playerID);
-        }
-    }
-    public void OnStart(InputAction.CallbackContext context) // Input for starting and pausing game
-    {
-        if (!TreeClimb_GameManager.Instance.gameStarted && context.ReadValueAsButton() == true)
-            TreeClimb_MinigameSetup.Instance.StartGame();
-
-        if (TreeClimb_GameManager.Instance.gamePlaying && context.ReadValueAsButton() == true)
-            TreeClimb_GameManager.Instance.PauseGame(true);
+        // Action button not used.
     }
 
     // Methods for calculating COMPUTER input

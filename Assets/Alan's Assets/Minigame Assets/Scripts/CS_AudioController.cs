@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class CS_MinigameMusic : MonoBehaviour
+public class CS_AudioController : MonoBehaviour
 {
     [Header("Music List")]
     [SerializeField] private AudioClip gameMusic;
     [SerializeField] private AudioClip setupMusic;
+
+    [Header("SFX List")]
+    [SerializeField] private AudioSource finishSound;
 
     private AudioSource musicPlayer;
 
@@ -29,16 +32,20 @@ public class CS_MinigameMusic : MonoBehaviour
         musicPlayer.Stop();
     }
 
+    public void PlayGameMusic()
+    {
+        musicPlayer.clip = gameMusic;
+        musicPlayer.Play();
+    }
     public void PlaySetupMusic()
     {
         musicPlayer.clip = setupMusic;
         musicPlayer.Play();
     }
 
-    public void PlayGameMusic()
+    public void PlayFinishSound()
     {
-        musicPlayer.clip = gameMusic;
-        musicPlayer.Play();
+        finishSound.Play();
     }
 
     public void FadeOutMusic(float fadeOutSpeed)

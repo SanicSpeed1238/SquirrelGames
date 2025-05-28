@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using EasyTransition;
 
-public class CS_MinigamePause : MonoBehaviour
+public class CS_PauseScreen : MonoBehaviour
 {
     [Header("UI Buttons")]
     public GameObject resumeButton;
@@ -10,21 +9,28 @@ public class CS_MinigamePause : MonoBehaviour
 
     [Header("Important Components")]
     public TransitionSettings quitTransition;
-    public GameObject[] otherElements;
+    public GameObject[] screenElements;
 
-    private Base_GameManager gameManager;
+    // Other Variables Needed
+    private CS_GameManager gameManager;
     private readonly string minigameSelectSceneName = "Minigame Selection";
 
     private void Awake()
     {
-        gameManager = FindAnyObjectByType<Base_GameManager>();
+        gameManager = FindAnyObjectByType<CS_GameManager>();
+    }
 
-        resumeButton.GetComponent<Button>().onClick.AddListener(() => gameManager.PauseGame(false));
-        quitButton.GetComponent<Button>().onClick.AddListener(() => gameManager.QuitGame());
+    private void Update()
+    {
+        if (Input.GetButtonDown("Start"))
+        {
+            if (gameManager.gamePlaying) PauseMinigame();
+        }
     }
 
     public void PauseMinigame()
     {
+        this.gameObject.SetActive(true);
         Time.timeScale = 0;
         gameManager.gamePlaying = false;
     }
@@ -33,17 +39,15 @@ public class CS_MinigamePause : MonoBehaviour
     {
         Time.timeScale = 1;
         gameManager.gamePlaying = true;
+        this.gameObject.SetActive(false);
     }
 
     public void QuitMinigame()
     {
-        resumeButton.SetActive(false);
-        quitButton.SetActive(false);
-        foreach (var otherElement in otherElements)
+        foreach (var element in screenElements)
         {
-            otherElement.gameObject.SetActive(false);
+            element.SetActive(false);
         }
-
         TransitionManager.Instance().Transition(minigameSelectSceneName, quitTransition, 0f);
     }
 }
