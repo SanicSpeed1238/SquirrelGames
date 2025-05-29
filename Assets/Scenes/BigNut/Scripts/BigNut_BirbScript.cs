@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BigNut_BirbScript : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
+
+    public BigNut_GameManagerScript gameManagerScript;
+
+    [Header("Bird Movement Components")]
     public Transform birbDestination;
     public Transform birbSource;
 
@@ -13,12 +14,12 @@ public class BigNut_BirbScript : MonoBehaviour
 
     public float maxDistanceFromCharacter = 100f;
 
+
     private bool reachedPlayer = false;
     private bool spawned = false;
     private float spawnTime;
 
     // Start is called before the first frame update
-
     void Start()
     {
         shadow.localScale = Vector3.zero;
@@ -33,15 +34,23 @@ public class BigNut_BirbScript : MonoBehaviour
         if (spawned)
         {
 
-            if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.position) > maxDistanceFromCharacter)
+            if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
             {
                 shadow.localScale = Vector3.zero;
                 spawned = false;
+                BigNut_PlayerController playerController = player.GetComponent<BigNut_PlayerController>();
+                if (!playerController.IsAlive)
+                {
+                    gameManagerScript.PlayerKilled(player.name);
+                    Destroy(player);
+                    Destroy(shadow);
+                    Destroy(gameObject);
+                }
             }
 
             if (!reachedPlayer)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.position, 0.02f);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.02f);
                 shadow.localScale += new Vector3(0.005f, 0, 0.005f);
             }
             else
@@ -66,7 +75,7 @@ public class BigNut_BirbScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {

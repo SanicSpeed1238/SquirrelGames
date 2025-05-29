@@ -1,30 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class BigNut_PlayerController : MonoBehaviour
 {
     [Header("Movement Values")]
     public float moveSpeed;
-    public bool p2;
+    public bool isPlayer2;
 
     [Header("Important Components")]
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
 
-    // Other Variables Needed
+    [Header("Camera Values")]
+    public Camera mainCamera;
+    public float bufferFromBehind = 0.1f; 
+    public float bufferFromForward = 0.9f;
+    public float pushSpeed = 2f;        
+
     private bool isAlive;
     private bool isHiding;
-    private CharacterController controller;
+    private float pushDistance = 7f;
 
     private Transform birbThatCaught;
+    private CharacterController controller;
 
-    private float pushDistance = 0.5f;
 
+    public bool IsAlive { get => isAlive; }
 
     // Start is called before the first frame update
     void Start()
@@ -37,24 +37,38 @@ public class BigNut_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xinput;
-        float zinput;
+        float xInput;
+        float zInput;
 
         if (isAlive)
         {
             squirrelAnimator.speed = 0;
+            Vector3 velocity = Vector3.zero;
 
-            if(!p2) xinput = Input.GetAxisRaw("Horizontal2");
-            else xinput = Input.GetAxisRaw("Horizontal");
-            if (!p2) zinput = Input.GetAxisRaw("Vertical2");
-            else zinput = Input.GetAxisRaw("Vertical");
+            if(!isPlayer2) xInput = Input.GetAxisRaw("Horizontal2");
+            else xInput = Input.GetAxisRaw("Horizontal");
+            if (!isPlayer2) zInput = Input.GetAxisRaw("Vertical2");
+            else zInput = Input.GetAxisRaw("Vertical");
 
-            if (xinput != 0 || zinput != 0)
+            if (xInput != 0 || zInput != 0)
             {
                 squirrelAnimator.speed = 1;
-                Vector3 movement = transform.right * xinput + transform.forward * zinput;
-                controller.Move(movement*moveSpeed*Time.deltaTime);
+                Vector3 movement = transform.right * xInput + transform.forward * zInput;
+                velocity = movement * moveSpeed;
             }
+
+            Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+            if (viewportPos.y < bufferFromBehind)
+            {
+                velocity.x += pushSpeed;
+            }
+            else if (viewportPos.y > bufferFromForward)
+            {
+                Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
+                transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
+                velocity.x = 0;
+            }
+            controller.Move(velocity * Time.deltaTime);
         }
         else
         {
@@ -67,13 +81,19 @@ public class BigNut_PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "HidyHole")
         {
             BigNut_HidyHole hidyHole = collision.gameObject.GetComponent<BigNut_HidyHole>();
-            if (hidyHole.HidingPlayer != null)
+            GameObject hidingPlayer = hidyHole.HidingPlayer;
+            if (hidingPlayer != null && hidingPlayer != gameObject)
             {
-                Vector3 direction = (hidyHole.HidingPlayer.transform.position - gameObject.transform.position).normalized;
-                hidyHole.HidingPlayer.GetComponent<CharacterController>().Move(direction*pushDistance);
+                Debug.Log(hidingPlayer.ToString());
+                PushPlayerAway(hidingPlayer, collision.gameObject);
             }
             hidyHole.HidingPlayer = this.gameObject;
             isHiding = true;
+        }
+        if (!isHiding && collision.gameObject.tag == "Birb")
+        {
+            isAlive = false;
+            birbThatCaught = collision.gameObject.transform;
         }
     }
 
@@ -81,16 +101,23 @@ public class BigNut_PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "HidyHole")
         {
+            BigNut_HidyHole hidyHole = collision.gameObject.GetComponent<BigNut_HidyHole>();
+            if (hidyHole.HidingPlayer == gameObject)
+            {
+                hidyHole.HidingPlayer = null;
+            }
             isHiding = false;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void PushPlayerAway(GameObject hidingPlayer, GameObject hidyHole)
     {
-        if (!isHiding && collision.gameObject.tag == "Birb")
-        {
-            isAlive = false;
-            birbThatCaught = collision.gameObject.transform;
-        }
+        Vector3 pushDirection = (hidingPlayer.transform.position - transform.position).normalized;
+        pushDirection.y = 0;
+        Vector3 targetPosition = hidyHole.transform.position + pushDirection * pushDistance;
+        Vector3 push = targetPosition - hidingPlayer.transform.position;
+        push.y = 0;
+        
+        hidingPlayer.GetComponent<CharacterController>().Move(push);
     }
 }
