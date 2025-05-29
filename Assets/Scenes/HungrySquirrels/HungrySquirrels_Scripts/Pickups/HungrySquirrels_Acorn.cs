@@ -6,6 +6,7 @@ public class HungrySquirrels_Acorn : Pickup
     protected override void Collect(HungrySquirrels_ArmCollision arm)
     {
         Debug.Log(_pointVal);//Acorn is now within player's possession.
+        //Destroy(this.gameObject);
     }
     //When the Acorn hits the grabber, it will give the player a point
     /*public void AcornCollected(HungrySquirrels_PlayerController player)
