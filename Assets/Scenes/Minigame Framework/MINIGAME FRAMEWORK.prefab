@@ -382,6 +382,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: -900
   moveIn_YOffset: 0
@@ -450,6 +451,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: 300
@@ -518,6 +520,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: 300
@@ -1012,6 +1015,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 1200
   moveIn_YOffset: 0
@@ -1253,6 +1257,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: 300
@@ -3058,6 +3063,7 @@ MonoBehaviour:
   appearAnimation: 1
   grow_TargetScale: {x: 1, y: 1, z: 1}
   grow_Duration: 1
+  grow_Delay: 3
   grow_EaseType: 30
   moveIn_XOffset: 0
   moveIn_YOffset: 0
@@ -3990,6 +3996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6914206699603480369}
+  - component: {fileID: 8509018539339631477}
   m_Layer: 0
   m_Name: MINIGAME FRAMEWORK
   m_TagString: Untagged
@@ -4019,6 +4026,18 @@ Transform:
   - {fileID: 1384530976338954435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8509018539339631477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897759619078734291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e301544c60034141be2e3230972a301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6066457204557008259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4375,6 +4394,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: 300
@@ -4588,6 +4608,7 @@ MonoBehaviour:
   appearAnimation: 1
   grow_TargetScale: {x: 1, y: 1, z: 1}
   grow_Duration: 0.5
+  grow_Delay: 0
   grow_EaseType: 24
   moveIn_XOffset: 0
   moveIn_YOffset: 0
@@ -5679,6 +5700,7 @@ MonoBehaviour:
   appearAnimation: 2
   grow_TargetScale: {x: 0, y: 0, z: 0}
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: -500

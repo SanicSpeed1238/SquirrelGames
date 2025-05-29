@@ -88,7 +88,7 @@ public class CS_GameManager : MonoBehaviour
         string playerTextObject = "Player" + playerID;
         GameObject playerScoreUI = scoresUI.transform.Find(playerTextObject).gameObject;
 
-        if (newScore > 0)
+        if (newScore >= 0)
         {
             gameResults.playerScores[playerID - 1] = newScore;
             playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = newScore.ToString("D2");
@@ -130,7 +130,6 @@ public class CS_GameManager : MonoBehaviour
     #region Start Game Sequence
     public void StartGame()
     {
-        // Spawn Players
         StartCoroutine(StartMinigame());
     }
     IEnumerator StartMinigame()
@@ -188,8 +187,7 @@ public class CS_GameManager : MonoBehaviour
 
     #region End Game Sequence
     public void EndGame()
-    {
-        gameResults.GetWinners();
+    {      
         StartCoroutine(EndMinigame());
     }
     IEnumerator EndMinigame()
@@ -197,6 +195,7 @@ public class CS_GameManager : MonoBehaviour
         // Stop the Minigame
         // -----------------
         gamePlaying = false;
+        gameResults.GetWinners();
         audioPlayer.PlayFinishSound();
         audioPlayer.FadeOutMusic(0.5f);
 
@@ -225,12 +224,18 @@ public class CS_GameManager : MonoBehaviour
         gameUIScreen.SetActive(false);
         gameCamera.SetActive(false);
         resultsCutscene.SetActive(true);
-        PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
-        playableDirector.Play();
 
         // Play the Results Cutscene
         // -------------------------
-        yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
+        if (resultsCutscene.GetComponent<PlayableDirector>().playableAsset != null)
+        {
+            PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
+            playableDirector.Play();
+            yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
+        }
+
+        // Show Results then Transition out of Scene
+        // -----------------------------------------
         gameResults.PlayResultsSequence();    
         resultsScreen.SetActive(true);
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AntSmash_HammerController : MonoBehaviour
+public class AntSmash_HammerController : Base_PlayerController
 {
     [Header("Movement Controls")]
     [Range(1f, 20f)]
@@ -17,20 +17,11 @@ public class AntSmash_HammerController : MonoBehaviour
     [SerializeField] private ParticleSystem smashEffect;
 
     // Other Variables Needed
-
     private Vector2 movementInput;
     private bool actionPressed;
 
-    private int playerID;
-    private int playerScore;
-
-    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes hammer game object
+    private void Start()
     {
-        playerID = IDNumber;
-
-        playerScore = 0;
-        transform.position = startPosition.position;
-
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
         playerColor.a = 0.5f;
         hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;

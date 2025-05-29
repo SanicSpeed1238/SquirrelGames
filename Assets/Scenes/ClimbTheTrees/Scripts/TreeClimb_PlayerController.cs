@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
 
-public class TreeClimb_PlayerController : MonoBehaviour
+public class TreeClimb_PlayerController : Base_PlayerController
 {
     private enum TreeClimb_PlayerState
     {
@@ -40,8 +40,6 @@ public class TreeClimb_PlayerController : MonoBehaviour
 
     private bool isAlive;
     private bool isFinished;
-    private int playerID;
-    private int playerScore;
 
     private Rigidbody playerRB;
     private Vector3 moveToPosition;
@@ -68,16 +66,12 @@ public class TreeClimb_PlayerController : MonoBehaviour
     private bool isInvincible;
     private TreeClimb_PlayerState state;
 
-    public void InitializePlayer(int IDNumber, Color playerColor, Transform startPosition) // Initializes squirrel game object
+    private void Start()
     {
-        playerID = IDNumber;
-
-        playerScore = 0;
         isAlive = true;
         state = TreeClimb_PlayerState.Climbing;
 
         playerRB = GetComponent<Rigidbody>();
-        playerRB.position = startPosition.position;
 
         originalScale = squirrelModel.transform.localScale;
         originalMaterial = squirrelModel.GetComponentInChildren<Renderer>().material;
@@ -353,7 +347,7 @@ public class TreeClimb_PlayerController : MonoBehaviour
         playerRB.AddForce(new Vector3(0, 0, -1), ForceMode.Impulse);
         playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
 
-        playerScore = 0;
+        playerScore = -1;
         CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
     }
 
