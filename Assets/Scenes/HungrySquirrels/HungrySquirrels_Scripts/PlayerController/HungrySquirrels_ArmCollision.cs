@@ -23,24 +23,25 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                if (mainBody.moveInput == true && mainBody.collectActive == false)
+                /*if (mainBody.moveInput == true && mainBody.collectActive == false)
                 {
                     mainBody.collectActive = true;
                 }
                 if (mainBody.collectActive == true)
                 {
                     other.gameObject.GetComponent<HungrySquirrels_Acorn>().AcornCollected(mainBody);
-                }
+                }*/
                 
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
                 mainBody.collided = true;
                 break;
-            case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
+            /*case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
                 print("AAAAAAA");
-                break;
-            default:
+                break;*/
+             default:
                 mainBody.collided=true;//If player collided with wall, bounce back
+                Debug.Log("Waka Waka");
                 break;
         }
 

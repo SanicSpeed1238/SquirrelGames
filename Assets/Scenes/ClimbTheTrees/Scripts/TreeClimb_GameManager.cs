@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
-using TMPro;
 
-public class TreeClimb_GameManager : Base_GameManager
+public class TreeClimb_GameManager : MonoBehaviour
 {
     public static TreeClimb_GameManager Instance;
 
@@ -18,8 +17,6 @@ public class TreeClimb_GameManager : Base_GameManager
     [HideInInspector] public bool finalTimerStarted;
     [HideInInspector] public int treeLanesRemoved;
 
-    private bool[] playersFinished;
-    private int[] playerScores;
     private int nextPlayerPlacement;
     private float finalTimer;
 
@@ -28,7 +25,6 @@ public class TreeClimb_GameManager : Base_GameManager
 
     private void Awake()
     {
-        Base_GameManager_Awake();
         Instance = this;       
     }
     private void Start()
@@ -40,16 +36,13 @@ public class TreeClimb_GameManager : Base_GameManager
         treesMoving = true;
         finalTimerStarted = false;
 
-        playerScores = new int[4];
-        playersFinished = new bool[4];
-
         nextPlayerPlacement = 1;
         finalTimer = 5f;
     }
 
     private void Update()
     {
-        if (gamePlaying)
+        if (CS_GameManager.Instance.gamePlaying)
         {
             UpdateFinalTimer();
         }
@@ -64,7 +57,7 @@ public class TreeClimb_GameManager : Base_GameManager
             }
             else
             {
-                foreach (GameObject player in TreeClimb_MinigameSetup.Instance.playersInGame)
+                foreach (GameObject player in CS_GameManager.Instance.GetAllPlayers())
                 {
                     player.GetComponent<TreeClimb_PlayerController>().EliminatePlayer();
                 }
@@ -96,42 +89,6 @@ public class TreeClimb_GameManager : Base_GameManager
         else return null;
     }
 
-    public void UpdateScore(int playerID, int newScore, int addedScore)
-    {
-        string playerTextObject = "Player" + playerID;
-        GameObject playerScoreUI = scoresUI.transform.Find(playerTextObject).gameObject;
-
-        if (newScore > 0)
-        {
-            if (addedScore > 0)
-            {
-                playerScores[playerID - 1] = newScore;
-                playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = newScore.ToString("D2");
-
-                playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Add");
-                playerScoreUI.GetComponentInChildren<Animator>().SetTrigger("Add");
-            }          
-        }
-        else
-        {
-            playerScores[playerID - 1] = newScore;
-            playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = "OUT";
-
-            UpdatePlayersFinished(playerID);
-        }     
-    }
-    public void UpdatePlayersFinished(int playerID)
-    {
-        playersFinished[playerID - 1] = true;
-
-        foreach (bool playerFinished in playersFinished)
-        {
-            if (!playerFinished) return;
-        }
-
-        GetWinners();
-        EndGame();
-    }
     public int GainBonusPoints()
     {
         var bonusPoints = nextPlayerPlacement switch
@@ -143,26 +100,5 @@ public class TreeClimb_GameManager : Base_GameManager
         };
         nextPlayerPlacement++;
         return bonusPoints;
-    }
-
-    private void GetWinners()
-    {
-        int highestScore = 1;
-
-        for (int i = 0; i < playerScores.Length; i++)
-        {
-            if (playerScores[i] > highestScore)
-            {
-                highestScore = playerScores[i];
-            }
-        }
-
-        for (int i = 0; i < playerScores.Length; i++)
-        {
-            if (playerScores[i] == highestScore)
-            {
-                minigameResults.playersWon[i] = true;
-            }
-        }
     }
 }

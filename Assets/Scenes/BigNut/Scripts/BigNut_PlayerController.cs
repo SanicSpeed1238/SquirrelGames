@@ -18,7 +18,7 @@ public class BigNut_PlayerController : MonoBehaviour
 
     private bool isAlive;
     private bool isHiding;
-    private float pushDistance = 7f;
+    private float pushDistance = 2f;
 
     private Transform birbThatCaught;
     private CharacterController controller;
