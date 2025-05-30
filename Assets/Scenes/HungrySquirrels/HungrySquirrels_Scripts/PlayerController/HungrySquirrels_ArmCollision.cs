@@ -23,14 +23,10 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                /*if (mainBody.moveInput == true && mainBody.collectActive == false)
+                if (mainBody.moveInput == true && mainBody.collectActive == false)
                 {
                     mainBody.collectActive = true;
                 }
-                if (mainBody.collectActive == true)
-                {
-                    other.gameObject.GetComponent<HungrySquirrels_Acorn>().AcornCollected(mainBody);
-                }*/
                 
                 break;
             case "Player"://If player collides with other player arm, knock acorn up

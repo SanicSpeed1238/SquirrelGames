@@ -28,6 +28,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     [SerializeField] private Key buttonName;
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
+    public bool rebound;
 
     // Start is called before the first frame update
     void Start()
@@ -105,13 +106,13 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             }
         }*/
 
-        if (Input == true && collided == false)
+        if (Input == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
             pressed = true;
             
         }
-        else if (Input == false && collided == false)
+        else if (Input == false && collided == false && rebound == false)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
             //pressed = false;
@@ -120,12 +121,17 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         {
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
         }
+        else if (rebound == true)
+        {
+            arm.transform.Translate(-translate, 0, 0, Space.Self);
+        }
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
             //Change previous values false to enable arm rotation & interaction
             collectActive = false;
             collided = false;
+            rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
         }

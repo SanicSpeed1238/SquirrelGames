@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: -1599648042142969385}
   - component: {fileID: 4961198239399463931}
   - component: {fileID: 6710279185608963324}
-  - component: {fileID: 4092203799975332403}
   m_Layer: 7
   m_Name: HungrySquirrels_Acorn
   m_TagString: Pickup
@@ -97,27 +96,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.27
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!135 &4092203799975332403
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701012558427679750}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 1.5
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &6248345104620535112
 PrefabInstance:
