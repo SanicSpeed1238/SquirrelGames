@@ -37,23 +37,23 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         switch (playerID)
         {
             case 0:
-                transform.position = new Vector3(18, 5, 18);
+                transform.position = new Vector3(18, 1.6f, 18);
                 transform.localEulerAngles = new Vector3 (0, 135, 0);
                 break;
             case 1:
-                transform.position = new Vector3(-18, 5, 18);
+                transform.position = new Vector3(-18, 1.6f, 18);
                 transform.localEulerAngles = new Vector3(0, 45, 0);
                 break;
             case 2:
-                transform.position = new Vector3(-18, 5, -18);
+                transform.position = new Vector3(-18, 1.6f, -18);
                 transform.localEulerAngles = new Vector3(0, -45, 0);
                 break;
             case 3:
-                transform.position = new Vector3(18, 5, -18);
+                transform.position = new Vector3(18, 1.6f, -18);
                 transform.localEulerAngles = new Vector3(0, -135, 0);
                 break;
             default:
-                transform.position = new Vector3(0, 5, 0);
+                transform.position = new Vector3(0, 1.6f, 0);
                 transform.localEulerAngles = new Vector3(0, 135, 0);
                 break;
         }
