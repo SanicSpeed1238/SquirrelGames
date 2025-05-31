@@ -5,7 +5,9 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     //Input needed for arm
     public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
-    public bool aOn = false;
+    public int aOn;
+    public float bTimer;
+    public bool bActive;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +34,14 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
                 mainBody.collided = true;
+                Debug.Log("ACORN RELEASE");
                 break;
             /*case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
                 print("AAAAAAA");
                 break;*/
              default:
                 mainBody.collided=true;//If player collided with wall, bounce back
-                Debug.Log("Waka Waka");
+                //Debug.Log("Waka Waka");
                 break;
         }
 

@@ -11,4 +11,9 @@ public class HungrySquirrels_Bomb : Pickup
         throw new System.NotImplementedException();
     }
 
+    public void bInitialize(HungrySquirrels_ArmCollision arm)
+    {
+
+    }
+
 }

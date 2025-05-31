@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -1599648042142969385}
   - component: {fileID: 4961198239399463931}
   - component: {fileID: 6710279185608963324}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HungrySquirrels_Acorn
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 129ee6f21fff37a449178459a3a0ecab, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class HungrySquirrels_PlayerController : MonoBehaviour
 {
     //Controls the speed of rotation for character
-    public float rot_Speed = 5f;
+    public float rot_Speed = 3f;
     //Controls Arm Speed
     public float ext_Speed = 0.2f;
 
@@ -13,6 +13,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
 
     //Referencing the arm to stop movement when collision with wall or player happens
     public GameObject arm;//Reference to Arm Child/Cube.1
+    public HungrySquirrels_ArmCollision aBehav;//Referencing arm values
     public BoxCollider hitBox;//Hit box for arm
 
     protected float translate;//Moves Arm forward(put a negative at front to go backwards)
@@ -89,22 +90,6 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     {
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
-        /*if (Input > 0)
-        {
-            pressed = true;//To Stop player rotation
-        }
-
-        if (pressed == true)//Starts moving when pressed
-        {
-            if (collided == true)//When collision, arm moves backward
-            {
-                arm.transform.Translate(-translate, 0, 0, Space.Self);
-            }
-            else//Else, keep moving forward
-            {
-                arm.transform.Translate(translate, 0, 0, Space.Self);
-            }
-        }*/
 
         if (Input == true && collided == false && rebound == false)
         {
@@ -117,7 +102,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
             collectActive = false;
-            //pressed = false;
+            pressed = false;
         }
         else if (collided == true)
         {
@@ -137,6 +122,11 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
+            if(aBehav.aOn != 0)
+            {
+                Debug.Log(aBehav.aOn);
+                aBehav.aOn = 0;
+            }
         }
     }
 }
