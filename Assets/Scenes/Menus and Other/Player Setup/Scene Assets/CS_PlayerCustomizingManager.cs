@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using EasyTransition;
 
 public class CS_PlayerCustomizingManager : MonoBehaviour
 {
@@ -12,6 +13,20 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
     [Header("Customization Menus")]
     public GameObject[] customizationMenus;
 
+    [Header("Other Important References")]
+    public TransitionSettings transitionAnimation;
+
+    // Other Variables Needed
+    private readonly string minigameSelectSceneName = "Minigame Selection";
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Start"))
+        {
+            TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 0);
+        }
+    }
+
     public void OnPlayerJoined(PlayerInput joinedPlayer)
     {
         int playerIndex = joinedPlayer.playerIndex;
@@ -20,5 +35,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
 
         joinMessages[playerIndex].SetActive(false);
         customizationMenus[playerIndex].SetActive(true);
+
+        CS_PlayerJoinData.Instance.RegisterPlayer(joinedPlayer);
     }
 }

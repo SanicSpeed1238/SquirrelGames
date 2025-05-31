@@ -347,6 +347,10 @@ PrefabInstance:
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: humanPlayer
+      value: 
+      objectReference: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
+    - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: computerPlayer
       value: 
       objectReference: {fileID: 2750126855435771431, guid: 75015702ce759a141a998952582ee9b3, type: 3}

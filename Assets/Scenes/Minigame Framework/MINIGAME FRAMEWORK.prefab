@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &1103032693414158906
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &1342545700930479134
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &1386403199652924868
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!114 &6114105755015119442
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &2205737379436937851
@@ -1466,7 +1466,6 @@ MonoBehaviour:
   - {fileID: 6029733618752214111}
   - {fileID: 442002233996944391}
   - {fileID: 5477670923746143285}
-  playerInputManager: {fileID: 5347553157323580833}
   playersInGame: []
 --- !u!114 &6701657868112812774
 MonoBehaviour:
@@ -1482,7 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winnersText: {fileID: 8729361471888515998}
   resultsMusic: {fileID: 4107250590557045234}
-  endingTransition: {fileID: 11400000, guid: 057babd6f13132c449650d99e3c4e99c, type: 2}
+  exitTransition: {fileID: 11400000, guid: 057babd6f13132c449650d99e3c4e99c, type: 2}
   playerScores: 00000000000000000000000000000000
   playersFinished: 00000000
   playersWon: 00000000
@@ -2600,7 +2599,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3319944577295116494}
-  - component: {fileID: 5347553157323580833}
   - component: {fileID: 3413787376770242098}
   - component: {fileID: 4850014342217540860}
   m_Layer: 0
@@ -2625,58 +2623,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6914206699603480369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5347553157323580833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725979230515023546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: 4
-  m_AllowJoining: 1
-  m_JoinBehavior: 2
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Join
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 32aa709e-5a46-479c-ad2c-c75bd5752fc7
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: aafaf683-8916-43eb-bfb0-d6acfcefc640
-        m_Path: <Gamepad>/buttonSouth
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Join
-        m_Flags: 0
-      m_Flags: 0
-    m_Reference: {fileID: 7080872400535793426, guid: 8a1e59d298dc939488ea78cd55f34a76, type: 3}
-  m_PlayerPrefab: {fileID: 0}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &3413787376770242098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,7 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 1
-  grow_TargetScale: {x: 1, y: 1, z: 1}
+  grow_TargetScale: 1
   grow_Duration: 1
   grow_Delay: 3
   grow_EaseType: 30
@@ -3074,7 +3020,7 @@ MonoBehaviour:
   floating_PositionOffset: 30
   floating_Duration: 1
   floating_EaseType: 37
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!114 &7595908225853395180
@@ -4392,7 +4338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -4405,7 +4351,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &6591499200095347112
@@ -4606,7 +4552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 1
-  grow_TargetScale: {x: 1, y: 1, z: 1}
+  grow_TargetScale: 0
   grow_Duration: 0.5
   grow_Delay: 0
   grow_EaseType: 24
@@ -4619,7 +4565,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 37
 --- !u!114 &8729361471888515998
@@ -5698,7 +5644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
   grow_Delay: 0
   grow_EaseType: 0
@@ -5711,7 +5657,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!114 &2552662301494248194
