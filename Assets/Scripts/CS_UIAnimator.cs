@@ -13,7 +13,7 @@ public class CS_UIAnimator : MonoBehaviour
     public AppearAnimation appearAnimation = AppearAnimation.None;
 
     [Header("Grow Animation")]
-    public Vector3 grow_TargetScale;
+    public float grow_TargetScale;
     public float grow_Duration;
     public float grow_Delay;
     public LeanTweenType grow_EaseType;
@@ -41,7 +41,7 @@ public class CS_UIAnimator : MonoBehaviour
     public LeanTweenType floating_EaseType;
 
     [Header("Pulsing Animation")]
-    public Vector3 pulsing_GrowScale;
+    public float pulsing_TargetGrowScale;
     public float pulsing_Duration;
     public LeanTweenType pulsing_EaseType;
 
@@ -66,7 +66,8 @@ public class CS_UIAnimator : MonoBehaviour
     private void GrowAnimation()
     {
         GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(GetComponent<RectTransform>(), grow_TargetScale, grow_Duration).setDelay(grow_Delay).setEase(grow_EaseType);
+        Vector3 targetScale = new(grow_TargetScale, grow_TargetScale, grow_TargetScale);
+        LeanTween.scale(GetComponent<RectTransform>(), targetScale, grow_Duration).setDelay(grow_Delay).setEase(grow_EaseType);
         idleDelay = grow_Delay + grow_Duration;
         StartIdleAnimation();
     }
@@ -113,7 +114,8 @@ public class CS_UIAnimator : MonoBehaviour
 
     private void PulsingAnimation()
     {
-        LeanTween.scale(GetComponent<RectTransform>(), pulsing_GrowScale, pulsing_Duration)
+        Vector3 targetGrowScale = new(pulsing_TargetGrowScale, pulsing_TargetGrowScale, pulsing_TargetGrowScale);
+        LeanTween.scale(GetComponent<RectTransform>(), targetGrowScale, pulsing_Duration)
             .setDelay(idleDelay).setLoopPingPong().setEase(pulsing_EaseType);
     }
 
