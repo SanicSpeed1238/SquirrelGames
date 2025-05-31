@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HungrySquirrels_Bomb : MonoBehaviour
+public class HungrySquirrels_Bomb : Pickup
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] public float bTimer = 10;
+    protected override void Collect(HungrySquirrels_ArmCollision arm)
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

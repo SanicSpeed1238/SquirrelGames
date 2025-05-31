@@ -5,6 +5,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     //Input needed for arm
     public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
+    public bool aOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +24,10 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                if (mainBody.moveInput == true && mainBody.collectActive == false)
+                /*if (mainBody.moveInput == true && mainBody.collectActive == false)
                 {
                     mainBody.collectActive = true;
-                }
+                }*/
                 
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
