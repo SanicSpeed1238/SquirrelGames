@@ -11,6 +11,12 @@ public class HungrySquirrels_Acorn : Pickup
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        if (doOnce == true)
+        {
+            _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
+            Debug.Log("ACORN RELEASE");
+            doOnce = false;
+        }
     }
 
     protected override void Collect(HungrySquirrels_ArmCollision arm)
@@ -25,19 +31,6 @@ public class HungrySquirrels_Acorn : Pickup
         }
         
     }
-
-    private void FixedUpdate()
-    {
-
-        if (doOnce == true)
-        {
-            _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
-            Debug.Log("ACORN RELEASE");
-            doOnce = false;
-        }
-    }
-
-    //private void 
 
     public void aInitialize(bool oN)
     {
