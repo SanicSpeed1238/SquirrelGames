@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 5687467316795677863}
   mainBody: {fileID: 8285138035077466495}
+  acorn: {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
   aOn: 0
   bTimer: 0
   bActive: 0
@@ -232,7 +233,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
