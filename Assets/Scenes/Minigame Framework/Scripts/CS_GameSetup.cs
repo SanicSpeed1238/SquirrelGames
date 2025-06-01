@@ -13,12 +13,8 @@ public class CS_GameSetup : MonoBehaviour
     public Color[] playerColors;
     public Transform[] spawnPositions;
 
-    [Header("Important References")]
-    public PlayerInputManager playerInputManager;
-    [HideInInspector] public GameObject[] playersInGame;
-
     // Other Variables Needed
-    private readonly float pressStartDelay = 3f;
+    [HideInInspector] public GameObject[] playersInGame;
     private int lastJoinedPlayer;
     private bool canStart;
 
@@ -33,46 +29,40 @@ public class CS_GameSetup : MonoBehaviour
     private void Awake()
     {
         playersInGame = new GameObject[4];
-
         StartCoroutine(WaitToStart());
     }
     IEnumerator WaitToStart()
     {
-        yield return new WaitForSeconds(pressStartDelay);
+        yield return new WaitForSeconds(3f);
         canStart = true;
     }
 
-    private void SetUpPlayerObjects(List<PlayerInput> humanPlayers)
+    private void SetUpPlayerObjects(List<int> humanPlayers)
     {
         if (humanPlayers != null && humanPlayers.Count > 0)
         {
-            foreach (PlayerInput player in humanPlayers)
+            foreach (int playerID in humanPlayers)
             {
-                int playerID = player.playerIndex + 1;
+                GameObject newPlayer = PlayerInput.Instantiate(humanPlayer, playerID - 1, "Controller", playerID - 1).gameObject;
+                SetUpPlayer(newPlayer, playerID);
+                playersInGame[playerID - 1] = newPlayer;
                 lastJoinedPlayer = playerID;
-
-                playersInGame[player.playerIndex] = player.gameObject;
-                SetUpPlayer(player, playerID);
             }
         }
-        else
+        if (computerPlayer != null)
         {
-            if (computerPlayer != null)
+            for (int playerID = (lastJoinedPlayer + 1); playerID <= 4; playerID++)
             {
-                for (int playerID = (lastJoinedPlayer + 1); playerID <= 4; playerID++)
-                {
-                    GameObject newComputer = Instantiate(computerPlayer);
-                    playersInGame[playerID - 1] = newComputer;
-                    SetUpComputer(newComputer, playerID);
-                }
+                GameObject newComputer = Instantiate(computerPlayer);
+                SetUpComputer(newComputer, playerID);
+                playersInGame[playerID - 1] = newComputer;
             }
         }
     }
-    private void SetUpPlayer(PlayerInput playerController, int playerID)
+    private void SetUpPlayer(GameObject playerController, int playerID)
     {
-        if (humanPlayer.TryGetComponent<Base_PlayerController>(out var playerObject))
+        if (playerController.TryGetComponent<Base_PlayerController>(out var playerObject))
         {
-            // Assign playerController to this Player Input Component
             playerObject.SetPlayerData(playerID, playerColors[playerID-1], spawnPositions[playerID-1]);
         }
         else Debug.LogWarning("Player GameObject does not inherit from Base_PlayerController.");
@@ -88,7 +78,9 @@ public class CS_GameSetup : MonoBehaviour
 
     public void StartGame()
     {
-        SetUpPlayerObjects(new List<PlayerInput>());
+        if (CS_PlayerJoinData.Instance != null) SetUpPlayerObjects(CS_PlayerJoinData.Instance.joinedPlayers);
+        else SetUpPlayerObjects(new List<int>());
+
         GameObject.FindAnyObjectByType<CS_GameManager>().StartGame();
     }
 }

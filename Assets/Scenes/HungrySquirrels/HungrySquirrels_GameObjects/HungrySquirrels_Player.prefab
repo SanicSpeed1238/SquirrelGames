@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847323784950985441}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BodyArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1895798949518490701}
   - component: {fileID: 147609825407531339}
   - component: {fileID: 5418262157826604102}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,8 @@ GameObject:
   - component: {fileID: 5687467316795677863}
   - component: {fileID: 2046117709000724834}
   - component: {fileID: 8713704395312484433}
-  m_Layer: 6
+  - component: {fileID: 3027681011036352640}
+  m_Layer: 0
   m_Name: HungrySquirrels_PlayerArm
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,7 +191,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8713704395312484433
 MonoBehaviour:
@@ -206,6 +207,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 5687467316795677863}
   mainBody: {fileID: 8285138035077466495}
+  acorn: {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
+  aOn: 0
+  bTimer: 0
+  bActive: 0
+--- !u!54 &3027681011036352640
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648494864704448465}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3
 --- !u!1 &6794723723835466134
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 306554646861806855}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +281,7 @@ GameObject:
   - component: {fileID: 7803637459649582385}
   - component: {fileID: 5628517134809978033}
   - component: {fileID: 3181893476965374873}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ArmArt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8831158193442745272}
   - component: {fileID: 8285138035077466495}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HungrySquirrels_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -367,12 +399,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84a2063cf4efaa4699dbe91c3ea6af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_Speed: 5
+  rot_Speed: 2
   ext_Speed: 0.4
   playerID: 0
   arm: {fileID: 5648494864704448465}
+  aBehav: {fileID: 8713704395312484433}
   hitBox: {fileID: 0}
   rot_Max: 45
   buttonName: 0
   collectActive: 0
   collided: 0
+  rebound: 0

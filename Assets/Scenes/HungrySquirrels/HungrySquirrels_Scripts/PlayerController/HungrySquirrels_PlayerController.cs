@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class HungrySquirrels_PlayerController : MonoBehaviour
 {
     //Controls the speed of rotation for character
-    public float rot_Speed = 5f;
+    public float rot_Speed = 3f;
     //Controls Arm Speed
     public float ext_Speed = 0.2f;
 
@@ -13,6 +13,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
 
     //Referencing the arm to stop movement when collision with wall or player happens
     public GameObject arm;//Reference to Arm Child/Cube.1
+    public HungrySquirrels_ArmCollision aBehav;//Referencing arm values
     public BoxCollider hitBox;//Hit box for arm
 
     protected float translate;//Moves Arm forward(put a negative at front to go backwards)
@@ -28,6 +29,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     [SerializeField] private Key buttonName;
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
+    public bool rebound;
 
     // Start is called before the first frame update
     void Start()
@@ -37,23 +39,23 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         switch (playerID)
         {
             case 0:
-                transform.position = new Vector3(18, 5, 18);
+                transform.position = new Vector3(18, 1.6f, 18);
                 transform.localEulerAngles = new Vector3 (0, 135, 0);
                 break;
             case 1:
-                transform.position = new Vector3(-18, 5, 18);
+                transform.position = new Vector3(-18, 1.6f, 18);
                 transform.localEulerAngles = new Vector3(0, 45, 0);
                 break;
             case 2:
-                transform.position = new Vector3(-18, 5, -18);
+                transform.position = new Vector3(-18, 1.6f, -18);
                 transform.localEulerAngles = new Vector3(0, -45, 0);
                 break;
             case 3:
-                transform.position = new Vector3(18, 5, -18);
+                transform.position = new Vector3(18, 1.6f, -18);
                 transform.localEulerAngles = new Vector3(0, -135, 0);
                 break;
             default:
-                transform.position = new Vector3(0, 5, 0);
+                transform.position = new Vector3(0, 1.6f, 0);
                 transform.localEulerAngles = new Vector3(0, 135, 0);
                 break;
         }
@@ -88,46 +90,43 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     {
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
-        /*if (Input > 0)
-        {
-            pressed = true;//To Stop player rotation
-        }
 
-        if (pressed == true)//Starts moving when pressed
-        {
-            if (collided == true)//When collision, arm moves backward
-            {
-                arm.transform.Translate(-translate, 0, 0, Space.Self);
-            }
-            else//Else, keep moving forward
-            {
-                arm.transform.Translate(translate, 0, 0, Space.Self);
-            }
-        }*/
-
-        if (Input == true && collided == false)
+        if (Input == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
+            collectActive = true;
             pressed = true;
             
         }
-        else if (Input == false && collided == false)
+        else if (Input == false && collided == false && rebound == false)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
-            //pressed = false;
+            collectActive = false;
+            pressed = false;
         }
         else if (collided == true)
         {
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
+            collectActive = false;
+        }
+        else if (rebound == true)
+        {
+            arm.transform.Translate(-translate, 0, 0, Space.Self);
+            collectActive = false;
         }
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
             //Change previous values false to enable arm rotation & interaction
-            collectActive = false;
             collided = false;
+            rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
+            if(aBehav.aOn != 0)
+            {
+                Debug.Log(aBehav.aOn);
+                aBehav.aOn = 0;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public class Editor_UIAnimator : Editor
         if (script.appearAnimation == CS_UIAnimator.AppearAnimation.Grow)
         {
             EditorGUILayout.LabelField("Grow Animation", EditorStyles.boldLabel);
-            script.grow_TargetScale = EditorGUILayout.Vector3Field("Target Scale", script.grow_TargetScale);
+            script.grow_TargetScale = EditorGUILayout.FloatField("Target Scale", script.grow_TargetScale);
             script.grow_Duration = EditorGUILayout.FloatField("Duration", script.grow_Duration);
             script.grow_Delay = EditorGUILayout.FloatField("Delay", script.grow_Delay);
             script.grow_EaseType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Type", script.grow_EaseType);
@@ -52,7 +52,7 @@ public class Editor_UIAnimator : Editor
         else if (script.idleAnimation == CS_UIAnimator.IdleAnimation.Pulsing)
         {
             EditorGUILayout.LabelField("Pulsing Animation", EditorStyles.boldLabel);
-            script.pulsing_GrowScale = EditorGUILayout.Vector3Field("Grow Scale", script.pulsing_GrowScale);
+            script.pulsing_TargetGrowScale = EditorGUILayout.FloatField("Grow Scale", script.pulsing_TargetGrowScale);
             script.pulsing_Duration = EditorGUILayout.FloatField("Duration", script.pulsing_Duration);
             script.pulsing_EaseType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Type", script.pulsing_EaseType);
         }

@@ -7,7 +7,7 @@ public class CS_GameResults : MonoBehaviour
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;
     public AudioSource resultsMusic;
-    public TransitionSettings endingTransition;
+    public TransitionSettings exitTransition;
 
     // Variables for Scoring
     [HideInInspector] public int[] playerScores = new int[4];
@@ -66,6 +66,6 @@ public class CS_GameResults : MonoBehaviour
     public void PlayResultsSequence()
     {
         resultsMusic.Play();
-        TransitionManager.Instance().Transition(minigameSelectSceneName, endingTransition, resultsMusic.clip.length + 1);
+        TransitionManager.Instance().Transition(minigameSelectSceneName, exitTransition, resultsMusic.clip.length + 1);
     }
 }

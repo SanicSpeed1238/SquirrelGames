@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -51,3 +52,4 @@ public class Editor_Info_MinigameFramework : Editor
         EditorGUI.DrawRect(lineRect, UnityEngine.Color.gray);
     }
 }
+#endif

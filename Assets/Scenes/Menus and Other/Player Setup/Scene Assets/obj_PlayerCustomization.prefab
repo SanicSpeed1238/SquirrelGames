@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 758631694455932805}
   - component: {fileID: 5075401898257028380}
   m_Layer: 0
-  m_Name: Player Customization
+  m_Name: obj_PlayerCustomization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 8a1e59d298dc939488ea78cd55f34a76, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: bc312a4e9510e68418bfa7aabe423a49, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -291,7 +291,31 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 758631694455932805}
+        m_TargetAssemblyTypeName: CS_PlayerCustomizer, Assembly-CSharp
+        m_MethodName: OnLeftAndRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 758631694455932805}
+        m_TargetAssemblyTypeName: CS_PlayerCustomizer, Assembly-CSharp
+        m_MethodName: OnUpAndDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 76a07e46-d899-42fe-9914-21165b48efd6
     m_ActionName: Player/Move
   - m_PersistentCalls:
@@ -300,23 +324,15 @@ MonoBehaviour:
     m_ActionName: Player/Action1
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 18f8c268-a235-4a1a-af1b-79c2997381fb
-    m_ActionName: Player/Action2
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 74eb89bb-7c20-4e1a-af95-be430e8d2767
-    m_ActionName: Player/Action3
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 80a48214-204e-41d4-8ff0-b139b3f91ddc
-    m_ActionName: Player/Action4
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 4a2a4ab3-6b59-4448-83e0-f67729265dce
     m_ActionName: Player/Start
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18f8c268-a235-4a1a-af1b-79c2997381fb
+    m_ActionName: Menu/Back[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Menu
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &3267366713214267189

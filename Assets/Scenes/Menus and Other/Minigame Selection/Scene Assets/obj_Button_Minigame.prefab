@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6729155890038798853}
   - component: {fileID: 5794154856725703022}
   m_Layer: 5
-  m_Name: button_Minigame
+  m_Name: obj_Button_Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
