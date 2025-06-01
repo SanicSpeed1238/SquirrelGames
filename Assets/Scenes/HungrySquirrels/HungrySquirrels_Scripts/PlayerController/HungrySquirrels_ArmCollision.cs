@@ -6,9 +6,10 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
     public HungrySquirrels_Acorn acorn;
+    public HungrySquirrels_Bomb bomb;
     public int aOn;
     public float bTimer;
-    public bool bActive;
+    public bool bActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,11 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                     HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
                     flungAcorn.aInitialize(true);
                     aOn = 0;
+                }
+                else if (bActive == true)
+                {
+                    HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+                    bActive = false;
                 }
                 mainBody.collided = true;
                 break;
