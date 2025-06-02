@@ -8,19 +8,28 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public HungrySquirrels_Acorn acorn;
     public HungrySquirrels_Bomb bomb;
     public int aOn;
-    public float bTimer;
     public bool bActive = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private float eTime;
 
+    private void Start()
+    {
+        hitBox = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        hitBox = GetComponent<BoxCollider>();
+        if (bActive == true)
+        {
+            eTime += Time.deltaTime;
+            //Debug.Log("Bomb Arm Time: " + eTime);
+            if (eTime >= bomb.bTimer)
+            {
+                Debug.Log("BOOM BUT ON ARM");
+                bActive = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,19 +47,20 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 if (aOn != 0)
                 {
                     HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
-                    flungAcorn.aInitialize(true);
+                    flungAcorn.aInitialize();
                     aOn = 0;
                 }
                 else if (bActive == true)
                 {
                     HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+                    flungBomb.bInitialize(eTime);
                     bActive = false;
                 }
                 mainBody.collided = true;
                 break;
-            /*case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
-                print("AAAAAAA");
-                break;*/
+            case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
+                //print("AAAAAAA");
+                break;
              default:
                 mainBody.collided=true;//If player collided with wall, bounce back
                 //Debug.Log("Waka Waka");

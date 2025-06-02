@@ -151,10 +151,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
-      propertyPath: ext_Speed
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 8285138035077466495, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
       propertyPath: rot_Clamp
       value: 1
       objectReference: {fileID: 0}

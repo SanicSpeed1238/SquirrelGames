@@ -14,7 +14,7 @@ public class HungrySquirrels_Acorn : Pickup
         if (doOnce == true)
         {
             _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
-            Debug.Log("ACORN RELEASE");
+            //Debug.Log("ACORN RELEASE");
             doOnce = false;
         }
     }
@@ -32,9 +32,9 @@ public class HungrySquirrels_Acorn : Pickup
         
     }
 
-    public void aInitialize(bool oN)
+    public void aInitialize()
     {
-        doOnce = oN;
+        doOnce = true;
     }
 
 }

@@ -9,15 +9,50 @@ public class HungrySquirrels_Bomb : Pickup
     [SerializeField] private float _launchFCE = 10f;
 
     private Rigidbody _rb;
+    private bool bOn = false;
+    private bool doOnce = false;
+    private float eTime;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        if (doOnce == true)
+        {
+            _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
+            doOnce = false;
+        }
+        
+    }
 
     protected override void Collect(HungrySquirrels_ArmCollision arm)
     {
-        throw new System.NotImplementedException();
+        if(arm.mainBody.collectActive == true)
+        {
+            arm.bActive = true;
+            Destroy(this.gameObject);
+        }
     }
 
-    public void bInitialize(HungrySquirrels_ArmCollision arm)
+    private void Update()
     {
+        if (bOn == true)
+        {
+            eTime += Time.deltaTime;
+            //Debug.Log("Bomb Time: " + eTime);
+            if(eTime >= bTimer)
+            {
+                //Send out stun radius or destroy nuts?
+                Debug.Log("BOOM");
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
+    public void bInitialize(float time)
+    {
+        bOn = true;
+        doOnce = true;
+        eTime = time;
     }
 
 }

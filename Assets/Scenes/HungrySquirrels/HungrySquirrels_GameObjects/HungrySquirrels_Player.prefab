@@ -208,8 +208,8 @@ MonoBehaviour:
   hitBox: {fileID: 5687467316795677863}
   mainBody: {fileID: 8285138035077466495}
   acorn: {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
+  bomb: {fileID: 6649251469042615717, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
   aOn: 0
-  bTimer: 0
   bActive: 0
 --- !u!54 &3027681011036352640
 Rigidbody:
@@ -383,8 +383,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2847323784950985441}
   - {fileID: 306554646861806855}
+  - {fileID: 2847323784950985441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8285138035077466495

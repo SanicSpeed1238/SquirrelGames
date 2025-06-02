@@ -17,7 +17,6 @@ public abstract class Pickup : MonoBehaviour
             //audioSource.pitch = UnityEngine.Random.Range(.5f, 1);
             //play particles
             Collect(arm);
-            //Destroy(this.gameObject);
         }
     }
 
