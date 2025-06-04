@@ -15,6 +15,7 @@ TagManager:
   - FxTemporaire
   - Apple
   - Acorn
+  - Wall
   layers:
   - Default
   - TransparentFX

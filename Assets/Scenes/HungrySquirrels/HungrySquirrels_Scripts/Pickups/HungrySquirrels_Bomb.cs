@@ -29,6 +29,7 @@ public class HungrySquirrels_Bomb : Pickup
         if(arm.mainBody.collectActive == true)
         {
             arm.bActive = true;
+            arm.mainBody.collectActive = false;
             Destroy(this.gameObject);
         }
     }

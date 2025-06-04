@@ -109,11 +109,10 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
             collectActive = false;
         }
-        else if (rebound == true)
+        /*else if (rebound == true)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
-            collectActive = false;
-        }
+        }*/
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
