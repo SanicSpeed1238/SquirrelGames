@@ -94,7 +94,14 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         if (Input == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
-            collectActive = true;
+            if (aBehav.aOn == 0 && aBehav.bActive == false)
+            {
+                collectActive = true;
+            }
+            else
+            {
+                collectActive = false;
+            }
             pressed = true;
             
         }
@@ -118,7 +125,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         {
             //Change previous values false to enable arm rotation & interaction
             collided = false;
-            rebound = false;
+            //rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)

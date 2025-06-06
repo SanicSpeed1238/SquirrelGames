@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -1599648042142969385}
   - component: {fileID: 4961198239399463931}
   - component: {fileID: 6710279185608963324}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HungrySquirrels_Acorn
   m_TagString: Pickup
   m_Icon: {fileID: 0}

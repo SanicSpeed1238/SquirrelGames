@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6649251469042615717}
   - component: {fileID: -3224615807810219825}
   - component: {fileID: 3380931049056017746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HungrySquirrel_BombHazard
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pSound: {fileID: 0}
   bTimer: 10
+  _launchFCE: 10
 --- !u!54 &-3224615807810219825
 Rigidbody:
   m_ObjectHideFlags: 0

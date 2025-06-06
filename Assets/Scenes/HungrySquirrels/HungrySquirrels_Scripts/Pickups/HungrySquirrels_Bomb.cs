@@ -7,6 +7,7 @@ public class HungrySquirrels_Bomb : Pickup
 
     [SerializeField] public float bTimer = 10;
     [SerializeField] private float _launchFCE = 10f;
+    [SerializeField] private LayerMask _objLayer;
 
     private Rigidbody _rb;
     private bool bOn = false;
@@ -29,7 +30,6 @@ public class HungrySquirrels_Bomb : Pickup
         if(arm.mainBody.collectActive == true)
         {
             arm.bActive = true;
-            arm.mainBody.collectActive = false;
             Destroy(this.gameObject);
         }
     }
@@ -43,7 +43,8 @@ public class HungrySquirrels_Bomb : Pickup
             if(eTime >= bTimer)
             {
                 //Send out stun radius or destroy nuts?
-                Debug.Log("BOOM");
+                Vector3 ePos = this.transform.position;
+                Debug.Log(transform.position);
                 Destroy(this.gameObject);
             }
         }

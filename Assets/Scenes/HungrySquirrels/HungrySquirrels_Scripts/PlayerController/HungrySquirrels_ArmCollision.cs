@@ -37,7 +37,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                mainBody.collectActive = false;
+                
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
                 if (aOn != 0)
@@ -55,9 +55,9 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 mainBody.collided = true;
                 break;
             case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
-                mainBody.collectActive = false;
+
                 break;
-             case "Wall":
+            case "Wall":
                 mainBody.collided=true;//If player collided with wall, bounce back
                 break;
         }
