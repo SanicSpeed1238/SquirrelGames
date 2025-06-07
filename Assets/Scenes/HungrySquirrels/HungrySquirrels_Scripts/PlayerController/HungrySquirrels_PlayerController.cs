@@ -31,6 +31,8 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
     public bool rebound;
 
+    //pri
+
     // Start is called before the first frame update
     void Start()
     {

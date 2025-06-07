@@ -50,6 +50,15 @@ MonoBehaviour:
   _pSound: {fileID: 0}
   bTimer: 10
   _launchFCE: 10
+  _expPower: 20
+  _expRadius: 10
+  _expLiftPower: 10
+  _objLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &-3224615807810219825
 Rigidbody:
   m_ObjectHideFlags: 0
