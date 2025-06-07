@@ -25,6 +25,11 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
         {
             TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 0);
         }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            // Go back to Main Menu
+        }
     }
 
     public void OnPlayerJoined(PlayerInput joinedPlayer)

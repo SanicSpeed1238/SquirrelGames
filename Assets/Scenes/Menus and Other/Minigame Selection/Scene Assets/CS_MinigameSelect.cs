@@ -4,6 +4,8 @@ using EasyTransition;
 public class CS_MinigameSelect : MonoBehaviour
 {
     public TransitionSettings minigameTransition;
+    public TransitionSettings backTransition;
+    private readonly string playerSetupSceneName = "Player Setup";
 
     public void LoadMinigame(string sceneName)
     {
@@ -15,12 +17,11 @@ public class CS_MinigameSelect : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // TEMPORARY
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
-            Application.Quit();
+            TransitionManager.Instance().Transition(playerSetupSceneName, backTransition, 0f);
         }
     }
 }

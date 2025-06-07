@@ -13,6 +13,9 @@ public class CS_GameSetup : MonoBehaviour
     public Color[] playerColors;
     public Transform[] spawnPositions;
 
+    [Header("Player Input Manager")]
+    public PlayerInputManager inputManager;
+
     // Other Variables Needed
     [HideInInspector] public GameObject[] playersInGame;
     private int lastJoinedPlayer;
@@ -30,6 +33,13 @@ public class CS_GameSetup : MonoBehaviour
     {
         playersInGame = new GameObject[4];
         StartCoroutine(WaitToStart());
+
+        if (CS_PlayerJoinData.Instance == null && inputManager.playerPrefab != null)
+        {
+            // inputManager used when loading directly into Minigame Scene
+            // use OnJoin() when Player Setup Scene is skipped
+            inputManager.EnableJoining();
+        }
     }
     IEnumerator WaitToStart()
     {
@@ -76,11 +86,21 @@ public class CS_GameSetup : MonoBehaviour
         else Debug.LogWarning("Computer GameObject does not inherit from Base_PlayerController.");
     }
 
+    public void OnJoin(PlayerInput playerInput)
+    {
+        int playerID = playerInput.playerIndex + 1;
+        GameObject newPlayer = playerInput.gameObject;
+        SetUpPlayer(newPlayer, playerID);
+        playersInGame[playerID - 1] = newPlayer;
+        lastJoinedPlayer = playerID;
+    }
+
     public void StartGame()
     {
         if (CS_PlayerJoinData.Instance != null) SetUpPlayerObjects(CS_PlayerJoinData.Instance.joinedPlayers);
         else SetUpPlayerObjects(new List<int>());
 
+        inputManager.DisableJoining();
         GameObject.FindAnyObjectByType<CS_GameManager>().StartGame();
     }
 }

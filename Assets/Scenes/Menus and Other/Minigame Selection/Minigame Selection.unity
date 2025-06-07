@@ -810,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigameTransition: {fileID: 11400000, guid: 057babd6f13132c449650d99e3c4e99c, type: 2}
+  backTransition: {fileID: 11400000, guid: d641980330b54c243a644222c797e582, type: 2}
 --- !u!4 &1058474486
 Transform:
   m_ObjectHideFlags: 0
@@ -1661,8 +1662,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appearAnimation: 2
-  grow_TargetScale: {x: 0, y: 0, z: 0}
+  grow_TargetScale: 0
   grow_Duration: 0
+  grow_Delay: 0
   grow_EaseType: 0
   moveIn_XOffset: -1920
   moveIn_YOffset: 0
@@ -1673,7 +1675,7 @@ MonoBehaviour:
   floating_PositionOffset: 0
   floating_Duration: 0
   floating_EaseType: 0
-  pulsing_GrowScale: {x: 0, y: 0, z: 0}
+  pulsing_TargetGrowScale: 0
   pulsing_Duration: 0
   pulsing_EaseType: 0
 --- !u!1 &2067205302
