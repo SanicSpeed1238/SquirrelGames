@@ -61,7 +61,7 @@ public class HungrySquirrels_Bomb : Pickup
         eTime = time;
     }
 
-    private void bombInteraction()
+    public void bombInteraction()
     {
 
         Vector3 ePos = this.transform.position;
@@ -85,7 +85,12 @@ public class HungrySquirrels_Bomb : Pickup
             }
             else if(hit.tag == "Player")
             {
-                Debug.Log("Activate Stun");
+                HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
+
+                if(arm != null)
+                {
+                    arm.mainBody._stunActive = true;
+                }
             }
 
             

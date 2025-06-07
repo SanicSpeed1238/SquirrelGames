@@ -410,3 +410,5 @@ MonoBehaviour:
   collectActive: 0
   collided: 0
   rebound: 0
+  _stunDur: 5
+  _stunActive: 0

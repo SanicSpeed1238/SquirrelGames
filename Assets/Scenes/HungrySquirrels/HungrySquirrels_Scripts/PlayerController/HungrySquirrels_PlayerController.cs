@@ -31,7 +31,10 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
     public bool rebound;
 
-    //pri
+    //Stun Options
+    [SerializeField] private float _stunDur;
+    private float _eTime;
+    public bool _stunActive;
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +69,22 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotationInput = Input.GetAxis("Horizontal");//Left & Right input
-        moveInput = Input.GetKey(KeyCode.W/*JoystickButton14*/);//Forward & Backward Input
-        RotateArm(rotationInput);//More consistent rotation than in fixed update
-        ExtendArm(moveInput);//Moving Arm Input(I need to apply button input for simplicity sake)
+        if (_stunActive == true)
+        {
+            _eTime += Time.deltaTime;
+            if(_eTime >= _stunDur)
+            {
+                _stunActive = false;
+            }
+        }
+        else
+        {
+            rotationInput = Input.GetAxis("Horizontal");//Left & Right input
+            moveInput = Input.GetKey(KeyCode.W/*JoystickButton14*/);//Forward & Backward Input
+            RotateArm(rotationInput);//More consistent rotation than in fixed update
+            ExtendArm(moveInput);//Moving Arm Input(I need to apply button input for simplicity sake)
+        }
+        
     }
 
     void RotateArm(float Input)

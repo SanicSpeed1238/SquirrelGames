@@ -23,10 +23,9 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         if (bActive == true)
         {
             eTime += Time.deltaTime;
-            //Debug.Log("Bomb Arm Time: " + eTime);
             if (eTime >= bomb.bTimer)
             {
-                Debug.Log("BOOM BUT ON ARM");
+                mainBody._stunActive = true;
                 bActive = false;
             }
         }
