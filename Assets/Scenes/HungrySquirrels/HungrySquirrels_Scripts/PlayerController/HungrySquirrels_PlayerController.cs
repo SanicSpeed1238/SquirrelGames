@@ -79,6 +79,7 @@ public class HungrySquirrels_PlayerController : MonoBehaviour
         }
         else
         {
+            _eTime = 0;
             rotationInput = Input.GetAxis("Horizontal");//Left & Right input
             moveInput = Input.GetKey(KeyCode.W/*JoystickButton14*/);//Forward & Backward Input
             RotateArm(rotationInput);//More consistent rotation than in fixed update

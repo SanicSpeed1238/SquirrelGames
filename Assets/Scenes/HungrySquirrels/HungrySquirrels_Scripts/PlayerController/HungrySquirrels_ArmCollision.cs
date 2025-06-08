@@ -49,6 +49,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 {
                     HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
                     flungBomb.bInitialize(eTime);
+                    eTime = 0;
                     bActive = false;
                 }
                 mainBody.collided = true;
