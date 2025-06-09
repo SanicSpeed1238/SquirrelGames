@@ -10,8 +10,6 @@ public class HungrySquirrels_Bomb : Pickup
     [SerializeField] public float _expPower = 10f;
     [SerializeField] public float _expRadius = 10f;
     [SerializeField] public float _expLiftPower = 10f;
-    [SerializeField] private LayerMask _objLayer;
-    [SerializeField] private LayerMask _playerLayer;
 
     private Rigidbody _rb;
     private bool bOn = false;

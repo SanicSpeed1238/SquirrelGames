@@ -10,27 +10,59 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private Pickup[] _possiblePickupsToSpawn;
     [SerializeField] private float _spawnRate = 1;
-    [SerializeField] private float _timeBetweenSpawnRateChange = 10;
-    [SerializeField] private float _spawnRateReductionAmount = 0.1f;
+    [SerializeField] private float _spawnRadiusMax = 20f;
+    private int _maxSpawnAttempts = 4;
 
-    private bool _gameOn;
+    private bool _gameOver = false;
     private Coroutine _spawnRoutine;
 
-    //private void 
+    private void Start()
+    {
+        StartSpawning();
+    }
 
     private IEnumerator SpawnRoutine()
     {
         Vector3 spawnPoint;
 
-        while (_gameOn != true)
+        while (_gameOver != true)
         {
             yield return new WaitForSeconds(_spawnRate);
 
-            if (_gameOn == true)
+            if (_gameOver == true)
             {
-
+                StopSpawning();
+                yield break;
             }
 
+            spawnPoint = GetValidWorldSpawnPoint();
+
+            if(spawnPoint != Vector3.zero)
+            {
+                Spawn(ChoosePickup(), spawnPoint);
+            }
+
+        }
+    }
+
+    public void Spawn(Pickup pickup, Vector3 positon)
+    {
+        if(pickup == _possiblePickupsToSpawn[0])
+        {
+            int coinflip = Random.Range(0, 5);
+            if(coinflip >= 3)
+            {
+                Pickup bomb = Instantiate(pickup, positon, Quaternion.identity);
+            }
+            else
+            {
+                Pickup acorn = Instantiate(_possiblePickupsToSpawn[1], positon, Quaternion.identity);
+            }
+        }
+        else if(pickup == _possiblePickupsToSpawn[1])
+        {
+            Pickup acorn = Instantiate(pickup, positon, Quaternion.identity);
+            //Debug.Log("Lil Treat");
         }
     }
 
@@ -49,9 +81,28 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     public Vector3 GetValidWorldSpawnPoint()
     {
-        Vector3 randPoint = Random.insideUnitSphere.normalized;
 
-        return randPoint;//Temporary until I can figure out the best formula to create the spawn positions
+        Vector3 randDirection = new Vector3(Random.insideUnitSphere.x, 0, Random.insideUnitSphere.z).normalized;
+
+        Vector3 spawnPos = this.transform.position;
+
+        Vector3 testPoint = spawnPos + (randDirection * Random.Range(0, _spawnRadiusMax));
+
+        Collider[] colliders = Physics.OverlapSphere(testPoint, .5f);
+
+        for (int i = 0; i< _maxSpawnAttempts; i++)
+        {
+            if(colliders.Length<1)
+            {
+                return testPoint;
+            }
+            else
+            {
+                testPoint = new Vector3(testPoint.z, this.transform.position.y, -testPoint.x);
+            }
+        }
+
+        return testPoint = Vector3.zero;
     }
 
     private Pickup ChoosePickup()
@@ -62,9 +113,4 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
         return _possiblePickupsToSpawn[randomPickIndex];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
