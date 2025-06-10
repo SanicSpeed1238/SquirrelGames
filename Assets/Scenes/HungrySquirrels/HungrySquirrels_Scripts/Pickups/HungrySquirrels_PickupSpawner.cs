@@ -18,7 +18,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartSpawning();
+        //StartSpawning();
     }
 
     private IEnumerator SpawnRoutine()
