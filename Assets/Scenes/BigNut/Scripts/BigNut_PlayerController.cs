@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BigNut_PlayerController : MonoBehaviour
+public class BigNut_PlayerController : Base_PlayerController
 {
     [Header("Movement Values")]
     public float moveSpeed;
@@ -20,12 +20,16 @@ public class BigNut_PlayerController : MonoBehaviour
 
     private bool isAlive;
     private bool isHiding;
+    private bool isNearHidyHole;
     private bool isStunned;
     private float pushDistance = 2f;
     private float currentStunTime;
 
+    private string hideButton;
+
     private Transform birbThatCaught;
     private CharacterController controller;
+    private GameObject hidyHole;
 
 
     public bool IsAlive { get => isAlive; }
@@ -35,7 +39,10 @@ public class BigNut_PlayerController : MonoBehaviour
     {
         isAlive = true;
         isHiding = false;
+        isNearHidyHole = false;
         controller = GetComponent<CharacterController>();
+
+        hideButton = isPlayer2 ? "Action2" : "Action";
     }
 
     // Update is called once per frame
@@ -48,61 +55,98 @@ public class BigNut_PlayerController : MonoBehaviour
         {
             squirrelAnimator.speed = 0;
             Vector3 velocity = Vector3.zero;
-            if (!isStunned)
+            if (!isHiding)
             {
-
-                if (!isPlayer2) xInput = Input.GetAxisRaw("Horizontal2");
-                else xInput = Input.GetAxisRaw("Horizontal");
-                if (!isPlayer2) zInput = Input.GetAxisRaw("Vertical2");
-                else zInput = Input.GetAxisRaw("Vertical");
-
-                if (xInput != 0 || zInput != 0)
+                if (!isStunned)
                 {
-                    squirrelAnimator.speed = 1;
-                    Vector3 movement = transform.right * xInput + transform.forward * zInput;
-                    velocity = movement * moveSpeed;
+                    if (!isPlayer2) xInput = Input.GetAxisRaw("Horizontal");
+                    else xInput = Input.GetAxisRaw("Horizontal2");
+                    if (!isPlayer2) zInput = Input.GetAxisRaw("Vertical");
+                    else zInput = Input.GetAxisRaw("Vertical2");
+
+                    if (xInput != 0 || zInput != 0)
+                    {
+                        squirrelAnimator.speed = 1;
+                        Vector3 movement = transform.right * xInput + transform.forward * zInput;
+                        velocity = movement * moveSpeed;
+                    }
                 }
-            }
-            else
-            {
-                currentStunTime -= Time.deltaTime;
-                if (currentStunTime < 0)
+                else
                 {
-                    isStunned = false;
+                    currentStunTime -= Time.deltaTime;
+                    if (currentStunTime < 0)
+                    {
+                        isStunned = false;
+                    }
                 }
+                Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+                if (viewportPos.y < bufferFromBehind)
+                {
+                    velocity.x += pushSpeed;
+                }
+                else if (viewportPos.y > bufferFromForward)
+                {
+                    Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
+                    transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
+                    velocity.x = 0;
+                }
+                controller.Move(velocity * Time.deltaTime);
             }
-            Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
-            if (viewportPos.y < bufferFromBehind)
+
+            if (isNearHidyHole && Input.GetButtonDown(hideButton)) 
             {
-                velocity.x += pushSpeed;
+                HideAndUnhide();
             }
-            else if (viewportPos.y > bufferFromForward)
-            {
-                Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
-                transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
-                velocity.x = 0;
-            }
-            controller.Move(velocity * Time.deltaTime);
         }
         else
         {
+            controller.enabled = false;
             transform.position = birbThatCaught.position;
+        }
+    }
+
+    public void HideAndUnhide()
+    {
+        BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
+        Collider playerCollider = gameObject.GetComponent<Collider>();
+        BoxCollider hidyHoleCollider = hidyHole.GetComponent<BoxCollider>();
+        if (isHiding)
+        {
+            Vector3 outPosition = hidyHole.transform.position + Vector3.right * pushDistance;
+            outPosition.y = 0;
+            controller.enabled = false;
+            transform.position = outPosition;
+            controller.enabled = true;
+            isHiding = false;
+            hidyHoleScript.HidingPlayer = null;
+            Physics.IgnoreCollision(playerCollider, hidyHoleCollider, false);
+        }
+        else
+        {
+            Physics.IgnoreCollision(playerCollider, hidyHoleCollider, true);
+
+            GameObject hidingPlayer = hidyHoleScript.HidingPlayer;
+            if (hidingPlayer != null && hidingPlayer != gameObject)
+            {
+                BigNut_PlayerController hidingPlayerController = hidingPlayer.GetComponent<BigNut_PlayerController>();
+                hidingPlayerController.HideAndUnhide();
+                hidingPlayerController.StunPlayer();
+            }
+            hidyHoleScript.HidingPlayer = this.gameObject;
+            controller.enabled = false;
+            transform.position = new Vector3(hidyHole.transform.position.x, 0, hidyHole.transform.position.z);
+            controller.enabled = true;
+            isHiding = true;
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "HidyHole")
+        SphereCollider collider = (SphereCollider)collision;
+        if (collider != null && collision.gameObject.tag == "HidyHole")
         {
-            BigNut_HidyHole hidyHole = collision.gameObject.GetComponent<BigNut_HidyHole>();
-            GameObject hidingPlayer = hidyHole.HidingPlayer;
-            if (hidingPlayer != null && hidingPlayer != gameObject)
-            {
-                PushPlayerAway(hidingPlayer, collision.gameObject);
-                hidingPlayer.GetComponent<BigNut_PlayerController>().StunPlayer();
-            }
-            hidyHole.HidingPlayer = this.gameObject;
-            isHiding = true;
+            hidyHole = collision.gameObject;
+            isNearHidyHole = true;
         }
         if (!isHiding && collision.gameObject.tag == "Birb")
         {
@@ -113,27 +157,11 @@ public class BigNut_PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "HidyHole")
+        SphereCollider collider = (SphereCollider)collision;
+        if (collider != null && collision.gameObject.tag == "HidyHole")
         {
-            BigNut_HidyHole hidyHole = collision.gameObject.GetComponent<BigNut_HidyHole>();
-            if (hidyHole.HidingPlayer == gameObject)
-            {
-                hidyHole.HidingPlayer = null;
-            }
-            isHiding = false;
+            isNearHidyHole = false;
         }
-    }
-
-    private void PushPlayerAway(GameObject hidingPlayer, GameObject hidyHole)
-    {
-        Vector3 pushDirection = hidingPlayer.transform.position - transform.position;
-        pushDirection.y = 0;
-        pushDirection = pushDirection.normalized;
-        Vector3 targetPosition = hidyHole.transform.position + pushDirection * pushDistance;
-        Vector3 push = targetPosition - hidingPlayer.transform.position;
-        push.y = 0;
-        
-        hidingPlayer.GetComponent<CharacterController>().Move(push);
     }
 
     public void StunPlayer()
