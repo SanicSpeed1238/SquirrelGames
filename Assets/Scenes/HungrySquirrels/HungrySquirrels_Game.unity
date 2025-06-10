@@ -1176,7 +1176,7 @@ PrefabInstance:
     - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: computerPlayer
       value: 
-      objectReference: {fileID: 8914939328233772526, guid: 7a3b4ffe4515ae7409d4245e013a1b49, type: 3}
+      objectReference: {fileID: 8914939328233772526, guid: 4809c0740f3ea7a48a6c05334e3c8e0d, type: 3}
     - target: {fileID: 4279749246701485392, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
