@@ -26,7 +26,7 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     private void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying) 
+        if (!MG_GameManager.Instance.gamePlaying) 
             return;
 
         SetMovementInput();

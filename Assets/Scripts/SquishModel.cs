@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-// Attach this script to the GameObject that will have its scale modified.
+// This script modifies an object's scale to simulate a squish effect.
 
-public class CS_SquishModel : MonoBehaviour
+public class SquishModel : MonoBehaviour
 {
     private Vector3 originalScale;
 

@@ -42,7 +42,7 @@ public class TreeClimb_GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (CS_GameManager.Instance.gamePlaying)
+        if (MG_GameManager.Instance.gamePlaying)
         {
             UpdateFinalTimer();
         }
@@ -57,7 +57,7 @@ public class TreeClimb_GameManager : MonoBehaviour
             }
             else
             {
-                foreach (GameObject player in CS_GameManager.Instance.GetAllPlayers())
+                foreach (GameObject player in MG_GameManager.Instance.GetAllPlayers())
                 {
                     player.GetComponent<TreeClimb_PlayerController>().EliminatePlayer();
                 }

@@ -94,7 +94,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             if (!isFinished)
             {
-                if (!CS_GameManager.Instance.gamePlaying)
+                if (!MG_GameManager.Instance.gamePlaying)
                     return;
 
                 MoveVertically();
@@ -301,7 +301,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         float totalStunDuration = stunDuration + (playerRB.position.y * stunMultiplier);
 
         Vector3 squishScale = new(originalScale.x, squishFactor, originalScale.z);
-        squirrelModel.GetComponent<CS_SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
+        squirrelModel.GetComponent<SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
 
         state = TreeClimb_PlayerState.Squished;
         yield return new WaitForSeconds(totalStunDuration);
@@ -326,7 +326,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     public void AddToPlayerScore(int points)
     {
         playerScore += points;
-        CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, points);
+        MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, points);
     }
 
     private void MoveToFinishPosition()
@@ -348,7 +348,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
 
         playerScore = -1;
-        CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
+        MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -390,7 +390,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             {
                 isFinished = true;
                 AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
-                CS_GameManager.Instance.UpdatePlayerFinished(playerID);
+                MG_GameManager.Instance.UpdatePlayerFinished(playerID);
 
                 string playerFinishPosition = "Player" + playerID;
                 finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
@@ -410,7 +410,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         verticalInput = context.ReadValue<Vector2>().y;
 
         #region GetHorizontalInput
-        if (CS_GameManager.Instance.gamePlaying)
+        if (MG_GameManager.Instance.gamePlaying)
         {
             float xInput = context.ReadValue<Vector2>().x;
             if (xInput > .5)

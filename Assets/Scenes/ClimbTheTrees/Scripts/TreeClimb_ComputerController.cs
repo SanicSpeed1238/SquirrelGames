@@ -30,7 +30,7 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying)
+        if (!MG_GameManager.Instance.gamePlaying)
             return;
 
         SetVerticalInput();

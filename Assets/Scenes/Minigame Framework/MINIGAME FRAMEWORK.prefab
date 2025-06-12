@@ -3217,7 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8b62b1f82a2dd4ba500226d3e698bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMusic: {fileID: 8300000, guid: a947219477f142a49b2ad8cd1723f7af, type: 3}
+  gameMusic: {fileID: 8300000, guid: efa8624f738b3a946987bffb6440d6c3, type: 3}
   setupMusic: {fileID: 8300000, guid: 7da60d08ab92f8e4694512870bd30090, type: 3}
   finishSound: {fileID: 2901840098146731221}
 --- !u!82 &2378171536669561400
@@ -4984,7 +4984,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

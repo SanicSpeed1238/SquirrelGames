@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class CS_TextureAnimator : MonoBehaviour
+// This script animates a material's or skybox's texture by applying an offset or "scroll" effect.
+
+public class TextureAnimator : MonoBehaviour
 {
     public enum TextureType
     {

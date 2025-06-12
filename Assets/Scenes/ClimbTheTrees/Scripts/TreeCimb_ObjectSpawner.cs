@@ -29,7 +29,7 @@ public class TreeClimb_ObjectSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitUntil(() => CS_GameManager.Instance.gamePlaying);
+            yield return new WaitUntil(() => MG_GameManager.Instance.gamePlaying);
             yield return new WaitUntil(() => TreeClimb_GameManager.Instance.objectsSpawning);
 
             yield return new WaitForSeconds(spawnTimer - Random.Range(0f, 0.15f));

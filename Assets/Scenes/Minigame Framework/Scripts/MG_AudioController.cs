@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CS_AudioController : MonoBehaviour
+public class MG_AudioController : MonoBehaviour
 {
     [Header("Music List")]
     [SerializeField] private AudioClip gameMusic;

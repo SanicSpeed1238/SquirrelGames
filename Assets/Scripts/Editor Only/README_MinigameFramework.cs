@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class CS_Info_MinigameFramework : MonoBehaviour
+public class README_MinigameFramework : MonoBehaviour
 {
     // Create an Editor script to display text.
 }

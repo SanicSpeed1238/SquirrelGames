@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CS_UIAnimator : MonoBehaviour
+public class UIAnimator : MonoBehaviour
 {
     public enum AppearAnimation
     {

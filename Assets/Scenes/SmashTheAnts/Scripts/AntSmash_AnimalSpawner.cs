@@ -41,14 +41,14 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(CS_GameManager.Instance.gamePlaying) IncreaseSpawnRate();
+        if(MG_GameManager.Instance.gamePlaying) IncreaseSpawnRate();
     }
 
     IEnumerator SpawnObjects() // Spawns game objects while the game is playing
     {
-        yield return new WaitUntil(() => CS_GameManager.Instance.gamePlaying);
+        yield return new WaitUntil(() => MG_GameManager.Instance.gamePlaying);
 
-        while (CS_GameManager.Instance.gamePlaying)
+        while (MG_GameManager.Instance.gamePlaying)
         {
             yield return new WaitForSeconds(spawnTimer + Random.Range(-0.5f, 0.0f));
             SpawnGameObject();

@@ -12,7 +12,7 @@ public class TreeClimb_SimpleMove : MonoBehaviour
 
     private void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying || !TreeClimb_GameManager.Instance.treesMoving) 
+        if (!MG_GameManager.Instance.gamePlaying || !TreeClimb_GameManager.Instance.treesMoving) 
             return;
 
         transform.Translate((moveSpeed * Time.deltaTime * -transform.up), Space.World);
