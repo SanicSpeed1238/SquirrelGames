@@ -1,7 +1,7 @@
 using UnityEngine;
 using EasyTransition;
 
-public class CS_PauseScreen : MonoBehaviour
+public class MG_PauseScreen : MonoBehaviour
 {
     [Header("UI Buttons")]
     public GameObject resumeButton;
@@ -12,12 +12,12 @@ public class CS_PauseScreen : MonoBehaviour
     public GameObject[] screenElements;
 
     // Other Variables Needed
-    private CS_GameManager gameManager;
+    private MG_GameManager gameManager;
     private readonly string minigameSelectSceneName = "Minigame Selection";
 
     private void Awake()
     {
-        gameManager = FindAnyObjectByType<CS_GameManager>();
+        gameManager = FindAnyObjectByType<MG_GameManager>();
     }
 
     private void Update()

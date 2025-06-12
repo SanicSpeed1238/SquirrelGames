@@ -22,7 +22,7 @@ public class AntSmash_GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(CS_GameManager.Instance.gamePlaying) UpdateGameTime();
+        if(MG_GameManager.Instance.gamePlaying) UpdateGameTime();
     }
     private void UpdateGameTime()
     {
@@ -31,9 +31,9 @@ public class AntSmash_GameManager : MonoBehaviour
         if (Mathf.Round(gameTime) == 0)
         {
             gameTime = 0.0f;
-            CS_GameManager.Instance.EndGame();
+            MG_GameManager.Instance.EndGame();
         }
 
-        CS_GameManager.Instance.timeUI.text = gameTime.ToString("F0");
+        MG_GameManager.Instance.timeUI.text = gameTime.ToString("F0");
     }
 }

@@ -29,7 +29,7 @@ public class AntSmash_HammerController : Base_PlayerController
 
     private void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying) 
+        if (!MG_GameManager.Instance.gamePlaying) 
             return;
 
         MoveHammer();
@@ -70,7 +70,7 @@ public class AntSmash_HammerController : Base_PlayerController
             int addedScore = animal.points;
             playerScore += addedScore;
             if (playerScore < 0) playerScore = 0;
-            CS_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, addedScore);
+            MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, addedScore);
         }
     }
 

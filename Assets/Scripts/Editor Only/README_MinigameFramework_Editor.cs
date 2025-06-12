@@ -2,8 +2,8 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(CS_Info_MinigameFramework))]
-public class Editor_Info_MinigameFramework : Editor
+[CustomEditor(typeof(README_MinigameFramework))]
+public class README_MinigameFramework_Editor : Editor
 {
     public override void OnInspectorGUI()
     {

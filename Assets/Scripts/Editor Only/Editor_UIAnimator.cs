@@ -2,20 +2,20 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(CS_UIAnimator))]
+[CustomEditor(typeof(UIAnimator))]
 public class Editor_UIAnimator : Editor
 {
     public override void OnInspectorGUI()
     {
-        CS_UIAnimator script = (CS_UIAnimator)target;
+        UIAnimator script = (UIAnimator)target;
 
         // Draw default Appear Animation option
         EditorGUILayout.LabelField("Appear Animation", EditorStyles.boldLabel);
-        script.appearAnimation = (CS_UIAnimator.AppearAnimation)EditorGUILayout.EnumPopup("Animation Type", script.appearAnimation);
+        script.appearAnimation = (UIAnimator.AppearAnimation)EditorGUILayout.EnumPopup("Animation Type", script.appearAnimation);
         EditorGUILayout.Space();
 
         // Show fields based on Appear Animation selection
-        if (script.appearAnimation == CS_UIAnimator.AppearAnimation.Grow)
+        if (script.appearAnimation == UIAnimator.AppearAnimation.Grow)
         {
             EditorGUILayout.LabelField("Grow Animation", EditorStyles.boldLabel);
             script.grow_TargetScale = EditorGUILayout.FloatField("Target Scale", script.grow_TargetScale);
@@ -23,7 +23,7 @@ public class Editor_UIAnimator : Editor
             script.grow_Delay = EditorGUILayout.FloatField("Delay", script.grow_Delay);
             script.grow_EaseType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Type", script.grow_EaseType);
         }
-        else if (script.appearAnimation == CS_UIAnimator.AppearAnimation.MoveIn)
+        else if (script.appearAnimation == UIAnimator.AppearAnimation.MoveIn)
         {
             EditorGUILayout.LabelField("MoveIn Animation", EditorStyles.boldLabel);
             script.moveIn_XOffset = EditorGUILayout.FloatField("Move In X Units", script.moveIn_XOffset);
@@ -38,18 +38,18 @@ public class Editor_UIAnimator : Editor
 
         // Draw default Idle Animation option
         EditorGUILayout.LabelField("Idle Animation", EditorStyles.boldLabel);
-        script.idleAnimation = (CS_UIAnimator.IdleAnimation)EditorGUILayout.EnumPopup("Animation Type", script.idleAnimation);
+        script.idleAnimation = (UIAnimator.IdleAnimation)EditorGUILayout.EnumPopup("Animation Type", script.idleAnimation);
         EditorGUILayout.Space();
 
         // Show fields based on Idle Animation selection
-        if (script.idleAnimation == CS_UIAnimator.IdleAnimation.Floating)
+        if (script.idleAnimation == UIAnimator.IdleAnimation.Floating)
         {
             EditorGUILayout.LabelField("Floating Animation", EditorStyles.boldLabel);
             script.floating_PositionOffset = EditorGUILayout.FloatField("Position Offset", script.floating_PositionOffset);
             script.floating_Duration = EditorGUILayout.FloatField("Duration", script.floating_Duration);
             script.floating_EaseType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Type", script.floating_EaseType);
         }
-        else if (script.idleAnimation == CS_UIAnimator.IdleAnimation.Pulsing)
+        else if (script.idleAnimation == UIAnimator.IdleAnimation.Pulsing)
         {
             EditorGUILayout.LabelField("Pulsing Animation", EditorStyles.boldLabel);
             script.pulsing_TargetGrowScale = EditorGUILayout.FloatField("Grow Scale", script.pulsing_TargetGrowScale);

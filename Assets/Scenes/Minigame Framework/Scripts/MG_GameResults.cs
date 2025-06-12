@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using EasyTransition;
 
-public class CS_GameResults : MonoBehaviour
+public class MG_GameResults : MonoBehaviour
 {
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;
