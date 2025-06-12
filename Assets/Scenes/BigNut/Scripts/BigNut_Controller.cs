@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public abstract class BigNut_Controller : Base_PlayerController
 {
@@ -14,7 +13,7 @@ public abstract class BigNut_Controller : Base_PlayerController
     protected float pushDistance = 2.0f;
     protected Transform birbThatCaught;
 
-    private float currentStunTime;
+    protected float currentStunTime;
 
     public bool IsAlive { get => isAlive; }
 
@@ -24,14 +23,5 @@ public abstract class BigNut_Controller : Base_PlayerController
     {
         isStunned = true;
         currentStunTime = stunTime;
-    }
-
-    public void HandleStunning()
-    {
-        currentStunTime -= Time.deltaTime;
-        if (currentStunTime < 0)
-        {
-            isStunned = false;
-        }
     }
 }

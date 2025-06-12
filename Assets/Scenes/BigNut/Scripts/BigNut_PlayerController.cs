@@ -100,7 +100,7 @@ public class BigNut_PlayerController : BigNut_Controller
             GameObject hidingPlayer = hidyHoleScript.HidingPlayer;
             if (hidingPlayer != null && hidingPlayer != gameObject)
             {
-                BigNut_Controller hidingPlayerController = hidingPlayer.GetComponent<BigNut_PlayerController>();
+                BigNut_Controller hidingPlayerController = hidingPlayer.GetComponent<BigNut_Controller>();
                 hidingPlayerController.HideAndUnhide();
                 hidingPlayerController.StunPlayer();
             }
@@ -131,10 +131,13 @@ public class BigNut_PlayerController : BigNut_Controller
 
     private void OnTriggerExit(Collider collision)
     {
-        SphereCollider collider = (SphereCollider)collision;
-        if (collider != null && collision.gameObject.tag == "HidyHole")
+        if (collision.gameObject.tag == "HidyHole")
         {
-            isNearHidyHole = false;
+            SphereCollider collider = (SphereCollider)collision;
+            if (collider != null)
+            {
+                isNearHidyHole = false;
+            }
         }
     }
 
@@ -154,4 +157,12 @@ public class BigNut_PlayerController : BigNut_Controller
         return velocity;
     }
 
+    private void HandleStunning()
+    {
+        currentStunTime -= Time.deltaTime;
+        if (currentStunTime < 0)
+        {
+            isStunned = false;
+        }
+    }
 }

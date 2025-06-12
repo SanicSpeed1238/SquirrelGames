@@ -27,32 +27,39 @@ public class BigNut_ComputerController : BigNut_Controller
         }
         else if (!isHiding)
         {
-            if (isBirdComing)
+            if (!isStunned)
             {
-                Vector3 destinationViewPort = mainCamera.WorldToViewportPoint(agent.destination);
-                if (hidyHole == null || destinationViewPort.x < 0)
+                if (isBirdComing)
                 {
-                    Vector3 closestHole = Vector3.zero;
-                    float minDistance = float.MaxValue;
-                    foreach (GameObject hole in BigNut_HidyHole.HidyHoles)
+                    Vector3 destinationViewPort = mainCamera.WorldToViewportPoint(agent.destination);
+                    if (hidyHole == null || destinationViewPort.x < 0)
                     {
-                        Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
-                        float distance = Vector3.Distance(hole.transform.position, transform.position);
-                        if (minDistance > distance && holeViewPort.x > 0)
+                        Vector3 closestHole = Vector3.zero;
+                        float minDistance = float.MaxValue;
+                        foreach (GameObject hole in BigNut_HidyHole.HidyHoles)
                         {
-                            minDistance = distance;
-                            closestHole = hole.transform.position;
-                            hidyHole = hole;
+                            Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
+                            float distance = Vector3.Distance(hole.transform.position, transform.position);
+                            if (minDistance > distance && holeViewPort.x > 0)
+                            {
+                                minDistance = distance;
+                                closestHole = hole.transform.position;
+                                hidyHole = hole;
+                            }
                         }
+                        agent.SetDestination(closestHole);
                     }
-                    agent.SetDestination(closestHole);
-                }
 
-                if (agent.remainingDistance < 2)
-                {
-                    agent.enabled = false;
-                    HideAndUnhide();
+                    if (agent.remainingDistance < 2)
+                    {
+                        agent.enabled = false;
+                        HideAndUnhide();
+                    }
                 }
+            }
+            else
+            {
+                HandleStunning();
             }
         }
     }
@@ -87,7 +94,7 @@ public class BigNut_ComputerController : BigNut_Controller
             GameObject hidingPlayer = hidyHoleScript.HidingPlayer;
             if (hidingPlayer != null && hidingPlayer != gameObject)
             {
-                BigNut_Controller hidingPlayerController = hidingPlayer.GetComponent<BigNut_PlayerController>();
+                BigNut_Controller hidingPlayerController = hidingPlayer.GetComponent<BigNut_Controller>();
                 hidingPlayerController.HideAndUnhide();
                 hidingPlayerController.StunPlayer();
             }
@@ -104,6 +111,16 @@ public class BigNut_ComputerController : BigNut_Controller
             isAlive = false;
             birbThatCaught = collision.gameObject.transform;
             agent.enabled = false;
+        }
+    }
+
+    private void HandleStunning()
+    {
+        currentStunTime -= Time.deltaTime;
+        if (currentStunTime < 0)
+        {
+            isStunned = false;
+            agent.enabled = true;
         }
     }
 }
