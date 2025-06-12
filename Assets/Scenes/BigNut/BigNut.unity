@@ -250,6 +250,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birb: {fileID: 5357343118279799618, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
+--- !u!1 &87623638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87623640}
+  - component: {fileID: 87623639}
+  m_Layer: 0
+  m_Name: NavMesh Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &87623639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87623638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: fd2e765743d8b9e42b364c4ff43b342a, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &87623640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87623638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.503433, y: 0.07515478, z: 9.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &115138615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,6 +1466,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManagerScript: {fileID: 864945769}
+--- !u!4 &636671556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4927458788056630895, guid: b7b65081da647c249a390407580f6d46, type: 3}
+  m_PrefabInstance: {fileID: 1113152772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653774396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,7 +2924,7 @@ PrefabInstance:
       objectReference: {fileID: 74054126}
     - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: birbEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: birbDestination
@@ -3111,66 +3179,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1652156578}
-  - component: {fileID: 1652156576}
-  - component: {fileID: 1652156575}
+  - component: {fileID: 1652156579}
+  - component: {fileID: 1652156580}
+  - component: {fileID: 1652156581}
+  - component: {fileID: 1652156582}
   m_Layer: 6
-  m_Name: Player 2
+  m_Name: Computer Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!143 &1652156575
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652156573}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.65
-  m_SlopeLimit: 60
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.94, z: 0}
---- !u!114 &1652156576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652156573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffda794bd75548644ab0e44681bad0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 0
-  playerScore: 0
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  startLocation: {fileID: 0}
-  moveSpeed: 2
-  isPlayer2: 1
-  squirrelModel: {fileID: 1498250689}
-  squirrelAnimator: {fileID: 1498250690}
-  mainCamera: {fileID: 836248582}
-  bufferFromBehind: 0.01
-  bufferFromForward: 0.9
-  pushSpeed: 2
-  stunTime: 1
 --- !u!4 &1652156578
 Transform:
   m_ObjectHideFlags: 0
@@ -3189,6 +3208,98 @@ Transform:
   - {fileID: 719674928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1652156579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652156573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9ff092ed14c8149abb0a781bc03464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  playerScore: 0
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  startLocation: {fileID: 0}
+  mainCamera: {fileID: 836248582}
+  stunTime: 2
+  speed: 2
+  acorn: {fileID: 636671556}
+  agent: {fileID: 1652156580}
+  isBirdComing: 0
+--- !u!195 &1652156580
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652156573}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.6
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.57
+  m_BaseOffset: -0.15
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!65 &1652156581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652156573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7, y: 0.66, z: 1.41}
+  m_Center: {x: 0, y: 0.59, z: 0.34}
+--- !u!54 &1652156582
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652156573}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1652240021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4671596086339707863, guid: 6d6074675db603647a1f1615a78fec26, type: 3}
@@ -3712,15 +3823,14 @@ MonoBehaviour:
   playerScore: 0
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   startLocation: {fileID: 0}
-  moveSpeed: 2
-  isPlayer2: 0
-  squirrelModel: {fileID: 115138616}
-  squirrelAnimator: {fileID: 115138618}
   mainCamera: {fileID: 836248582}
+  stunTime: 1
   bufferFromBehind: 0.01
   bufferFromForward: 0.9
   pushSpeed: 2
-  stunTime: 1
+  moveSpeed: 2
+  isPlayer2: 0
+  squirrelAnimator: {fileID: 115138618}
 --- !u!143 &1918994808
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3815,3 +3925,4 @@ SceneRoots:
   - {fileID: 1315527205}
   - {fileID: 864945770}
   - {fileID: 1113152772}
+  - {fileID: 87623640}

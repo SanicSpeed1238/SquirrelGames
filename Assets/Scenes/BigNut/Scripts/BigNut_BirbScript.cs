@@ -5,28 +5,38 @@ public class BigNut_BirbScript : MonoBehaviour
     public GameObject player;
 
     public BigNut_GameManagerScript gameManagerScript;
+    public BigNut_ComputerController computerController;
 
     [Header("Bird Movement Components")]
     public Transform birbDestination;
     public Transform birbSource;
+    public float spawnTimeLowerBound = 3.0f;
+    public float spawnTimeUpperBound = 7.0f;
+    public float maxDistanceFromCharacter = 100f;
+
 
     public Transform shadow;
-
-    public float maxDistanceFromCharacter = 100f;
 
     // For debugging
     public bool birbEnabled = true;
 
     private bool reachedPlayer = false;
     private bool spawned = false;
+    private bool isComputer = false;
     private float spawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
         shadow.localScale = Vector3.zero;
-        spawnTime = Random.Range(1, 4);
+        spawnTime = Random.Range(spawnTimeLowerBound, spawnTimeUpperBound);
         transform.position = birbSource.position;
+
+        computerController = player.GetComponent<BigNut_ComputerController>();
+        if (computerController != null)
+        {
+            isComputer = true;
+        }
     }
 
 
@@ -42,13 +52,17 @@ public class BigNut_BirbScript : MonoBehaviour
                 {
                     shadow.localScale = Vector3.zero;
                     spawned = false;
-                    BigNut_PlayerController playerController = player.GetComponent<BigNut_PlayerController>();
+                    BigNut_Controller playerController = player.GetComponent<BigNut_Controller>();
                     if (!playerController.IsAlive)
                     {
                         gameManagerScript.PlayerKilled(player.name);
                         Destroy(player);
                         Destroy(shadow);
                         Destroy(gameObject);
+                    }
+                    else if (isComputer)
+                    {
+                        computerController.BirdGone();
                     }
                 }
 
@@ -73,8 +87,12 @@ public class BigNut_BirbScript : MonoBehaviour
                 {
                     transform.position = birbSource.position;
                     spawned = true;
-                    spawnTime = Random.Range(1, 4);
+                    spawnTime = Random.Range(spawnTimeLowerBound, spawnTimeUpperBound);
                     reachedPlayer = false;
+                    if (isComputer)
+                    {
+                        computerController.isBirdComing = true;
+                    }
                 }
             }
         }        

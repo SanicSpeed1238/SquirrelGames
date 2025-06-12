@@ -1,38 +1,23 @@
 using UnityEngine;
 
-public class BigNut_PlayerController : Base_PlayerController
+public class BigNut_PlayerController : BigNut_Controller
 {
+    public float bufferFromBehind = 0.1f;
+    public float bufferFromForward = 0.9f;
+    public float pushSpeed = 2f;
+
     [Header("Movement Values")]
     public float moveSpeed;
     public bool isPlayer2;
 
     [Header("Important Components")]
-    public GameObject squirrelModel;
     public Animator squirrelAnimator;
 
-    [Header("Camera Values")]
-    public Camera mainCamera;
-    public float bufferFromBehind = 0.1f; 
-    public float bufferFromForward = 0.9f;
-    public float pushSpeed = 2f;
-
-    public float stunTime = 2.0f;
-
-    private bool isAlive;
-    private bool isHiding;
     private bool isNearHidyHole;
-    private bool isStunned;
-    private float pushDistance = 2f;
-    private float currentStunTime;
 
     private string hideButton;
-
-    private Transform birbThatCaught;
     private CharacterController controller;
     private GameObject hidyHole;
-
-
-    public bool IsAlive { get => isAlive; }
 
     // Start is called before the first frame update
     void Start()
@@ -70,26 +55,13 @@ public class BigNut_PlayerController : Base_PlayerController
                         Vector3 movement = transform.right * xInput + transform.forward * zInput;
                         velocity = movement * moveSpeed;
                     }
+                    velocity = ConstraintPlayerInCamera(velocity);
                 }
                 else
                 {
-                    currentStunTime -= Time.deltaTime;
-                    if (currentStunTime < 0)
-                    {
-                        isStunned = false;
-                    }
+                    HandleStunning();   
                 }
-                Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
-                if (viewportPos.y < bufferFromBehind)
-                {
-                    velocity.x += pushSpeed;
-                }
-                else if (viewportPos.y > bufferFromForward)
-                {
-                    Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
-                    transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
-                    velocity.x = 0;
-                }
+                
                 controller.Move(velocity * Time.deltaTime);
             }
 
@@ -105,7 +77,7 @@ public class BigNut_PlayerController : Base_PlayerController
         }
     }
 
-    public void HideAndUnhide()
+    public override void HideAndUnhide()
     {
         BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
         Collider playerCollider = gameObject.GetComponent<Collider>();
@@ -128,7 +100,7 @@ public class BigNut_PlayerController : Base_PlayerController
             GameObject hidingPlayer = hidyHoleScript.HidingPlayer;
             if (hidingPlayer != null && hidingPlayer != gameObject)
             {
-                BigNut_PlayerController hidingPlayerController = hidingPlayer.GetComponent<BigNut_PlayerController>();
+                BigNut_Controller hidingPlayerController = hidingPlayer.GetComponent<BigNut_PlayerController>();
                 hidingPlayerController.HideAndUnhide();
                 hidingPlayerController.StunPlayer();
             }
@@ -142,11 +114,13 @@ public class BigNut_PlayerController : Base_PlayerController
 
     private void OnTriggerEnter(Collider collision)
     {
-        SphereCollider collider = (SphereCollider)collision;
-        if (collider != null && collision.gameObject.tag == "HidyHole")
+        if (collision.gameObject.tag == "HidyHole")
         {
-            hidyHole = collision.gameObject;
-            isNearHidyHole = true;
+            if ((SphereCollider)collision != null) 
+            {
+                hidyHole = collision.gameObject;
+                isNearHidyHole = true;
+            }               
         }
         if (!isHiding && collision.gameObject.tag == "Birb")
         {
@@ -164,9 +138,20 @@ public class BigNut_PlayerController : Base_PlayerController
         }
     }
 
-    public void StunPlayer()
+    private Vector3 ConstraintPlayerInCamera(Vector3 velocity)
     {
-        isStunned = true;
-        currentStunTime = stunTime;
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+        if (viewportPos.y < bufferFromBehind)
+        {
+            velocity.x += pushSpeed;
+        }
+        else if (viewportPos.y > bufferFromForward)
+        {
+            Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
+            transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
+            velocity.x = 0;
+        }
+        return velocity;
     }
+
 }
