@@ -30,7 +30,6 @@ public class BigNut_GameManagerScript : MonoBehaviour
             foreach (string player in players)
             {
                 GameEnd(player);
-
             }
         }
     }

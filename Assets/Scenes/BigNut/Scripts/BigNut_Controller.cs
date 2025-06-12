@@ -4,6 +4,10 @@ public abstract class BigNut_Controller : Base_PlayerController
 {
     [Header("Camera Values")]
     public Camera mainCamera;
+    public float bufferFromForward = 0.9f;
+
+    [Header("Important Components")]
+    public Animator squirrelAnimator;
 
     public float stunTime = 2.0f;
 

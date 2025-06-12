@@ -3,15 +3,10 @@ using UnityEngine;
 public class BigNut_PlayerController : BigNut_Controller
 {
     public float bufferFromBehind = 0.1f;
-    public float bufferFromForward = 0.9f;
     public float pushSpeed = 2f;
 
     [Header("Movement Values")]
-    public float moveSpeed;
-    public bool isPlayer2;
-
-    [Header("Important Components")]
-    public Animator squirrelAnimator;
+    public float moveSpeed = 2.0f;
 
     private bool isNearHidyHole;
 
@@ -27,7 +22,7 @@ public class BigNut_PlayerController : BigNut_Controller
         isNearHidyHole = false;
         controller = GetComponent<CharacterController>();
 
-        hideButton = isPlayer2 ? "Action2" : "Action";
+        hideButton = "Action";
     }
 
     // Update is called once per frame
@@ -44,10 +39,8 @@ public class BigNut_PlayerController : BigNut_Controller
             {
                 if (!isStunned)
                 {
-                    if (!isPlayer2) xInput = Input.GetAxisRaw("Horizontal");
-                    else xInput = Input.GetAxisRaw("Horizontal2");
-                    if (!isPlayer2) zInput = Input.GetAxisRaw("Vertical");
-                    else zInput = Input.GetAxisRaw("Vertical2");
+                    xInput = Input.GetAxisRaw("Horizontal");
+                    zInput = Input.GetAxisRaw("Vertical");
 
                     if (xInput != 0 || zInput != 0)
                     {
@@ -60,11 +53,9 @@ public class BigNut_PlayerController : BigNut_Controller
                 else
                 {
                     HandleStunning();   
-                }
-                
+                }                
                 controller.Move(velocity * Time.deltaTime);
             }
-
             if (isNearHidyHole && Input.GetButtonDown(hideButton)) 
             {
                 HideAndUnhide();
@@ -151,8 +142,7 @@ public class BigNut_PlayerController : BigNut_Controller
         else if (viewportPos.y > bufferFromForward)
         {
             Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
-            transform.position = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
-            velocity.x = 0;
+            velocity = new Vector3(clampedWorld.x, transform.position.y, transform.position.z) - transform.position;
         }
         return velocity;
     }
