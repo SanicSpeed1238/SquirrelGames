@@ -18,7 +18,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying)
+        if (!MG_GameManager.Instance.gamePlaying)
             return;
         StartSpawning();
     }

@@ -67,7 +67,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     // Update is called once per frame
     void Update()
     {
-        if (!CS_GameManager.Instance.gamePlaying)
+        if (!MG_GameManager.Instance.gamePlaying)
             return;
 
         if (_stunActive == true)
