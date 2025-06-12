@@ -150,18 +150,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         }
     }
 
-    public void SetPlayerData(int number, Color color, Transform location)
-    {
-        playerID = number;
-        playerColor = color;
-
-        startLocation = location;
-        if (TryGetComponent<Rigidbody>(out var rb)) rb.position = startLocation.position;
-        else transform.position = startLocation.position;
-
-        playerScore = 0;
-    }
-
     //HUMAN INPUT
     public void RotateArm(InputAction.CallbackContext context)
     {
