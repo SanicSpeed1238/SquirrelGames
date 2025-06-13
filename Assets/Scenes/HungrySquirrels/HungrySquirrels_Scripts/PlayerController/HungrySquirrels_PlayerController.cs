@@ -163,4 +163,14 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         moveInput = context.ReadValueAsButton();
     }
 
+    //COMPUTER INPUT
+    public void SetLeftStickInput(Vector2 input)
+    {
+        rotationInput = input;
+    }
+    public void SetActionInput(bool input)
+    {
+        moveInput = input;
+    }
+
 }

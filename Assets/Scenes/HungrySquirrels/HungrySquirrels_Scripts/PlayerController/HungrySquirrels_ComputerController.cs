@@ -15,4 +15,28 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
     //Variable for Arm Extension
     private float _extDur;
 
+    private void Awake()
+    {
+        controller = GetComponent<HungrySquirrels_PlayerController>();
+    }
+
+    private void Start()
+    {
+        SetRotationInput();
+    }
+
+    private void Update()
+    {
+        if (!MG_GameManager.Instance.gamePlaying)
+            return;
+        SetRotationInput();
+
+    }
+
+    private void SetRotationInput()
+    {
+
+        //controller.SetLeftStickInput();
+    }
+
 }
