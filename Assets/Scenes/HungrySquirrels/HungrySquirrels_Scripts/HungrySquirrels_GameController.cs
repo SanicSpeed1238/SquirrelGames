@@ -22,6 +22,9 @@ public class HungrySquirrels_GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!MG_GameManager.Instance.gamePlaying)
+            return;
+
         _eTime += Time.deltaTime;
         if(_eTime >= _gameDur)
         {

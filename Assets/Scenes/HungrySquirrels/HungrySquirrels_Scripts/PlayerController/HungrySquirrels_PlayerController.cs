@@ -36,7 +36,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     public bool _stunActive;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         hitBox = arm.GetComponent<BoxCollider>();//Sets Arm Collision Trigger
         //GetComponentInChildren<Outline>.OutlineColor = playerColor;
@@ -65,8 +65,11 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (!MG_GameManager.Instance.gamePlaying)
+            return;
+
         if (_stunActive == true)
         {
             _eTime += Time.deltaTime;
@@ -84,7 +87,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         
     }
 
-    void RotateArm()
+    private void RotateArm()
     {
         float rotation = rotationInput.x * rot_Speed * Time.deltaTime * 60;//Applies rot_speed to input
         //See if arm is moving so player cannot rotate
@@ -100,7 +103,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         }
     }
 
-    void ExtendArm()
+    private void ExtendArm()
     {
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
@@ -158,6 +161,16 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     public void ExtendArm(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValueAsButton();
+    }
+
+    //COMPUTER INPUT
+    public void SetLeftStickInput(Vector2 input)
+    {
+        rotationInput = input;
+    }
+    public void SetActionInput(bool input)
+    {
+        moveInput = input;
     }
 
 }

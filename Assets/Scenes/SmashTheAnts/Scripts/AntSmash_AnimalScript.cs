@@ -53,7 +53,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
         moveSpeed = 0f;
         squishedTimer = squishedDuration + 1f;
 
-        GetComponent<CS_SquishModel>().SquishPermanently(squishedScale);
+        GetComponent<SquishModel>().SquishPermanently(squishedScale);
         materialRender.material = squishedMaterial;
         transparentValue = materialRender.material.color;
 

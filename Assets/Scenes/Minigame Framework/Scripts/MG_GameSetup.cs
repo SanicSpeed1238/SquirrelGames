@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CS_GameSetup : MonoBehaviour
+public class MG_GameSetup : MonoBehaviour
 {
     [Header("Player Prefabs")]
     public GameObject humanPlayer;
@@ -25,7 +25,7 @@ public class CS_GameSetup : MonoBehaviour
     {
         if (Input.GetButtonDown("Start") && canStart)
         {
-            if (!CS_GameManager.Instance.gameStarted) StartGame();
+            if (!MG_GameManager.Instance.gameStarted) StartGame();
         }
     }
 
@@ -101,6 +101,6 @@ public class CS_GameSetup : MonoBehaviour
         else SetUpPlayerObjects(new List<int>());
 
         inputManager.DisableJoining();
-        GameObject.FindAnyObjectByType<CS_GameManager>().StartGame();
+        GameObject.FindAnyObjectByType<MG_GameManager>().StartGame();
     }
 }

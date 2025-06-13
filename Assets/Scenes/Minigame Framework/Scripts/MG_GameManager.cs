@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.Playables;
 using System.Collections;
 
-public class CS_GameManager : MonoBehaviour
+public class MG_GameManager : MonoBehaviour
 {
-    public static CS_GameManager Instance;
+    public static MG_GameManager Instance;
 
     [Header("Game UI Components")]
     public TextMeshProUGUI messageUI;
@@ -30,9 +30,9 @@ public class CS_GameManager : MonoBehaviour
     [HideInInspector] public bool gameEnded;
 
     // Important References
-    private CS_GameSetup gameSetup;
-    private CS_GameResults gameResults;
-    private CS_AudioController audioPlayer;
+    private MG_GameSetup gameSetup;
+    private MG_GameResults gameResults;
+    private MG_AudioController audioPlayer;
 
     // UI Animation Variables
     private readonly float countdownDelay = 2.0f;
@@ -63,9 +63,9 @@ public class CS_GameManager : MonoBehaviour
         timeUI.text = string.Empty;
         messageUI.text = string.Empty;
 
-        gameSetup = GetComponent<CS_GameSetup>();
-        gameResults = GetComponent<CS_GameResults>();
-        audioPlayer = FindAnyObjectByType<CS_AudioController>();
+        gameSetup = GetComponent<MG_GameSetup>();
+        gameResults = GetComponent<MG_GameResults>();
+        audioPlayer = FindAnyObjectByType<MG_AudioController>();
     }
 
     #region Returns Players In Game
