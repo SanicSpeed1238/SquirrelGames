@@ -35,6 +35,7 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
 
     private void SetRotationInput()
     {
+        float dur = Random.Range(0, 5);
 
         //controller.SetLeftStickInput();
     }
