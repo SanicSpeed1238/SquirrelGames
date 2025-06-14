@@ -10,12 +10,14 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
     private HungrySquirrels_PlayerController controller;
 
     //Variables to Control Arm Rotation
+    private float dur;
     private int _armDir;
     private bool _armMOVE = false;
     private float _eTime;
 
     //Variable for Arm Extension
     private float _extDur;
+    private bool _armExtStart = false;
 
     private void Awake()
     {
@@ -32,43 +34,69 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
         if (!MG_GameManager.Instance.gamePlaying)
             return;
 
-        if (_armMOVE == true)
+        if (_armMOVE == true || _armExtStart == true)
         {
             _eTime += Time.deltaTime;
         }
         SetRotationInput();
-
+        ExtendInput();
     }
 
     private void SetRotationInput()
     {
-        float dur = Random.Range(0, 5);
 
-        if(_armMOVE == false)
+        if(_armExtStart == false)
         {
-            
-            _armDir = Random.Range(-1, 1);
-            if(_armDir == 0)
+            _armMOVE = true;
+            if (_armMOVE == false)
             {
                 _armDir = Random.Range(-1, 1);
+                if (_armDir == 0)
+                {
+                    _armDir = Random.Range(-1, 1);
+                }
+                dur = Random.Range(0, 5);
             }
-            //dur = Random.Range(0, 5);
+
+            if (_eTime < dur)
+            {
+                Vector2 input = new(_armDir, 0);
+                controller.SetLeftStickInput(input);
+            }
+            if (_eTime >= dur)
+            {
+                _armMOVE = false;
+                _eTime = 0;
+                controller.SetLeftStickInput(Vector2.zero);
+                _armExtStart = true;
+            }
+            //controller.SetLeftStickInput();
         }
 
-        if (_eTime < dur)
+    }
+
+    private void ExtendInput()
+    {
+        if(_armMOVE == false)
         {
-            _armMOVE = true; 
-            Vector2 input = new(_armDir, 0);
-            controller.SetLeftStickInput(input);
-        }
-        if(_eTime >= dur)
-        {
-            _armMOVE = false;
-            _eTime = 0;
-            controller.SetLeftStickInput(Vector2.zero);
+            if (_armExtStart == false)
+            {
+                _extDur = Random.Range(1, 5);
+            }
+
+            if (_eTime < _extDur)
+            {
+                controller.SetActionInput(true);
+            }
+            if(_eTime >= _extDur)
+            {
+                _armExtStart = false;
+                _eTime = 0;
+                controller.SetActionInput(false);
+                _armMOVE = true;
+            }
         }
 
-        //controller.SetLeftStickInput();
     }
 
 }

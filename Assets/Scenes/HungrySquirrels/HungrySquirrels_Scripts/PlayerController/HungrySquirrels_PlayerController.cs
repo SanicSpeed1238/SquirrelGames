@@ -43,25 +43,24 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         playerColor.a = 0.5f;
         //Model Goes Here
         //Sets default position and rotation of character when chosen as a specific playerID
-        /*switch (playerID)
+        switch (playerID)
         {
-            case 0:
+            case 1:
                 transform.localEulerAngles = new Vector3 (0, 135, 0);
                 break;
-            case 1:
+            case 2:
                 transform.localEulerAngles = new Vector3(0, 45, 0);
                 break;
-            case 2:
+            case 3:
                 transform.localEulerAngles = new Vector3(0, -45, 0);
                 break;
-            case 3:
-                transform.position = new Vector3(18, 1.6f, -18);
+            case 4:
                 transform.localEulerAngles = new Vector3(0, -135, 0);
                 break;
             default:
                 transform.localEulerAngles = new Vector3(0, 135, 0);
                 break;
-        }*/
+        }
     }
 
     // Update is called once per frame
