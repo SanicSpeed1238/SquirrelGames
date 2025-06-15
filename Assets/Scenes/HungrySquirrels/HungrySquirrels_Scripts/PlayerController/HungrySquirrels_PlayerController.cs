@@ -17,7 +17,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     //Rotation Controls
     private Vector2 rotationInput;//Check for keys/input for rotation
     protected float curr_Rot;//Checks for current rotation of the Player
-    private float rot_Max;//Maximum rotation of Player/Limits
+    public float rot_Max;//Maximum rotation of Player/Limits
 
     [Header("Values to Be Adjusted")]
     //Arm Controls
@@ -98,6 +98,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
                 //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
                 transform.Rotate(Vector3.up, rotation);
                 curr_Rot += rotation;//Updates Current Rotation for limit checkers
+                Debug.Log(curr_Rot);
             }
         }
     }
@@ -146,18 +147,19 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)
             {
-                playerScore += aBehav.aOn;
+                //playerScore += aBehav.aOn;
+                MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
                 aBehav.aOn = 0;
             }
         }
     }
 
     //HUMAN INPUT
-    public void RotateArm(InputAction.CallbackContext context)
+    public void OnRotate(InputAction.CallbackContext context)
     {
         rotationInput = context.ReadValue<Vector2>();
     }
-    public void ExtendArm(InputAction.CallbackContext context)
+    public void OnExtend(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValueAsButton();
     }

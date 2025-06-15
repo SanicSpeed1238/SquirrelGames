@@ -37,6 +37,7 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
         if (_armMOVE == true || _armExtStart == true)
         {
             _eTime += Time.deltaTime;
+            //Debug.Log("Elapsed Time: " + _eTime);
         }
         SetRotationInput();
         ExtendInput();
@@ -47,19 +48,21 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
 
         if(_armExtStart == false)
         {
-            _armMOVE = true;
+
             if (_armMOVE == false)
             {
+                //Debug.Log("Setting Direction");
                 _armDir = Random.Range(-1, 1);
                 if (_armDir == 0)
                 {
                     _armDir = Random.Range(-1, 1);
                 }
-                dur = Random.Range(0, 5);
+                dur = Random.Range(1, 5);
             }
 
             if (_eTime < dur)
             {
+                //Debug.Log("Time Left: " + (dur-_eTime));
                 Vector2 input = new(_armDir, 0);
                 controller.SetLeftStickInput(input);
             }
@@ -70,7 +73,6 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
                 controller.SetLeftStickInput(Vector2.zero);
                 _armExtStart = true;
             }
-            //controller.SetLeftStickInput();
         }
 
     }
@@ -79,9 +81,9 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
     {
         if(_armMOVE == false)
         {
-            if (_armExtStart == false)
+            if (_armExtStart == true)
             {
-                _extDur = Random.Range(1, 5);
+                _extDur = Random.Range(0.3f, 0.7f);
             }
 
             if (_eTime < _extDur)

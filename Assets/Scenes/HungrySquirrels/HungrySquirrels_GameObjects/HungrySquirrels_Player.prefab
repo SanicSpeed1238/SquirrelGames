@@ -442,7 +442,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8285138035077466495}
         m_TargetAssemblyTypeName: HungrySquirrels_PlayerController, Assembly-CSharp
-        m_MethodName: RotateArm
+        m_MethodName: OnRotate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8285138035077466495}
         m_TargetAssemblyTypeName: HungrySquirrels_PlayerController, Assembly-CSharp
-        m_MethodName: ExtendArm
+        m_MethodName: OnExtend
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
