@@ -3,7 +3,7 @@ using UnityEngine;
 public class AntSmash_AnimalScript : MonoBehaviour
 {
     [Header("Gameplay Attributes")]
-    [Range(1f, 10f)]
+    [Range(5f, 15f)]
     public float moveSpeed;
     [Range(-3, 3)]
     public int points;

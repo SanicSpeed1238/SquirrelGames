@@ -14,8 +14,15 @@ public class Base_PlayerController : MonoBehaviour
         playerColor = color;
 
         startLocation = location;
-        if (TryGetComponent<Rigidbody>(out var rb)) rb.position = startLocation.position; 
-        else transform.position = startLocation.position;
+        if (TryGetComponent<Rigidbody>(out var rb))
+        {
+            rb.position = startLocation.position;
+            rb.rotation = startLocation.rotation;
+        }
+        else
+        {
+            transform.SetPositionAndRotation(startLocation.position, startLocation.rotation);
+        }
 
         playerScore = 0;
     }
