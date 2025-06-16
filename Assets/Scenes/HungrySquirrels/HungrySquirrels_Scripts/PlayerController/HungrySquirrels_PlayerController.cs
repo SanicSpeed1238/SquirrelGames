@@ -42,25 +42,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //GetComponentInChildren<Outline>.OutlineColor = playerColor;
         playerColor.a = 0.5f;
         //Model Goes Here
-        //Sets default position and rotation of character when chosen as a specific playerID
-        switch (playerID)
-        {
-            case 1:
-                transform.localEulerAngles = new Vector3 (0, 135, 0);
-                break;
-            case 2:
-                transform.localEulerAngles = new Vector3(0, 45, 0);
-                break;
-            case 3:
-                transform.localEulerAngles = new Vector3(0, -45, 0);
-                break;
-            case 4:
-                transform.localEulerAngles = new Vector3(0, -135, 0);
-                break;
-            default:
-                transform.localEulerAngles = new Vector3(0, 135, 0);
-                break;
-        }
     }
 
     // Update is called once per frame
@@ -98,7 +79,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
                 //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
                 transform.Rotate(Vector3.up, rotation);
                 curr_Rot += rotation;//Updates Current Rotation for limit checkers
-                Debug.Log(curr_Rot);
             }
         }
     }

@@ -11,6 +11,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
     [SerializeField] private Pickup[] _possiblePickupsToSpawn;
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private float _spawnRadiusMax = 20f;
+    [SerializeField] private LayerMask _layerToTest;
     private int _maxSpawnAttempts = 4;
 
     private bool _gameOver = false;
@@ -25,18 +26,18 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
+        
         Vector3 spawnPoint;
 
         while (_gameOver != true)
         {
             yield return new WaitForSeconds(_spawnRate);
-
+            
             if (_gameOver == true)
             {
                 StopSpawning();
                 yield break;
             }
-
             spawnPoint = GetValidWorldSpawnPoint();
 
             if(spawnPoint != Vector3.zero)
@@ -73,6 +74,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
         if (_spawnRoutine != null)
             StopCoroutine(_spawnRoutine);
         _spawnRoutine = StartCoroutine(SpawnRoutine());
+        
     }
 
     public void StopSpawning()
@@ -90,11 +92,12 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
         Vector3 testPoint = spawnPos + (randDirection * Random.Range(0, _spawnRadiusMax));
 
-        Collider[] colliders = Physics.OverlapSphere(testPoint, .5f);
+        Collider[] colliders = Physics.OverlapSphere(testPoint, .5f, _layerToTest);
 
         for (int i = 0; i< _maxSpawnAttempts; i++)
         {
-            if(colliders.Length<1)
+            Debug.Log(testPoint);
+            if (colliders.Length<1)
             {
                 return testPoint;
             }

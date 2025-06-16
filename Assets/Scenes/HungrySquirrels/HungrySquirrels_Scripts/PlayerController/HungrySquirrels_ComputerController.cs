@@ -9,15 +9,12 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
     //Variables Needed
     private HungrySquirrels_PlayerController controller;
 
-    //Variables to Control Arm Rotation
+    //Variables to Control Arm
     private float dur;
     private int _armDir;
-    private bool _armMOVE = false;
+    private bool _armMOVE = true;
     private float _eTime;
-
-    //Variable for Arm Extension
-    private float _extDur;
-    private bool _armExtStart = false;
+    private bool _doOnce = false;
 
     private void Awake()
     {
@@ -34,69 +31,75 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
         if (!MG_GameManager.Instance.gamePlaying)
             return;
 
-        if (_armMOVE == true || _armExtStart == true)
+        if (dur != 0)
         {
             _eTime += Time.deltaTime;
             //Debug.Log("Elapsed Time: " + _eTime);
         }
-        SetRotationInput();
-        ExtendInput();
+        
+
+        if(_armMOVE == true)
+        {
+            SetRotationInput();
+        }
+        else if(_armMOVE == false)
+        {
+            ExtendInput();
+        }
     }
 
     private void SetRotationInput()
     {
-
-        if(_armExtStart == false)
+        
+        if (_doOnce == false)
         {
-
-            if (_armMOVE == false)
+            //Debug.Log("Setting Direction");
+            _armDir = Random.Range(-1, 1);
+            if (_armDir == 0)
             {
-                //Debug.Log("Setting Direction");
                 _armDir = Random.Range(-1, 1);
-                if (_armDir == 0)
-                {
-                    _armDir = Random.Range(-1, 1);
-                }
-                dur = Random.Range(1, 5);
             }
-
-            if (_eTime < dur)
-            {
-                //Debug.Log("Time Left: " + (dur-_eTime));
-                Vector2 input = new(_armDir, 0);
-                controller.SetLeftStickInput(input);
-            }
-            if (_eTime >= dur)
-            {
-                _armMOVE = false;
-                _eTime = 0;
-                controller.SetLeftStickInput(Vector2.zero);
-                _armExtStart = true;
-            }
+            dur = Random.Range(0.2f, 0.5f);
+            
         }
 
+        if (_eTime < dur)
+        {
+            Vector2 input = new(_armDir, 0);
+            controller.SetLeftStickInput(input);
+        }
+        else if (_eTime >= dur)
+        {
+            Debug.Log("END ROTATE");
+            controller.SetLeftStickInput(Vector2.zero);
+            /*_doOnce = false;
+            dur = 0;
+            _eTime = 0;*/
+            _armMOVE = false;
+        }
     }
 
     private void ExtendInput()
     {
-        if(_armMOVE == false)
+        
+        if (_doOnce == false)
         {
-            if (_armExtStart == true)
-            {
-                _extDur = Random.Range(0.3f, 0.7f);
-            }
+            dur = Random.Range(0.3f, 0.7f);
+        }
 
-            if (_eTime < _extDur)
-            {
-                controller.SetActionInput(true);
-            }
-            if(_eTime >= _extDur)
-            {
-                _armExtStart = false;
-                _eTime = 0;
-                controller.SetActionInput(false);
-                _armMOVE = true;
-            }
+        if (_eTime < dur)
+        {
+            controller.SetActionInput(true);
+        }
+        else if(_eTime >= dur)
+        {
+            Debug.Log("EXTENDed");
+            controller.SetActionInput(false);
+            _doOnce = false;
+            dur = 0;
+            _eTime = 0;
+            _armMOVE = true;
+
         }
 
     }
