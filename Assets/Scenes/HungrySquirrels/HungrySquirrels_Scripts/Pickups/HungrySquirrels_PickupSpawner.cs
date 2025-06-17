@@ -17,11 +17,18 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
     private bool _gameOver = false;
     private Coroutine _spawnRoutine;
 
+    private void Start()
+    {
+        SpawnRoutine();
+    }
+
     private void Update()
     {
-        if (!MG_GameManager.Instance.gamePlaying)
-            return;
-        StartSpawning();
+        if (MG_GameManager.Instance.gamePlaying)
+        {
+            Debug.Log("Update Spawner");
+        }
+        
     }
 
     private IEnumerator SpawnRoutine()
