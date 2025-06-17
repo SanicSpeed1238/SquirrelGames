@@ -9,6 +9,7 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     // Variables for Left Stick input
     private Vector3 targetPosition;
+    private readonly float distanceBuffer = 0.25f;
 
     // Variables for 'A' Button input
     private Coroutine actionCoroutine;
@@ -35,16 +36,16 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     private void SetMovementInput()
     {
-        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        Vector3 toTarget = targetPosition - transform.position;
+
+        if (toTarget.sqrMagnitude > distanceBuffer)
         {
-            // Set movementInput variable to match the direction of the targetPosition
-            Vector3 direction = (targetPosition - transform.position).normalized;
+            Vector3 direction = toTarget.normalized;
             Vector2 leftStickInput = new(direction.x, direction.z);
             controller.SetLeftStickInput(leftStickInput);
         }
         else
         {
-            // Set a new targetPosition based on rangeX, rangeYTop, and rangeYBottom
             float newX = Random.Range(-controller.rangeX, controller.rangeX);
             float newY = Random.Range(-controller.rangeYTop, controller.rangeYTop);
             targetPosition = new Vector3(newX, transform.position.y, newY);

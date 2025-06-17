@@ -17,7 +17,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     //Rotation Controls
     private Vector2 rotationInput;//Check for keys/input for rotation
     protected float curr_Rot;//Checks for current rotation of the Player
-    private float rot_Max;//Maximum rotation of Player/Limits
+    public float rot_Max;//Maximum rotation of Player/Limits
 
     [Header("Values to Be Adjusted")]
     //Arm Controls
@@ -42,26 +42,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //GetComponentInChildren<Outline>.OutlineColor = playerColor;
         playerColor.a = 0.5f;
         //Model Goes Here
-        //Sets default position and rotation of character when chosen as a specific playerID
-        /*switch (playerID)
-        {
-            case 0:
-                transform.localEulerAngles = new Vector3 (0, 135, 0);
-                break;
-            case 1:
-                transform.localEulerAngles = new Vector3(0, 45, 0);
-                break;
-            case 2:
-                transform.localEulerAngles = new Vector3(0, -45, 0);
-                break;
-            case 3:
-                transform.position = new Vector3(18, 1.6f, -18);
-                transform.localEulerAngles = new Vector3(0, -135, 0);
-                break;
-            default:
-                transform.localEulerAngles = new Vector3(0, 135, 0);
-                break;
-        }*/
     }
 
     // Update is called once per frame
@@ -147,18 +127,19 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)
             {
-                playerScore += aBehav.aOn;
+                //playerScore += aBehav.aOn;
+                MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
                 aBehav.aOn = 0;
             }
         }
     }
 
     //HUMAN INPUT
-    public void RotateArm(InputAction.CallbackContext context)
+    public void OnRotate(InputAction.CallbackContext context)
     {
         rotationInput = context.ReadValue<Vector2>();
     }
-    public void ExtendArm(InputAction.CallbackContext context)
+    public void OnExtend(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValueAsButton();
     }

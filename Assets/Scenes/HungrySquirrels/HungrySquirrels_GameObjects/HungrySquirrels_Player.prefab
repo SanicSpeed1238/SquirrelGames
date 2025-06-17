@@ -400,16 +400,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84a2063cf4efaa4699dbe91c3ea6af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_Speed: 2
-  ext_Speed: 0.4
   playerID: 0
+  playerScore: 0
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  startLocation: {fileID: 0}
   arm: {fileID: 5648494864704448465}
   aBehav: {fileID: 8713704395312484433}
   hitBox: {fileID: 0}
-  rot_Max: 45
-  buttonName: 0
   collectActive: 0
   collided: 0
+  rot_Speed: 2
+  ext_Speed: 0.4
   _stunDur: 5
   _stunActive: 0
 --- !u!114 &7812743718428654764
@@ -441,7 +442,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8285138035077466495}
         m_TargetAssemblyTypeName: HungrySquirrels_PlayerController, Assembly-CSharp
-        m_MethodName: RotateArm
+        m_MethodName: OnRotate
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -457,7 +458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8285138035077466495}
         m_TargetAssemblyTypeName: HungrySquirrels_PlayerController, Assembly-CSharp
-        m_MethodName: ExtendArm
+        m_MethodName: OnExtend
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
