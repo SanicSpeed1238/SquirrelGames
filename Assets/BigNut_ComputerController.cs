@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class BigNut_ComputerController : BigNut_Controller
 {
-    public float speed = 2.0f;
+    public float moveSpeed = 1f;
     public Transform acorn;
     public NavMeshAgent agent;
 
@@ -15,7 +15,8 @@ public class BigNut_ComputerController : BigNut_Controller
     void Start()
     {
         agent.SetDestination(acorn.position);
-        agent.speed = speed;
+        agent.speed = moveSpeed;
+        squirrelAnimator.speed = 1;
     }
 
     // Update is called once per frame
@@ -36,8 +37,10 @@ public class BigNut_ComputerController : BigNut_Controller
                     {
                         Vector3 closestHole = Vector3.zero;
                         float minDistance = float.MaxValue;
-                        foreach (GameObject hole in BigNut_HidyHole.HidyHoles)
+                        GameObject[] hidyHoles = GameObject.FindGameObjectsWithTag("HidyHole");
+                        foreach (GameObject hole in hidyHoles)
                         {
+
                             Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
                             float distance = Vector3.Distance(hole.transform.position, transform.position);
                             if (minDistance > distance && holeViewPort.x > 0)
@@ -53,6 +56,7 @@ public class BigNut_ComputerController : BigNut_Controller
                     if (agent.remainingDistance < 2)
                     {
                         agent.enabled = false;
+                        squirrelAnimator.speed = 0;
                         HideAndUnhide();
                     }
                 }
@@ -61,6 +65,8 @@ public class BigNut_ComputerController : BigNut_Controller
             {
                 HandleStunning();
             }
+
+            ConstraintPlayerInCamera();
         }
     }
 
@@ -71,6 +77,7 @@ public class BigNut_ComputerController : BigNut_Controller
         agent.enabled = true;
         agent.SetDestination(acorn.position);
         hidyHole = null;
+        squirrelAnimator.speed = 1;
     }
 
     public override void HideAndUnhide()
@@ -111,6 +118,7 @@ public class BigNut_ComputerController : BigNut_Controller
             isAlive = false;
             birbThatCaught = collision.gameObject.transform;
             agent.enabled = false;
+            squirrelAnimator.speed = 0;
         }
     }
 
@@ -121,6 +129,34 @@ public class BigNut_ComputerController : BigNut_Controller
         {
             isStunned = false;
             agent.enabled = true;
+            squirrelAnimator.speed = 1;
+        }
+    }
+
+    private void ConstraintPlayerInCamera()
+    {
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+        Vector3 clampPosition = transform.position;
+        if (viewportPos.y <= 0)
+        {
+            clampPosition = transform.position + Vector3.right;
+        }
+        else if (viewportPos.y > bufferFromForward)
+        {
+            Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
+            clampPosition = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            return;
+        }
+        if (agent.enabled)
+        {
+            agent.Warp(clampPosition);
+        }
+        else
+        {
+            transform.position = clampPosition;
         }
     }
 }

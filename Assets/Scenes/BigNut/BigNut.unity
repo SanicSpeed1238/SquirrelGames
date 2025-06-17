@@ -2015,7 +2015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ecc16a508419439faf85058b18646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraMovementSpeed: 0.8
+  CameraMovementSpeed: 0.9
 --- !u!1 &864945768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,6 +3055,14 @@ PrefabInstance:
       propertyPath: gameManagerScript
       value: 
       objectReference: {fileID: 864945769}
+    - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
+      propertyPath: spawnTimeLowerBound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
+      propertyPath: spawnTimeUpperBound
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6821416198107072949, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -3268,7 +3276,7 @@ PrefabInstance:
       objectReference: {fileID: 1912218572}
     - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: birbEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: birbDestination
@@ -3278,6 +3286,14 @@ PrefabInstance:
       propertyPath: gameManagerScript
       value: 
       objectReference: {fileID: 864945769}
+    - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
+      propertyPath: spawnTimeLowerBound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520225393202952269, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
+      propertyPath: spawnTimeUpperBound
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6821416198107072949, guid: 2b4aaad7430e21545a40855bd50bfc17, type: 3}
       propertyPath: m_IsTrigger
       value: 1
