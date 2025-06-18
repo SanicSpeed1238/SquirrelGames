@@ -19,14 +19,14 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnRoutine();
+        StartSpawning();
     }
 
     private void Update()
     {
         if (MG_GameManager.Instance.gamePlaying)
         {
-            Debug.Log("Update Spawner");
+            
         }
         
     }
@@ -49,6 +49,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
             if(spawnPoint != Vector3.zero)
             {
+                Debug.Log("SPAWN");
                 Spawn(ChoosePickup(), spawnPoint);
             }
 
@@ -57,6 +58,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     public void Spawn(Pickup pickup, Vector3 positon)
     {
+        
         if(pickup == _possiblePickupsToSpawn[0])
         {
             int coinflip = Random.Range(0, 5);
