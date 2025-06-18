@@ -428,10 +428,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
         #endregion
     }
-    public void OnAction(InputAction.CallbackContext context) // Input not used.
-    {
-        // Action button not used.
-    }
 
     // Methods for calculating COMPUTER input
     // --------------------------------------

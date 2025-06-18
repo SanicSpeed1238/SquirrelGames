@@ -91,7 +91,7 @@ public class MG_GameManager : MonoBehaviour
         if (newScore >= 0)
         {
             gameResults.playerScores[playerID - 1] = newScore;
-            playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = newScore.ToString("D2");
+            playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = newScore.ToString("D2");
 
             playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Add");
             playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Subtract");
@@ -107,7 +107,7 @@ public class MG_GameManager : MonoBehaviour
         else
         {
             gameResults.playerScores[playerID - 1] = newScore;
-            playerScoreUI.GetComponentInChildren<TextMeshProUGUI>().text = "OUT";
+            playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "OUT";
 
             UpdatePlayerFinished(playerID);
         }

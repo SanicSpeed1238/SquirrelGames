@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 640683728100093689}
   - component: {fileID: 6714903720868410625}
   m_Layer: 0
-  m_Name: char_AntRegular
+  m_Name: char_Ant1_Regular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,12 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e623de1181b9e448a8678d90408dddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalType: 1
   moveSpeed: 8
   points: 1
-  squishedDuration: 0.25
-  squishedScale: {x: 1.4, y: 0.1, z: 1.4}
-  squishedMaterial: {fileID: 2100000, guid: 4e84f9df3b8e9644e9ddcbd65bffbc22, type: 2}
-  smashedEffect: {fileID: 8780254985063514360, guid: be14d2a3320059340864bb58463a70bb, type: 3}
+  hitVFX: {fileID: 1115366569132054141, guid: be14d2a3320059340864bb58463a70bb, type: 3}
 --- !u!114 &3305312142341648547
 MonoBehaviour:
   m_ObjectHideFlags: 0

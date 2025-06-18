@@ -2,28 +2,30 @@ using UnityEngine;
 
 public class AntSmash_AnimalScript : MonoBehaviour
 {
+    public enum AnimalType
+    {
+        Null,
+        Ant,
+        Squirrel,
+    }
+
     [Header("Gameplay Attributes")]
+    public AnimalType animalType = AnimalType.Null;
     [Range(5f, 15f)]
     public float moveSpeed;
     [Range(-3, 3)]
     public int points;
 
-    [Header("Squish Attributes")]
-    [Range(0.1f, 1f)]
-    public float squishedDuration;
-    public Vector3 squishedScale;
-    public Material squishedMaterial;
-    public GameObject smashedEffect;
+    [Header("Other Components")]
+    public GameObject hitVFX;
 
     // Other Variables Needed
     private bool isSquished;
-    private float squishedTimer;
-    private Renderer materialRender;
-    private Vector4 transparentValue;
+    private Animator animator;
 
     private void Start()
     {
-        materialRender = GetComponentInChildren<Renderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -31,10 +33,6 @@ public class AntSmash_AnimalScript : MonoBehaviour
         if (!isSquished)
         {
             transform.Translate((moveSpeed * Time.deltaTime * transform.forward), Space.World);
-        }
-        else
-        {
-            ShowSquished();
         }
     }
 
@@ -46,33 +44,23 @@ public class AntSmash_AnimalScript : MonoBehaviour
         }
     }
 
-    public void SquishObject() // Starts the squish animation and reconfigures components
+    public void SquishObject()
     {
         isSquished = true;
+        Instantiate(hitVFX, transform.position, Quaternion.identity);
 
         moveSpeed = 0f;
-        squishedTimer = squishedDuration + 1f;
-
-        GetComponent<SquishModel>().SquishPermanently(squishedScale);
-        materialRender.material = squishedMaterial;
-        transparentValue = materialRender.material.color;
-
-        GetComponentInChildren<Animator>().enabled = false;
         GetComponentInChildren<BoxCollider>().enabled = false;
+        
+        switch (animalType)
+        {
+            case AnimalType.Ant:
+                Destroy(gameObject);
+                break;
 
-        Instantiate(smashedEffect, transform.position, Quaternion.identity);
-    }
-    private void ShowSquished() // Plays the squish animation and destroys object when done
-    {
-        squishedTimer -= Time.deltaTime;
-        if (squishedTimer > 0.0f)
-        {
-            transparentValue.w = squishedTimer;
-            materialRender.material.color = transparentValue;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+            case AnimalType.Squirrel:
+                Destroy(gameObject);
+                break;
+        }   
     }
 }

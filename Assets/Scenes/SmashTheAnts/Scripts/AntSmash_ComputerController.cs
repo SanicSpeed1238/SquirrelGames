@@ -47,7 +47,7 @@ public class AntSmash_ComputerController : MonoBehaviour
         else
         {
             float newX = Random.Range(-controller.rangeX, controller.rangeX);
-            float newY = Random.Range(-controller.rangeYTop, controller.rangeYTop);
+            float newY = Random.Range(controller.rangeYBottom, controller.rangeYTop);
             targetPosition = new Vector3(newX, transform.position.y, newY);
             controller.SetLeftStickInput(Vector2.zero);
         }

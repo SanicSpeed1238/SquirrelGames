@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3926275294693779422
+--- !u!1001 &2908257610119986715
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,32 +10,36 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: m_Name
-      value: char_AntFire
+      value: char_Ant3_Golden
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 75498832133746854, guid: 95cf696740fdc3a449626d29abc96a8f, type: 3}
+    - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: points
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: moveSpeed
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: smashedEffect
       value: 
-      objectReference: {fileID: 7864862286300773501, guid: 1a6fe1b9679359e4398a7508ff9d6f65, type: 3}
+      objectReference: {fileID: 75498832133746854, guid: 95cf696740fdc3a449626d29abc96a8f, type: 3}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: squishedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 6a4257c409ca9cb4cbda48c7d00f496d, type: 2}
+      objectReference: {fileID: 2100000, guid: 06c06cb83b4e418488bdf032ed9bb87d, type: 2}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: transparentMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 28bde86637b725d49857906975bcdcc8, type: 2}
+      objectReference: {fileID: 2100000, guid: 27139a3c24277a540ac22e7bd7e83223, type: 2}
     - target: {fileID: 6410602521458618310, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1164147060963e44d90659cb30b314c7, type: 2}
+      objectReference: {fileID: 2100000, guid: 712c69c8c402a0c44aa1a468235c37d9, type: 2}
     - target: {fileID: 7097505232937420517, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
