@@ -3066,7 +3066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMusic: {fileID: 8300000, guid: efa8624f738b3a946987bffb6440d6c3, type: 3}
-  setupMusic: {fileID: 8300000, guid: 7da60d08ab92f8e4694512870bd30090, type: 3}
+  setupMusic: {fileID: 8300000, guid: 329cf2a16b49cb1419f6878d953fc70d, type: 3}
   finishSound: {fileID: 2901840098146731221}
 --- !u!82 &2378171536669561400
 AudioSource:
