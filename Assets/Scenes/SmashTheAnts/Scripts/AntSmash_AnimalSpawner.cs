@@ -4,7 +4,7 @@ using System.Collections;
 public class AntSmash_AnimalSpawner : MonoBehaviour
 {
     [Header("Spawner Values")]
-    [Range(0.75f, 1.5f)]
+    [Range(0.1f, 1f)]
     public float spawnTimer; // How long it takes before game objects are spawned
     [Range(0.1f, 1f)]
     public float spawnTimerDecreaseAmount; // How much the spawn timer should decrease
@@ -50,7 +50,9 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
 
         while (MG_GameManager.Instance.gamePlaying)
         {
-            yield return new WaitForSeconds(spawnTimer + Random.Range(-0.5f, 0.0f));
+            float waitSeconds = spawnTimer + Random.Range(-0.5f, 0.0f);
+            if (waitSeconds < 0.1f) waitSeconds = 0.1f;
+            yield return new WaitForSeconds(waitSeconds);
             SpawnGameObject();
         }
     }
@@ -93,7 +95,7 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
         if(increaseSpawnRateTimer >= timeToDecreaseSpawnTimer)
         {
             spawnTimer -= spawnTimerDecreaseAmount;
-            if (spawnTimer < 0.51f) spawnTimer = 0.51f;
+            if (spawnTimer < 0.1f) spawnTimer = 0.1f;
             increaseSpawnRateTimer = 0f;
         }
     }

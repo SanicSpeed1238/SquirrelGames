@@ -4,6 +4,14 @@ using EasyTransition;
 
 public class MG_GameResults : MonoBehaviour
 {
+    public enum ScoringMethod
+    {
+        Points,
+        Goal,
+    }
+    [Header("Scoring Type")]
+    public ScoringMethod scoringMethod = ScoringMethod.Points;
+
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;
     public AudioSource resultsMusic;
@@ -12,10 +20,17 @@ public class MG_GameResults : MonoBehaviour
     // Variables for Scoring
     [HideInInspector] public int[] playerScores = new int[4];
     [HideInInspector] public bool[] playersFinished = new bool[4];
-    [HideInInspector] public bool[] playersWon = new bool[4];
+    [HideInInspector] public bool[] playersWon = new bool[4]; 
 
     // Other Variables Needed
     private readonly string minigameSelectSceneName = "Minigame Selection";
+    private readonly string[] playerPlacements = new string[] { "1st", "2nd", "3rd", "4th" };
+    private int playerPlacementNext = 0;
+
+    public string GetNextPlacement()
+    {
+        return playerPlacements[playerPlacementNext++];
+    }
 
     public void GetWinners()
     {

@@ -1186,6 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281878d02e1b04f44a7887df13941d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoringMethod: 0
   winnersText: {fileID: 8729361471888515998}
   resultsMusic: {fileID: 4107250590557045234}
   exitTransition: {fileID: 11400000, guid: 057babd6f13132c449650d99e3c4e99c, type: 2}

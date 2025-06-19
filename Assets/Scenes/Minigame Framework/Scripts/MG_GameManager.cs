@@ -67,8 +67,18 @@ public class MG_GameManager : MonoBehaviour
         gameResults = GetComponent<MG_GameResults>();
         audioPlayer = FindAnyObjectByType<MG_AudioController>();
     }
+    private void Start()
+    {
+        if (gameResults.scoringMethod == MG_GameResults.ScoringMethod.Goal)
+        {
+            for (int p = 0;  p < scoresUI.transform.childCount; p++)
+            {
+                scoresUI.transform.GetChild(p).gameObject.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "...";
+            }
+        }
+    }
 
-    #region Returns Players In Game
+    #region Public Functions
 
     public GameObject[] GetAllPlayers()
     {
@@ -79,18 +89,24 @@ public class MG_GameManager : MonoBehaviour
         return gameSetup.playersInGame[playerID - 1];
     }
 
+    public void UpdateUITimer(float timeValue)
+    {
+        timeUI.text = timeValue.ToString("F0");
+    }
+
     #endregion
 
     #region Updates Players Scores
 
+    // Simply updates a player's score. If the newScore is 0 or less, that player is marked as "out".
     public void UpdatePlayerScore(int playerID, int newScore, int addedScore)
     {
         string playerTextObject = "Player" + playerID;
         GameObject playerScoreUI = scoresUI.transform.Find(playerTextObject).gameObject;
 
+        gameResults.playerScores[playerID - 1] = newScore;
         if (newScore >= 0)
         {
-            gameResults.playerScores[playerID - 1] = newScore;
             playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = newScore.ToString("D2");
 
             playerScoreUI.GetComponentInChildren<Animator>().ResetTrigger("Add");
@@ -106,13 +122,32 @@ public class MG_GameManager : MonoBehaviour
         }
         else
         {
-            gameResults.playerScores[playerID - 1] = newScore;
             playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "OUT";
-
             UpdatePlayerFinished(playerID);
         }
     }
 
+    // This marks a player as either "qualified" or "out". Players marked as "qualified" all win.
+    public void UpdatePlayerQualified(int playerID, bool successful)
+    {
+        string playerTextObject = "Player" + playerID;
+        GameObject playerScoreUI = scoresUI.transform.Find(playerTextObject).gameObject;
+
+        if (successful)
+        {
+            gameResults.playerScores[playerID - 1] = 1;
+            playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = gameResults.GetNextPlacement();
+        }
+        else
+        {   
+            gameResults.playerScores[playerID - 1] = -1;
+            playerScoreUI.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "OUT";
+        }
+
+        UpdatePlayerFinished(playerID);
+    }
+
+    // Use this in case you want to mark a player as "finished" WITHOUT modifying their score.
     public void UpdatePlayerFinished(int playerID)
     {
         gameResults.playersFinished[playerID - 1] = true;
@@ -121,7 +156,6 @@ public class MG_GameManager : MonoBehaviour
         {
             if (!playerFinished) return;
         }
-
         EndGame();
     }
 

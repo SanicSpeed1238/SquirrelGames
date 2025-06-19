@@ -788,6 +788,10 @@ PrefabInstance:
       value: Smash ants with your hammer to earn points! But be careful and don't
         accidentally squish the squirrels!!!
       objectReference: {fileID: 0}
+    - target: {fileID: 6701657868112812774, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: scoringMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6914206699603480369, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3329,15 +3333,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 0.9
+  spawnTimer: 0.7
   spawnTimerDecreaseAmount: 0.1
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 15
-  antSpawnRate: 70
+  squirrelSpawnRate: 20
+  antSpawnRate: 65
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!1001 &1079651049
@@ -4889,15 +4893,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 0.9
+  spawnTimer: 0.7
   spawnTimerDecreaseAmount: 0.1
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 15
-  antSpawnRate: 70
+  squirrelSpawnRate: 20
+  antSpawnRate: 65
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!65 &1564303851
@@ -6849,15 +6853,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 0.9
+  spawnTimer: 0.7
   spawnTimerDecreaseAmount: 0.1
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 15
-  antSpawnRate: 70
+  squirrelSpawnRate: 20
+  antSpawnRate: 65
   fireAntSpawnRate: 10
   goldenAntSpawnRate: 5
 --- !u!65 &2054532137

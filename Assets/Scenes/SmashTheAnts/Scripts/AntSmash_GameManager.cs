@@ -34,6 +34,6 @@ public class AntSmash_GameManager : MonoBehaviour
             MG_GameManager.Instance.EndGame();
         }
 
-        MG_GameManager.Instance.timeUI.text = gameTime.ToString("F0");
+        MG_GameManager.Instance.UpdateUITimer(gameTime);
     }
 }
