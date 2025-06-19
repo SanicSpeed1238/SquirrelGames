@@ -8,6 +8,8 @@ public class HungrySquirrels_GameController : MonoBehaviour
 
     [SerializeField] private float _gameDur = 60;
 
+    private bool _doOnce = false;
+
     public float _eTime { get; private set; }
 
     public UnityEvent GameStart;
@@ -24,6 +26,11 @@ public class HungrySquirrels_GameController : MonoBehaviour
     {
         if (!MG_GameManager.Instance.gamePlaying)
             return;
+        if(_doOnce == false)
+        {
+            GameStart?.Invoke();
+            _doOnce = true;
+        }
         _eTime += Time.deltaTime;
         if(_eTime >= _gameDur)
         {

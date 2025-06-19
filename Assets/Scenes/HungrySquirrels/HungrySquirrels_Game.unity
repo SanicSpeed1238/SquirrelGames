@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d64604bd7f24e44aff5a343559be0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameDur: 10
+  _gameDur: 60
   GameStart:
     m_PersistentCalls:
       m_Calls:
@@ -1098,6 +1098,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 2552662301494248194, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_text
+      value: NUTS & BOLTS
+      objectReference: {fileID: 0}
     - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: humanPlayer
       value: 
@@ -1185,6 +1189,19 @@ PrefabInstance:
     - target: {fileID: 6029733618752214111, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114105755015119442, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_text
+      value: 'How to play.
+
+        Left Stick: Rotate
+
+        A Button: Extend
+        Arm
+
+        Get the Acorns!
+
+        Avoid Bombs!'
       objectReference: {fileID: 0}
     - target: {fileID: 6914206699603480369, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x

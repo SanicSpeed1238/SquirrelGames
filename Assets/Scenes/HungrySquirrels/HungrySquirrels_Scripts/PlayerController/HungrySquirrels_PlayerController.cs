@@ -113,10 +113,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
             collectActive = false;
         }
-        /*else if (rebound == true)
-        {
-            arm.transform.Translate(-translate, 0, 0, Space.Self);
-        }*/
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
@@ -127,7 +123,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)
             {
-                //playerScore += aBehav.aOn;
+                playerScore += aBehav.aOn;
                 MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
                 aBehav.aOn = 0;
             }

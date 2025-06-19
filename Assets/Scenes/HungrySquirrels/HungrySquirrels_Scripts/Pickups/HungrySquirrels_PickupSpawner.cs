@@ -9,27 +9,15 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private Pickup[] _possiblePickupsToSpawn;
+    //[SerializeField] private float _startingDelay = 60;
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private float _spawnRadiusMax = 20f;
     [SerializeField] private LayerMask _layerToTest;
     private int _maxSpawnAttempts = 4;
 
     private bool _gameOver = false;
+    //private float _currSpawnRate;
     private Coroutine _spawnRoutine;
-
-    private void Start()
-    {
-        StartSpawning();
-    }
-
-    private void Update()
-    {
-        if (MG_GameManager.Instance.gamePlaying)
-        {
-            
-        }
-        
-    }
 
     private IEnumerator SpawnRoutine()
     {
@@ -49,7 +37,6 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
             if(spawnPoint != Vector3.zero)
             {
-                Debug.Log("SPAWN");
                 Spawn(ChoosePickup(), spawnPoint);
             }
 
@@ -105,7 +92,6 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
         for (int i = 0; i< _maxSpawnAttempts; i++)
         {
-            Debug.Log(testPoint);
             if (colliders.Length<1)
             {
                 return testPoint;
