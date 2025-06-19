@@ -32,9 +32,15 @@ public class HungrySquirrels_GameController : MonoBehaviour
             _doOnce = true;
         }
         _eTime += Time.deltaTime;
+        
         if(_eTime >= _gameDur)
         {
+            MG_GameManager.Instance.UpdateUITimer(0);
             TimeUp?.Invoke();//When time runs out
+        }
+        else
+        {
+            MG_GameManager.Instance.UpdateUITimer(_gameDur - _eTime);
         }
     }
 }
