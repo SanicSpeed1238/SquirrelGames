@@ -13,7 +13,7 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     // Variables for 'A' Button input
     private Coroutine actionCoroutine;
-    private readonly float delayBetweenActionInput = 0.25f;
+    private readonly float delayBetweenActionInput = 0.5f;
 
     private void Awake()
     {

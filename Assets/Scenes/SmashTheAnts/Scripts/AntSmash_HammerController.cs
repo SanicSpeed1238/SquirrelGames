@@ -47,14 +47,13 @@ public class AntSmash_HammerController : Base_PlayerController
     {   
         if (actionPressed)
         {
-            if (hammerAnimator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Idle"))
-            {
-                hammerAnimator.SetTrigger("Smash");
-                smashEffect.Play();
+            hammerAnimator.ResetTrigger("Smash");
+            hammerAnimator.SetTrigger("Smash");
+            smashEffect.Play();
 
-                slamSound.pitch = Random.Range(0.5f, 1.0f);
-                slamSound.PlayOneShot(slamSound.clip);
-            }
+            slamSound.pitch = Random.Range(0.5f, 1.0f);
+            slamSound.PlayOneShot(slamSound.clip);
+
             actionPressed = false;
         } 
     }
