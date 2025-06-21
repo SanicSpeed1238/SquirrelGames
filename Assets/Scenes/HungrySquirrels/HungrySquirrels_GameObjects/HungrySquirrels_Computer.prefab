@@ -407,8 +407,10 @@ MonoBehaviour:
   arm: {fileID: 5648494864704448465}
   aBehav: {fileID: 8713704395312484433}
   hitBox: {fileID: 0}
+  rot_Max: 45
   collectActive: 0
   collided: 0
+  rebound: 0
   rot_Speed: 2
   ext_Speed: 0.4
   _stunDur: 5

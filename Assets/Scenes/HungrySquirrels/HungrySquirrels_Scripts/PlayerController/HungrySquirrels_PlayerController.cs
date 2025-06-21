@@ -22,8 +22,12 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     [Header("Values to Be Adjusted")]
     //Arm Controls
     private bool moveInput;//Check for key/input for rotation
+    private float _expPower = 20f;
+    private float _expRadius = 10f;
+    private float _expLiftPower = 10f;
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
+    public bool rebound;
 
     //Controls the speed of rotation for character
     public float rot_Speed = 3f;
@@ -55,6 +59,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             _eTime += Time.deltaTime;
             if(_eTime >= _stunDur)
             {
+                BombOnArmBoom();
                 _stunActive = false;
             }
         }
@@ -65,6 +70,41 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             ExtendArm();//Moving Arm Input(I need to apply button input for simplicity sake)
         }
         
+    }
+
+    private void BombOnArmBoom()
+    {
+        Vector3 ePos = arm.transform.position;
+
+        Collider[] pickups = Physics.OverlapSphere(ePos, 10);
+
+        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
+
+        foreach (Collider hit in pickups)
+        {
+
+            if (hit.tag == "Pickup" || hit.tag == "Hazard")
+            {
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(_expPower, ePos, _expRadius, _expLiftPower, ForceMode.Impulse);
+                }
+
+            }
+            else if (hit.tag == "Player")
+            {
+                HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
+
+                if (arm != null)
+                {
+                    arm.mainBody._stunActive = true;
+                }
+            }
+
+
+        }
     }
 
     private void RotateArm()
@@ -88,7 +128,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
 
-        if (moveInput == true && collided == false)
+        if (moveInput == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
             if (aBehav.aOn == 0 && aBehav.bActive == false)
@@ -102,7 +142,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             pressed = true;
             
         }
-        else if (moveInput == false && collided == false)
+        else if (moveInput == false && collided == false && rebound == false)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
             collectActive = false;
@@ -113,12 +153,18 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
             collectActive = false;
         }
+        else if (rebound == true)
+        {
+            arm.transform.Translate(-translate * 1.5f, 0, 0, Space.Self);
+            collectActive = false;
+        }    
+
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
             //Change previous values false to enable arm rotation & interaction
             collided = false;
-            //rebound = false;
+            rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)

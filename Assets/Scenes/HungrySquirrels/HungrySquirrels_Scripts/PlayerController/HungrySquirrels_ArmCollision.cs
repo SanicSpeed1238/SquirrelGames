@@ -31,23 +31,34 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         }
     }
 
+    private Vector3 RandomRotation()
+    {
+        Vector3 ranRot;
+
+        ranRot.x = Random.Range(-5, 5);
+        ranRot.y = Random.Range(-5, 5);
+        ranRot.z = Random.Range(-5, 5);
+
+        return ranRot;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag) 
         {
             case "Pickup":
-                
+
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
                 if (aOn != 0)
                 {
-                    HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+                    HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                     flungAcorn.aInitialize();
                     aOn = 0;
                 }
                 else if (bActive == true)
                 {
-                    HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+                    HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                     flungBomb.bInitialize(eTime);
                     eTime = 0;
                     bActive = false;
@@ -55,7 +66,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 mainBody.collided = true;
                 break;
             case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
-
+                
                 break;
             case "Wall":
                 mainBody.collided=true;//If player collided with wall, bounce back

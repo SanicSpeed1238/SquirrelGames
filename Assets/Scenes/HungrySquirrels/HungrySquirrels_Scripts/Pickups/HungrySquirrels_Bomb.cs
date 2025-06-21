@@ -7,7 +7,7 @@ public class HungrySquirrels_Bomb : Pickup
 
     [SerializeField] public float bTimer = 10;
     [SerializeField] private float _launchFCE = 10f;
-    [SerializeField] public float _expPower = 10f;
+    [SerializeField] public float _expPower = 20f;
     [SerializeField] public float _expRadius = 10f;
     [SerializeField] public float _expLiftPower = 10f;
 
@@ -19,6 +19,7 @@ public class HungrySquirrels_Bomb : Pickup
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _rb.AddForce(new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)), ForceMode.Impulse);
         if (doOnce == true)
         {
             _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
@@ -32,6 +33,7 @@ public class HungrySquirrels_Bomb : Pickup
         if(arm.mainBody.collectActive == true)
         {
             arm.bActive = true;
+            arm.mainBody.rebound = true;
             Destroy(this.gameObject);
         }
     }

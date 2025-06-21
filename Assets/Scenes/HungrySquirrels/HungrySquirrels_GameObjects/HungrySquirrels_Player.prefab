@@ -407,8 +407,10 @@ MonoBehaviour:
   arm: {fileID: 5648494864704448465}
   aBehav: {fileID: 8713704395312484433}
   hitBox: {fileID: 0}
+  rot_Max: 45
   collectActive: 0
   collided: 0
+  rebound: 0
   rot_Speed: 2
   ext_Speed: 0.4
   _stunDur: 5
@@ -470,10 +472,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f93a1034-5856-4f04-ae30-f4d0afe0723f
     m_ActionName: Player/Action
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a2a4ab3-6b59-4448-83e0-f67729265dce
-    m_ActionName: Player/Start
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player
