@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BigNut_CameraScript : MonoBehaviour
@@ -9,6 +7,11 @@ public class BigNut_CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += Vector3.right * CameraMovementSpeed * Time.deltaTime;
+        if (!MG_GameManager.Instance.gamePlaying)
+        {
+            return;
+        }
+
+        transform.position += Vector3.right * CameraMovementSpeed * Time.deltaTime;
     }
 }

@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BigNut_PlayerController : BigNut_Controller
 {
@@ -10,9 +12,11 @@ public class BigNut_PlayerController : BigNut_Controller
 
     private bool isNearHidyHole;
 
-    private string hideButton;
     private CharacterController controller;
     private GameObject hidyHole;
+    private PlayerInput input;
+    private InputAction move;
+    private InputAction action;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +26,29 @@ public class BigNut_PlayerController : BigNut_Controller
         isNearHidyHole = false;
         controller = GetComponent<CharacterController>();
 
-        hideButton = "Action";
+        BigNut_SpawnBirb spawner = GameObject.FindFirstObjectByType<BigNut_SpawnBirb>();
+        spawner.SpawnBirb(gameObject);
+    }
+
+    private void Awake()
+    {
+        input = GetComponent<PlayerInput>();
+        move = input.actions["Move"];
+        action = input.actions["Action"];
     }
 
     // Update is called once per frame
     void Update()
     {
-        float xInput;
-        float zInput;
+        if (!MG_GameManager.Instance.gamePlaying)
+        {
+            return;
+        }
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
 
         if (isAlive)
         {
@@ -39,24 +58,24 @@ public class BigNut_PlayerController : BigNut_Controller
             {
                 if (!isStunned)
                 {
-                    xInput = Input.GetAxisRaw("Horizontal");
-                    zInput = Input.GetAxisRaw("Vertical");
+                    Vector2 moveInput = move.ReadValue<Vector2>();
 
-                    if (xInput != 0 || zInput != 0)
+                    if (moveInput != Vector2.zero)
                     {
                         squirrelAnimator.speed = 1;
-                        Vector3 movement = transform.right * xInput + transform.forward * zInput;
+                        Vector3 movement = transform.right * moveInput.x + transform.forward * moveInput.y;
                         velocity = movement * moveSpeed;
                     }
-                    velocity = ConstraintPlayerInCamera(velocity);
                 }
                 else
                 {
                     HandleStunning();   
                 }                
-                controller.Move(velocity * Time.deltaTime);
             }
-            if (isNearHidyHole && Input.GetButtonDown(hideButton)) 
+            velocity = ConstraintPlayerInCamera(velocity);
+            controller.Move(velocity * Time.deltaTime);
+
+            if (isNearHidyHole && action.WasPressedThisFrame()) 
             {
                 HideAndUnhide();
             }
@@ -105,7 +124,7 @@ public class BigNut_PlayerController : BigNut_Controller
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "HidyHole")
+        if (collision.gameObject.GetComponent<BigNut_HidyHole>() != null)
         {
             if ((SphereCollider)collision != null) 
             {
@@ -113,16 +132,21 @@ public class BigNut_PlayerController : BigNut_Controller
                 isNearHidyHole = true;
             }               
         }
-        if (!isHiding && collision.gameObject.tag == "Birb")
+        if (!isHiding && collision.gameObject.GetComponent<BigNut_BirbScript>() != null)
         {
             isAlive = false;
             birbThatCaught = collision.gameObject.transform;
+        }
+        if (collision.tag == "Acorn")
+        {
+            Debug.Log("Finished");
+            MG_GameManager.Instance.UpdatePlayerQualified(playerID, true);
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "HidyHole")
+        if (collision.gameObject.GetComponent<BigNut_HidyHole>() != null)
         {
             SphereCollider collider = (SphereCollider)collision;
             if (collider != null)

@@ -1,35 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BigNut_SpawnBirb : MonoBehaviour
 {
     public GameObject birb;
 
-    private float spawnTime;
+    private float movementSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnTime = Random.Range(3, 10);
+        movementSpeed = Camera.main.GetComponent<BigNut_CameraScript>().CameraMovementSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (GameObject.FindGameObjectsWithTag("Birb").Length == 0)
-        //{
-        //    spawnTime -= Time.deltaTime;
-        //    if (spawnTime <= 0)
-        //    {
-        //        SpawnBirb();
-        //        spawnTime = Random.Range(3, 10);
-        //    }
-        //}                
+        if (!MG_GameManager.Instance.gamePlaying)
+        {
+            return;
+        }
+
+        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
     }
 
-    private void SpawnBirb()
+    public void SpawnBirb(GameObject player)
     {
-        Instantiate(birb, transform.position, Quaternion.identity);
+        GameObject birbObject = Instantiate(birb, transform.position, Quaternion.identity);
+        birbObject.GetComponent<BigNut_BirbScript>().Initialize(player, transform);
     }
 }

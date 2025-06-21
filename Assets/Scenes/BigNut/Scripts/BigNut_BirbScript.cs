@@ -2,20 +2,12 @@ using UnityEngine;
 
 public class BigNut_BirbScript : MonoBehaviour
 {
-    public GameObject player;
-
-    public BigNut_GameManagerScript gameManagerScript;
     public BigNut_ComputerController computerController;
 
     [Header("Bird Movement Components")]
-    public Transform birbDestination;
-    public Transform birbSource;
     public float spawnTimeLowerBound = 3.0f;
     public float spawnTimeUpperBound = 7.0f;
     public float maxDistanceFromCharacter = 100f;
-
-
-    public Transform shadow;
 
     // For debugging
     public bool birbEnabled = true;
@@ -24,6 +16,11 @@ public class BigNut_BirbScript : MonoBehaviour
     private bool spawned = false;
     private bool isComputer = false;
     private float spawnTime;
+
+    private Transform birbDestination;
+    private Transform birbSource;
+    private Transform shadow;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -37,25 +34,31 @@ public class BigNut_BirbScript : MonoBehaviour
         {
             isComputer = true;
         }
+
+        birbDestination = GameObject.FindFirstObjectByType<BigNut_BirdDestinationScript>().transform;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (!MG_GameManager.Instance.gamePlaying)
+        {
+            return;
+        }
+
         if (birbEnabled)
         {
             if (spawned)
             {
-
-                if (Vector3.Distance(transform.position, birbDestination.position) == 0 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
+                if (Vector3.Distance(transform.position, birbDestination.position) <= 0.01 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
                 {
                     shadow.localScale = Vector3.zero;
                     spawned = false;
                     BigNut_Controller playerController = player.GetComponent<BigNut_Controller>();
                     if (!playerController.IsAlive)
                     {
-                        gameManagerScript.PlayerKilled(player.name);
+                        MG_GameManager.Instance.UpdatePlayerQualified(playerController.playerID, false);
                         Destroy(player);
                         Destroy(shadow);
                         Destroy(gameObject);
@@ -65,7 +68,6 @@ public class BigNut_BirbScript : MonoBehaviour
                         computerController.BirdGone();
                     }
                 }
-
                 if (!reachedPlayer)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.02f);
@@ -98,9 +100,16 @@ public class BigNut_BirbScript : MonoBehaviour
         }        
     }
 
+    public void Initialize(GameObject player, Transform source)
+    {
+        this.player = player;
+        birbSource = source;
+        shadow = player.transform.Find("BirbShadow");
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject == player)
         {
             reachedPlayer = true;
         }
