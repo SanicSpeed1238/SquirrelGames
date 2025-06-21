@@ -9,7 +9,7 @@ public abstract class BigNut_Controller : Base_PlayerController
     [Header("Important Components")]
     public Animator squirrelAnimator;
 
-    public float stunTime = 2.0f;
+    public float stunTime = 3.0f;
 
     protected bool isHiding = false;
     protected bool isAlive = true;
@@ -27,5 +27,6 @@ public abstract class BigNut_Controller : Base_PlayerController
     {
         isStunned = true;
         currentStunTime = stunTime;
+        squirrelAnimator.speed = 0;
     }
 }

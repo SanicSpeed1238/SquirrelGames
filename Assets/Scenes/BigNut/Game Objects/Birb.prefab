@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5520225393202952269}
   m_Layer: 0
   m_Name: Birb
-  m_TagString: Birb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,12 +95,12 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa805cd928705534d9da01f31edcc05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  birbDestination: {fileID: 0}
-  shadow: {fileID: 0}
+  computerController: {fileID: 0}
+  spawnTimeLowerBound: 2
+  spawnTimeUpperBound: 5
   maxDistanceFromCharacter: 100
+  birbEnabled: 1
