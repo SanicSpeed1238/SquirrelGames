@@ -22,7 +22,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
 
     public void IncreaseSpawnRate()
     {
-        _spawnRate -= 0.01f;
+        _spawnRate -= 0.1f;
     }
 
     public void ActivateRush()

@@ -36,6 +36,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
 
     //Stun Options
     [SerializeField] private float _stunDur;
+    [SerializeField] private GameObject mainBodyModel;
     private float _eTime;
     public bool _stunActive;
 
@@ -43,9 +44,9 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     private void Start()
     {
         hitBox = arm.GetComponent<BoxCollider>();//Sets Arm Collision Trigger
-        //GetComponentInChildren<Outline>.OutlineColor = playerColor;
         playerColor.a = 0.5f;
-        //Model Goes Here
+        mainBodyModel.GetComponentInChildren<Renderer>().material.color = playerColor;
+        arm.GetComponentInChildren<Renderer>().material.color = playerColor;
     }
 
     // Update is called once per frame

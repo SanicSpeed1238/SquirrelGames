@@ -364,9 +364,10 @@ GameObject:
   - component: {fileID: 8831158193442745272}
   - component: {fileID: 8285138035077466495}
   - component: {fileID: -4164561752921634687}
+  - component: {fileID: 8721635302177719546}
   m_Layer: 0
   m_Name: HungrySquirrels_Computer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -414,6 +415,7 @@ MonoBehaviour:
   rot_Speed: 2
   ext_Speed: 0.4
   _stunDur: 5
+  mainBodyModel: {fileID: 494007290299891816}
   _stunActive: 0
 --- !u!114 &-4164561752921634687
 MonoBehaviour:
@@ -427,3 +429,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe8dd8b95115224184e676769f52ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8721635302177719546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914939328233772526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}

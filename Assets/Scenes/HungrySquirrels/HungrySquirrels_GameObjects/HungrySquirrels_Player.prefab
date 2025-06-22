@@ -364,9 +364,10 @@ GameObject:
   - component: {fileID: 8831158193442745272}
   - component: {fileID: 8285138035077466495}
   - component: {fileID: 7812743718428654764}
+  - component: {fileID: 7558101476926558544}
   m_Layer: 0
   m_Name: HungrySquirrels_Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -406,7 +407,7 @@ MonoBehaviour:
   startLocation: {fileID: 0}
   arm: {fileID: 5648494864704448465}
   aBehav: {fileID: 8713704395312484433}
-  hitBox: {fileID: 0}
+  hitBox: {fileID: 7558101476926558544}
   rot_Max: 45
   collectActive: 0
   collided: 0
@@ -414,6 +415,7 @@ MonoBehaviour:
   rot_Speed: 2
   ext_Speed: 0.4
   _stunDur: 5
+  mainBodyModel: {fileID: 494007290299891816}
   _stunActive: 0
 --- !u!114 &7812743718428654764
 MonoBehaviour:
@@ -477,3 +479,24 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!65 &7558101476926558544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914939328233772526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
