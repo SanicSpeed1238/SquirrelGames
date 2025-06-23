@@ -34,6 +34,7 @@ public class HungrySquirrels_Bomb : Pickup
         {
             arm.bActive = true;
             arm.mainBody.rebound = true;
+            arm.bombModel.SetActive(true);
             Destroy(this.gameObject);
         }
     }

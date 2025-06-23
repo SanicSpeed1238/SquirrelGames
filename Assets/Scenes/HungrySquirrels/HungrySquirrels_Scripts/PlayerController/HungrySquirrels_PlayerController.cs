@@ -104,8 +104,10 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
                 }
             }
 
-
         }
+
+        aBehav.bombModel.SetActive(false);
+
     }
 
     private void RotateArm()
@@ -172,6 +174,14 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             {
                 playerScore += aBehav.aOn;
                 MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
+                if(aBehav.aOn == 1)
+                {
+                    aBehav.screwModel.SetActive(false);
+                }
+                else if (aBehav.aOn == 2)
+                {
+                    aBehav.acornModel.SetActive(false);
+                }
                 aBehav.aOn = 0;
             }
         }

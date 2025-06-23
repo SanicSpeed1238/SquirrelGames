@@ -5,8 +5,12 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     //Input needed for arm
     public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
+    public GameObject acornModel;
+    public GameObject screwModel;
+    public GameObject bombModel;
     public HungrySquirrels_Acorn acorn;
     public HungrySquirrels_Bomb bomb;
+    public HungrySquirrels_Bolt bolt;
     public int aOn;
     public bool bActive = false;
 
@@ -50,10 +54,18 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
                 break;
             case "Player"://If player collides with other player arm, knock acorn up
-                if (aOn != 0)
+                if (aOn == 2)
                 {
                     HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                     flungAcorn.aInitialize();
+                    acornModel.SetActive(false);
+                    aOn = 0;
+                }
+                else if (aOn == 1)
+                {
+                    HungrySquirrels_Bolt flungBolt = Instantiate(bolt, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                    flungBolt.aInitialize();
+                    screwModel.SetActive(false);
                     aOn = 0;
                 }
                 else if (bActive == true)
@@ -61,6 +73,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                     HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                     flungBomb.bInitialize(eTime);
                     eTime = 0;
+                    bombModel.SetActive(false);
                     bActive = false;
                 }
                 mainBody.collided = true;

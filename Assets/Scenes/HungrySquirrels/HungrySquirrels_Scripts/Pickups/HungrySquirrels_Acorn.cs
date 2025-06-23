@@ -28,6 +28,7 @@ public class HungrySquirrels_Acorn : Pickup
             //Debug.Log(_pointVal);//Acorn is now within player's possession.
             arm.aOn += _pointVal;
             arm.mainBody.rebound = true;
+            arm.acornModel.SetActive(true);
             Destroy(this.gameObject);
         }
         
