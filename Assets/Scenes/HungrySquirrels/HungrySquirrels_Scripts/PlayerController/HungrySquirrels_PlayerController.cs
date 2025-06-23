@@ -22,9 +22,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     [Header("Values to Be Adjusted")]
     //Arm Controls
     private bool moveInput;//Check for key/input for rotation
-    private float _expPower = 20f;
-    private float _expRadius = 10f;
-    private float _expLiftPower = 10f;
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
     public bool rebound;
@@ -60,8 +57,8 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             _eTime += Time.deltaTime;
             if(_eTime >= _stunDur)
             {
-                BombOnArmBoom();
                 _stunActive = false;
+                _eTime = 0;
             }
         }
         else
@@ -71,43 +68,6 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             ExtendArm();//Moving Arm Input(I need to apply button input for simplicity sake)
         }
         
-    }
-
-    private void BombOnArmBoom()
-    {
-        Vector3 ePos = arm.transform.position;
-
-        Collider[] pickups = Physics.OverlapSphere(ePos, 10);
-
-        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
-
-        foreach (Collider hit in pickups)
-        {
-
-            if (hit.tag == "Pickup" || hit.tag == "Hazard")
-            {
-                Rigidbody rb = hit.GetComponent<Rigidbody>();
-
-                if (rb != null)
-                {
-                    rb.AddExplosionForce(_expPower, ePos, _expRadius, _expLiftPower, ForceMode.Impulse);
-                }
-
-            }
-            else if (hit.tag == "Player")
-            {
-                HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
-
-                if (arm != null)
-                {
-                    arm.mainBody._stunActive = true;
-                }
-            }
-
-        }
-
-        aBehav.bombModel.SetActive(false);
-
     }
 
     private void RotateArm()

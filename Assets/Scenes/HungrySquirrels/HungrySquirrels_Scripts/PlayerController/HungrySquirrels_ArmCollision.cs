@@ -14,6 +14,11 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public int aOn;
     public bool bActive = false;
 
+    [SerializeField] private ParticleSystem _explosionFX;
+    private float _expPower = 20f;
+    private float _expRadius = 10f;
+    private float _expLiftPower = 10f;
+
     private float eTime;
 
     private void Start()
@@ -29,10 +34,50 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             eTime += Time.deltaTime;
             if (eTime >= bomb.bTimer)
             {
+                BombOnArmBoom();
                 mainBody._stunActive = true;
+                eTime = 0;
                 bActive = false;
             }
         }
+    }
+
+    private void BombOnArmBoom()
+    {
+        Vector3 ePos = this.transform.position;
+
+        bombModel.SetActive(false);
+        _explosionFX.Play();
+
+        Collider[] pickups = Physics.OverlapSphere(ePos, 10);
+
+        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
+
+        foreach (Collider hit in pickups)
+        {
+
+            if (hit.tag == "Pickup" || hit.tag == "Hazard")
+            {
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(_expPower, ePos, _expRadius, _expLiftPower, ForceMode.Impulse);
+                }
+
+            }
+            else if (hit.tag == "Player")
+            {
+                HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
+
+                if (arm != null)
+                {
+                    arm.mainBody._stunActive = true;
+                }
+            }
+
+        }
+
     }
 
     private Vector3 RandomRotation()

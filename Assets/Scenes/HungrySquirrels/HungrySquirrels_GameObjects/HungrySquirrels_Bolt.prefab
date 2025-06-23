@@ -92,9 +92,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3976264185903749108}
+  - component: {fileID: 6520235159708751814}
   - component: {fileID: 5311331154898820160}
   - component: {fileID: 3990658609895817971}
-  - component: {fileID: 6520235159708751814}
   m_Layer: 7
   m_Name: HungrySquirrels_Bolt
   m_TagString: Pickup
@@ -118,6 +118,21 @@ Transform:
   - {fileID: 3931706107499713836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6520235159708751814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061590753534421990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cd85f7108a7314db229a7979ff2dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pSound: {fileID: 0}
+  _pointVal: 1
+  _launchFCE: 10
 --- !u!54 &5311331154898820160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,18 +181,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.27
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6520235159708751814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061590753534421990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9cd85f7108a7314db229a7979ff2dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pSound: {fileID: 0}
-  _pointVal: 1
-  _launchFCE: 10

@@ -44,12 +44,10 @@ public class HungrySquirrels_Bomb : Pickup
         if (bOn == true)
         {
             eTime += Time.deltaTime;
-            //Debug.Log("Bomb Time: " + eTime);
             if(eTime >= bTimer)
             {
-                //Send out stun radius or destroy nuts?
                 bombInteraction();
-                //Debug.Log(transform.position);
+
                 Destroy(this.gameObject);
             }
         }
@@ -94,8 +92,8 @@ public class HungrySquirrels_Bomb : Pickup
                 }
             }
 
-            
         }
+        
     }
 
 }
