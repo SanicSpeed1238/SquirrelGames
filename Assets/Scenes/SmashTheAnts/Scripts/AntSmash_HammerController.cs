@@ -23,7 +23,7 @@ public class AntSmash_HammerController : Base_PlayerController
     private void Start()
     {
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
-        playerColor.a = 0.5f;
+        playerColor.a = 0.4f;
         hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;
     }
 
