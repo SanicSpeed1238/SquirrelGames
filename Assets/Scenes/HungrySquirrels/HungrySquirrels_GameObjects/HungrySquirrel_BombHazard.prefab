@@ -53,7 +53,7 @@ MonoBehaviour:
   _expPower: 20
   _expRadius: 10
   _expLiftPower: 10
-  _explosionFX: {fileID: 0}
+  _explostionFX: {fileID: 396813061155049973, guid: f2b561ab290111a478de6e12242e9b8d, type: 3}
 --- !u!54 &-3224615807810219825
 Rigidbody:
   m_ObjectHideFlags: 0

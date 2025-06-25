@@ -10,6 +10,7 @@ public class HungrySquirrels_Bomb : Pickup
     [SerializeField] public float _expPower = 20f;
     [SerializeField] public float _expRadius = 10f;
     [SerializeField] public float _expLiftPower = 10f;
+    [SerializeField] private ParticleSystem _explostionFX;
 
     private Rigidbody _rb;
     private bool bOn = false;
@@ -47,7 +48,7 @@ public class HungrySquirrels_Bomb : Pickup
             if(eTime >= bTimer)
             {
                 bombInteraction();
-
+                Instantiate(_explostionFX, this.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }
