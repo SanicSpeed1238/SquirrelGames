@@ -15,6 +15,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public bool bActive = false;
 
     [SerializeField] private ParticleSystem _explosionFX;
+    [SerializeField] private ParticleSystem _fuseFX;
     private float _expPower = 20f;
     private float _expRadius = 10f;
     private float _expLiftPower = 10f;
@@ -32,8 +33,10 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         if (bActive == true)
         {
             eTime += Time.deltaTime;
+            _fuseFX.Play();
             if (eTime >= bomb.bTimer)
             {
+                _fuseFX.Stop();
                 BombOnArmBoom();
                 mainBody._stunActive = true;
                 eTime = 0;
@@ -115,6 +118,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 }
                 else if (bActive == true)
                 {
+                    _fuseFX.Stop();
                     HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                     flungBomb.bInitialize(eTime);
                     eTime = 0;
