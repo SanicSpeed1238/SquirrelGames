@@ -23,6 +23,8 @@ public abstract class BigNut_Controller : Base_PlayerController
 
     public abstract void HideAndUnhide();
 
+    public abstract void AttemptCatch(Transform birb);
+
     public void StunPlayer()
     {
         isStunned = true;

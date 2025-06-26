@@ -8,6 +8,8 @@ public class BigNut_BirbScript : MonoBehaviour
     public float spawnTimeLowerBound = 3.0f;
     public float spawnTimeUpperBound = 7.0f;
     public float maxDistanceFromCharacter = 100f;
+    public float birbApproachSpeed = 0.1f;
+    public float birbAwaySpeed = 0.3f;
 
     // For debugging
     public bool birbEnabled = true;
@@ -51,7 +53,7 @@ public class BigNut_BirbScript : MonoBehaviour
         {
             if (spawned)
             {
-                if (Vector3.Distance(transform.position, birbDestination.position) <= 0.01 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
+                if (Vector3.Distance(transform.position, birbDestination.position) <= 0.1 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
                 {
                     shadow.localScale = Vector3.zero;
                     spawned = false;
@@ -70,12 +72,12 @@ public class BigNut_BirbScript : MonoBehaviour
                 }
                 if (!reachedPlayer)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.02f);
+                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, birbApproachSpeed);
                     shadow.localScale += new Vector3(0.005f, 0, 0.005f);
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, 0.08f);
+                    transform.position = Vector3.MoveTowards(transform.position, birbDestination.position, birbAwaySpeed);
                     if (shadow.localScale.x > 0)
                     {
                         shadow.localScale -= new Vector3(0.01f, 0, 0.01f);
@@ -112,6 +114,7 @@ public class BigNut_BirbScript : MonoBehaviour
         if (collision.gameObject == player)
         {
             reachedPlayer = true;
+            player.GetComponent<BigNut_Controller>().AttemptCatch(transform);
         }
     }
 }

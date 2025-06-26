@@ -164,8 +164,7 @@ MonoBehaviour:
   bufferFromForward: 0.9
   squirrelAnimator: {fileID: 2508781833072791763}
   stunTime: 2
-  moveSpeed: 2
-  acorn: {fileID: 0}
+  moveSpeed: 4
   agent: {fileID: 5238706415505596535}
   isBirdComing: 0
 --- !u!195 &5238706415505596535

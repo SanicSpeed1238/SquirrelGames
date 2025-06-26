@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -103,7 +102,7 @@ public class BigNut_PlayerController : BigNut_Controller
             hidyHoleScript.HidingPlayer = null;
             Physics.IgnoreCollision(playerCollider, hidyHoleCollider, false);
         }
-        else
+        else if (hidyHoleScript.CanHide)
         {
             Physics.IgnoreCollision(playerCollider, hidyHoleCollider, true);
 
@@ -122,6 +121,16 @@ public class BigNut_PlayerController : BigNut_Controller
         }
     }
 
+    public override void AttemptCatch(Transform birb)
+    {
+        if (!isHiding)
+        {
+            isAlive = false;
+            birbThatCaught = birb;
+            squirrelAnimator.speed = 0;
+        }
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponent<BigNut_HidyHole>() != null)
@@ -130,12 +139,7 @@ public class BigNut_PlayerController : BigNut_Controller
             {
                 hidyHole = collision.gameObject;
                 isNearHidyHole = true;
-            }               
-        }
-        if (!isHiding && collision.gameObject.GetComponent<BigNut_BirbScript>() != null)
-        {
-            isAlive = false;
-            birbThatCaught = collision.gameObject.transform;
+            }
         }
         if (collision.tag == "Acorn")
         {

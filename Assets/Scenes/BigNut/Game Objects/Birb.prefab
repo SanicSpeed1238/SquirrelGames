@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   computerController: {fileID: 0}
   spawnTimeLowerBound: 2
-  spawnTimeUpperBound: 5
+  spawnTimeUpperBound: 6
   maxDistanceFromCharacter: 100
+  birbApproachSpeed: 0.05
+  birbAwaySpeed: 0.08
   birbEnabled: 1

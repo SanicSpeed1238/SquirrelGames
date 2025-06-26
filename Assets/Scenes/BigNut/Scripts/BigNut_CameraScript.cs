@@ -4,6 +4,13 @@ public class BigNut_CameraScript : MonoBehaviour
 {
     public float CameraMovementSpeed = 0.5f;
 
+    private float acornXCoordinate;
+
+    void Start()
+    {
+        acornXCoordinate = GameObject.FindWithTag("Acorn").transform.position.x;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -12,6 +19,9 @@ public class BigNut_CameraScript : MonoBehaviour
             return;
         }
 
-        transform.position += Vector3.right * CameraMovementSpeed * Time.deltaTime;
+        if (Mathf.Abs(acornXCoordinate - transform.position.x) > 10)
+        {
+            transform.position += Vector3.right * CameraMovementSpeed * Time.deltaTime;
+        }
     }
 }

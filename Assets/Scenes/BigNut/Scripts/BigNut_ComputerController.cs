@@ -50,7 +50,16 @@ public class BigNut_ComputerController : BigNut_Controller
                 if (isBirdComing)
                 {
                     Vector3 destinationViewPort = mainCamera.WorldToViewportPoint(agent.destination);
-                    if (hidyHole == null || destinationViewPort.y <= 0 || destinationViewPort.y > 1)
+                    if (hidyHole != null)
+                    {
+                        BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
+                        if (hidyHoleScript.NearbyPlayerCount >= 3)
+                        {
+                            hidyHole = null;
+                        }
+                    }
+                    
+                    if (hidyHole == null || destinationViewPort.y <= 0.1 || destinationViewPort.y > 1)
                     {
                         Vector3 closestHole = Vector3.zero;
                         float minDistance = float.MaxValue;
@@ -59,10 +68,9 @@ public class BigNut_ComputerController : BigNut_Controller
                         {
                             Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
                             float distance = Vector3.Distance(hole.transform.position, transform.position);
-                            if (minDistance > distance && holeViewPort.y > 0 && holeViewPort.y < 1)
+                            if (minDistance > distance && holeViewPort.y > 0.1 && holeViewPort.y < 1 && hole.NearbyPlayerCount < 3)
                             {
                                 minDistance = distance;
-                                closestHole = hole.transform.position;
                                 hidyHole = hole.gameObject;
                             }
                         }
@@ -70,12 +78,15 @@ public class BigNut_ComputerController : BigNut_Controller
                         {
                             hidyHole = acorn.gameObject;
                         }
-                        agent.SetDestination(closestHole);
+                        agent.SetDestination(hidyHole.transform.position);
                     }
-                    if (agent.remainingDistance < 2)
-                    {                        
-                        HideAndUnhide();
-                    }
+                    if (hidyHole != null)
+                    {
+                        if (Vector3.Distance(hidyHole.transform.position, transform.position) < 2)
+                        {
+                            HideAndUnhide();
+                        }
+                    }                    
                 }
             }
             else
@@ -113,8 +124,9 @@ public class BigNut_ComputerController : BigNut_Controller
             hidyHoleScript.HidingPlayer = null;
             Physics.IgnoreCollision(playerCollider, hidyHoleCollider, false);
         }
-        else
+        else if (hidyHoleScript != null && hidyHoleScript.CanHide)
         {
+
             agent.enabled = false;
             squirrelAnimator.speed = 0;
 
@@ -133,18 +145,21 @@ public class BigNut_ComputerController : BigNut_Controller
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
-    { 
-        if (!isHiding && collision.gameObject.GetComponent<BigNut_BirbScript>() != null)
+    public override void AttemptCatch(Transform birb)
+    {
+        if (!isHiding)
         {
             isAlive = false;
-            birbThatCaught = collision.gameObject.transform;
+            birbThatCaught = birb;
             agent.enabled = false;
             squirrelAnimator.speed = 0;
         }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
         if (collision.tag == "Acorn")
         {
-            Debug.Log("Finished");
             MG_GameManager.Instance.UpdatePlayerQualified(playerID, true);
         }
     }
@@ -155,6 +170,7 @@ public class BigNut_ComputerController : BigNut_Controller
         {
             HideAndUnhide();
             agent.enabled = true;
+            squirrelAnimator.speed = 1;
         }
     }
 

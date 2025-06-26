@@ -162,10 +162,10 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   bufferFromForward: 0.9
   squirrelAnimator: {fileID: 1866652796988388626}
-  stunTime: 1
+  stunTime: 2
   bufferFromBehind: 0.01
-  pushSpeed: 2
-  moveSpeed: 2
+  pushSpeed: 3
+  moveSpeed: 4
 --- !u!143 &3296631609860725998
 CharacterController:
   m_ObjectHideFlags: 0
