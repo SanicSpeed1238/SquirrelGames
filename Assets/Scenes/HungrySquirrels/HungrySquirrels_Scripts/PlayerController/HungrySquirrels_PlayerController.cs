@@ -24,6 +24,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     private bool moveInput;//Check for key/input for rotation
     public bool collectActive;//Checks for if acorn has been collected for arm to retract
     public bool collided;//Checks to see if arm collided with anything for arm to retract or a button prompt
+    public bool rebound;
 
     //Controls the speed of rotation for character
     public float rot_Speed = 3f;
@@ -32,6 +33,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
 
     //Stun Options
     [SerializeField] private float _stunDur;
+    [SerializeField] private GameObject mainBodyModel;
     private float _eTime;
     public bool _stunActive;
 
@@ -39,9 +41,9 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     private void Start()
     {
         hitBox = arm.GetComponent<BoxCollider>();//Sets Arm Collision Trigger
-        //GetComponentInChildren<Outline>.OutlineColor = playerColor;
         playerColor.a = 0.5f;
-        //Model Goes Here
+        mainBodyModel.GetComponentInChildren<Renderer>().material.color = playerColor;
+        arm.GetComponentInChildren<Renderer>().material.color = playerColor;
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             if(_eTime >= _stunDur)
             {
                 _stunActive = false;
+                _eTime = 0;
             }
         }
         else
@@ -88,7 +91,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //Arm extend & dextend code
         translate = ext_Speed * Time.deltaTime * 60;//Applies ext_Speed to input
 
-        if (moveInput == true && collided == false)
+        if (moveInput == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
             if (aBehav.aOn == 0 && aBehav.bActive == false)
@@ -102,7 +105,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             pressed = true;
             
         }
-        else if (moveInput == false && collided == false)
+        else if (moveInput == false && collided == false && rebound == false)
         {
             arm.transform.Translate(-translate, 0, 0, Space.Self);
             collectActive = false;
@@ -113,18 +116,32 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             arm.transform.Translate(-translate * 2, 0, 0, Space.Self);
             collectActive = false;
         }
+        else if (rebound == true)
+        {
+            arm.transform.Translate(-translate * 1.5f, 0, 0, Space.Self);
+            collectActive = false;
+        }    
+
 
         if (arm.transform.localPosition.x < 0)//When the arm reaches origin, stops the arm from dextending
         {
             //Change previous values false to enable arm rotation & interaction
             collided = false;
-            //rebound = false;
+            rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
             if(aBehav.aOn != 0)
             {
                 playerScore += aBehav.aOn;
                 MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
+                if(aBehav.aOn == 1)
+                {
+                    aBehav.screwModel.SetActive(false);
+                }
+                else if (aBehav.aOn == 2)
+                {
+                    aBehav.acornModel.SetActive(false);
+                }
                 aBehav.aOn = 0;
             }
         }

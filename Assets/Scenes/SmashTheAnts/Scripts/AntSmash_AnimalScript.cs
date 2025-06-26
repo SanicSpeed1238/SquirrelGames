@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class AntSmash_AnimalScript : MonoBehaviour
 {
@@ -59,8 +60,34 @@ public class AntSmash_AnimalScript : MonoBehaviour
                 break;
 
             case AnimalType.Squirrel:
-                Destroy(gameObject);
+                animator.SetTrigger("Smash");
+                StartCoroutine(RemoveObject(0.5f));
                 break;
         }   
+    }
+
+    IEnumerator RemoveObject(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        float currentScale = 1f;
+        float shrinkSpeed = 5f;
+        while (true)
+        {
+            currentScale -= Time.deltaTime * shrinkSpeed;
+            if (currentScale > 0f)
+            {
+                transform.localScale = new(currentScale, currentScale, currentScale);
+            }
+            else
+            {
+                currentScale = 0f;
+                transform.localScale = Vector3.zero;
+                yield return new WaitForEndOfFrame();
+                Destroy(gameObject);
+            }
+
+            yield return null;
+        }
     }
 }

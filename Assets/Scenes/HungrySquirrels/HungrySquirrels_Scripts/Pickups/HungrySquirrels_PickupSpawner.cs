@@ -16,8 +16,19 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
     private int _maxSpawnAttempts = 4;
 
     private bool _gameOver = false;
-    //private float _currSpawnRate;
+    private bool _panicMode = false;
     private Coroutine _spawnRoutine;
+
+
+    public void IncreaseSpawnRate()
+    {
+        _spawnRate -= 0.1f;
+    }
+
+    public void ActivateRush()
+    {
+        _panicMode = true;
+    }
 
     private IEnumerator SpawnRoutine()
     {
@@ -48,21 +59,58 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
         
         if(pickup == _possiblePickupsToSpawn[0])
         {
-            int coinflip = Random.Range(0, 5);
-            if(coinflip >= 3)
+            if(_panicMode == true)
             {
-                Pickup bomb = Instantiate(pickup, positon, Quaternion.identity);
+                Pickup bomb = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
             }
             else
             {
-                Pickup acorn = Instantiate(_possiblePickupsToSpawn[1], positon, Quaternion.identity);
+                int coinflip = Random.Range(0, 5);
+                if (coinflip >= 2)
+                {
+                    Pickup bomb = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                }
+                else
+                {
+                    Pickup bolt = Instantiate(_possiblePickupsToSpawn[2], positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                }
             }
+
         }
         else if(pickup == _possiblePickupsToSpawn[1])
         {
-            Pickup acorn = Instantiate(pickup, positon, Quaternion.identity);
-            //Debug.Log("Lil Treat");
+            if (_panicMode == true)
+            {
+                Pickup acorn = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+            }
+            else
+            {
+                int coinflip = Random.Range(0, 5);
+                if (coinflip >= 2)
+                {
+                    Pickup acorn = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                }
+                else
+                {
+                    Pickup bolt = Instantiate(_possiblePickupsToSpawn[2], positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                }
+            }
         }
+        else if (pickup == _possiblePickupsToSpawn[2])
+        {
+            Pickup bolt = Instantiate(_possiblePickupsToSpawn[2], positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+        }
+    }
+
+    private Vector3 RandomRotation()
+    {
+        Vector3 ranRot;
+
+        ranRot.x = Random.Range(-5, 5);
+        ranRot.y = Random.Range(-5, 5);
+        ranRot.z = Random.Range(-5, 5);
+
+        return ranRot;
     }
 
     public void StartSpawning()

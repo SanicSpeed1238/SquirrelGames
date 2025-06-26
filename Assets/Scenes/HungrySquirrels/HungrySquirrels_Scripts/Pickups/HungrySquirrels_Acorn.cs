@@ -11,6 +11,7 @@ public class HungrySquirrels_Acorn : Pickup
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _rb.AddForce(new Vector3(Random.Range(-5,5), 0, Random.Range(-5,5)), ForceMode.Impulse);
         if (doOnce == true)
         {
             _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
@@ -26,6 +27,8 @@ public class HungrySquirrels_Acorn : Pickup
         {
             //Debug.Log(_pointVal);//Acorn is now within player's possession.
             arm.aOn += _pointVal;
+            arm.mainBody.rebound = true;
+            arm.acornModel.SetActive(true);
             Destroy(this.gameObject);
         }
         

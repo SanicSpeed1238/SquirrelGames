@@ -23,7 +23,7 @@ public class HungrySquirrels_ComputerController : MonoBehaviour
 
     private void Start()
     {
-        SetRotationInput();
+        //SetRotationInput();
     }
 
     private void Update()
