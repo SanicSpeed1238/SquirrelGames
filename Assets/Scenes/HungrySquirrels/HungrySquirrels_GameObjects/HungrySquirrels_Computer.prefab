@@ -60,10 +60,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.7999997, y: 0.5999999, z: 0.6}
+  m_LocalScale: {x: 1.7999997, y: 0.59999985, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8707065500180576271}
+  m_Father: {fileID: 7803637459649582385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &3642814380850788315
 MeshRenderer:
@@ -226,10 +226,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 2.5, y: 2.5000002, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8707065500180576271}
+  m_Father: {fileID: 7803637459649582385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2724443893754786582
 MeshFilter:
@@ -315,11 +315,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7803637459649582385}
-  - {fileID: 7197418805543388119}
-  - {fileID: 5282733835494001033}
-  - {fileID: 2428862192836792026}
-  - {fileID: 8604920214597309976}
-  - {fileID: 2202897066160548163}
   m_Father: {fileID: 306554646861806855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5687467316795677863
@@ -477,7 +472,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7197418805543388119}
+  - {fileID: 5282733835494001033}
+  - {fileID: 2428862192836792026}
+  - {fileID: 8604920214597309976}
+  - {fileID: 2202897066160548163}
   m_Father: {fileID: 8707065500180576271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5628517134809978033
@@ -658,7 +658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8707065500180576271}
+  m_Father: {fileID: 7803637459649582385}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &6448784541107766096
 ParticleSystem:
@@ -5521,7 +5521,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8707065500180576271}
+    m_TransformParent: {fileID: 7803637459649582385}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 129ee6f21fff37a449178459a3a0ecab, type: 3}
       propertyPath: m_LocalScale.x
@@ -5537,7 +5537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 129ee6f21fff37a449178459a3a0ecab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7677671
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 129ee6f21fff37a449178459a3a0ecab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5604,7 +5604,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8707065500180576271}
+    m_TransformParent: {fileID: 7803637459649582385}
     m_Modifications:
     - target: {fileID: 4485107570561628132, guid: 4ffd676fc8850f04a91067405fee09c6, type: 3}
       propertyPath: m_Name
@@ -5628,15 +5628,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4838831536223854654, guid: 4ffd676fc8850f04a91067405fee09c6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4838831536223854654, guid: 4ffd676fc8850f04a91067405fee09c6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4838831536223854654, guid: 4ffd676fc8850f04a91067405fee09c6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4838831536223854654, guid: 4ffd676fc8850f04a91067405fee09c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

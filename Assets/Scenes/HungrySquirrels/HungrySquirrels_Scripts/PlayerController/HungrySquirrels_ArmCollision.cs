@@ -19,7 +19,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     private float _expPower = 20f;
     private float _expRadius = 10f;
     private float _expLiftPower = 10f;
-
+    private bool doOnce = false;
     private float eTime;
 
     private void Start()
@@ -32,14 +32,19 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     {
         if (bActive == true)
         {
+            if (doOnce == false)
+            {
+                _fuseFX.Play();
+                doOnce = true;
+            }
             eTime += Time.deltaTime;
-            _fuseFX.Play();
             if (eTime >= bomb.bTimer)
             {
                 _fuseFX.Stop();
                 BombOnArmBoom();
                 mainBody._stunActive = true;
                 eTime = 0;
+                doOnce = false;
                 bActive = false;
             }
         }

@@ -27,6 +27,10 @@ public class HungrySquirrels_Bomb : Pickup
             _rb.AddForce(transform.up * _launchFCE, ForceMode.Impulse);
             doOnce = false;
         }
+        if (bOn == true)
+        {
+            _fuseFX.Play();
+        }
         
     }
 
@@ -46,7 +50,6 @@ public class HungrySquirrels_Bomb : Pickup
         if (bOn == true)
         {
             eTime += Time.deltaTime;
-            _fuseFX.Play();
             if(eTime >= bTimer)
             {
                 _fuseFX.Stop();
