@@ -9,11 +9,14 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     // Variables for Left Stick input
     private Vector3 targetPosition;
-    private readonly float distanceBuffer = 0.25f;
+    private readonly float distanceBuffer = 1f;
 
     // Variables for 'A' Button input
     private Coroutine actionCoroutine;
-    private readonly float delayBetweenActionInput = 0.5f;
+
+    [Header("Computer Behavior")]
+    [Range(0.1f, 0.5f)]
+    public float delayBetweenHammers = 0.25f;
 
     private void Awake()
     {
@@ -38,7 +41,7 @@ public class AntSmash_ComputerController : MonoBehaviour
     {
         Vector3 toTarget = targetPosition - transform.position;
 
-        if (toTarget.sqrMagnitude > distanceBuffer)
+        if (toTarget.magnitude > distanceBuffer)
         {
             Vector3 direction = toTarget.normalized;
             Vector2 leftStickInput = new(direction.x, direction.z);
@@ -60,7 +63,7 @@ public class AntSmash_ComputerController : MonoBehaviour
     }
     IEnumerator ActionInputCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(0f, delayBetweenActionInput));
+        yield return new WaitForSeconds(Random.Range(0f, delayBetweenHammers));
         controller.SetActionInput(true);
 
         yield return new WaitUntil(() => controller.GetActionInputState() == false);

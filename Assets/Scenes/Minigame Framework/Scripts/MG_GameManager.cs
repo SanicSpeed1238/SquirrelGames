@@ -267,11 +267,12 @@ public class MG_GameManager : MonoBehaviour
             playableDirector.Play();
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
         }
+        yield return new WaitForSeconds(1.5f);
 
         // Show Results then Transition out of Scene
         // -----------------------------------------
-        gameResults.PlayResultsSequence();    
         resultsScreen.SetActive(true);
+        gameResults.PlayResultsSequence();
     }
     #endregion
 }

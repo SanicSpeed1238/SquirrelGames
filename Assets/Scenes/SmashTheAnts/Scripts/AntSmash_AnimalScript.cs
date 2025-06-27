@@ -18,7 +18,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
     public int points;
 
     [Header("Other Components")]
-    public GameObject hitVFX;
+    public GameObject hitFX;
 
     // Other Variables Needed
     private bool isSquished;
@@ -48,7 +48,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
     public void SquishObject()
     {
         isSquished = true;
-        Instantiate(hitVFX, transform.position, Quaternion.identity);
+        Instantiate(hitFX, transform.position, Quaternion.identity);
 
         moveSpeed = 0f;
         GetComponentInChildren<BoxCollider>().enabled = false;
@@ -61,7 +61,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
 
             case AnimalType.Squirrel:
                 animator.SetTrigger("Smash");
-                StartCoroutine(RemoveObject(0.5f));
+                StartCoroutine(RemoveObject(0.25f));
                 break;
         }   
     }
@@ -71,7 +71,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         float currentScale = 1f;
-        float shrinkSpeed = 5f;
+        float shrinkSpeed = 10f;
         while (true)
         {
             currentScale -= Time.deltaTime * shrinkSpeed;

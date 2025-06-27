@@ -297,7 +297,10 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
+    - _Shadows: 0.25
     - _Shake_Intensity: 5
+    - _Shake_Speed: 2
+    - _Shake_Strength: 2
     - _Smoothness: 0
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0

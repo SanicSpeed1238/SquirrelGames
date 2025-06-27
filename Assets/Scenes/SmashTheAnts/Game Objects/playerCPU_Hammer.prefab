@@ -62,7 +62,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7142733350544086275, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 8814973510458781440}
   m_SourcePrefab: {fileID: 100100000, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
 --- !u!1 &6710749470464069144 stripped
@@ -82,3 +82,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e54969135fabb340b2c064a39f1505f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayBetweenHammers: 0.2

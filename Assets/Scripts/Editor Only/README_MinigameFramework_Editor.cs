@@ -39,6 +39,7 @@ public class README_MinigameFramework_Editor : Editor
                         "- Player Start Positions \n" +
                         "- Main Camera for Game View \n" +
                         "- Cutscenes with Assets and Animations \n" +
+                        "- Game Results Scoring Method \n" +
                         "- Music for the Gameplay \n" +
                         "", textStyle);
     }

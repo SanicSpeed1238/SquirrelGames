@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2357988161223005384}
   m_Layer: 0
-  m_Name: env_TreeBig
+  m_Name: env_Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8085781357127196264}
-  m_Mesh: {fileID: 4313033963400421524, guid: 925613486bbfdb045a1a0fa4591dba34, type: 3}
+  m_Mesh: {fileID: -4027656428146962628, guid: 925613486bbfdb045a1a0fa4591dba34, type: 3}
 --- !u!23 &7700242536050401087
 MeshRenderer:
   m_ObjectHideFlags: 0

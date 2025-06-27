@@ -243,8 +243,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 20
-      minScalar: 10
+      scalar: 30
+      minScalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4889,7 +4889,7 @@ MonoBehaviour:
   animalType: 2
   moveSpeed: 12.5
   points: -3
-  hitVFX: {fileID: 3590338355044222090, guid: d69a57ac3f17a6a4da27fe0450fedf04, type: 3}
+  hitFX: {fileID: 3590338355044222090, guid: d69a57ac3f17a6a4da27fe0450fedf04, type: 3}
 --- !u!114 &7442604918378552540
 MonoBehaviour:
   m_ObjectHideFlags: 0

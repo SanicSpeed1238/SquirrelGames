@@ -13,6 +13,10 @@ PrefabInstance:
       value: char_Ant2_Fire
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
+      propertyPath: hitFX
+      value: 
+      objectReference: {fileID: 7864862286300773501, guid: 1a6fe1b9679359e4398a7508ff9d6f65, type: 3}
+    - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: hitVFX
       value: 
       objectReference: {fileID: 7864862286300773501, guid: 1a6fe1b9679359e4398a7508ff9d6f65, type: 3}

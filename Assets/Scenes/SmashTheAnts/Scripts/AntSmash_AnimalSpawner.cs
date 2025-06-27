@@ -4,12 +4,14 @@ using System.Collections;
 public class AntSmash_AnimalSpawner : MonoBehaviour
 {
     [Header("Spawner Values")]
-    [Range(0.1f, 1f)]
-    public float spawnTimer; // How long it takes before game objects are spawned
-    [Range(0.1f, 1f)]
-    public float spawnTimerDecreaseAmount; // How much the spawn timer should decrease
+    [Range(0.1f, 3f)]
+    public float spawnTimer;
+    [Range(0.01f, 0.5f)]
+    public float spawnTimerDecreaseAmount;
+    [Range(0.1f, 0.5f)]
+    public float spawnTimerMinimumDelay;
     [Range(1, 10)]
-    public int timeToDecreaseSpawnTimer; // How long it takes before the spawn timer is lowered by spawnTimerDecreaseAmount
+    public int timeToDecreaseSpawnTimer;
 
     [Header("Object Prefabs")]
     [SerializeField] private GameObject squirrelObject;
@@ -26,6 +28,9 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
     public int fireAntSpawnRate; // Percentage of how likely a Fire Ant will spawn
     [Range(0, 100)]
     public int goldenAntSpawnRate; // Percentage of how likely a Golden Ant will spawn
+
+    [Header("Important References")]
+    public AntSmash_BushScript bushObject;
 
     // Other Variables Needed
     private float positionRange;
@@ -51,8 +56,9 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
         while (MG_GameManager.Instance.gamePlaying)
         {
             float waitSeconds = spawnTimer + Random.Range(-0.5f, 0.0f);
-            if (waitSeconds < 0.1f) waitSeconds = 0.1f;
+            if (waitSeconds < spawnTimerMinimumDelay) waitSeconds = spawnTimerMinimumDelay;
             yield return new WaitForSeconds(waitSeconds);
+   
             SpawnGameObject();
         }
     }
@@ -84,6 +90,7 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
         }
         else
         {
+            bushObject.ShakeBush();
             return squirrelObject;
         }
     }
@@ -95,7 +102,7 @@ public class AntSmash_AnimalSpawner : MonoBehaviour
         if(increaseSpawnRateTimer >= timeToDecreaseSpawnTimer)
         {
             spawnTimer -= spawnTimerDecreaseAmount;
-            if (spawnTimer < 0.1f) spawnTimer = 0.1f;
+            if (spawnTimer < spawnTimerMinimumDelay) spawnTimer = spawnTimerMinimumDelay;
             increaseSpawnRateTimer = 0f;
         }
     }

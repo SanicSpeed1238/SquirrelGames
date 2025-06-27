@@ -17,6 +17,9 @@ public class MG_GameResults : MonoBehaviour
     public AudioSource resultsMusic;
     public TransitionSettings exitTransition;
 
+    [Header("Animated Squirrels Reference")]
+    public GameObject[] animatedSquirrels;
+
     // Variables for Scoring
     [HideInInspector] public int[] playerScores = new int[4];
     [HideInInspector] public bool[] playersFinished = new bool[4];
@@ -81,6 +84,19 @@ public class MG_GameResults : MonoBehaviour
     public void PlayResultsSequence()
     {
         resultsMusic.Play();
+
+        for (int i = 0; i < animatedSquirrels.Length; i++)
+        {
+            if (playersWon[i])
+            {
+                animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Win");
+            }
+            else
+            {
+                animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Lose");
+            }
+        }
+
         TransitionManager.Instance().Transition(minigameSelectSceneName, exitTransition, resultsMusic.clip.length + 1);
     }
 }

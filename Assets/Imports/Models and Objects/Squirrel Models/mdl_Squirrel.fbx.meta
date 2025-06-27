@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: All
+      name: Armature|ArmatureAction.001
       takeName: Armature|ArmatureAction.001
       internalID: -1422011007694221501
       firstFrame: 0
-      lastFrame: 100
+      lastFrame: 529
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -67,11 +67,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Crawl
+      name: victory
       takeName: Armature|ArmatureAction.001
-      internalID: 4065910277313914012
-      firstFrame: 1
-      lastFrame: 12
+      internalID: -5353742081411620410
+      firstFrame: 100
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: victoryidle
+      takeName: Armature|ArmatureAction.001
+      internalID: -3547953475013294845
+      firstFrame: 153
+      lastFrame: 252
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -96,11 +125,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Smashed
+      name: defeat
       takeName: Armature|ArmatureAction.001
-      internalID: -7611252398073814656
-      firstFrame: 20
-      lastFrame: 50
+      internalID: 84304250019384276
+      firstFrame: 260
+      lastFrame: 310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: defeatidle
+      takeName: Armature|ArmatureAction.001
+      internalID: -4505557500364922908
+      firstFrame: 311
+      lastFrame: 410
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -125,11 +183,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: FacedShocked
+      name: idle
       takeName: Armature|ArmatureAction.001
-      internalID: -299290608538871531
-      firstFrame: 61
-      lastFrame: 91
+      internalID: -267079021689087830
+      firstFrame: 420
+      lastFrame: 519
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -220,7 +278,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
