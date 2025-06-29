@@ -13,10 +13,13 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     // Variables for 'A' Button input
     private Coroutine actionCoroutine;
+    private float delayBetweenHammers;
 
-    [Header("Computer Behavior")]
+    [Header("Computer Behavior")] 
+    [Range(0.2f, 1.0f)]
+    public float startingDelayBetweenHammers = 0.5f;
     [Range(0.1f, 0.5f)]
-    public float delayBetweenHammers = 0.25f;
+    public float minDelayBetweenHammers = 0.25f;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     private void Start()
     {
+        delayBetweenHammers = startingDelayBetweenHammers;
         SetMovementInput();
     }
 
@@ -58,13 +62,16 @@ public class AntSmash_ComputerController : MonoBehaviour
 
     private void SetActionInput()
     {
-        // Press the actionInput at random time intervals
+        // "Press" the 'A' button at random time intervals
         actionCoroutine ??= StartCoroutine(ActionInputCoroutine());
     }
     IEnumerator ActionInputCoroutine()
     {
         yield return new WaitForSeconds(Random.Range(0f, delayBetweenHammers));
         controller.SetActionInput(true);
+
+        if (delayBetweenHammers > minDelayBetweenHammers) delayBetweenHammers -= 0.01f;
+        else delayBetweenHammers = minDelayBetweenHammers;
 
         yield return new WaitUntil(() => controller.GetActionInputState() == false);
         actionCoroutine = null;
