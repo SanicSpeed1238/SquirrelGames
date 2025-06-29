@@ -97,6 +97,6 @@ public class MG_GameResults : MonoBehaviour
             }
         }
 
-        TransitionManager.Instance().Transition(minigameSelectSceneName, exitTransition, resultsMusic.clip.length + 1);
+        TransitionManager.Instance().Transition(minigameSelectSceneName, exitTransition, resultsMusic.clip.length);
     }
 }

@@ -61,7 +61,7 @@ public class AntSmash_AnimalScript : MonoBehaviour
 
             case AnimalType.Squirrel:
                 animator.SetTrigger("Smash");
-                StartCoroutine(RemoveObject(0.25f));
+                StartCoroutine(RemoveObject(0.6f));
                 break;
         }   
     }

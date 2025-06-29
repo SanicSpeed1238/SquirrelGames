@@ -218,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6666667
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 727785451024099801, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 845007812544824056, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4279749246701485392, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4279749246701485392, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6029733618752214111, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6666667
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6029733618752214111, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -790,18 +790,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1.5
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 2
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 2037137053}
 --- !u!1001 &244896026
 PrefabInstance:
@@ -1007,18 +1007,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1.5
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 2
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 1067735529}
 --- !u!1001 &277229779
 PrefabInstance:
@@ -1038,11 +1038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.5
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1082,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 939134848451121698, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_Name
@@ -1269,7 +1269,7 @@ Transform:
   m_GameObject: {fileID: 529044863}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13, y: 0, z: 4}
+  m_LocalPosition: {x: -13, y: 0, z: 3.5}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1358,18 +1358,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 1.5
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 1791914969}
 --- !u!1001 &648558844
 PrefabInstance:
@@ -1381,15 +1381,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1401,7 +1401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1622,7 +1622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13
+      value: -13.3
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1630,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1715,7 +1715,7 @@ Transform:
   m_GameObject: {fileID: 860422462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 13, y: 0, z: -1}
+  m_LocalPosition: {x: 13, y: 0, z: -1.5}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1804,18 +1804,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 1.5
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 1102729576}
 --- !u!1 &885509637
 GameObject:
@@ -1880,15 +1880,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1900,7 +1900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2167,18 +2167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1.5
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 2
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 1479338297}
 --- !u!23 &1050839990
 MeshRenderer:
@@ -2240,15 +2240,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2469,15 +2469,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2489,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2845,11 +2845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2889,7 +2889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 939134848451121698, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_Name
@@ -2923,15 +2923,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3268,18 +3268,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 1.5
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 1014976043}
 --- !u!65 &1564303851
 BoxCollider:
@@ -3311,7 +3311,7 @@ Transform:
   m_GameObject: {fileID: 1564303849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 13, y: 0, z: 4}
+  m_LocalPosition: {x: 13, y: 0, z: 3.5}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3377,15 +3377,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3732,7 +3732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.5
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3798,15 +3798,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 365574438993126920, guid: 5fb208e8d1e662d49b7fc6ca5c8e0378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4049,18 +4049,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0227ec1e43d5bf44991dcda16eb203f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 1
-  spawnTimerDecreaseAmount: 0.1
+  spawnTimer: 1.5
+  spawnTimerDecreaseAmount: 0.2
   spawnTimerMinimumDelay: 0.2
   timeToDecreaseSpawnTimer: 5
   squirrelObject: {fileID: 8846196140059087682, guid: b408851c2aa98434bbfca24de35c79a6, type: 3}
   antObject: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
   fireAntObject: {fileID: 3634966539316120189, guid: a5c9c0d056d88fe4ab3e7183e5bb2155, type: 3}
   goldenAntObject: {fileID: 3193373984586732472, guid: f80b4fcd5c9ae7c4a809b798effb7f24, type: 3}
-  squirrelSpawnRate: 20
-  antSpawnRate: 65
-  fireAntSpawnRate: 10
-  goldenAntSpawnRate: 5
+  squirrelSpawnRate: 18
+  antSpawnRate: 76
+  fireAntSpawnRate: 5
+  goldenAntSpawnRate: 1
   bushObject: {fileID: 648558848}
 --- !u!65 &2054532137
 BoxCollider:
@@ -4092,7 +4092,7 @@ Transform:
   m_GameObject: {fileID: 2054532135}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13, y: 0, z: -1}
+  m_LocalPosition: {x: -13, y: 0, z: -1.5}
   m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

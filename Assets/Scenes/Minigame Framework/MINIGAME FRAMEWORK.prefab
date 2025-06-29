@@ -230,7 +230,7 @@ MonoBehaviour:
   grow_EaseType: 0
   moveIn_XOffset: -900
   moveIn_YOffset: 0
-  moveIn_Duration: 0.5
+  moveIn_Duration: 0.8
   moveIn_Delay: 1.5
   moveIn_EaseType: 18
   idleAnimation: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   grow_EaseType: 0
   moveIn_XOffset: 0
   moveIn_YOffset: 300
-  moveIn_Duration: 0.5
+  moveIn_Duration: 0.8
   moveIn_Delay: 2.1
   moveIn_EaseType: 18
   idleAnimation: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   grow_EaseType: 0
   moveIn_XOffset: 1200
   moveIn_YOffset: 0
-  moveIn_Duration: 0.5
+  moveIn_Duration: 0.8
   moveIn_Delay: 1.8
   moveIn_EaseType: 18
   idleAnimation: 0
@@ -3772,7 +3772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8b62b1f82a2dd4ba500226d3e698bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMusic: {fileID: 8300000, guid: efa8624f738b3a946987bffb6440d6c3, type: 3}
+  gameMusic: {fileID: 8300000, guid: a04cd792750789247b1629f19d25a261, type: 3}
   setupMusic: {fileID: 8300000, guid: 329cf2a16b49cb1419f6878d953fc70d, type: 3}
   finishSound: {fileID: 2901840098146731221}
 --- !u!82 &2378171536669561400
