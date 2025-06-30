@@ -11,7 +11,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
 
     [Header("Important Components")]
-    public SkinnedMeshRenderer squirrelMeshRenderer;
+    public SkinnedMeshRenderer[] squirrelBodyParts;
 
     [Header("Customization Objects")]
     public GameObject squirrelHats;
@@ -58,7 +58,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
                     int bodyCount = squirrelBodies.transform.childCount;
                     currentBodyOption = (currentBodyOption + (input.x > 0 ? 1 : -1) + bodyCount) % bodyCount;
                     var newMat = squirrelBodies.transform.GetChild(currentBodyOption).GetComponent<MeshRenderer>().material;
-                    squirrelMeshRenderer.material = newMat;
+                    foreach (SkinnedMeshRenderer bodyPart in squirrelBodyParts) { bodyPart.material = newMat; }
                     break;
             }
         }
