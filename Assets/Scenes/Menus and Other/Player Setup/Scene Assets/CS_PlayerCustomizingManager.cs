@@ -13,10 +13,11 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
     [Header("Customization Menus")]
     public GameObject[] customizationMenus;
 
-    [Header("Other Important References")]
+    [Header("Other Components")]
     public TransitionSettings transitionAnimation;
 
     // Other Variables Needed
+    private readonly string mainMenuSceneName = "Main Menu";
     private readonly string minigameSelectSceneName = "Minigame Selection";
 
     private void Update()
@@ -28,18 +29,23 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
 
         if (Input.GetButtonDown("Cancel"))
         {
-            // Go back to Main Menu
+            TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0);
         }
     }
 
     public void OnPlayerJoined(PlayerInput joinedPlayer)
     {
+
+
         int playerIndex = joinedPlayer.playerIndex;
-        joinedPlayer.gameObject.GetComponent<CS_PlayerCustomizer>().
-            SpawnNewPlayer(playerIndex + 1, playerPositions[playerIndex], customizationMenus[playerIndex]);
 
         joinMessages[playerIndex].SetActive(false);
         customizationMenus[playerIndex].SetActive(true);
+
+        joinedPlayer.gameObject.GetComponent<CS_PlayerCustomizer>().
+            SpawnNewPlayer(playerIndex + 1, playerPositions[playerIndex], customizationMenus[playerIndex]);
+
+        
 
         CS_PlayerJoinData.Instance.RegisterPlayer(joinedPlayer);
     }

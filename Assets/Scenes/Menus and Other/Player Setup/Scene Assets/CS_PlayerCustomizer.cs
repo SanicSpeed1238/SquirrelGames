@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class CS_PlayerCustomizer : MonoBehaviour
 {
@@ -18,20 +19,30 @@ public class CS_PlayerCustomizer : MonoBehaviour
     public GameObject squirrelBodies;
 
     // Variables Needed
+    
     private int playerID;
-    private int currentHatOption;
-    private int currentBodyOption;
+    private bool canMove = true;
+
     private GameObject customizationOptions;
     private GameObject hatOptions;
     private GameObject bodyOptions;
 
     private CurrentlyCustomizing currentlyCustomizing;
+    private int currentHatOption;
+    private int currentBodyOption;
+    private string currentName;
 
     public void SpawnNewPlayer(int ID, Transform spawn, GameObject menu)
     {
         playerID = ID;
         transform.position = spawn.position;
+
         customizationOptions = menu;
+        hatOptions = menu.transform.Find("Hat Options").gameObject;
+        bodyOptions = menu.transform.Find("Body Options").gameObject;
+        GetComponent<MultiplayerEventSystem>().playerRoot = menu.transform.Find("Buttons").gameObject;
+        GetComponent<MultiplayerEventSystem>().firstSelectedGameObject = menu.transform.Find("Buttons").gameObject.transform.Find("Hat Button").gameObject;
+        GetComponent<MultiplayerEventSystem>().SetSelectedGameObject(menu.transform.Find("Buttons").gameObject.transform.Find("Hat Button").gameObject);
 
         currentHatOption = 0;
         currentBodyOption = 0;
@@ -43,7 +54,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input.x != 0)
+        if (input.x != 0 && canMove)
         {
             switch (currentlyCustomizing)
             {
@@ -61,7 +72,9 @@ public class CS_PlayerCustomizer : MonoBehaviour
                     foreach (SkinnedMeshRenderer bodyPart in squirrelBodyParts) { bodyPart.material = newMat; }
                     break;
             }
+            canMove = false;
         }
+        else canMove = true;
     }
     #endregion
 
