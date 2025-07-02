@@ -171,14 +171,17 @@ public class MG_GameManager : MonoBehaviour
         // Transitioning to the Opening Cutscene
         // -------------------------------------
         gameStarted = true;
-        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-        audioPlayer.FadeOutMusic(1.5f);
-        yield return new WaitForSeconds(1.5f);
+        audioPlayer.FadeOutMusic(1.5f);      
+        if(!gameSetup.skipStartupScreen)
+        {
+            transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
+            yield return new WaitForSeconds(1.5f);
+        }   
         startScreen.SetActive(false);
 
         // Play the Opening Cutscene
         // -------------------------
-        if (openingCutscene.GetComponent<PlayableDirector>().playableAsset != null)
+        if (openingCutscene.GetComponent<PlayableDirector>().playableAsset != null && !gameSetup.skipStartupScreen)
         {
             openingCutscene.SetActive(true);
             PlayableDirector playableDirector = openingCutscene.GetComponent<PlayableDirector>();
@@ -194,7 +197,7 @@ public class MG_GameManager : MonoBehaviour
         // Transitioning to the Game Camera
         // --------------------------------
         gameCamera.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        if(!gameSetup.skipStartupScreen) yield return new WaitForSeconds(1.5f);
         gameUIScreen.SetActive(true);
 
         // Countdown to Start Gameplay

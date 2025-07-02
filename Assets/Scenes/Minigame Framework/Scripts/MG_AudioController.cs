@@ -68,6 +68,6 @@ public class MG_AudioController : MonoBehaviour
 
     public void StopMusic()
     {
-        FadeOutMusic(0.5f);
+        FadeOutMusic(0.2f);
     }
 }

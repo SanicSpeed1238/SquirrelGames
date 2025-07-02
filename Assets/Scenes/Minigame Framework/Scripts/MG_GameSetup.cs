@@ -13,13 +13,41 @@ public class MG_GameSetup : MonoBehaviour
     public Color[] playerColors;
     public Transform[] spawnPositions;
 
-    [Header("Player Input Manager")]
+    [Header("Other Components")]
     public PlayerInputManager inputManager;
+    public bool skipStartupScreen;
 
     // Other Variables Needed
     [HideInInspector] public GameObject[] playersInGame;
     private int lastJoinedPlayer;
     private bool canStart;
+
+    private void Awake()
+    {
+        playersInGame = new GameObject[4];
+        if (CS_PlayerJoinData.Instance == null && inputManager.playerPrefab != null)
+        {
+            // inputManager used when loading directly into Minigame Scene
+            // use OnJoin() when Player Setup Scene is skipped
+            inputManager.EnableJoining();
+        }
+    }
+    private void Start()
+    {
+        StartCoroutine(WaitToStart());
+    }
+    IEnumerator WaitToStart()
+    {
+        if (!skipStartupScreen)
+        {
+            yield return new WaitForSeconds(3f);
+            canStart = true;
+        }
+        else
+        {
+            StartGame();
+        }
+    }
 
     private void Update()
     {
@@ -28,23 +56,13 @@ public class MG_GameSetup : MonoBehaviour
             if (!MG_GameManager.Instance.gameStarted) StartGame();
         }
     }
-
-    private void Awake()
+    public void StartGame()
     {
-        playersInGame = new GameObject[4];
-        StartCoroutine(WaitToStart());
+        if (CS_PlayerJoinData.Instance != null) SetUpPlayerObjects(CS_PlayerJoinData.Instance.joinedPlayers);
+        else SetUpPlayerObjects(new List<int>());
 
-        if (CS_PlayerJoinData.Instance == null && inputManager.playerPrefab != null)
-        {
-            // inputManager used when loading directly into Minigame Scene
-            // use OnJoin() when Player Setup Scene is skipped
-            inputManager.EnableJoining();
-        }
-    }
-    IEnumerator WaitToStart()
-    {
-        yield return new WaitForSeconds(3f);
-        canStart = true;
+        inputManager.DisableJoining();
+        GameObject.FindAnyObjectByType<MG_GameManager>().StartGame();
     }
 
     private void SetUpPlayerObjects(List<int> humanPlayers)
@@ -93,14 +111,5 @@ public class MG_GameSetup : MonoBehaviour
         SetUpPlayer(newPlayer, playerID);
         playersInGame[playerID - 1] = newPlayer;
         lastJoinedPlayer = playerID;
-    }
-
-    public void StartGame()
-    {
-        if (CS_PlayerJoinData.Instance != null) SetUpPlayerObjects(CS_PlayerJoinData.Instance.joinedPlayers);
-        else SetUpPlayerObjects(new List<int>());
-
-        inputManager.DisableJoining();
-        GameObject.FindAnyObjectByType<MG_GameManager>().StartGame();
     }
 }
