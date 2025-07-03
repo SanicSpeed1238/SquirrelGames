@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BossFight_PlayerController : Base_PlayerController
 {
@@ -26,8 +27,8 @@ public class BossFight_PlayerController : Base_PlayerController
 
     private void MovePlayer()
     {
-        //float transform = _movementInput * _moveSpeed * Time.deltaTime * 60;
-        transform.Translate(new Vector3(_movementInput.x, 0, _movementInput.y), Space.Self);
+        Vector3 schmovement = new Vector3(_movementInput.x, 0, _movementInput.y) * _moveSpeed * Time.deltaTime * 60;
+        transform.Translate(schmovement, Space.World);
     }
 
     private void Interaction()
@@ -35,4 +36,11 @@ public class BossFight_PlayerController : Base_PlayerController
         //If buttons not pressed, use A to dash
         //If all buttons are pressed & boss is in stun stage, use A to throw
     }
+
+    //HUMAN INPUT
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _movementInput = context.ReadValue<Vector2>();
+    }
+
 }
