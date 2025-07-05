@@ -31,8 +31,8 @@ public class BossFight_PlayerController : Base_PlayerController
     {
         Vector3 schmovement = new Vector3(_movementInput.x, 0, _movementInput.y).normalized * _moveSpeed * Time.deltaTime * 60;
         //Getting Direction for Rotating Character
-        Vector3 direction = new Vector3(_movementInput.x, 0, _movementInput.y) - this.transform.position;
-        //transform.Rotate(Vector3.up, 45, Space.Self);
+        Vector3 direction = new Vector3(_movementInput.x, 0, _movementInput.y);
+        _rb.transform.rotation = Quaternion.LookRotation(direction);
         _rb.MovePosition(_rb.position + schmovement);
     }
 
