@@ -21,7 +21,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Back",
@@ -157,7 +157,7 @@
                     "name": "",
                     "id": "eef21634-d51f-41d6-b790-26fa64376d51",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=1)",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Select",
