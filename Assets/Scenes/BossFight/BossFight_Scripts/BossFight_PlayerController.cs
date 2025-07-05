@@ -10,7 +10,7 @@ public class BossFight_PlayerController : Base_PlayerController
     [SerializeField]private float _moveSpeed;
     private Vector2 _movementInput;
     private Rigidbody _rb;
-
+    private Quaternion _previousDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +29,18 @@ public class BossFight_PlayerController : Base_PlayerController
 
     private void MovePlayer()
     {
-        Vector3 schmovement = new Vector3(_movementInput.x, 0, _movementInput.y).normalized * _moveSpeed * Time.deltaTime * 60;
+        Vector3 schmovement = new Vector3(_movementInput.x, 0, _movementInput.y).normalized * _moveSpeed * Time.deltaTime * 60f;
         //Getting Direction for Rotating Character
-        Vector3 direction = new Vector3(_movementInput.x, 0, _movementInput.y);
-        _rb.transform.rotation = Quaternion.LookRotation(direction);
+        Vector3 direction = new Vector3(_movementInput.x, 0, _movementInput.y).normalized;
+        if(direction.x == 0 && direction.y == 0)
+        {
+            _rb.transform.rotation = _previousDirection;
+        }
+        else
+        {
+            _rb.transform.rotation = Quaternion.Slerp(_rb.transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 60f);
+            _previousDirection = _rb.transform.rotation;
+        }
         _rb.MovePosition(_rb.position + schmovement);
     }
 
