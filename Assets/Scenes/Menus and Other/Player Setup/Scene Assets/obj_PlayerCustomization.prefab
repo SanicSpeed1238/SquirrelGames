@@ -315,7 +315,19 @@ MonoBehaviour:
     m_ActionId: f93a1034-5856-4f04-ae30-f4d0afe0723f
     m_ActionName: Player/Action1
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 758631694455932805}
+        m_TargetAssemblyTypeName: CS_PlayerCustomizer, Assembly-CSharp
+        m_MethodName: CompleteSelection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4a2a4ab3-6b59-4448-83e0-f67729265dce
     m_ActionName: Player/Start
   - m_PersistentCalls:
@@ -792,7 +804,7 @@ Animator:
   m_GameObject: {fileID: 5525821139304590768}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a47e357853593d48bf273b575c5f725, type: 2}
+  m_Controller: {fileID: 9100000, guid: a8404fe2d8365314391fca1c7d005b8a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

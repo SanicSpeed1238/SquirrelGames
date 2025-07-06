@@ -30,7 +30,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Start",
@@ -39,7 +39,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -157,7 +157,7 @@
                     "name": "",
                     "id": "eef21634-d51f-41d6-b790-26fa64376d51",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press(pressPoint=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Select",

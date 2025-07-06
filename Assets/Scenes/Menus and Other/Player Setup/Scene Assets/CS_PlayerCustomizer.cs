@@ -23,6 +23,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
 
     // Controller References
     private int playerID;
+    private bool canMove = true;
     private bool canMoveY = true;
     private bool canMoveX = true;
 
@@ -41,8 +42,8 @@ public class CS_PlayerCustomizer : MonoBehaviour
 
     // Variables for Name Customization
     private bool customizingName;
-    private char[] currentNameSelections;
-    private int nameIndex;
+    private string newName;
+    private int letterIndex;
     private int charCode;
     private readonly int startingCharCode = 95;
     private readonly int maxNameLength = 6;
@@ -54,61 +55,88 @@ public class CS_PlayerCustomizer : MonoBehaviour
 
         currentHatOption = 0;
         currentBodyOption = 0;
-        currentName = "SQUISH";
+        currentName = "PLAYER";
 
         customizationMenu = menu;
         menuButtons = menu.transform.Find("Buttons").gameObject;
-        hatOptions = menu.transform.Find("Hat Options").gameObject;
-        bodyOptions = menu.transform.Find("Body Options").gameObject;
+        hatOptions = menu.transform.Find("Hats").gameObject;
+        bodyOptions = menu.transform.Find("Bodies").gameObject;
         nameOptions = menu.transform.Find("Name").gameObject;
 
         currentlyCustomizing = CurrentlyCustomizing.Hat;
         menuController = GetComponent<MultiplayerEventSystem>();
         menuController.playerRoot = menuButtons;
-        menuController.firstSelectedGameObject = menuButtons.transform.Find("Hat Button").gameObject;
+        menuController.firstSelectedGameObject = menuButtons.transform.Find("Hat").gameObject;
         menuController.SetSelectedGameObject(menuController.firstSelectedGameObject);
     }
 
-    #region Input: Horizontal Navigation (Hat / Body)
+    #region Input: Horizontal Navigation (Choosing Specific Customization Option)
     public void OnLeftAndRight(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input.x != 0 && canMoveX)
+        if (input.x != 0 && canMoveX && canMove)
         {
             switch (currentlyCustomizing)
             {
                 case CurrentlyCustomizing.Hat:
-                    squirrelHats.transform.GetChild(currentHatOption).gameObject.SetActive(false);
-                    int hatCount = squirrelHats.transform.childCount;
-                    currentHatOption = (currentHatOption + (input.x > 0 ? 1 : -1) + hatCount) % hatCount;
-                    squirrelHats.transform.GetChild(currentHatOption).gameObject.SetActive(true);
-                    break;
+                    {
+                        int hatCount = squirrelHats.transform.childCount;
+                        
+                        squirrelHats.transform.GetChild(currentHatOption).gameObject.SetActive(false);
+                        UpdateHatIcon(false);
+
+                        currentHatOption = (currentHatOption + (input.x > 0 ? 1 : -1) + hatCount) % hatCount;
+                        UpdateHatIcon(true);
+
+                        squirrelHats.transform.GetChild(currentHatOption).gameObject.SetActive(true);
+                        break;
+                    }
 
                 case CurrentlyCustomizing.Body:
-                    int bodyCount = squirrelBodies.transform.childCount;
-                    currentBodyOption = (currentBodyOption + (input.x > 0 ? 1 : -1) + bodyCount) % bodyCount;
-                    Material newMat = squirrelBodies.transform.GetChild(currentBodyOption).GetComponent<MeshRenderer>().material;
-                    foreach (SkinnedMeshRenderer bodyPart in squirrelBodyParts)
-                        bodyPart.material = newMat;
+                    {
+                        int bodyCount = squirrelBodies.transform.childCount;
+
+                        UpdateBodyIcon(false);
+                        currentBodyOption = (currentBodyOption + (input.x > 0 ? 1 : -1) + bodyCount) % bodyCount;
+                        UpdateBodyIcon(true);
+
+                        Material newMat = squirrelBodies.transform.GetChild(currentBodyOption).GetComponent<MeshRenderer>().material;
+                        foreach (SkinnedMeshRenderer bodyPart in squirrelBodyParts) {
+                        bodyPart.material = newMat; }
+
+                        break;
+                    }
+
+                case CurrentlyCustomizing.Name:
+                    if (customizingName)
+                    {
+                        if (input.x > 0) charCode++;
+                        else if (input.x < 0) charCode--;
+
+                        if (charCode+1 == '_' || charCode-1 == '_') charCode = (input.x > 0 ? 'A' : 'Z');
+                        else if (charCode > 'Z') charCode = '_';
+                        else if (charCode < 'A') charCode = '_';
+
+                        newName = newName[..^1] + (char)charCode;
+                        UpdateNameEntry(newName);
+                        DisplayArrows(nameOptions, false);
+                    }
                     break;
             }
 
             canMoveX = false;
         }
-        else
-        {
-            canMoveX = true;
-        }
+        else canMoveX = true;
     }
     #endregion
 
-    #region Input: Vertical Navigation (Switch Option / Name Entry)
+    #region Input: Vertical Navigation (Change Current Customizable Part)
     public void OnUpAndDown(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input.y != 0 && canMoveY)
+        if (input.y != 0 && canMoveY && canMove)
         {
             switch (currentlyCustomizing)
             {
@@ -122,20 +150,9 @@ public class CS_PlayerCustomizer : MonoBehaviour
                     break;
 
                 case CurrentlyCustomizing.Name:
-                    if (customizingName)
+                    if (input.y > 0 && !customizingName)
                     {
-                        if (input.y < 0) charCode++;
-                        else if (input.y > 0) charCode--;
-
-                        if (charCode > 'Z') charCode = 'A';
-                        if (charCode < 'A') charCode = 'Z';
-
-                        currentNameSelections[nameIndex] = (char)charCode;
-                        UpdateLetter((char)charCode);
-                    }
-                    else
-                    {
-                        if (input.y > 0) currentlyCustomizing = CurrentlyCustomizing.Body;
+                        currentlyCustomizing = CurrentlyCustomizing.Body;
                     }
                     break;
             }
@@ -149,77 +166,85 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     #endregion
 
-    #region Input: Confirm Select (Name Entry)
+    #region Input: Confirm Select
     public void ConfirmSelection(InputAction.CallbackContext context)
     {
-        if (!context.started) return;
+        if (!context.started || !canMove) return;
 
         if (currentlyCustomizing == CurrentlyCustomizing.Name)
         {
             if (!customizingName)
             {
                 customizingName = true;
-                currentNameSelections = new char[maxNameLength];
-                UpdateCompleteName("");              
+                newName = string.Empty;            
                 menuController.SetSelectedGameObject(null);             
 
-                nameIndex = 0;
+                letterIndex = 0;
                 charCode = startingCharCode;
+                newName += (char)charCode;
 
-                ActivateLetterObject(nameIndex);
-                UpdateLetter((char)charCode);
+                DisplayArrows(nameOptions, true);
+                UpdateNameEntry(newName);
             }
             else
             {
-                nameIndex++;  
-                if (nameIndex == maxNameLength || currentNameSelections[nameIndex-1] == '\0')
+                letterIndex++;  
+                if (letterIndex == maxNameLength || charCode == '_')
                 {
                     // Finish Customizing Name
 
                     customizingName = false;
-                    DeactivateLetterObjects();
-                    menuController.SetSelectedGameObject(menuButtons.transform.Find("Name Button").gameObject);
+                    menuController.SetSelectedGameObject(menuButtons.transform.Find("Name").gameObject);
 
-                    if (nameIndex > 1) currentName = new string(currentNameSelections).Replace("\0", "");
-                    UpdateCompleteName(currentName);
+                    if (letterIndex > 1) currentName = new string(newName).Replace("_", ""); ;
+                    UpdateNameComplete(currentName);
                 }
                 else // Continue Customizing Name
                 {
                     charCode = startingCharCode;
-                    UpdateLetter((char)charCode);
-                    ActivateLetterObject(nameIndex);
+                    newName += (char)charCode;
+                    UpdateNameEntry(newName);
                 }
             }
         }
     }
     #endregion
 
-    #region Input: Complete Selection (Player Customizations / Name Entry)
+    #region Input: Complete Selection
     public void CompleteSelection(InputAction.CallbackContext context)
     {
+        if (!context.started || !canMove || customizingName) return;
 
+        hatOptions.SetActive(false);
+        bodyOptions.SetActive(false);
+        menuController.SetSelectedGameObject(null);
+        canMove = false;
+
+        GetComponentInChildren<Animator>().SetTrigger("Complete");
     }
     #endregion
 
-    #region Name Customization UI
-    private void UpdateCompleteName(string newName)
+    #region Customization UI
+    private void UpdateHatIcon(bool setActive)
     {
-        nameOptions.GetComponent<TextMeshProUGUI>().text = newName;
+        hatOptions.transform.Find("Icons").GetChild(currentHatOption).gameObject.SetActive(setActive);
     }
-    private void UpdateLetter(char letter)
+    private void UpdateBodyIcon(bool setActive)
     {
-        nameOptions.transform.GetChild(nameIndex).GetComponent<TextMeshProUGUI>().text = letter.ToString();
+        bodyOptions.transform.Find("Icons").GetChild(currentBodyOption).gameObject.SetActive(setActive);
     }
-    private void ActivateLetterObject(int index)
+    private void UpdateNameComplete(string name)
     {
-        nameOptions.transform.GetChild(index).gameObject.SetActive(true);
+        nameOptions.GetComponent<TextMeshProUGUI>().text = name;
     }
-    private void DeactivateLetterObjects()
+    private void UpdateNameEntry(string name)
     {
-        for (int i = 0; i < maxNameLength; i++)
-        {
-            nameOptions.transform.GetChild(i).gameObject.SetActive(false);
-        }
+        string coloredText = name[..^1] + "<color=yellow>" + name[^1] + "</color>";
+        nameOptions.GetComponent<TextMeshProUGUI>().text = coloredText;
+    }
+    private void DisplayArrows(GameObject currentCustomization, bool setActive)
+    {
+        currentCustomization.transform.Find("Arrows").gameObject.SetActive(setActive);
     }
     #endregion
 }

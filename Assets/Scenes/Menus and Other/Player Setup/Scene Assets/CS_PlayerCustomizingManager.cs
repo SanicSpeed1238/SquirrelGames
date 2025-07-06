@@ -22,7 +22,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Start"))
+        /*if (Input.GetButtonDown("Start"))
         {
             TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 0);
         }
@@ -30,7 +30,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0);
-        }
+        }*/
     }
 
     public void OnPlayerJoined(PlayerInput joinedPlayer)
