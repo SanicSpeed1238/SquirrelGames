@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class CS_PlayerJoinData : MonoBehaviour
 {
@@ -8,6 +8,15 @@ public class CS_PlayerJoinData : MonoBehaviour
 
     [HideInInspector] public List<int> joinedPlayers = new();
     [HideInInspector] public List<InputDevice> inputDevices = new();
+
+    public struct PlayerCustomization
+    {
+        public string playerName;
+        public int hatOption;
+        public int bodyOption;
+    }
+    [HideInInspector] public PlayerCustomization[] 
+        playerCustomizations = new PlayerCustomization[4];
 
     private void Awake()
     {

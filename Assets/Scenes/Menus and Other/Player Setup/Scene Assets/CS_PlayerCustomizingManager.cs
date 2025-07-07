@@ -17,36 +17,48 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
     public TransitionSettings transitionAnimation;
 
     // Other Variables Needed
+    [HideInInspector] public bool[] playersReady = new bool[4];
+    [HideInInspector] public bool transitioningScene = false;
+    private float backButtonTimer = 0f;
     private readonly string mainMenuSceneName = "Main Menu";
     private readonly string minigameSelectSceneName = "Minigame Selection";
 
-    private void Update()
-    {
-        /*if (Input.GetButtonDown("Start"))
-        {
-            TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 0);
-        }
-
-        if (Input.GetButtonDown("Cancel"))
-        {
-            TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0);
-        }*/
-    }
-
     public void OnPlayerJoined(PlayerInput joinedPlayer)
     {
-
-
         int playerIndex = joinedPlayer.playerIndex;
 
         joinMessages[playerIndex].SetActive(false);
         customizationMenus[playerIndex].SetActive(true);
 
         joinedPlayer.gameObject.GetComponent<CS_PlayerCustomizer>().
-            SpawnNewPlayer(playerIndex + 1, playerPositions[playerIndex], customizationMenus[playerIndex]);
-
-        
+            SpawnNewPlayer(playerIndex + 1, playerPositions[playerIndex], customizationMenus[playerIndex], this);
 
         CS_PlayerJoinData.Instance.RegisterPlayer(joinedPlayer);
+    }
+
+    public void UpdatePlayerReady(int playerID, bool ready)
+    {
+        playersReady[playerID - 1] = ready;
+
+        for (int i = 0; i < CS_PlayerJoinData.Instance.joinedPlayers.Count; i++)
+        {
+            if (!playersReady[i]) return;
+        }
+        transitioningScene = true;
+        TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 3f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("Cancel") && !transitioningScene)
+        {
+            backButtonTimer += Time.deltaTime;
+            if (backButtonTimer >= 2f)
+            {
+                transitioningScene = true;
+                TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0f);
+            }
+        }
+        else backButtonTimer = 0f;
     }
 }

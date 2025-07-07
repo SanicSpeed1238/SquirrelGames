@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using System.Collections;
 
 public class CS_PlayerCustomizer : MonoBehaviour
 {
@@ -14,16 +15,18 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     private CurrentlyCustomizing currentlyCustomizing;
 
-    [Header("Important Components")]
-    public SkinnedMeshRenderer[] squirrelBodyParts;
-
     [Header("Customization Objects")]
     public GameObject squirrelHats;
     public GameObject squirrelBodies;
 
+    [Header("Squirrel Mesh Renders")]
+    public SkinnedMeshRenderer[] squirrelBodyParts;
+
     // Controller References
-    private int playerID;
-    private bool canMove = true;
+    private CS_PlayerCustomizingManager customizationManager;
+    private int playerID = 0;
+    private bool isFinished = false;
+    private bool canPress = false;
     private bool canMoveY = true;
     private bool canMoveX = true;
 
@@ -48,7 +51,13 @@ public class CS_PlayerCustomizer : MonoBehaviour
     private readonly int startingCharCode = 95;
     private readonly int maxNameLength = 6;
 
-    public void SpawnNewPlayer(int ID, Transform spawn, GameObject menu)
+    IEnumerator Start()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        canPress = true;
+    }
+
+    public void SpawnNewPlayer(int ID, Transform spawn, GameObject menu, CS_PlayerCustomizingManager manager)
     {
         playerID = ID;
         transform.position = spawn.position;
@@ -56,18 +65,28 @@ public class CS_PlayerCustomizer : MonoBehaviour
         currentHatOption = 0;
         currentBodyOption = 0;
         currentName = "PLAYER";
+        SetPlayerCustomizations();
 
         customizationMenu = menu;
         menuButtons = menu.transform.Find("Buttons").gameObject;
         hatOptions = menu.transform.Find("Hats").gameObject;
         bodyOptions = menu.transform.Find("Bodies").gameObject;
         nameOptions = menu.transform.Find("Name").gameObject;
-
-        currentlyCustomizing = CurrentlyCustomizing.Hat;
+  
         menuController = GetComponent<MultiplayerEventSystem>();
         menuController.playerRoot = menuButtons;
-        menuController.firstSelectedGameObject = menuButtons.transform.Find("Hat").gameObject;
+        menuController.firstSelectedGameObject = menuButtons.transform.Find("Name").gameObject;
         menuController.SetSelectedGameObject(menuController.firstSelectedGameObject);
+        currentlyCustomizing = CurrentlyCustomizing.Name;
+
+        customizationManager = manager;
+    }
+
+    private void SetPlayerCustomizations()
+    {
+        CS_PlayerJoinData.Instance.playerCustomizations[playerID - 1].playerName = currentName;
+        CS_PlayerJoinData.Instance.playerCustomizations[playerID - 1].hatOption = currentHatOption;
+        CS_PlayerJoinData.Instance.playerCustomizations[playerID - 1].bodyOption = currentBodyOption;
     }
 
     #region Input: Horizontal Navigation (Choosing Specific Customization Option)
@@ -75,7 +94,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input.x != 0 && canMoveX && canMove)
+        if (input.x != 0 && canMoveX && !isFinished)
         {
             switch (currentlyCustomizing)
             {
@@ -136,7 +155,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
 
-        if (input.y != 0 && canMoveY && canMove)
+        if (input.y != 0 && canMoveY && !isFinished)
         {
             switch (currentlyCustomizing)
             {
@@ -166,10 +185,10 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     #endregion
 
-    #region Input: Confirm Select
+    #region Input: Confirm Selection
     public void ConfirmSelection(InputAction.CallbackContext context)
     {
-        if (!context.started || !canMove) return;
+        if (!context.started || !canPress || isFinished) return;
 
         if (currentlyCustomizing == CurrentlyCustomizing.Name)
         {
@@ -196,7 +215,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
                     customizingName = false;
                     menuController.SetSelectedGameObject(menuButtons.transform.Find("Name").gameObject);
 
-                    if (letterIndex > 1) currentName = new string(newName).Replace("_", ""); ;
+                    if (letterIndex > 1) currentName = new string(newName).Replace("_", "");
                     UpdateNameComplete(currentName);
                 }
                 else // Continue Customizing Name
@@ -210,16 +229,45 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     #endregion
 
+    #region Input: Cancel Selection
+    public void CancelSelection(InputAction.CallbackContext context)
+    {
+        if (!context.started || customizationManager.transitioningScene) return;
+
+        if (!isFinished)
+        {
+            if (customizingName)
+            {
+                customizingName = false;
+                menuController.SetSelectedGameObject(menuButtons.transform.Find("Name").gameObject);
+                UpdateNameComplete(currentName);
+            }
+        }
+        else
+        {
+            isFinished = false;
+            customizationManager.UpdatePlayerReady(playerID, false);
+            GetComponentInChildren<Animator>().SetTrigger("Back");
+
+            hatOptions.SetActive(true);
+            bodyOptions.SetActive(true);
+            menuController.SetSelectedGameObject(menuController.firstSelectedGameObject);
+            currentlyCustomizing = CurrentlyCustomizing.Name;
+        }
+    }
+    #endregion
+
     #region Input: Complete Selection
     public void CompleteSelection(InputAction.CallbackContext context)
     {
-        if (!context.started || !canMove || customizingName) return;
+        if (!context.started || isFinished || customizingName) return;  
 
         hatOptions.SetActive(false);
         bodyOptions.SetActive(false);
         menuController.SetSelectedGameObject(null);
-        canMove = false;
 
+        isFinished = true;
+        customizationManager.UpdatePlayerReady(playerID, true);
         GetComponentInChildren<Animator>().SetTrigger("Complete");
     }
     #endregion
@@ -235,7 +283,8 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     private void UpdateNameComplete(string name)
     {
-        nameOptions.GetComponent<TextMeshProUGUI>().text = name;
+        DisplayArrows(nameOptions, false);
+        nameOptions.GetComponent<TextMeshProUGUI>().text = name;    
     }
     private void UpdateNameEntry(string name)
     {

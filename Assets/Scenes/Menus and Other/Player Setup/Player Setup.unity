@@ -8372,6 +8372,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   transitionAnimation: {fileID: 11400000, guid: d641980330b54c243a644222c797e582, type: 2}
+  playersReady: 00000000
+  transitioningScene: 0
 --- !u!4 &1900743714
 Transform:
   m_ObjectHideFlags: 0
