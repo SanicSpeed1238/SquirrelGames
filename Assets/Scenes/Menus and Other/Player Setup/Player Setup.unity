@@ -8368,9 +8368,9 @@ MonoBehaviour:
   - {fileID: 1879718396}
   customizationMenus:
   - {fileID: 1796603689}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 563122296}
+  - {fileID: 1226006494}
+  - {fileID: 652535968}
   transitionAnimation: {fileID: 11400000, guid: d641980330b54c243a644222c797e582, type: 2}
   playersReady: 00000000
   transitioningScene: 0

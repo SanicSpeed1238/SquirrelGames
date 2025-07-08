@@ -63,11 +63,18 @@ public class MG_GameResults : MonoBehaviour
         string playersWonText = "";
         int playersWonNum = 0;
 
-        for(int p = 0;  p < playersWon.Length; p++)
+        for (int p = 0;  p < playersWon.Length; p++)
         {
-            if(playersWon[p] == true)
+            if (playersWon[p] == true)
             {
-                playersWonText += "P" + (p + 1) + " ";
+                if (CS_PlayerJoinData.Instance != null)
+                {
+                    playersWonText += CS_PlayerJoinData.Instance.playerCustomizations[p].playerName + " ";
+                }
+                else
+                {
+                    playersWonText += "P" + (p+1) + " ";
+                }  
                 playersWonNum++;
             }
         }

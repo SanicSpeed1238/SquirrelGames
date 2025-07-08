@@ -33,8 +33,7 @@ public class Editor_UIAnimator : Editor
             script.moveIn_EaseType = (LeanTweenType)EditorGUILayout.EnumPopup("Ease Type", script.moveIn_EaseType);
         }
 
-        EditorGUILayout.Space();
-        EditorGUILayout.Space();
+        DrawHorizontalLine();
 
         // Draw default Idle Animation option
         EditorGUILayout.LabelField("Idle Animation", EditorStyles.boldLabel);
@@ -61,6 +60,17 @@ public class Editor_UIAnimator : Editor
         {
             EditorUtility.SetDirty(script);
         }
+    }
+
+    private void DrawHorizontalLine()
+    {
+        float thickness = 1f;
+        float padding = 30f;
+
+        Rect rect = EditorGUILayout.GetControlRect(false, thickness + padding * 2);
+        rect.height = thickness;
+        rect.y += padding;
+        EditorGUI.DrawRect(rect, Color.grey);
     }
 }
 #endif

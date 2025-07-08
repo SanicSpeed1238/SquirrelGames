@@ -2,6 +2,25 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using EasyTransition;
 
+public static class CustomizationList
+{
+    public static int numHatOptions = 2;
+    public static int numBodyOptions = 4;
+
+    public static string[] defaultPlayerNames = 
+    { 
+      "Alan",
+      "Jeremy",
+      "Jacob",
+      "Nayuki",
+      "Chase",
+      "Nutty",
+      "Sammy",
+      "Bonker",
+      "Ray"
+    };
+}
+
 public class CS_PlayerCustomizingManager : MonoBehaviour
 {
     [Header("Player Positions")]
@@ -44,6 +63,8 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
         {
             if (!playersReady[i]) return;
         }
+        CS_PlayerJoinData.Instance.SetComputerCustomization();
+
         transitioningScene = true;
         TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 3f);
     }

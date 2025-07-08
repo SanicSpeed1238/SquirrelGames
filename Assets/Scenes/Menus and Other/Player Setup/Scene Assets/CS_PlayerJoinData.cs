@@ -35,4 +35,16 @@ public class CS_PlayerJoinData : MonoBehaviour
         joinedPlayers.Add(joinedPlayer.playerIndex+1);
         inputDevices.Add(joinedPlayer.devices[0]);
     }
+
+    public void SetComputerCustomization()
+    {
+        for (int i = joinedPlayers.Count; i < 4; i++)
+        {
+            playerCustomizations[i].playerName = 
+                CustomizationList.defaultPlayerNames[Random.Range(0, CustomizationList.defaultPlayerNames.Length)];
+
+            playerCustomizations[i].hatOption = Random.Range(0, CustomizationList.numHatOptions);
+            playerCustomizations[i].bodyOption = Random.Range(0, CustomizationList.numBodyOptions);
+        }
+    }
 }

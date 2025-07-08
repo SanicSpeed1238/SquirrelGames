@@ -269,6 +269,8 @@ public class CS_PlayerCustomizer : MonoBehaviour
         isFinished = true;
         customizationManager.UpdatePlayerReady(playerID, true);
         GetComponentInChildren<Animator>().SetTrigger("Complete");
+
+        SetPlayerCustomizations();
     }
     #endregion
 

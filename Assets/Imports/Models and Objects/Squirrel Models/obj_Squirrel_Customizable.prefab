@@ -45,6 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9eccbf53085c864991a6d9051b45e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customizationReference: 0
+  computerPlayer: 0
+  playerID: 1
+  randomizeCustomizations: 0
+  hatOption: 0
+  bodyOption: 0
+  squirrelHats: {fileID: 8924396611356152000}
+  squirrelBodies: {fileID: 6827595830302027939}
   squirrelBodyParts:
   - {fileID: 7167960873856413019}
   - {fileID: 2696527556381502961}
@@ -59,9 +67,9 @@ MonoBehaviour:
   - {fileID: 1382976506931634615}
   - {fileID: 1198429652175916536}
   - {fileID: 1033806238703125552}
-  squirrelHats: {fileID: 8924396611356152000}
-  squirrelBodies: {fileID: 6827595830302027939}
-  randomizeCustomizations: 0
+  currentName: PLAYER
+  currentHat: 0
+  currentBody: 0
 --- !u!1001 &4408653372287583927
 PrefabInstance:
   m_ObjectHideFlags: 0
