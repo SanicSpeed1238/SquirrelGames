@@ -32,9 +32,10 @@ public class BossFight_PlayerController : Base_PlayerController
         Vector3 schmovement = new Vector3(_movementInput.x, 0, _movementInput.y).normalized * _moveSpeed * Time.deltaTime * 60f;
         //Getting Direction for Rotating Character
         Vector3 direction = new Vector3(_movementInput.x, 0, _movementInput.y).normalized;
-        if(direction.x == 0 && direction.y == 0)
+        if(direction.x == 0 && direction.z == 0)
         {
             _rb.transform.rotation = _previousDirection;
+            
         }
         else
         {
