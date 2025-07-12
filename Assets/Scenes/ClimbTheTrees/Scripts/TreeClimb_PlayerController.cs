@@ -31,7 +31,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
     public GameObject bounceEffect;
-    public Material invincibleMaterial;
 
     // Other Variables Needed
 
@@ -57,8 +56,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private LayerMask treeLayer;
 
     private Vector3 originalScale;
-    private Material originalMaterial;
-    private Renderer materialRender;
     private readonly float stunMultiplier = 0.15f;
 
     private bool isBlocked;
@@ -72,11 +69,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         state = TreeClimb_PlayerState.Climbing;
 
         playerRB = GetComponent<Rigidbody>();
-
         originalScale = squirrelModel.transform.localScale;
-        originalMaterial = squirrelModel.GetComponentInChildren<Renderer>().material;
-        materialRender = GetComponentInChildren<Renderer>();
-        GetComponentInChildren<Outline>().OutlineColor = playerColor;
 
         fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
         jumpTimer = jumpDelay;
@@ -112,6 +105,9 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
     }
 
+    #region Movement
+
+    #region Vertical Movement
     private void MoveVertically() // Moves up and down the tree the player is currently on
     {
         if (state == TreeClimb_PlayerState.Jumping) // If player is airborne, ignore vertical input
@@ -128,7 +124,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
             if(TreeClimb_GameManager.Instance.treesMoving)
                 moveToPosition += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
         }
-        
+        squirrelAnimator.SetFloat("Movement", verticalInput);
+
         // Check if the player is actually able to move in the desired direction
         moveToPosition.y = Mathf.Clamp(moveToPosition.y, VerifyVerticalMovement(Vector3.down), VerifyVerticalMovement(Vector3.up));
         playerRB.MovePosition(moveToPosition);
@@ -139,6 +136,38 @@ public class TreeClimb_PlayerController : Base_PlayerController
             EliminatePlayer();
         }
     }
+    private float VerifyVerticalMovement(Vector3 direction) // Checks if a player or the top of a tree is blocking their path
+    {
+        float verticalCastLength = 1f;
+        Vector3 boxSize = new(4f, 2f, 2f);
+        Vector3 castOrigin = playerRB.position;
+
+        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, playerLayer))
+        {
+            if (direction == Vector3.up)
+            {
+                Vector3 moveDown = playerRB.position;
+                moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
+                return moveDown.y;
+            }
+            else
+            {
+                return playerRB.position.y;
+            }
+        }
+        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, treeLayer))
+        {
+            isBlocked = true;
+            Vector3 moveDown = playerRB.position;
+            moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
+            return moveDown.y;
+        }
+
+        return direction == Vector3.up ? maxHeight : minHeight - 1;
+    }
+    #endregion
+
+    #region Horizontal Movement
     private void MoveHorizontally() // Makes the character jump left and right to another tree
     {
         switch (state)
@@ -190,36 +219,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
                 }
         }
     }
-
-    private float VerifyVerticalMovement(Vector3 direction) // Checks if a player or the top of a tree is blocking their path
-    {
-        float verticalCastLength = 1f;
-        Vector3 boxSize = new(4f, 2f, 2f);
-        Vector3 castOrigin = playerRB.position;
-
-        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, playerLayer))
-        {
-            if (direction == Vector3.up)
-            {
-                Vector3 moveDown = playerRB.position;
-                moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
-                return moveDown.y;
-            }
-            else
-            {
-                return playerRB.position.y;
-            }   
-        }
-        if (Physics.BoxCast(castOrigin, boxSize / 2, direction, out RaycastHit _, Quaternion.identity, verticalCastLength, treeLayer))
-        {
-            isBlocked = true;
-            Vector3 moveDown = playerRB.position;
-            moveDown += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
-            return moveDown.y;
-        }
-
-        return direction == Vector3.up ? maxHeight : minHeight - 1;
-    }
     private bool VerifyHorizontalMovement(Vector3 direction) // Checks if there is actually a tree to jump to
     {
         float horizontalCastLength = 4f;
@@ -232,7 +231,9 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
         else return true;
     }
+    #endregion
 
+    #region Airborne Movement
     private void SetJumpDirection() // Returns a target position based on the array of tree positions
     {
         if (jumpDirection == Vector3.right && currentTreeIndex < (treePositions.Length - 1))
@@ -291,6 +292,11 @@ public class TreeClimb_PlayerController : Base_PlayerController
             BounceSquirrel();
         }
     }
+    #endregion
+
+    #endregion
+
+    #region Squishing
 
     public void SquishSquirrel(float stunForce, float squishFactor)
     {       
@@ -300,7 +306,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         float totalStunDuration = stunDuration + (playerRB.position.y * stunMultiplier);
 
-        Vector3 squishScale = new(originalScale.x, squishFactor, originalScale.z);
+        Vector3 squishScale = new(originalScale.x, originalScale.y, squishFactor);
         squirrelModel.GetComponent<SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
 
         state = TreeClimb_PlayerState.Squished;
@@ -312,16 +318,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
     IEnumerator EnableInvincibility()
     {
         isInvincible = true;
-        Vector4 transparentColor = invincibleMaterial.color;
-        transparentColor.w = 0.2f;
-        invincibleMaterial.color = transparentColor;
-        materialRender.material = invincibleMaterial;
-
         yield return new WaitForSeconds(invincibilityDuration);
-
-        materialRender.material = originalMaterial;
         isInvincible = false;
     }
+
+    #endregion
+
+    #region Scoring
 
     public void AddToPlayerScore(int points)
     {
@@ -350,6 +353,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
     }
+
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {
@@ -403,30 +408,22 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
     }
 
+    #region Input
+
     // Methods for retrieving HUMAN input
     // ----------------------------------
     public void OnMove(InputAction.CallbackContext context) // Input for moving squirrel
     {
         verticalInput = context.ReadValue<Vector2>().y;
 
-        #region GetHorizontalInput
         if (MG_GameManager.Instance.gamePlaying)
         {
             float xInput = context.ReadValue<Vector2>().x;
-            if (xInput > .5)
-            {
-                horizontalInput = 1;
-            }
-            else if (xInput < -.5)
-            {
-                horizontalInput = -1;
-            }
-            else
-            {
-                horizontalInput = 0;
-            }       
+
+            if (xInput > .5) horizontalInput = 1;
+            else if (xInput < -.5) horizontalInput = -1;
+            else horizontalInput = 0;   
         }
-        #endregion
     }
 
     // Methods for calculating COMPUTER input
@@ -447,4 +444,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         return isBlocked;
     }
+
+    #endregion
 }
