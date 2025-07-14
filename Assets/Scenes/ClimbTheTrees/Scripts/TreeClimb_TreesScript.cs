@@ -4,21 +4,23 @@ public class TreeClimb_TreesScript : MonoBehaviour
 {
     public enum TreeGroup
     {
+        Undefined,
         Trunks,
         Treetops,
         Goal
     }
-    [Header("Tree Group Type")]
-    public TreeGroup treeGroupType = TreeGroup.Trunks;
+    public TreeGroup treeGroupType = TreeGroup.Undefined;
 
     // Other Variables Needed
     private Rigidbody treeRB;
     private float moveSpeed;
-    private readonly float treesHeight = 15f;
+    private bool newTreeSpawned;
+
+    // Height Variables
+    private readonly float treesHeight = 19.825f;
     private readonly float destroyHeight = -25f;
     private readonly float stopHeight = 4f;
     private readonly float finishHeight = -4f;
-    private bool newTreeSpawned;
 
     private void Start()
     {
@@ -35,10 +37,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
             treeRB.MovePosition(treeRB.position + movement);
         }
           
-        /*
         // Performs a function based on the TreeGroup type once this object has fallen below a certain height
-        */
-
         if (treeGroupType == TreeGroup.Trunks || treeGroupType == TreeGroup.Treetops)
         {
             if (treeRB.position.y <= 0.0f)

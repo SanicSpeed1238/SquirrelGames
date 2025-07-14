@@ -294,6 +294,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
     }
     #endregion
 
+    #region Finish Movement
+    private void MoveToFinishPosition()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, finishPosition.transform.position, moveSpeed * Time.deltaTime);
+    }
+    #endregion
+
     #endregion
 
     #region Squishing
@@ -310,8 +317,12 @@ public class TreeClimb_PlayerController : Base_PlayerController
         squirrelModel.GetComponent<SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
 
         state = TreeClimb_PlayerState.Squished;
+        squirrelAnimator.SetBool("Squished", true);
+
         yield return new WaitForSeconds(totalStunDuration);
+
         state = TreeClimb_PlayerState.Climbing;
+        squirrelAnimator.SetBool("Squished", false);
 
         StartCoroutine(EnableInvincibility());
     }
@@ -332,11 +343,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, points);
     }
 
-    private void MoveToFinishPosition()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, finishPosition.transform.position, moveSpeed * Time.deltaTime);
-    }
-
     public void EliminatePlayer() 
     {
         if (isFinished) return;
@@ -347,11 +353,25 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         playerRB.isKinematic = false;
         playerRB.velocity = new Vector3(0, -10, 0);
+        squirrelAnimator.SetTrigger("Fall");
+
         playerRB.AddForce(new Vector3(0, 0, -1), ForceMode.Impulse);
         playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
 
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
+    }
+
+    private void FinishPlayer(GameObject finishPositions)
+    {
+        isFinished = true;
+        AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
+        MG_GameManager.Instance.UpdatePlayerFinished(playerID);
+
+        string playerFinishPosition = "Player" + playerID;
+        finishPosition = finishPositions.transform.Find(playerFinishPosition).gameObject;
+
+        squirrelAnimator.SetTrigger("Finish");
     }
 
     #endregion
@@ -391,15 +411,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         if (other.CompareTag("Finish"))
         {
-            if (!isFinished)
-            {
-                isFinished = true;
-                AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
-                MG_GameManager.Instance.UpdatePlayerFinished(playerID);
-
-                string playerFinishPosition = "Player" + playerID;
-                finishPosition = other.gameObject.transform.Find("Finish Positions").gameObject.transform.Find(playerFinishPosition).gameObject;
-            }          
+            if (!isFinished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
         }
 
         if (other.CompareTag("Deadzone") && isBouncing)
