@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19bc31ce532d4048a809db2a2558007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squishFactor: 0.25
-  stunDuration: 1.25
+  stunDuration: 0.9
+  squishFactor: 0.2
   impactEffect: {fileID: 8780254985063514360, guid: f224eb75ed89c3742999567553056220, type: 3}
   forwardImpulse: 2
   rotationImpulse: {x: 0, y: 0, z: 1}

@@ -12,8 +12,6 @@ TagManager:
   - BirbShadow
   - Pickup
   - Hazard
-  - FxTemporaire
-  - Apple
   - Acorn
   - Wall
   layers:

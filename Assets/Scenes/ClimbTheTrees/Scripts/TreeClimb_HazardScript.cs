@@ -3,9 +3,9 @@ using UnityEngine;
 public class TreeClimb_HazardScript : MonoBehaviour
 {
     [Header("Squish Attributes")]
-    [Range(0.5f, 3.0f)]
+    [Range(0.1f, 1.0f)]
     public float stunDuration;
-    [Range(0.25f, 0.75f)]
+    [Range(0.1f, 0.9f)]
     public float squishFactor;   
     public GameObject impactEffect;
 
@@ -17,14 +17,12 @@ public class TreeClimb_HazardScript : MonoBehaviour
     // Other Variables Needed
     private int treeIndex;
 
-    public void SquishSquirrel(TreeClimb_PlayerController player)
+    public void HitHazard()
     {
-        player.SquishSquirrel(stunDuration, squishFactor);
-
         Instantiate(impactEffect, GetComponent<Rigidbody>().position, Quaternion.identity);
 
-        GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
         GetComponent<BoxCollider>().enabled = false;
+        GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);     
     }
 
     public void SetTreeIndex(int index)

@@ -82,7 +82,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2481319564023233592, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
       propertyPath: m_Name
-      value: obj_Squirrel_Customizable
+      value: obj_Squirrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804835984851454638, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
+      propertyPath: customizationReference
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

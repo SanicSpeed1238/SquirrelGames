@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerType: 1
-  spawnTimer: 0.25
+  spawnTimer: 0.2
   objectPrefabs:
   - {fileID: 789026868941501451, guid: 2c9fd88438173944383e3b4887e4f5a2, type: 3}
 --- !u!1001 &86050877
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 2750126855435771431, guid: 75015702ce759a141a998952582ee9b3, type: 3}
     - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: skipStartupScreen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3606165331394888908, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_VideoClip

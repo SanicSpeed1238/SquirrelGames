@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8395605439594773082, guid: e0751c930afeb1e4aa40d915304ce9c0, type: 3}
+      propertyPath: treeGroupType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9208444060853431472, guid: e0751c930afeb1e4aa40d915304ce9c0, type: 3}
       propertyPath: m_IsActive
       value: 0

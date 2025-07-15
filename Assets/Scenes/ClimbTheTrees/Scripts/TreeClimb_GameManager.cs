@@ -89,7 +89,7 @@ public class TreeClimb_GameManager : MonoBehaviour
         else return null;
     }
 
-    public int GainBonusPoints()
+    public int GetBonusPoints()
     {
         var bonusPoints = nextPlayerPlacement switch
         {

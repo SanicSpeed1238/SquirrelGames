@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_Name
-      value: playerCPU_Squirrel
+      value: playerCPU_Climber
       objectReference: {fileID: 0}
     - target: {fileID: 8445479415082808222, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -70,7 +70,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3649684620896065571, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 3207219419935341540}
   m_SourcePrefab: {fileID: 100100000, guid: d26e483fb1e40d44ea20d5b8fd957e91, type: 3}
 --- !u!1 &2750126855435771431 stripped
@@ -90,3 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea8c55462f02c8419e3f7eed983eda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeMoving: 1
+  maxTimeMoving: 3
+  maxDistanceBetweenBounds: 2.5
+  jumpFrequency: 25

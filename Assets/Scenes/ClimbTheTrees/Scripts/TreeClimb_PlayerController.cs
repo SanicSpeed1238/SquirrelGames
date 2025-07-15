@@ -22,10 +22,12 @@ public class TreeClimb_PlayerController : Base_PlayerController
     public float bounceSpeed;
     [Range(0.1f, 1f)]
     public float jumpDelay;
+    [Range(0.0f, 0.1f)]
+    public float stunHeightMultiplier;
     [Range(1f, 3f)]
     public float invincibilityDuration;
+    public float maxHeight = 10f;
     public float minHeight = 1f;
-    public float maxHeight = 14f;
 
     [Header("Important Components")]
     public GameObject squirrelModel;
@@ -39,6 +41,10 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     private bool isAlive;
     private bool isFinished;
+    private bool isBlocked;
+    private bool isBouncing;
+    private bool isInvincible;
+    private TreeClimb_PlayerState state;
 
     private Rigidbody playerRB;
     private Vector3 moveToPosition;
@@ -56,12 +62,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private LayerMask treeLayer;
 
     private Vector3 originalScale;
-    private readonly float stunMultiplier = 0.15f;
-
-    private bool isBlocked;
-    private bool isBouncing;
-    private bool isInvincible;
-    private TreeClimb_PlayerState state;
+    private readonly float freeFallStopHeight = -10f;
 
     private void Start()
     {
@@ -100,7 +101,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
         else
         {
-            if (playerRB.position.y < -10)
+            if (playerRB.position.y < freeFallStopHeight)
                 playerRB.isKinematic = true;
         }
     }
@@ -305,13 +306,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     #region Squishing
 
-    public void SquishSquirrel(float stunForce, float squishFactor)
+    private void SquishSquirrel(float stunDuration, float squishFactor)
     {       
-        StartCoroutine(SquishCoroutine(stunForce, squishFactor));
+        StartCoroutine(SquishCoroutine(stunDuration, squishFactor));
     }
     IEnumerator SquishCoroutine(float stunDuration, float squishFactor)
     {
-        float totalStunDuration = stunDuration + (playerRB.position.y * stunMultiplier);
+        float totalStunDuration = stunDuration + (playerRB.position.y * stunHeightMultiplier);
 
         Vector3 squishScale = new(originalScale.x, originalScale.y, squishFactor);
         squirrelModel.GetComponent<SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
@@ -356,7 +357,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         squirrelAnimator.SetTrigger("Fall");
 
         playerRB.AddForce(new Vector3(0, 0, -1), ForceMode.Impulse);
-        playerRB.AddTorque(new Vector3(-10, 0, 0), ForceMode.Impulse);
+        playerRB.AddTorque(new Vector3(-20, 0, 0), ForceMode.Impulse);
 
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
@@ -365,7 +366,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private void FinishPlayer(GameObject finishPositions)
     {
         isFinished = true;
-        AddToPlayerScore(TreeClimb_GameManager.Instance.GainBonusPoints());
+        AddToPlayerScore(TreeClimb_GameManager.Instance.GetBonusPoints());
         MG_GameManager.Instance.UpdatePlayerFinished(playerID);
 
         string playerFinishPosition = "Player" + playerID;
@@ -382,7 +383,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             if (state != TreeClimb_PlayerState.Squished && (isAlive && !isFinished))
             {
-                acorn.CollectAcorn(this);
+                AddToPlayerScore(acorn.points);
+                acorn.CollectAcorn();
             }       
         }
 
@@ -390,7 +392,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isFinished && !isInvincible))
             {
-                hazard.SquishSquirrel(this);
+                SquishSquirrel(hazard.stunDuration,hazard.squishFactor);
+                hazard.HitHazard();
             }             
             else if (state == TreeClimb_PlayerState.Jumping)
             {

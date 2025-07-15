@@ -63,11 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 4
-  fallAcceleration: 6
+  fallAcceleration: 20
   rotateX: 0
   rotateY: 0
   rotateZ: 1
-  rotationSpeed: 360
+  rotationSpeed: 400
   objectMesh: {fileID: 9174455897942323736}
 --- !u!65 &1287998188205515364
 BoxCollider:

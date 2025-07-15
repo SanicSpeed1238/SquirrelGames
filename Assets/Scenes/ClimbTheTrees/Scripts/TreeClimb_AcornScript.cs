@@ -6,12 +6,9 @@ public class TreeClimb_AcornScript : MonoBehaviour
     public int points;
     public GameObject collectEffect;
 
-    public void CollectAcorn(TreeClimb_PlayerController player)
+    public void CollectAcorn()
     {
         Instantiate(collectEffect, transform.position, Quaternion.identity);
-
-        player.AddToPlayerScore(points);
-
         Destroy(gameObject);
     }
 }

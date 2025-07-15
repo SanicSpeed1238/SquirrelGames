@@ -20,7 +20,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
     private readonly float treesHeight = 19.825f;
     private readonly float destroyHeight = -25f;
     private readonly float stopHeight = 4f;
-    private readonly float finishHeight = -4f;
+    private readonly float finishHeight = -2.5f;
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
     private void FixedUpdate()
     {
         // Moves the set of trees down
-        if (MG_GameManager.Instance.gamePlaying || treeGroupType == TreeGroup.Goal)
+        if ((MG_GameManager.Instance.gamePlaying && TreeClimb_GameManager.Instance.treesMoving) || treeGroupType == TreeGroup.Goal)
         {
             Vector3 movement = moveSpeed * Time.fixedDeltaTime * Vector3.down;
             treeRB.MovePosition(treeRB.position + movement);

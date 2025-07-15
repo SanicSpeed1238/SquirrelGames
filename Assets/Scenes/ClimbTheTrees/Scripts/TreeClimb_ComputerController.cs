@@ -9,13 +9,15 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
     // Variables for Vertical Left Stick input
     private float currentVerticalInput;
     private float currentVerticalMoveTimer;
-    private readonly float minTimeMoving = 1f;
-    private readonly float maxTimeMoving = 3f;
-    private readonly float maxDistanceBetweenBounds = 2f;
-
+    
     // Variables for Horizontal Left Stick input
-    private float currentJumpTimer;
-    private readonly int jumpFrequency = 25;
+    private float currentJumpTimer;   
+
+    [Header("Computer Behavior")]
+    public float minTimeMoving;
+    public float maxTimeMoving;
+    public float maxDistanceBetweenBounds;
+    public int jumpFrequency;
 
     private void Awake()
     {
