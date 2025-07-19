@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.2964959}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.24867763}
 --- !u!114 &-6787184825510903011
 MonoBehaviour:
   m_ObjectHideFlags: 3

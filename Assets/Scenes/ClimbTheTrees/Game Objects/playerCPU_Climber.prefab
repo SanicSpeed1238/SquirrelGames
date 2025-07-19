@@ -92,5 +92,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minTimeMoving: 1
   maxTimeMoving: 3
-  maxDistanceBetweenBounds: 2.5
-  jumpFrequency: 25
+  maxDistanceBetweenBounds: 2
+  jumpFrequency: 20

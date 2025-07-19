@@ -115,7 +115,7 @@ public class MG_GameManager : MonoBehaviour
             {
                 playerScoreUI.GetComponentInChildren<Animator>().SetTrigger("Add");
             }
-            else
+            else if (addedScore < 0)
             {
                 playerScoreUI.GetComponentInChildren<Animator>().SetTrigger("Subtract");
             }

@@ -126,6 +126,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
                 moveToPosition += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
         }
         squirrelAnimator.SetFloat("Movement", verticalInput);
+        squirrelAnimator.SetFloat("Direction", 0);
 
         // Check if the player is actually able to move in the desired direction
         moveToPosition.y = Mathf.Clamp(moveToPosition.y, VerifyVerticalMovement(Vector3.down), VerifyVerticalMovement(Vector3.up));
@@ -190,8 +191,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
                     {
                         if (VerifyHorizontalMovement(jumpDirection))
                         {
-                            SetJumpDirection();
-                            state = TreeClimb_PlayerState.Jumping;
+                            SetJumpDirection();                       
                         }
                     }
                     break;
@@ -215,6 +215,9 @@ public class TreeClimb_PlayerController : Base_PlayerController
                         state = TreeClimb_PlayerState.Climbing;
                         jumpDirection = Vector3.zero;
                         jumpTimer = jumpDelay;
+
+                        squirrelAnimator.SetBool("Jumping", false);
+                        squirrelAnimator.SetBool("Bouncing", false);
                     }
                     break;
                 }
@@ -237,22 +240,28 @@ public class TreeClimb_PlayerController : Base_PlayerController
     #region Airborne Movement
     private void SetJumpDirection() // Returns a target position based on the array of tree positions
     {
+        state = TreeClimb_PlayerState.Jumping;
+        squirrelAnimator.SetBool("Jumping", true);
+
         if (jumpDirection == Vector3.right && currentTreeIndex < (treePositions.Length - 1))
         {
             previousTreeIndex = currentTreeIndex;
             currentTreeIndex++;
             moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, playerRB.position.y, playerRB.position.z);
+            squirrelAnimator.SetFloat("Direction", 1);
         }
         else if (jumpDirection == Vector3.left && currentTreeIndex > 0)
         {
             previousTreeIndex = currentTreeIndex;
             currentTreeIndex--;
             moveToPosition = new Vector3(treePositions[currentTreeIndex].position.x, playerRB.position.y, playerRB.position.z);
+            squirrelAnimator.SetFloat("Direction", -1);
         }
     }
     private void BounceSquirrel() // Reverse the jump direction if colliding with another player or hazard
     {
         isBouncing = true;
+        squirrelAnimator.SetBool("Bouncing", true);
 
         Vector3 impactPosition = playerRB.position;
         jumpDirection = -jumpDirection;
@@ -260,11 +269,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             impactPosition.x += 0.1f;
             Instantiate(bounceEffect, impactPosition, Quaternion.identity);
+            squirrelAnimator.SetFloat("Direction", 1);
         }
         else
         {
             impactPosition.x -= 0.1f;
             Instantiate(bounceEffect, impactPosition, Quaternion.identity);
+            squirrelAnimator.SetFloat("Direction", -1);
         }
 
         SetJumpDirection();
