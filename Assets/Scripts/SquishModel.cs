@@ -22,7 +22,7 @@ public class SquishModel : MonoBehaviour
 
         yield return new WaitForSeconds(squishDuration);
 
-        LeanTween.scale(this.gameObject, originalScale, .5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(this.gameObject, originalScale, 1f).setEase(LeanTweenType.easeOutElastic);
     }
 
     public void SquishPermanently(Vector3 squishScale)

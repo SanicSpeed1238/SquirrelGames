@@ -3,9 +3,9 @@ using UnityEngine;
 public class TreeClimb_ObjectPhysics : MonoBehaviour
 {
     [Header("Fall Speed Values")]
-    [Range(1.0f, 5.0f)]
+    [Range(1.0f, 10.0f)]
     public float baseSpeed;
-    [Range(5.0f, 25.0f)]
+    [Range(5.0f, 50.0f)]
     public float fallAcceleration;
 
     [Header("Rotation Values")]

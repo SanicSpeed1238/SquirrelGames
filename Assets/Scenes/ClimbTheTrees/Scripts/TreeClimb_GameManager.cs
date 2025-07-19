@@ -17,11 +17,11 @@ public class TreeClimb_GameManager : MonoBehaviour
     [HideInInspector] public bool finalTimerStarted;
     [HideInInspector] public int treeLanesRemoved;
 
-    private int nextPlayerPlacement;
-    private float finalTimer;
-
     private int currentSequenceIndex;
     private readonly int[] treeStartingIndex = { 1, 2, 4, 5 };
+
+    private int nextPlayerPlacement;
+    private float finalTimer;
 
     private void Awake()
     {
