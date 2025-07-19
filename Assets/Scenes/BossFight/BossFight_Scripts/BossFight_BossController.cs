@@ -9,7 +9,22 @@ public class BossFight_BossController : MonoBehaviour
     public float bSpeed { get; private set; }
 
     //private Bullet Spawner
+    private Coroutine __currRoutine;
 
+    private IEnumerator NormAttackRoutine()
+    {
+
+    }
+
+    private IEnumerator StunRoutine()
+    {
+
+    }
+
+    private IEnumerator AngyAttackRoutine()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
