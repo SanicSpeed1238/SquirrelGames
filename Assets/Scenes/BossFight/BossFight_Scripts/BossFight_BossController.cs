@@ -8,21 +8,36 @@ public class BossFight_BossController : MonoBehaviour
     public int bHealth { get; private set; }
     public float bSpeed { get; private set; }
 
-    //private Bullet Spawner
+    public GameObject[] _bulletSpawner;
     private Coroutine __currRoutine;
 
-    private IEnumerator NormAttackRoutine()
+    private IEnumerator BulletAttack()
     {
+        //Check to see if enraged
+        //Will Keep moving
+        //Spawn Bullets at spawner locations
+        //Rotate
+        yield break;
+    }
+
+    private IEnumerator LaserAttack()
+    {
+        //Check to see if enraged
+        //Freeze Position
+        //Activate Laser Hitbox at spawner locations
+        //Rotate
         yield break;
     }
 
     private IEnumerator StunRoutine()
     {
+        //When all buttons are hit, stun for a duration
         yield break;
     }
 
-    private IEnumerator AngyAttackRoutine()
+    private IEnumerator RushAttack()
     {
+        //
         yield break;
     }
 
