@@ -13,17 +13,17 @@ public class BossFight_BossController : MonoBehaviour
 
     private IEnumerator NormAttackRoutine()
     {
-
+        yield break;
     }
 
     private IEnumerator StunRoutine()
     {
-
+        yield break;
     }
 
     private IEnumerator AngyAttackRoutine()
     {
-
+        yield break;
     }
 
     // Start is called before the first frame update
