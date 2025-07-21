@@ -17,10 +17,11 @@ public class TreeClimb_TreesScript : MonoBehaviour
     private bool newTreeSpawned;
 
     // Height Variables
-    private readonly float treesHeight = 19.825f;
-    private readonly float destroyHeight = -25f;
-    private readonly float stopHeight = 4f;
-    private readonly float finishHeight = -2.5f;
+    [Header("Height Variables")]
+    [SerializeField] private float treesHeight;
+    [SerializeField] private float destroyHeight;
+    [SerializeField] private float stopHazardsHeight;
+    [SerializeField] private float finishHeight;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class TreeClimb_TreesScript : MonoBehaviour
         }
         else if (treeGroupType == TreeGroup.Goal)
         {
-            if (treeRB.position.y <= stopHeight)
+            if (treeRB.position.y <= stopHazardsHeight)
             {
                 if (TreeClimb_GameManager.Instance.objectsSpawning)
                 {

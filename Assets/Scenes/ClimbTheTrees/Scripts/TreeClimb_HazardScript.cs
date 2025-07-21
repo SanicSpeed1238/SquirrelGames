@@ -34,4 +34,13 @@ public class TreeClimb_HazardScript : MonoBehaviour
     {
         return treeIndex;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (TryGetComponent<TreeClimb_AcornScript>(out TreeClimb_AcornScript acorn))
+        {
+            acorn.DestroyAcorn();
+            Debug.Log("hit acorn");
+        }
+    }
 }

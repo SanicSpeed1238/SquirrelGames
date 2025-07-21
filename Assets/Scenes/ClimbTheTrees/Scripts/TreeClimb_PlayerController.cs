@@ -118,6 +118,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         if (state == TreeClimb_PlayerState.Climbing && verticalInput != 0) // Move the player based on input. Otherwise, move them down with tree
         {
             moveSpeed = (verticalInput > 0 ? moveUpSpeed : moveDownSpeed);
+            if (-0.5f < verticalInput && verticalInput < 0) verticalInput = Mathf.Clamp(verticalInput, -1f, -0.5f);
             moveToPosition += moveSpeed * Time.fixedDeltaTime * new Vector3(0, verticalInput, 0);
         }
         else

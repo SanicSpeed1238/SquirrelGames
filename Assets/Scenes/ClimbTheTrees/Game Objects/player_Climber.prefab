@@ -53,9 +53,9 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   startLocation: {fileID: 0}
   moveUpSpeed: 20
-  moveDownSpeed: 10
-  jumpSpeed: 20
-  bounceSpeed: 18
+  moveDownSpeed: 15
+  jumpSpeed: 18
+  bounceSpeed: 12
   jumpDelay: 0.25
   stunHeightMultiplier: 0.07
   invincibilityDuration: 1
@@ -145,7 +145,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 3, z: 2}
+  m_Size: {x: 2, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &323500465752699716
 Rigidbody:
