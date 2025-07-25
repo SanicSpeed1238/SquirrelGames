@@ -9,15 +9,19 @@ public class BossFight_BossController : MonoBehaviour
     public float bSpeed { get; private set; }
 
     public GameObject[] _bulletSpawner;
+
+    private Rigidbody _rb;
+    private Collider _hb;
     private Coroutine __currRoutine;
 
     private IEnumerator BulletAttack()
     {
         //Check to see if enraged
         //Will Keep moving
+        yield break;
         //Spawn Bullets at spawner locations
         //Rotate
-        yield break;
+        
     }
 
     private IEnumerator LaserAttack()
@@ -44,12 +48,33 @@ public class BossFight_BossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody>();
+        _hb = GetComponent<Collider>();
+        __currRoutine = StartCoroutine(BulletAttack());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Pause when game is paused and then start the coroutine
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Wall":
+                Debug.Log("Bounce on it");
+                break;
+            case "Player":
+                Debug.Log("KILL");
+                break;
+        }
+
+    }
+
+    private void MoveBoss()
+    {
+        Vector3 Movement = new Vector3(0, 0, 0).normalized * bSpeed * Time.deltaTime * 60f;
     }
 }
