@@ -33,6 +33,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
     public GameObject bounceEffect;
+    public ParticleSystem invincibleEffect;
 
     // Other Variables Needed
 
@@ -42,7 +43,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private bool isAlive;
     private bool isFinished;
     private bool isBlocked;
-    private bool isBouncing;
+    private bool isStumbling;
     private bool isInvincible;
     private TreeClimb_PlayerState state;
 
@@ -101,8 +102,10 @@ public class TreeClimb_PlayerController : Base_PlayerController
         }
         else
         {
-            if (playerRB.position.y < freeFallStopHeight)
+            if (playerRB.position.y < freeFallStopHeight && !playerRB.isKinematic)
+            {
                 playerRB.isKinematic = true;
+            }       
         }
     }
 
@@ -203,14 +206,14 @@ public class TreeClimb_PlayerController : Base_PlayerController
                     // If the player is in the jumping state, automatically move in the assigned direction
                     if (playerRB.position != moveToPosition)
                     {
-                        float step = (!isBouncing ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
+                        float step = (!isStumbling ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
                         Vector3 newPosition = Vector3.MoveTowards(playerRB.position, moveToPosition, step);
                         playerRB.MovePosition(newPosition);
                     }
                     else
                     {
                         previousTreeIndex = currentTreeIndex;
-                        isBouncing = false;
+                        isStumbling = false;
                         isBlocked = false;                        
                         
                         state = TreeClimb_PlayerState.Climbing;
@@ -259,9 +262,9 @@ public class TreeClimb_PlayerController : Base_PlayerController
             squirrelAnimator.SetFloat("Direction", -1);
         }
     }
-    private void BounceSquirrel() // Reverse the jump direction if colliding with another player or hazard
+    private void StumbleSquirrel() // Reverse the jump direction if colliding with another player or hazard
     {
-        isBouncing = true;
+        isStumbling = true;
         squirrelAnimator.SetBool("Bouncing", true);
 
         Vector3 impactPosition = playerRB.position;
@@ -289,20 +292,20 @@ public class TreeClimb_PlayerController : Base_PlayerController
             {
                 if (jumpDirection != Vector3.left)
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }
             else
             {
                 if (jumpDirection != Vector3.right)
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }
         }
         else
         {
-            BounceSquirrel();
+            StumbleSquirrel();
         }
     }
     #endregion
@@ -342,8 +345,12 @@ public class TreeClimb_PlayerController : Base_PlayerController
     IEnumerator EnableInvincibility()
     {
         isInvincible = true;
+        invincibleEffect.Play();
+
         yield return new WaitForSeconds(invincibilityDuration);
+
         isInvincible = false;
+        invincibleEffect.Stop();
     }
 
     #endregion
@@ -363,13 +370,12 @@ public class TreeClimb_PlayerController : Base_PlayerController
         isAlive = false;
         verticalInput = 0;
         horizontalInput = 0;
+        squirrelAnimator.SetTrigger("Fall");
 
         playerRB.isKinematic = false;
         playerRB.velocity = new Vector3(0, -10, 0);
-        squirrelAnimator.SetTrigger("Fall");
-
-        playerRB.AddForce(new Vector3(0, 0, -1), ForceMode.Impulse);
-        playerRB.AddTorque(new Vector3(-20, 0, 0), ForceMode.Impulse);
+        playerRB.AddForce(new Vector3(0, 0, -2), ForceMode.Impulse);
+        playerRB.AddTorque(new Vector3(-40, 0, 0), ForceMode.Impulse);
 
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
@@ -411,7 +417,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             {
                 if (previousTreeIndex != hazard.GetTreeIndex())
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }              
         }
@@ -429,7 +435,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             if (!isFinished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
         }
 
-        if (other.CompareTag("Deadzone") && isBouncing)
+        if (other.CompareTag("Deadzone") && isStumbling)
         {
             if (isAlive) EliminatePlayer();
         }
