@@ -50,9 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunDuration: 0.9
   squishFactor: 0.2
-  impactEffect: {fileID: 3904828898367977972, guid: cdb243b88b01388449f79df3e03fc2e8, type: 3}
-  forwardImpulse: 2
-  rotationImpulse: {x: 0, y: 0, z: 1}
+  impactEffect: {fileID: 8666343496336955036, guid: a883fecfca8ae0c45b620404182a693b, type: 3}
+  bounceDirection: {x: 0, y: 0, z: 0}
+  rotationImpulse: {x: 0, y: 0, z: 0.5}
 --- !u!114 &5486004310033531550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 1
   fallAcceleration: 25
+  freeFallMultiplier: 1
   rotateX: 0
   rotateY: 0
   rotateZ: 0
@@ -91,8 +92,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 3, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &4102252077098518792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &37132882939706834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,7 +130,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 7222346942708248286}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
       propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8368ca65f61d1fe4d8e4fbb116023551, type: 3}

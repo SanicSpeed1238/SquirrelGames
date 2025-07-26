@@ -3622,7 +3622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMusic: {fileID: 8300000, guid: a04cd792750789247b1629f19d25a261, type: 3}
-  setupMusic: {fileID: 8300000, guid: 329cf2a16b49cb1419f6878d953fc70d, type: 3}
+  startupMusic: {fileID: 8300000, guid: 2f19a186725e0874788f6c97f599c56f, type: 3}
   finishSound: {fileID: 2901840098146731221}
 --- !u!82 &2378171536669561400
 AudioSource:
@@ -5576,7 +5576,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -6186,7 +6186,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a44faf927a0bb7d43ae479589aa163de, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0ca5f0f36d625e34594d27745ea776b8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

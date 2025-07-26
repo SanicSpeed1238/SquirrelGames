@@ -50,9 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunDuration: 0.3
   squishFactor: 0.5
-  impactEffect: {fileID: 3904828898367977972, guid: cdb243b88b01388449f79df3e03fc2e8, type: 3}
-  forwardImpulse: 10
-  rotationImpulse: {x: 60, y: 0, z: 0}
+  impactEffect: {fileID: 2390234630758380280, guid: 849abcc993627a448aa14991d2ae8dc1, type: 3}
+  bounceDirection: {x: 3, y: 5, z: 3}
+  rotationImpulse: {x: 60, y: 0, z: 60}
 --- !u!114 &8310172519115476912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   fallAcceleration: 25
+  freeFallMultiplier: 20
   rotateX: 1
   rotateY: 1
   rotateZ: 1
@@ -101,7 +102,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6879441114776934128}
   serializedVersion: 4
-  m_Mass: 0.6
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -119,7 +120,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &8233999809785253364
 PrefabInstance:
   m_ObjectHideFlags: 0

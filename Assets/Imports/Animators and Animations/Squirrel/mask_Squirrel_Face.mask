@@ -8,4 +8,196 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: mask_Squirrel_Face
   m_Mask: 00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Root
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/EarLower.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/EarLower.L/EarUpper.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/EarLower.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/EarLower.R/EarUpper.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Eye.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Eye.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Eyebrow.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Eyebrow.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Hat
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Jaw
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/LipBottom
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/LipTop
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/LowerEyelid.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/LowerEyelid.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/Smile/Frown
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/UpperEyelid.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/Neck/Head/UpperEyelid.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.002.L/Finger.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.004.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.004.L/Finger.005.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Finger.L/Finger.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Thumb.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.L/UpperArm.L/LowerArm.L/Hand.L/Thumb.L/Thumb.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.002.R/Finger.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.004.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.004.R/Finger.005.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Finger.R/Finger.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Thumb.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Spine/shoulder.R/UpperArm.R/LowerArm.R/Hand.R/Thumb.R/Thumb.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Tail
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Tail/Tail.001
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Tail/Tail.001/Tail.002
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/Tail/Tail.001/Tail.002/Tail.003
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Ball.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.002.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.002.L/Toe.003.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.004.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.004.L/Toe.005.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.L/LowerLeg.L/Foot.L/Toe.L/Toe.001.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Ball.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.002.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.002.R/Toe.003.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.004.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.004.R/Toe.005.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Hips/UpperLeg.R/LowerLeg.R/Foot.R/Toe.R/Toe.001.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/IK.Arm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/IK.Arm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Target.Arm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Ctrl.Torso/Target.Arm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.L/ik.leg.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.L/Target.Leg.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.R/ik.leg.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Heel.R/Target.Leg.R
+    m_Weight: 0
+  - m_Path: body
+    m_Weight: 0
+  - m_Path: eye_L
+    m_Weight: 0
+  - m_Path: eye_R
+    m_Weight: 0
+  - m_Path: eyeBrow_L
+    m_Weight: 0
+  - m_Path: eyeBrow_R
+    m_Weight: 0
+  - m_Path: eyeLids_bottom_L
+    m_Weight: 0
+  - m_Path: eyeLids_bottom_R
+    m_Weight: 0
+  - m_Path: eyeLids_L
+    m_Weight: 0
+  - m_Path: eyeLids_R
+    m_Weight: 0
+  - m_Path: hair.001
+    m_Weight: 0
+  - m_Path: head
+    m_Weight: 0
+  - m_Path: teethLower
+    m_Weight: 0
+  - m_Path: teethUpper
+    m_Weight: 0

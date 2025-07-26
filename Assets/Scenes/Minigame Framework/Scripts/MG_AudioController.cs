@@ -5,7 +5,7 @@ public class MG_AudioController : MonoBehaviour
 {
     [Header("Music List")]
     [SerializeField] private AudioClip gameMusic;
-    [SerializeField] private AudioClip setupMusic;
+    [SerializeField] private AudioClip startupMusic;
 
     [Header("SFX List")]
     [SerializeField] private AudioSource finishSound;
@@ -27,7 +27,7 @@ public class MG_AudioController : MonoBehaviour
         musicPlayer.Play();
         musicPlayer.Stop();
 
-        musicPlayer.clip = setupMusic;
+        musicPlayer.clip = startupMusic;
         musicPlayer.Play();
         musicPlayer.Stop();
     }
@@ -39,7 +39,7 @@ public class MG_AudioController : MonoBehaviour
     }
     public void PlaySetupMusic()
     {
-        musicPlayer.clip = setupMusic;
+        musicPlayer.clip = startupMusic;
         musicPlayer.Play();
     }
 

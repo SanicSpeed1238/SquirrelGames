@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: mdl_Squirrel_Full
       objectReference: {fileID: 0}
+    - target: {fileID: 4622859989452258414, guid: 5ecde57dc5bcdd649837f4142c93f30b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550891785508436050, guid: 5ecde57dc5bcdd649837f4142c93f30b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787754513823359465, guid: 5ecde57dc5bcdd649837f4142c93f30b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200922487156160020, guid: 5ecde57dc5bcdd649837f4142c93f30b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037671384731099258, guid: 5ecde57dc5bcdd649837f4142c93f30b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

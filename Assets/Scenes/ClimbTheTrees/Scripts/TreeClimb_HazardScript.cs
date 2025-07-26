@@ -10,8 +10,7 @@ public class TreeClimb_HazardScript : MonoBehaviour
     public GameObject impactEffect;
 
     [Header("Freefall Attributes")]
-    [Range(1f, 50f)]
-    public float forwardImpulse;
+    public Vector3 bounceDirection;
     public Vector3 rotationImpulse;
 
     // Other Variables Needed
@@ -22,7 +21,7 @@ public class TreeClimb_HazardScript : MonoBehaviour
         Instantiate(impactEffect, GetComponent<Rigidbody>().position, Quaternion.identity);
 
         GetComponent<BoxCollider>().enabled = false;
-        GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(forwardImpulse, rotationImpulse);
+        GetComponent<TreeClimb_ObjectPhysics>().EnableFreefall(bounceDirection, rotationImpulse);
     }
 
     // Following methods are used for collision purposes
@@ -35,12 +34,11 @@ public class TreeClimb_HazardScript : MonoBehaviour
         return treeIndex;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (TryGetComponent<TreeClimb_AcornScript>(out TreeClimb_AcornScript acorn))
+        if (other.TryGetComponent<TreeClimb_AcornScript>(out TreeClimb_AcornScript acorn))
         {
             acorn.DestroyAcorn();
-            Debug.Log("hit acorn");
         }
     }
 }
