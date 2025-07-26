@@ -16,9 +16,19 @@ public class BossFight_BossController : MonoBehaviour
 
     private IEnumerator BulletAttack()
     {
+        Vector3 _randDirection;
         //Check to see if enraged
         //Will Keep moving
-        yield break;
+        _randDirection = new Vector3(Random.Range(0,1), Random.Range(0, 1), Random.Range(0, 1));
+        if (_randDirection != new Vector3(0,0,0))
+        {
+            MoveBoss(_randDirection);
+        }
+        else
+        {
+            yield break;
+        }
+        
         //Spawn Bullets at spawner locations
         //Rotate
         
@@ -73,8 +83,9 @@ public class BossFight_BossController : MonoBehaviour
 
     }
 
-    private void MoveBoss()
+    private void MoveBoss(Vector3 randDir)
     {
-        Vector3 Movement = new Vector3(0, 0, 0).normalized * bSpeed * Time.deltaTime * 60f;
+        Vector3 Movement = new Vector3(randDir.x, 0, randDir.z).normalized * bSpeed * Time.deltaTime * 60f;
+        _rb.MovePosition(_rb.position + Movement);
     }
 }
