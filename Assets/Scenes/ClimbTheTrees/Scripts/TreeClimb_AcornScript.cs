@@ -7,9 +7,9 @@ public class TreeClimb_AcornScript : MonoBehaviour
     public GameObject collectEffect;
     public GameObject destroyEffect;
 
-    public void CollectAcorn()
+    public void CollectAcorn(Vector3 playerPosition)
     {
-        Instantiate(collectEffect, transform.position, Quaternion.identity);
+        Instantiate(collectEffect, playerPosition, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -41,6 +41,13 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void SetVerticalInput()
     {
+        if (TreeClimb_GameManager.Instance.finalTimerStarted)
+        {
+            currentVerticalInput = 1.0f;
+            controller.SetVerticalInput(currentVerticalInput);
+            return;
+        }
+
         // Move vertically in one direction for a period of time, then change directions
         if (currentVerticalMoveTimer < 0)
         {
@@ -89,6 +96,12 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void SetHorizontalInput()
     {
+        if (TreeClimb_GameManager.Instance.finalTimerStarted)
+        {
+            controller.SetHorizontalInput(0);
+            return;
+        }
+
         // Jump at random time intervals and randomly choose left/right
         if (currentJumpTimer < 0)
         {

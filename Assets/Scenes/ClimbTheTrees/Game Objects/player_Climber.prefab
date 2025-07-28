@@ -55,10 +55,10 @@ MonoBehaviour:
   startLocation: {fileID: 0}
   moveUpSpeed: 20
   moveDownSpeed: 15
-  jumpSpeed: 20
+  jumpSpeed: 22
   bounceSpeed: 16
-  jumpDelay: 0.25
-  stunHeightMultiplier: 0.07
+  jumpCooldown: 0.25
+  stunHeightMultiplier: 0.09
   invincibilityDuration: 1
   maxHeight: 18
   minHeight: 1
@@ -314,15 +314,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 843119844415885769, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 843119844415885769, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843119844415885769, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 843119844415885769, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 843119844415885769, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1255459284769778675, guid: 51dd48c236dd97147af2bdb3d9929a69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
