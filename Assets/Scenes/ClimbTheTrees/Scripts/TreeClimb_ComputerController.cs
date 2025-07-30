@@ -7,11 +7,11 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
     private TreeClimb_PlayerController controller;
 
     // Variables for Vertical Left Stick input
-    private float currentVerticalInput;
-    private float currentVerticalMoveTimer;
+    private float verticalInput;
+    private float verticalMoveTimer;
     
     // Variables for Horizontal Left Stick input
-    private float currentJumpTimer;   
+    private float jumpTimer;   
 
     [Header("Computer Behavior")]
     public float minTimeMoving;
@@ -26,8 +26,8 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void Start()
     {
-        currentVerticalInput = 1;
-        currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
+        verticalInput = 1;
+        verticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
     }
 
     private void Update()
@@ -41,15 +41,16 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void SetVerticalInput()
     {
+        // GO FOR THE FINISH
         if (TreeClimb_GameManager.Instance.finalTimerStarted)
         {
-            currentVerticalInput = 1.0f;
-            controller.SetVerticalInput(currentVerticalInput);
+            verticalInput = 1.0f;
+            controller.SetVerticalInput(verticalInput);
             return;
         }
 
         // Move vertically in one direction for a period of time, then change directions
-        if (currentVerticalMoveTimer < 0)
+        if (verticalMoveTimer < 0)
         {
             SwitchVerticalInput();
         }
@@ -59,32 +60,32 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
             if (CheckVerticalDistance())
                 SwitchVerticalInput();
 
-            currentVerticalMoveTimer -= Time.deltaTime;
+            verticalMoveTimer -= Time.deltaTime;
         }
-        controller.SetVerticalInput(currentVerticalInput);
+        controller.SetVerticalInput(verticalInput);
     }
     private void SwitchVerticalInput()
     {
-        if (currentVerticalInput < 0)
+        if (verticalInput < 0)
         {
-            currentVerticalInput = Random.Range(0.1f, 1.0f);
-            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
+            verticalInput = Random.Range(0.1f, 1.0f);
+            verticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
-        else if (currentVerticalInput > 0)
+        else if (verticalInput > 0)
         {
-            currentVerticalInput = Random.Range(-1.0f, -0.1f);
-            currentVerticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
+            verticalInput = Random.Range(-1.0f, -0.1f);
+            verticalMoveTimer = Random.Range(minTimeMoving, maxTimeMoving);
         }
     }
     private bool CheckVerticalDistance()
     {
         float playerY = transform.position.y;
 
-        if (currentVerticalInput < 0 && playerY - (controller.minHeight + 1) <= maxDistanceBetweenBounds)
+        if (verticalInput < 0 && playerY - (controller.minHeight + 1) <= maxDistanceBetweenBounds)
         {
             return true;
         }
-        else if (currentVerticalInput > 0 && controller.maxHeight - playerY <= maxDistanceBetweenBounds)
+        else if (verticalInput > 0 && controller.maxHeight - playerY <= maxDistanceBetweenBounds)
         {
             return true;
         }
@@ -96,6 +97,7 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
 
     private void SetHorizontalInput()
     {
+        // GO FOR THE FINISH
         if (TreeClimb_GameManager.Instance.finalTimerStarted)
         {
             controller.SetHorizontalInput(0);
@@ -103,11 +105,12 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
         }
 
         // Jump at random time intervals and randomly choose left/right
-        if (currentJumpTimer < 0)
+        if (jumpTimer < 0)
         {
-            currentJumpTimer = 0.01f;
+            jumpTimer = 0.01f;
             int randomInputValue = Random.Range(1, 101);
 
+            // Jump to stay off a tree on the edge
             if (controller.GetBlockedState())
             {
                 if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treeLanesRemoved)
@@ -115,6 +118,7 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
                 else if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved))
                     controller.SetHorizontalInput(-1);
             }
+            // Jump to a tree randomly to the left/right
             else if (randomInputValue <= jumpFrequency)
             {
                 if (Random.value >= 0.5f) controller.SetHorizontalInput(1);
@@ -125,6 +129,7 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
                 else if (controller.GetCurrentTreeIndex() == TreeClimb_GameManager.Instance.treePositions.Length - (1 + TreeClimb_GameManager.Instance.treeLanesRemoved)) 
                     controller.SetHorizontalInput(-1);    
             }
+            // If chosen to not jump, stay on current tree
             else
             {
                 controller.SetHorizontalInput(0);
@@ -132,7 +137,7 @@ public class TreeClimb_ComputerPlayer : MonoBehaviour
         }
         else
         {
-            currentJumpTimer -= Time.deltaTime;
+            jumpTimer -= Time.deltaTime;
         }       
     }
 }

@@ -57,7 +57,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private float jumpTimer;
     private Vector3 jumpDirection;
     private Transform[] treePositions;
-    private GameObject finishPosition;
+    private Transform finishPosition;
 
     private LayerMask playerLayer;
     private LayerMask treeLayer;
@@ -116,8 +116,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
         moveToPosition = playerRB.position;
         if (state == TreeClimb_PlayerState.Climbing && verticalInput != 0) // Move the player based on input. Otherwise, move them down with tree
         {
-            moveSpeed = (verticalInput > 0 ? moveUpSpeed : moveDownSpeed);
             if (-0.5f < verticalInput && verticalInput < 0) verticalInput = Mathf.Clamp(verticalInput, -1f, -0.5f);
+            moveSpeed = (verticalInput > 0 ? moveUpSpeed : moveDownSpeed);
             moveToPosition += moveSpeed * Time.fixedDeltaTime * new Vector3(0, verticalInput, 0);
         }
         else
@@ -125,7 +125,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             if(TreeClimb_GameManager.Instance.treesMoving)
                 moveToPosition += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
         }
-        squirrelAnimator.SetFloat("Movement", verticalInput);
+        squirrelAnimator.SetFloat("Movement", verticalInput, verticalInput != 0 ? 0.2f : 0.02f, Time.deltaTime);
         squirrelAnimator.SetFloat("Direction", 0);
 
         // Check if the player is actually able to move in the desired direction
@@ -308,20 +308,21 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     #region Finish Movement
     IEnumerator MoveToFinishPosition()
-    {
-        Vector3 targetPosition = playerRB.position;
-        Quaternion startRot = transform.rotation;
-        Quaternion endRot = Quaternion.Euler(startRot.eulerAngles + new Vector3(0, 179f, 0));
-
+    {      
         float height = 8f;
         float duration = 1f;
-        float elapsed = 0f;  
+        float elapsed = 0f;
+        float direction = finishPosition.position.x > transform.position.x ? 1f : -1f;
+
+        Vector3 targetPosition = playerRB.position;
+        Quaternion startRot = transform.rotation;
+        Quaternion endRot = Quaternion.Euler(startRot.eulerAngles + new Vector3(0, 179f * direction, 0));      
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
 
-            Vector3 linearPos = Vector3.Lerp(targetPosition, finishPosition.transform.position, t);
+            Vector3 linearPos = Vector3.Lerp(targetPosition, finishPosition.position, t);
             float arc = 4 * height * t * (1 - t);
             linearPos.y += arc;
             playerRB.position = linearPos;
@@ -338,7 +339,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         while (state == TreeClimb_PlayerState.Finished)
         {
-            playerRB.position = finishPosition.transform.position;
+            playerRB.position = finishPosition.position;
             yield return null;
         }
     }
@@ -414,7 +415,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         MG_GameManager.Instance.UpdatePlayerFinished(playerID);
 
         string playerFinishPosition = "Player" + playerID;
-        finishPosition = finishPositions.transform.Find(playerFinishPosition).gameObject;
+        finishPosition = finishPositions.transform.Find(playerFinishPosition).gameObject.transform;
 
         squirrelAnimator.SetTrigger("Finish");
         StartCoroutine(MoveToFinishPosition());
