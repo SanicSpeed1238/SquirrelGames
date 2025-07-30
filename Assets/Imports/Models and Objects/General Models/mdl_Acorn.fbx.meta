@@ -14,11 +14,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: AcornCap
     second: {fileID: 2100000, guid: e5b9c682bd948144ca455adbe968a509, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AcornCapDarker
-    second: {fileID: 2100000, guid: e5b9c682bd948144ca455adbe968a509, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

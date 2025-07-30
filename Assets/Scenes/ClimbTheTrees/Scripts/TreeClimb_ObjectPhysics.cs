@@ -78,7 +78,7 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
     public void EnableFreefall(Vector3 bounceDirection, Vector3 rotationForce)
     {
         objectRB.isKinematic = false;
-        objectRB.velocity = Vector3.zero;     
+        objectRB.velocity = Vector3.down;     
         objectRB.AddForce(new Vector3(bounceDirection.x, bounceDirection.y, -bounceDirection.z), ForceMode.Impulse);
         objectRB.AddTorque(rotationForce, ForceMode.Impulse);
     }

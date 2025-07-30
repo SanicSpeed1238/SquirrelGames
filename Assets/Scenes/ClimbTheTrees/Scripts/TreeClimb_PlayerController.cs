@@ -9,6 +9,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         Climbing,
         Jumping,
         Squished,
+        Finished
     }
 
     [Header("Movement Values")]
@@ -41,7 +42,6 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private float horizontalInput;
 
     private bool isAlive;
-    private bool isFinished;
     private bool isBlocked;
     private bool isStumbling;
     private bool isInvincible;
@@ -63,7 +63,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private LayerMask treeLayer;
 
     private Vector3 originalScale;
-    private readonly float freeFallStopHeight = -10f;
+    private readonly float freeFallStopHeight = -100f;
 
     private void Start()
     {
@@ -87,7 +87,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         if(isAlive)
         {
-            if (!isFinished)
+            if (state != TreeClimb_PlayerState.Finished)
             {
                 if (!MG_GameManager.Instance.gamePlaying)
                     return;
@@ -280,7 +280,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         SetJumpDirection();
     }
-    public void VerifySquirrelsBouncing(Vector3 otherJumpDirection, Rigidbody otherRB)
+    public void VerifyStumbleMovement(Vector3 otherJumpDirection, Rigidbody otherRB)
     {
         if (jumpDirection == otherJumpDirection)
         {
@@ -309,37 +309,38 @@ public class TreeClimb_PlayerController : Base_PlayerController
     #region Finish Movement
     IEnumerator MoveToFinishPosition()
     {
-        Vector3 startPos = playerRB.position;
-        Vector3 endPos = finishPosition.transform.position;
+        Vector3 targetPosition = playerRB.position;
         Quaternion startRot = transform.rotation;
-        Quaternion endRot = Quaternion.Euler(startRot.eulerAngles + new Vector3(0, 180f, 0));
+        Quaternion endRot = Quaternion.Euler(startRot.eulerAngles + new Vector3(0, 179f, 0));
 
-        float height = 5f;
-        float duration = 1.5f;
+        float height = 8f;
+        float duration = 1f;
         float elapsed = 0f;  
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
 
-            Vector3 linearPos = Vector3.Lerp(startPos, finishPosition.transform.position, t);
+            Vector3 linearPos = Vector3.Lerp(targetPosition, finishPosition.transform.position, t);
             float arc = 4 * height * t * (1 - t);
             linearPos.y += arc;
             playerRB.position = linearPos;
 
-            if (t <= 0.5f)
+            if (t <= 0.7f)
             {
-                float rotT = t / 0.5f;
+                float rotT = t / 0.7f;
                 playerRB.rotation = Quaternion.Slerp(startRot, endRot, rotT);
             }
-            else playerRB.rotation = endRot;
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        playerRB.position = finishPosition.transform.position;
-        playerRB.rotation = endRot;
+        while (state == TreeClimb_PlayerState.Finished)
+        {
+            playerRB.position = finishPosition.transform.position;
+            yield return null;
+        }
     }
     #endregion
 
@@ -391,7 +392,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     public void EliminatePlayer() 
     {
-        if (isFinished) return;
+        if (state == TreeClimb_PlayerState.Finished) return;
 
         isAlive = false;
         verticalInput = 0;
@@ -399,9 +400,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         squirrelAnimator.SetTrigger("Fall");
 
         playerRB.isKinematic = false;
-        playerRB.velocity = new Vector3(0, -10, 0);
-        playerRB.AddForce(new Vector3(0, 0, -10), ForceMode.Impulse);
-        playerRB.AddTorque(new Vector3(-100, 0, 0), ForceMode.Impulse);
+        playerRB.velocity = new Vector3(0, -20, -2);
 
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
@@ -409,7 +408,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     private void FinishPlayer(GameObject finishPositions)
     {
-        isFinished = true;
+        state = TreeClimb_PlayerState.Finished;
 
         AddToPlayerScore(TreeClimb_GameManager.Instance.GetBonusPoints());
         MG_GameManager.Instance.UpdatePlayerFinished(playerID);
@@ -427,7 +426,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         if (other.gameObject.TryGetComponent<TreeClimb_AcornScript>(out var acorn))
         {
-            if (state != TreeClimb_PlayerState.Squished && (isAlive && !isFinished))
+            if (state != TreeClimb_PlayerState.Squished && isAlive)
             {
                 AddToPlayerScore(acorn.points);
                 acorn.CollectAcorn(transform.position);
@@ -436,7 +435,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         if (other.gameObject.TryGetComponent<TreeClimb_HazardScript>(out var hazard))
         {
-            if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isFinished && !isInvincible))
+            if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isInvincible))
             {
                 SquishSquirrel(hazard.stunDuration,hazard.squishFactor);
                 hazard.HitHazard();
@@ -454,13 +453,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             if (state == TreeClimb_PlayerState.Jumping)
             {
-                VerifySquirrelsBouncing(jumpDirection, otherPlayer.GetComponent<Rigidbody>());
+                VerifyStumbleMovement(jumpDirection, otherPlayer.GetComponent<Rigidbody>());
             }
         }
 
         if (other.CompareTag("Finish"))
         {
-            if (!isFinished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
+            if (state != TreeClimb_PlayerState.Finished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
         }
 
         if (other.CompareTag("Deadzone") && isStumbling)

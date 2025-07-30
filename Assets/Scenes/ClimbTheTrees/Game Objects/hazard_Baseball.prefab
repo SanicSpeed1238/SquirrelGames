@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 0.3
-  squishFactor: 0.5
+  squishFactor: 0.4
   impactEffect: {fileID: 2390234630758380280, guid: 849abcc993627a448aa14991d2ae8dc1, type: 3}
   bounceDirection: {x: 3, y: 5, z: 3}
   rotationImpulse: {x: 60, y: 0, z: 60}
