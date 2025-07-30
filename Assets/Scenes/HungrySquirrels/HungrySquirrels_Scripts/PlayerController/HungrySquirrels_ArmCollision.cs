@@ -24,7 +24,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void Start()
     {
-        hitBox = GetComponent<BoxCollider>();
+        //hitBox = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
