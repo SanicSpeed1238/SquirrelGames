@@ -24,7 +24,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void Start()
     {
-        //hitBox = GetComponent<BoxCollider>();
+
     }
 
     // Update is called once per frame
@@ -101,12 +101,11 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //other.gameObject.CompareTag("Player");
         switch (other.gameObject.tag) 
         {
-            case "Pickup":
-
-                break;
             case "Player"://If player collides with other player arm, knock acorn up
+                //Debug.Log("ENEMY");
                 if (aOn == 2)
                 {
                     HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
@@ -132,10 +131,8 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 }
                 mainBody.collided = true;
                 break;
-            case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
-                
-                break;
             case "Wall":
+                //Debug.Log("WALL");
                 mainBody.collided=true;//If player collided with wall, bounce back
                 break;
         }

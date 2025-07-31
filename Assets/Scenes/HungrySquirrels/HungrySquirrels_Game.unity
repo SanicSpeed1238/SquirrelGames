@@ -1129,6 +1129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 1782957286959182073, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2552662301494248194, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_text
       value: NUTS & BOLTS
@@ -1164,6 +1168,10 @@ PrefabInstance:
     - target: {fileID: 4279749246701485392, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275062818503592648, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
