@@ -80,7 +80,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
         treePositions = TreeClimb_GameManager.Instance.treePositions;
 
         playerLayer = LayerMask.GetMask("Player");
-        treeLayer = LayerMask.GetMask("Tree");
+        treeLayer = LayerMask.GetMask("Wall");
     }
 
     private void FixedUpdate()
