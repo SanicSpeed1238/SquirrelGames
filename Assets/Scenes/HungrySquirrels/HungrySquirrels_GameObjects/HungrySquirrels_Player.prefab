@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7978404126995391663}
   - component: {fileID: 3221348387904122356}
+  - component: {fileID: 7330144289244938568}
   m_Layer: 0
   m_Name: ArmCollider
   m_TagString: Wall
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 1, z: 1}
   m_Center: {x: -25.5, y: 0, z: 0}
+--- !u!114 &7330144289244938568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402048189868492561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7854287b05ef724499efa9964383f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494007290299891816
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4982363181731630529}
   - component: {fileID: 6741628759557918226}
+  - component: {fileID: 5928608664025575061}
   m_Layer: 0
   m_Name: HandCollider
   m_TagString: Player
@@ -221,6 +235,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5928608664025575061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955485531347088081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c977e8d141ff24f8bed5626dd72c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3212056661297990303
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19a5a492736cf645ba1614eb6525e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 5582026424915141166}
   mainBody: {fileID: 8285138035077466495}
   acornModel: {fileID: 47342598124450296}
   screwModel: {fileID: 3212056661297990303}

@@ -74,8 +74,6 @@ public class HungrySquirrels_Bomb : Pickup
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
-        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
-
         foreach (Collider hit in pickups)
         {
 

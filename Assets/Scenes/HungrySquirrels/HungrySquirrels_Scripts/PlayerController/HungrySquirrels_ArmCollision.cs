@@ -3,7 +3,7 @@ using UnityEngine;
 public class HungrySquirrels_ArmCollision : MonoBehaviour
 {
     //Input needed for arm
-    public BoxCollider hitBox;
+    //public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
     public GameObject acornModel;
     public GameObject screwModel;
