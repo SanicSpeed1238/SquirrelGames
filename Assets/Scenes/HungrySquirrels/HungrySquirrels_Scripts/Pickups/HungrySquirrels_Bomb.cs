@@ -12,6 +12,7 @@ public class HungrySquirrels_Bomb : Pickup
     [SerializeField] public float _expLiftPower = 10f;
     [SerializeField] private ParticleSystem _explostionFX;
     [SerializeField] private ParticleSystem _fuseFX;
+    public LayerMask _playerLayer;
 
     private Rigidbody _rb;
     private bool bOn = false;
@@ -87,7 +88,7 @@ public class HungrySquirrels_Bomb : Pickup
                 }
 
             }
-            else if(hit.tag == "Player")
+            else if(hit.gameObject.layer == _playerLayer)
             {
                 HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
 

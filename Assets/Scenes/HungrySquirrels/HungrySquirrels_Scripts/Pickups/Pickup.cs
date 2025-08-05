@@ -11,7 +11,7 @@ public abstract class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out HungrySquirrels_ArmCollision arm) && other.CompareTag("Player") == true)
+        if(other.TryGetComponent(out HungrySquirrels_ArmCollision arm))
         {
             //AudioSource audioSource = AudioHelper.PlayClip2D(_pickupSound, 1, false);
             //audioSource.pitch = UnityEngine.Random.Range(.5f, 1);

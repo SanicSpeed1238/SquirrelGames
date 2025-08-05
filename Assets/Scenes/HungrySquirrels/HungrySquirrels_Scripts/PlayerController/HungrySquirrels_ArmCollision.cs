@@ -13,6 +13,8 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public HungrySquirrels_Bolt bolt;
     public int aOn;
     public bool bActive = false;
+    public LayerMask _wallLayer;
+    public LayerMask _playerLayer;
 
     [SerializeField] private ParticleSystem _explosionFX;
     [SerializeField] private ParticleSystem _fuseFX;
@@ -59,8 +61,6 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
-        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
-
         foreach (Collider hit in pickups)
         {
 
@@ -74,7 +74,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 }
 
             }
-            else if (hit.tag == "Player")
+            else if (hit.gameObject.layer == _playerLayer)
             {
                 HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
 
@@ -101,8 +101,42 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+    
+        if (other.gameObject.layer == _wallLayer)
+        {
+            mainBody.collided = true;//If player collided with wall, bounce back
+            Debug.Log("WAKA");
+        }
+        else if(other.gameObject.GetComponent<HungrySquirrels_ArmCollision>() == true)
+        {
+            if (aOn == 2)
+            {
+                HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungAcorn.aInitialize();
+                acornModel.SetActive(false);
+                aOn = 0;
+            }
+            else if (aOn == 1)
+            {
+                HungrySquirrels_Bolt flungBolt = Instantiate(bolt, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungBolt.aInitialize();
+                screwModel.SetActive(false);
+                aOn = 0;
+            }
+            else if (bActive == true)
+            {
+                _fuseFX.Stop();
+                HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungBomb.bInitialize(eTime);
+                eTime = 0;
+                bombModel.SetActive(false);
+                bActive = false;
+            }
+            mainBody.collided = true;
+            Debug.Log("AAAAH");
+        }
         //other.gameObject.CompareTag("Player");
-        switch (other.gameObject.tag) 
+        /*switch (other.gameObject.tag) 
         {
             case "Player"://If player collides with other player arm, knock acorn up
                 //Debug.Log("ENEMY");
@@ -135,7 +169,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 //Debug.Log("WALL");
                 mainBody.collided=true;//If player collided with wall, bounce back
                 break;
-        }
+        }*/
 
     }
 
