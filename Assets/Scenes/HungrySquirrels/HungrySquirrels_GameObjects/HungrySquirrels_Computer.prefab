@@ -435,12 +435,8 @@ MonoBehaviour:
   bolt: {fileID: 6520235159708751814, guid: 0f8180287242f6247821abeea8572d5c, type: 3}
   aOn: 0
   bActive: 0
-  _wallLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  WallLayerName: Wall
+  PlayerLayerName: Player
   _explosionFX: {fileID: 1633177646000406938}
   _fuseFX: {fileID: 7284085759827832206}
 --- !u!54 &3027681011036352640
