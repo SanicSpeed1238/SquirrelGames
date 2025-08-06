@@ -177,6 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982363181731630529}
+  - component: {fileID: 7809967670337065717}
   - component: {fileID: 6741628759557918226}
   m_Layer: 6
   m_Name: HandCollider
@@ -200,6 +201,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8707065500180576271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7809967670337065717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955485531347088081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19a5a492736cf645ba1614eb6525e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainBody: {fileID: 8285138035077466495}
+  acornModel: {fileID: 47342598124450296}
+  screwModel: {fileID: 3212056661297990303}
+  bombModel: {fileID: 4469956042714353260}
+  acorn: {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
+  bomb: {fileID: 6649251469042615717, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
+  bolt: {fileID: 6520235159708751814, guid: 0f8180287242f6247821abeea8572d5c, type: 3}
+  aOn: 0
+  bActive: 0
+  WallLayerName: Wall
+  PlayerLayerName: Player
+  _explosionFX: {fileID: 5832843025578529005}
+  _fuseFX: {fileID: 8945766138137697972}
 --- !u!65 &6741628759557918226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -397,8 +423,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8707065500180576271}
   - component: {fileID: 2046117709000724834}
-  - component: {fileID: 5582026424915141166}
-  - component: {fileID: 8713704395312484433}
   - component: {fileID: 3027681011036352640}
   m_Layer: 0
   m_Name: HungrySquirrels_PlayerArm
@@ -446,52 +470,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &5582026424915141166
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5648494864704448465}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8713704395312484433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5648494864704448465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19a5a492736cf645ba1614eb6525e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainBody: {fileID: 8285138035077466495}
-  acornModel: {fileID: 47342598124450296}
-  screwModel: {fileID: 3212056661297990303}
-  bombModel: {fileID: 4469956042714353260}
-  acorn: {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
-  bomb: {fileID: 6649251469042615717, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
-  bolt: {fileID: 6520235159708751814, guid: 0f8180287242f6247821abeea8572d5c, type: 3}
-  aOn: 0
-  bActive: 0
-  WallLayerName: Wall
-  PlayerLayerName: Player
-  _explosionFX: {fileID: 5832843025578529005}
-  _fuseFX: {fileID: 8945766138137697972}
 --- !u!54 &3027681011036352640
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -692,7 +670,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   startLocation: {fileID: 0}
   arm: {fileID: 5648494864704448465}
-  aBehav: {fileID: 8713704395312484433}
+  aBehav: {fileID: 7809967670337065717}
   hitBox: {fileID: 7558101476926558544}
   rot_Max: 45
   collectActive: 0
