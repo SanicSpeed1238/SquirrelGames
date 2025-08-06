@@ -56,6 +56,7 @@ MonoBehaviour:
   _expLiftPower: 10
   _explostionFX: {fileID: 396813061155049973, guid: f2b561ab290111a478de6e12242e9b8d, type: 3}
   _fuseFX: {fileID: 8694499574419403085}
+  PlayerLayerName: Player
 --- !u!54 &-3224615807810219825
 Rigidbody:
   m_ObjectHideFlags: 0

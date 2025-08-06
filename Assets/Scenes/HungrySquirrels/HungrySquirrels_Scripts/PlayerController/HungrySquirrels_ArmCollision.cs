@@ -77,7 +77,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 }
 
             }
-            else if (hit.gameObject.layer == _playerLayer)
+            else if (hit.gameObject.layer == _playerLayer.value)
             {
                 HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
 

@@ -76,13 +76,27 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //See if arm is moving so player cannot rotate
         if (pressed == false)
         {
-            //Limit's The Rotation of arm so they can stay within the box
-            if ((rotationInput.x < 0 && curr_Rot > -rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max))
+            if(playerID == 1 || playerID == 2)
             {
-                //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
-                transform.Rotate(Vector3.up, rotation);
-                curr_Rot += rotation;//Updates Current Rotation for limit checkers
+                //Limit's The Rotation of arm so they can stay within the box
+                if ((rotationInput.x < 0 && curr_Rot > -rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max))
+                {
+                    //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
+                    transform.Rotate(Vector3.up, -rotation);
+                    curr_Rot += rotation;//Updates Current Rotation for limit checkers
+                }
             }
+            else
+            {
+                //Limit's The Rotation of arm so they can stay within the box
+                if ((rotationInput.x < 0 && curr_Rot > -rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max))
+                {
+                    //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
+                    transform.Rotate(Vector3.up, rotation);
+                    curr_Rot += rotation;//Updates Current Rotation for limit checkers
+                }
+            }
+
         }
     }
 
