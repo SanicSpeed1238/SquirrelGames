@@ -12,6 +12,8 @@ public class HungrySquirrels_Bomb : Pickup
     [SerializeField] public float _expLiftPower = 10f;
     [SerializeField] private ParticleSystem _explostionFX;
     [SerializeField] private ParticleSystem _fuseFX;
+    public string PlayerLayerName;
+    private LayerMask _playerLayer;
 
     private Rigidbody _rb;
     private bool bOn = false;
@@ -20,6 +22,7 @@ public class HungrySquirrels_Bomb : Pickup
 
     private void Start()
     {
+        _playerLayer = LayerMask.NameToLayer(PlayerLayerName);
         _rb = GetComponent<Rigidbody>();
         _rb.AddForce(new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)), ForceMode.Impulse);
         if (doOnce == true)
@@ -74,8 +77,6 @@ public class HungrySquirrels_Bomb : Pickup
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
-        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
-
         foreach (Collider hit in pickups)
         {
 
@@ -89,7 +90,7 @@ public class HungrySquirrels_Bomb : Pickup
                 }
 
             }
-            else if(hit.tag == "Player")
+            else if(hit.gameObject.layer == _playerLayer.value)
             {
                 HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
 

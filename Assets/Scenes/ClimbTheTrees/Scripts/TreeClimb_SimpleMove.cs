@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TreeClimb_SimpleMove : MonoBehaviour
 {
+    [SerializeField] private float destroyHeight = -100f;
     private float moveSpeed;
-    private readonly float destroyHeight = -100f;
 
     private void Start()
     {

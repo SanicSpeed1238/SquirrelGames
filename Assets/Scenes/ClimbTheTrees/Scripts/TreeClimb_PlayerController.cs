@@ -9,19 +9,20 @@ public class TreeClimb_PlayerController : Base_PlayerController
         Climbing,
         Jumping,
         Squished,
+        Finished
     }
 
     [Header("Movement Values")]
-    [Range(5f, 20f)]
+    [Range(5f, 25f)]
     public float moveUpSpeed;
-    [Range(5f, 20f)]
+    [Range(5f, 25f)]
     public float moveDownSpeed;
-    [Range(5f, 20f)]
+    [Range(5f, 25f)]
     public float jumpSpeed;
-    [Range(5f, 20f)]
+    [Range(5f, 25f)]
     public float bounceSpeed;
     [Range(0.1f, 1f)]
-    public float jumpDelay;
+    public float jumpCooldown;
     [Range(0.0f, 0.1f)]
     public float stunHeightMultiplier;
     [Range(1f, 3f)]
@@ -33,6 +34,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     public GameObject squirrelModel;
     public Animator squirrelAnimator;
     public GameObject bounceEffect;
+    public ParticleSystem invincibleEffect;
 
     // Other Variables Needed
 
@@ -40,9 +42,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private float horizontalInput;
 
     private bool isAlive;
-    private bool isFinished;
     private bool isBlocked;
-    private bool isBouncing;
+    private bool isStumbling;
     private bool isInvincible;
     private TreeClimb_PlayerState state;
 
@@ -56,13 +57,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
     private float jumpTimer;
     private Vector3 jumpDirection;
     private Transform[] treePositions;
-    private GameObject finishPosition;
+    private Transform finishPosition;
 
     private LayerMask playerLayer;
     private LayerMask treeLayer;
 
     private Vector3 originalScale;
-    private readonly float freeFallStopHeight = -10f;
+    private readonly float freeFallStopHeight = -100f;
 
     private void Start()
     {
@@ -73,20 +74,20 @@ public class TreeClimb_PlayerController : Base_PlayerController
         originalScale = squirrelModel.transform.localScale;
 
         fallSpeed = TreeClimb_GameManager.Instance.gameMoveSpeed;
-        jumpTimer = jumpDelay;
+        jumpTimer = jumpCooldown;
 
         currentTreeIndex = TreeClimb_GameManager.Instance.GetStartingIndex(playerID);
         treePositions = TreeClimb_GameManager.Instance.treePositions;
 
         playerLayer = LayerMask.GetMask("Player");
-        treeLayer = LayerMask.GetMask("Tree");
+        treeLayer = LayerMask.GetMask("Wall");
     }
 
     private void FixedUpdate()
     {
         if(isAlive)
         {
-            if (!isFinished)
+            if (state != TreeClimb_PlayerState.Finished)
             {
                 if (!MG_GameManager.Instance.gamePlaying)
                     return;
@@ -94,15 +95,13 @@ public class TreeClimb_PlayerController : Base_PlayerController
                 MoveVertically();
                 MoveHorizontally(); 
             }
-            else
-            {
-                MoveToFinishPosition();
-            }
         }
         else
         {
-            if (playerRB.position.y < freeFallStopHeight)
+            if (playerRB.position.y < freeFallStopHeight && !playerRB.isKinematic)
+            {
                 playerRB.isKinematic = true;
+            }       
         }
     }
 
@@ -117,8 +116,8 @@ public class TreeClimb_PlayerController : Base_PlayerController
         moveToPosition = playerRB.position;
         if (state == TreeClimb_PlayerState.Climbing && verticalInput != 0) // Move the player based on input. Otherwise, move them down with tree
         {
-            moveSpeed = (verticalInput > 0 ? moveUpSpeed : moveDownSpeed);
             if (-0.5f < verticalInput && verticalInput < 0) verticalInput = Mathf.Clamp(verticalInput, -1f, -0.5f);
+            moveSpeed = (verticalInput > 0 ? moveUpSpeed : moveDownSpeed);
             moveToPosition += moveSpeed * Time.fixedDeltaTime * new Vector3(0, verticalInput, 0);
         }
         else
@@ -126,7 +125,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             if(TreeClimb_GameManager.Instance.treesMoving)
                 moveToPosition += Time.fixedDeltaTime * new Vector3(0, -fallSpeed, 0);
         }
-        squirrelAnimator.SetFloat("Movement", verticalInput);
+        squirrelAnimator.SetFloat("Movement", verticalInput, verticalInput != 0 ? 0.2f : 0.02f, Time.deltaTime);
         squirrelAnimator.SetFloat("Direction", 0);
 
         // Check if the player is actually able to move in the desired direction
@@ -203,19 +202,19 @@ public class TreeClimb_PlayerController : Base_PlayerController
                     // If the player is in the jumping state, automatically move in the assigned direction
                     if (playerRB.position != moveToPosition)
                     {
-                        float step = (!isBouncing ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
+                        float step = (!isStumbling ? jumpSpeed : bounceSpeed) * Time.fixedDeltaTime;
                         Vector3 newPosition = Vector3.MoveTowards(playerRB.position, moveToPosition, step);
                         playerRB.MovePosition(newPosition);
                     }
                     else
                     {
                         previousTreeIndex = currentTreeIndex;
-                        isBouncing = false;
+                        isStumbling = false;
                         isBlocked = false;                        
                         
                         state = TreeClimb_PlayerState.Climbing;
                         jumpDirection = Vector3.zero;
-                        jumpTimer = jumpDelay;
+                        jumpTimer = jumpCooldown;
 
                         squirrelAnimator.SetBool("Jumping", false);
                         squirrelAnimator.SetBool("Bouncing", false);
@@ -259,9 +258,9 @@ public class TreeClimb_PlayerController : Base_PlayerController
             squirrelAnimator.SetFloat("Direction", -1);
         }
     }
-    private void BounceSquirrel() // Reverse the jump direction if colliding with another player or hazard
+    private void StumbleSquirrel() // Reverse the jump direction if colliding with another player or hazard
     {
-        isBouncing = true;
+        isStumbling = true;
         squirrelAnimator.SetBool("Bouncing", true);
 
         Vector3 impactPosition = playerRB.position;
@@ -281,7 +280,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
         SetJumpDirection();
     }
-    public void VerifySquirrelsBouncing(Vector3 otherJumpDirection, Rigidbody otherRB)
+    public void VerifyStumbleMovement(Vector3 otherJumpDirection, Rigidbody otherRB)
     {
         if (jumpDirection == otherJumpDirection)
         {
@@ -289,28 +288,60 @@ public class TreeClimb_PlayerController : Base_PlayerController
             {
                 if (jumpDirection != Vector3.left)
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }
             else
             {
                 if (jumpDirection != Vector3.right)
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }
         }
         else
         {
-            BounceSquirrel();
+            StumbleSquirrel();
         }
     }
     #endregion
 
     #region Finish Movement
-    private void MoveToFinishPosition()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, finishPosition.transform.position, moveSpeed * Time.deltaTime);
+    IEnumerator MoveToFinishPosition()
+    {      
+        float height = 8f;
+        float duration = 1f;
+        float elapsed = 0f;
+        float direction = finishPosition.position.x > transform.position.x ? 1f : -1f;
+
+        Vector3 targetPosition = playerRB.position;
+        Quaternion startRot = transform.rotation;
+        Quaternion endRot = Quaternion.Euler(startRot.eulerAngles + new Vector3(0, 179f * direction, 0));      
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+
+            Vector3 linearPos = Vector3.Lerp(targetPosition, finishPosition.position, t);
+            float arc = 4 * height * t * (1 - t);
+            linearPos.y += arc;
+            playerRB.position = linearPos;
+
+            if (t <= 0.7f)
+            {
+                float rotT = t / 0.7f;
+                playerRB.rotation = Quaternion.Slerp(startRot, endRot, rotT);
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        while (state == TreeClimb_PlayerState.Finished)
+        {
+            playerRB.position = finishPosition.position;
+            yield return null;
+        }
     }
     #endregion
 
@@ -326,7 +357,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         float totalStunDuration = stunDuration + (playerRB.position.y * stunHeightMultiplier);
 
-        Vector3 squishScale = new(originalScale.x, originalScale.y, squishFactor);
+        Vector3 squishScale = new(originalScale.x, squishFactor, originalScale.z);
         squirrelModel.GetComponent<SquishModel>().SquishTemporarily(squishScale, totalStunDuration);
 
         state = TreeClimb_PlayerState.Squished;
@@ -342,8 +373,12 @@ public class TreeClimb_PlayerController : Base_PlayerController
     IEnumerator EnableInvincibility()
     {
         isInvincible = true;
+        invincibleEffect.Play();
+
         yield return new WaitForSeconds(invincibilityDuration);
+
         isInvincible = false;
+        invincibleEffect.Stop();
     }
 
     #endregion
@@ -358,18 +393,15 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     public void EliminatePlayer() 
     {
-        if (isFinished) return;
+        if (state == TreeClimb_PlayerState.Finished) return;
 
         isAlive = false;
         verticalInput = 0;
         horizontalInput = 0;
-
-        playerRB.isKinematic = false;
-        playerRB.velocity = new Vector3(0, -10, 0);
         squirrelAnimator.SetTrigger("Fall");
 
-        playerRB.AddForce(new Vector3(0, 0, -1), ForceMode.Impulse);
-        playerRB.AddTorque(new Vector3(-20, 0, 0), ForceMode.Impulse);
+        playerRB.isKinematic = false;
+        playerRB.velocity = new Vector3(0, -20, -2);
 
         playerScore = -1;
         MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, 0);
@@ -377,14 +409,16 @@ public class TreeClimb_PlayerController : Base_PlayerController
 
     private void FinishPlayer(GameObject finishPositions)
     {
-        isFinished = true;
+        state = TreeClimb_PlayerState.Finished;
+
         AddToPlayerScore(TreeClimb_GameManager.Instance.GetBonusPoints());
         MG_GameManager.Instance.UpdatePlayerFinished(playerID);
 
         string playerFinishPosition = "Player" + playerID;
-        finishPosition = finishPositions.transform.Find(playerFinishPosition).gameObject;
+        finishPosition = finishPositions.transform.Find(playerFinishPosition).gameObject.transform;
 
         squirrelAnimator.SetTrigger("Finish");
+        StartCoroutine(MoveToFinishPosition());
     }
 
     #endregion
@@ -393,16 +427,16 @@ public class TreeClimb_PlayerController : Base_PlayerController
     {
         if (other.gameObject.TryGetComponent<TreeClimb_AcornScript>(out var acorn))
         {
-            if (state != TreeClimb_PlayerState.Squished && (isAlive && !isFinished))
+            if (state != TreeClimb_PlayerState.Squished && isAlive)
             {
                 AddToPlayerScore(acorn.points);
-                acorn.CollectAcorn();
+                acorn.CollectAcorn(transform.position);
             }       
         }
 
         if (other.gameObject.TryGetComponent<TreeClimb_HazardScript>(out var hazard))
         {
-            if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isFinished && !isInvincible))
+            if (state == TreeClimb_PlayerState.Climbing && (isAlive && !isInvincible))
             {
                 SquishSquirrel(hazard.stunDuration,hazard.squishFactor);
                 hazard.HitHazard();
@@ -411,7 +445,7 @@ public class TreeClimb_PlayerController : Base_PlayerController
             {
                 if (previousTreeIndex != hazard.GetTreeIndex())
                 {
-                    BounceSquirrel();
+                    StumbleSquirrel();
                 }
             }              
         }
@@ -420,16 +454,16 @@ public class TreeClimb_PlayerController : Base_PlayerController
         {
             if (state == TreeClimb_PlayerState.Jumping)
             {
-                VerifySquirrelsBouncing(jumpDirection, otherPlayer.GetComponent<Rigidbody>());
+                VerifyStumbleMovement(jumpDirection, otherPlayer.GetComponent<Rigidbody>());
             }
         }
 
         if (other.CompareTag("Finish"))
         {
-            if (!isFinished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
+            if (state != TreeClimb_PlayerState.Finished) FinishPlayer(other.gameObject.transform.Find("Positions").gameObject);   
         }
 
-        if (other.CompareTag("Deadzone") && isBouncing)
+        if (other.CompareTag("Deadzone") && isStumbling)
         {
             if (isAlive) EliminatePlayer();
         }

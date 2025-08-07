@@ -85,7 +85,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Face Layer
     m_StateMachine: {fileID: 2100865290986212728}
-    m_Mask: {fileID: 31900000, guid: bdbbd19b067f62c4cb647b5ce76c0295, type: 2}
+    m_Mask: {fileID: 31900000, guid: 3ded3fc982e419d4eaa2e261aaa135fa, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -161,11 +161,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.8
-  m_HasExitTime: 1
-  m_HasFixedDuration: 1
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -189,7 +189,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: 13230f1669f930f4b8039492e465233d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -4,7 +4,7 @@ using EasyTransition;
 
 public static class CustomizationList
 {
-    public static int numHatOptions = 2;
+    public static int numHatOptions = 3;
     public static int numBodyOptions = 4;
 
     public static string[] defaultPlayerNames = 

@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mdl_Ant
       objectReference: {fileID: 0}
+    - target: {fileID: 6911940460835245983, guid: af0f045ad4270a545a70a13d27d2c585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

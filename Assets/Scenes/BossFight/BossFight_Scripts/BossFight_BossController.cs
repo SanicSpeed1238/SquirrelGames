@@ -7,20 +7,46 @@ public class BossFight_BossController : MonoBehaviour
 
     public int bHealth { get; private set; }
     public float bSpeed { get; private set; }
+    public float _fireRate = 2f;
 
     public GameObject[] _bulletSpawner;
 
     private Rigidbody _rb;
     private Collider _hb;
     private Coroutine __currRoutine;
+    private bool _bAlive = true;
+    private bool _bStun = false;
+    private bool _bAngy = false;
 
     private IEnumerator BulletAttack()
     {
-        //Check to see if enraged
-        //Will Keep moving
-        yield break;
-        //Spawn Bullets at spawner locations
-        //Rotate
+        Vector3 _randDirection;
+
+        while (_bAlive == true)
+        {
+            //Check to see if enraged
+            if(_bAngy == true)
+            {
+                //Increase Speed & Fire Rate
+            }
+            else
+            {
+                //Will Keep moving
+                yield return new WaitForSeconds(_fireRate);
+                _randDirection = new Vector3(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1));
+                if (_randDirection != new Vector3(0, 0, 0))
+                {
+                    MoveBoss(_randDirection);
+                }
+                else
+                {
+                    yield break;
+                }
+
+                //Spawn Bullets at spawner locations
+                //Rotate
+            }
+        }
         
     }
 
@@ -73,8 +99,9 @@ public class BossFight_BossController : MonoBehaviour
 
     }
 
-    private void MoveBoss()
+    private void MoveBoss(Vector3 randDir)
     {
-        Vector3 Movement = new Vector3(0, 0, 0).normalized * bSpeed * Time.deltaTime * 60f;
+        Vector3 Movement = new Vector3(randDir.x, 0, randDir.z).normalized * bSpeed * Time.deltaTime * 60f;
+        _rb.MovePosition(_rb.position + Movement);
     }
 }

@@ -7,6 +7,8 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
     public float baseSpeed;
     [Range(5.0f, 50.0f)]
     public float fallAcceleration;
+    [Range(1.0f, 20.0f)]
+    public float freeFallMultiplier;
 
     [Header("Rotation Values")]
     public bool rotateX;
@@ -34,7 +36,11 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
         {
             MoveDown();
             RotateObject();
-        }     
+        }
+        else
+        {
+            objectRB.AddForce(Vector3.down * freeFallMultiplier, ForceMode.Acceleration);
+        }
 
         CheckPosition();
     }
@@ -69,11 +75,11 @@ public class TreeClimb_ObjectPhysics : MonoBehaviour
         }
     }
 
-    public void EnableFreefall(float forwardForce, Vector3 rotationForce)
+    public void EnableFreefall(Vector3 bounceDirection, Vector3 rotationForce)
     {
         objectRB.isKinematic = false;
-        objectRB.velocity = Vector3.zero;     
-        objectRB.AddForce(new Vector3(0, 0, -forwardForce), ForceMode.Impulse);
+        objectRB.velocity = Vector3.down;     
+        objectRB.AddForce(new Vector3(bounceDirection.x, bounceDirection.y, -bounceDirection.z), ForceMode.Impulse);
         objectRB.AddTorque(rotationForce, ForceMode.Impulse);
     }
 }

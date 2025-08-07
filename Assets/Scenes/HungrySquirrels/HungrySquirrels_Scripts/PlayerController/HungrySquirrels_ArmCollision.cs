@@ -3,7 +3,7 @@ using UnityEngine;
 public class HungrySquirrels_ArmCollision : MonoBehaviour
 {
     //Input needed for arm
-    public BoxCollider hitBox;
+    //public BoxCollider hitBox;
     public HungrySquirrels_PlayerController mainBody;
     public GameObject acornModel;
     public GameObject screwModel;
@@ -13,6 +13,10 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public HungrySquirrels_Bolt bolt;
     public int aOn;
     public bool bActive = false;
+    public string WallLayerName;
+    public string PlayerLayerName;
+    private LayerMask _wallLayer;
+    private LayerMask _playerLayer;
 
     [SerializeField] private ParticleSystem _explosionFX;
     [SerializeField] private ParticleSystem _fuseFX;
@@ -24,7 +28,8 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void Start()
     {
-        hitBox = GetComponent<BoxCollider>();
+        _wallLayer = LayerMask.NameToLayer(WallLayerName);
+        _playerLayer = LayerMask.NameToLayer(PlayerLayerName);
     }
 
     // Update is called once per frame
@@ -59,8 +64,6 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
-        //Collider[] players = Physics.OverlapSphere(ePos, 10, _playerLayer);
-
         foreach (Collider hit in pickups)
         {
 
@@ -74,7 +77,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
                 }
 
             }
-            else if (hit.tag == "Player")
+            else if (hit.gameObject.layer == _playerLayer.value)
             {
                 HungrySquirrels_ArmCollision arm = hit.GetComponent<HungrySquirrels_ArmCollision>();
 
@@ -101,43 +104,37 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.gameObject.tag) 
+    
+        if (other.gameObject.layer == _wallLayer.value)
         {
-            case "Pickup":
-
-                break;
-            case "Player"://If player collides with other player arm, knock acorn up
-                if (aOn == 2)
-                {
-                    HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
-                    flungAcorn.aInitialize();
-                    acornModel.SetActive(false);
-                    aOn = 0;
-                }
-                else if (aOn == 1)
-                {
-                    HungrySquirrels_Bolt flungBolt = Instantiate(bolt, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
-                    flungBolt.aInitialize();
-                    screwModel.SetActive(false);
-                    aOn = 0;
-                }
-                else if (bActive == true)
-                {
-                    _fuseFX.Stop();
-                    HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
-                    flungBomb.bInitialize(eTime);
-                    eTime = 0;
-                    bombModel.SetActive(false);
-                    bActive = false;
-                }
-                mainBody.collided = true;
-                break;
-            case "Hazard"://If player collides with hazard, stun for a second before retracting(?)
-                
-                break;
-            case "Wall":
-                mainBody.collided=true;//If player collided with wall, bounce back
-                break;
+            mainBody.collided = true;//If player collided with wall, bounce back
+        }
+        else if(other.gameObject.layer == _playerLayer.value)
+        {
+            if (aOn == 2)
+            {
+                HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungAcorn.aInitialize();
+                acornModel.SetActive(false);
+                aOn = 0;
+            }
+            else if (aOn == 1)
+            {
+                HungrySquirrels_Bolt flungBolt = Instantiate(bolt, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungBolt.aInitialize();
+                screwModel.SetActive(false);
+                aOn = 0;
+            }
+            else if (bActive == true)
+            {
+                _fuseFX.Stop();
+                HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                flungBomb.bInitialize(eTime);
+                eTime = 0;
+                bombModel.SetActive(false);
+                bActive = false;
+            }
+            mainBody.collided = true;
         }
 
     }
