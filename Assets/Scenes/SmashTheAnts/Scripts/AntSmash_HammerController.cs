@@ -11,7 +11,6 @@ public class AntSmash_HammerController : Base_PlayerController
     public float rangeYBottom;
 
     [Header("Important Components")]
-    [SerializeField] private GameObject hammerModel;
     [SerializeField] private Animator hammerAnimator;
     [SerializeField] private AudioSource slamSound;
     [SerializeField] private ParticleSystem smashEffect;
@@ -23,8 +22,6 @@ public class AntSmash_HammerController : Base_PlayerController
     private void Start()
     {
         GetComponentInChildren<Outline>().OutlineColor = playerColor;
-        playerColor.a = 0.5f;
-        hammerModel.GetComponentInChildren<Renderer>().material.color = playerColor;
     }
 
     private void Update()

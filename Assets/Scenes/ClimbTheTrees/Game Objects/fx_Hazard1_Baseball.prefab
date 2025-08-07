@@ -4761,7 +4761,7 @@ GameObject:
   - component: {fileID: 6271285299896365495}
   - component: {fileID: 3885160634776077465}
   m_Layer: 0
-  m_Name: fx_Baseball
+  m_Name: fx_Hazard1_Baseball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

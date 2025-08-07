@@ -9331,7 +9331,7 @@ GameObject:
   - component: {fileID: 1334215001036035921}
   - component: {fileID: 2619408586307272773}
   m_Layer: 0
-  m_Name: player_Hammer
+  m_Name: player_AntAttacker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
