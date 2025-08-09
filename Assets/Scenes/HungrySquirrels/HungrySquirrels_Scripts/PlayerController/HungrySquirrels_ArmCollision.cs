@@ -46,6 +46,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             if (eTime >= bomb.bTimer)
             {
                 _fuseFX.Stop();
+                _explosionFX.Play();
                 BombOnArmBoom();
                 mainBody._stunActive = true;
                 eTime = 0;
@@ -60,7 +61,6 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         Vector3 ePos = this.transform.position;
 
         bombModel.SetActive(false);
-        _explosionFX.Play();
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
@@ -88,6 +88,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             }
 
         }
+        _explosionFX.Stop();
 
     }
 
@@ -128,6 +129,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             else if (bActive == true)
             {
                 _fuseFX.Stop();
+                doOnce = false;
                 HungrySquirrels_Bomb flungBomb = Instantiate(bomb, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 flungBomb.bInitialize(eTime);
                 eTime = 0;

@@ -754,6 +754,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   startLocation: {fileID: 0}
   arm: {fileID: 5648494864704448465}
+  armNoodle: {fileID: 5980970839232292027}
   aBehav: {fileID: 7809967670337065717}
   hitBox: {fileID: 7558101476926558544}
   rot_Max: 45
@@ -931,6 +932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fx_BombFuse
       objectReference: {fileID: 0}
+    - target: {fileID: 5294804697256397355, guid: 474fca494ba84114c95c1be1450dc42a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6642689383901892812, guid: 474fca494ba84114c95c1be1450dc42a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1034,6 +1039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 716049011770427901, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2221339445506182265, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1049,6 +1058,10 @@ PrefabInstance:
     - target: {fileID: 7352423552081018823, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
       propertyPath: m_Name
       value: fx_Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352423552081018823, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7785765351119083786, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
       propertyPath: playOnAwake

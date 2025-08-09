@@ -8,6 +8,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
     [Header("Dependencies")]
     //Referencing the arm to stop movement when collision with wall or player happens
     public GameObject arm;//Reference to Arm Child/Cube.1
+    public GameObject armNoodle;//Reference to the Arm Extension
     public HungrySquirrels_ArmCollision aBehav;//Referencing arm values
     public BoxCollider hitBox;//Hit box for arm
 
@@ -44,6 +45,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         playerColor.a = 0.5f;
         mainBodyModel.GetComponentInChildren<Renderer>().material.color = playerColor;
         arm.GetComponentInChildren<Renderer>().material.color = playerColor;
+        armNoodle.GetComponent<Renderer>().material.color = playerColor;
     }
 
     // Update is called once per frame
