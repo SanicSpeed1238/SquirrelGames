@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 640683728100093689}
   - component: {fileID: 6714903720868410625}
   m_Layer: 0
-  m_Name: char_Ant1_Regular
+  m_Name: obj_Ant1_Regular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

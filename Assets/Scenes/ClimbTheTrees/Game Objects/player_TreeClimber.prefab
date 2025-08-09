@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 416299912439726197}
   - component: {fileID: 323500465752699716}
   m_Layer: 6
-  m_Name: player_Climber
+  m_Name: player_TreeClimber
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

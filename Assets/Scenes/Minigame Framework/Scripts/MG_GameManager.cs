@@ -69,13 +69,7 @@ public class MG_GameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (gameResults.scoringMethod == MG_GameResults.ScoringMethod.Goal)
-        {
-            for (int p = 0;  p < scoresUI.transform.childCount; p++)
-            {
-                scoresUI.transform.GetChild(p).gameObject.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "...";
-            }
-        }
+        SetUpScoresUI();
     }
 
     #region Public Functions
@@ -157,6 +151,21 @@ public class MG_GameManager : MonoBehaviour
             if (!playerFinished) return;
         }
         EndGame();
+    }
+
+    // For this script only.
+    private void SetUpScoresUI()
+    {
+        scoresUI = scoresUI.transform.GetChild((int)gameResults.scoresUILayout).gameObject;
+        scoresUI.SetActive(true);
+
+        if (gameResults.scoringMethod == MG_GameResults.ScoringMethod.Goal)
+        {
+            for (int p = 0; p < scoresUI.transform.childCount; p++)
+            {
+                scoresUI.transform.GetChild(p).gameObject.transform.Find("Score").GetComponent<TextMeshProUGUI>().text = "...";
+            }
+        }
     }
 
     #endregion

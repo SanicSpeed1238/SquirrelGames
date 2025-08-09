@@ -9,8 +9,14 @@ public class MG_GameResults : MonoBehaviour
         Points,
         Goal,
     }
-    [Header("Scoring Type")]
+    public enum ScoresUILayout
+    {
+        Bottom,
+        Corners,
+    }
+    [Header("Scoring Components")]
     public ScoringMethod scoringMethod = ScoringMethod.Points;
+    public ScoresUILayout scoresUILayout = ScoresUILayout.Bottom;
 
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;

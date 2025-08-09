@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1287998188205515364}
   - component: {fileID: -2627578684005292076}
   m_Layer: 9
-  m_Name: acorn_Regular
+  m_Name: obj_Acorn_TreeClimb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
