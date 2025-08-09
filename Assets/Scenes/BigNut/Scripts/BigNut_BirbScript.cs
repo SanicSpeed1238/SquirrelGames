@@ -53,16 +53,14 @@ public class BigNut_BirbScript : MonoBehaviour
         {
             if (spawned)
             {
-                if (Vector3.Distance(transform.position, birbDestination.position) <= 0.1 || Vector3.Distance(transform.position, player.transform.position) > maxDistanceFromCharacter)
+                if (Vector3.Distance(transform.position, birbDestination.position) <= 0.1)
                 {
                     shadow.localScale = Vector3.zero;
                     spawned = false;
                     BigNut_Controller playerController = player.GetComponent<BigNut_Controller>();
                     if (!playerController.IsAlive)
                     {
-                        MG_GameManager.Instance.UpdatePlayerQualified(playerController.playerID, false);
-                        Destroy(player);
-                        Destroy(shadow);
+                        Destroy(shadow.gameObject);
                         Destroy(gameObject);
                     }
                     else if (isComputer)
@@ -73,7 +71,7 @@ public class BigNut_BirbScript : MonoBehaviour
                 if (!reachedPlayer)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, birbApproachSpeed);
-                    shadow.localScale += new Vector3(0.005f, 0, 0.005f);
+                    shadow.localScale += new Vector3(0.006f, 0, 0.006f);
                 }
                 else
                 {
@@ -114,7 +112,7 @@ public class BigNut_BirbScript : MonoBehaviour
         if (collision.gameObject == player)
         {
             reachedPlayer = true;
-            player.GetComponent<BigNut_Controller>().AttemptCatch(transform);
+            player.GetComponent<BigNut_Controller>().Squish();
         }
     }
 }

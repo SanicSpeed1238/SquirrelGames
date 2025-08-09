@@ -1160,6 +1160,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Acorn
       objectReference: {fileID: 0}
+    - target: {fileID: 1287998188205515364, guid: b7b65081da647c249a390407580f6d46, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4927458788056630895, guid: b7b65081da647c249a390407580f6d46, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6335851

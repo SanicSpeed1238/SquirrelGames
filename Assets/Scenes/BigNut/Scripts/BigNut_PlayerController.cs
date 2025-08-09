@@ -82,7 +82,6 @@ public class BigNut_PlayerController : BigNut_Controller
         else
         {
             controller.enabled = false;
-            transform.position = birbThatCaught.position;
         }
     }
 
@@ -121,14 +120,20 @@ public class BigNut_PlayerController : BigNut_Controller
         }
     }
 
-    public override void AttemptCatch(Transform birb)
+    public override void Squish()
     {
         if (!isHiding)
         {
             isAlive = false;
-            birbThatCaught = birb;
             squirrelAnimator.speed = 0;
+            transform.localScale = new Vector3(transform.localScale.x, 0.4f, transform.localScale.z);
+            Invoke("DestroySquirrel", 3);
         }
+    }
+
+    void DestroySquirrel()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider collision)
