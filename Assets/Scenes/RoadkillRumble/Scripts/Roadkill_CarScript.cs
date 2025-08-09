@@ -10,11 +10,12 @@ public class Roadkill_CarScript : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         Vector3 moveDirection = transform.forward * moveSpeed;
-        rigidBody.velocity = moveDirection;
     }
 
     private void FixedUpdate()
     {
+        rigidBody.MovePosition(rigidBody.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+
         if (rigidBody.position.x > 50 || rigidBody.position.x < -50)
             Destroy(gameObject);
     }
