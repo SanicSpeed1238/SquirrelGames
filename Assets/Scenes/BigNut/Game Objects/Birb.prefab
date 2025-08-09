@@ -124,6 +124,6 @@ MonoBehaviour:
   spawnTimeLowerBound: 2
   spawnTimeUpperBound: 6
   maxDistanceFromCharacter: 100
-  birbApproachSpeed: 0.05
+  birbApproachSpeed: 0.025
   birbAwaySpeed: 0.08
   birbEnabled: 1
