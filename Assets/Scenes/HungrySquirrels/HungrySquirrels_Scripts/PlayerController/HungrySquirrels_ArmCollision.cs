@@ -46,7 +46,6 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             if (eTime >= bomb.bTimer)
             {
                 _fuseFX.Stop();
-                _explosionFX.Play();
                 BombOnArmBoom();
                 mainBody._stunActive = true;
                 eTime = 0;
@@ -61,6 +60,7 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         Vector3 ePos = this.transform.position;
 
         bombModel.SetActive(false);
+        Instantiate(_explosionFX, this.transform.position, Quaternion.identity);
 
         Collider[] pickups = Physics.OverlapSphere(ePos, 10);
 
@@ -88,7 +88,6 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
             }
 
         }
-        _explosionFX.Stop();
 
     }
 
