@@ -17,7 +17,8 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
 
     //Rotation Controls
     private Vector2 rotationInput;//Check for keys/input for rotation
-    protected float curr_Rot;//Checks for current rotation of the Player
+    private float initialRotation;
+    public float curr_Rot;//Checks for current rotation of the Player
     public float rot_Max;//Maximum rotation of Player/Limits
 
     [Header("Values to Be Adjusted")]
@@ -46,6 +47,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         mainBodyModel.GetComponentInChildren<Renderer>().material.color = playerColor;
         arm.GetComponentInChildren<Renderer>().material.color = playerColor;
         armNoodle.GetComponent<Renderer>().material.color = playerColor;
+        initialRotation = transform.eulerAngles.y;
     }
 
     // Update is called once per frame
@@ -78,25 +80,20 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         //See if arm is moving so player cannot rotate
         if (pressed == false)
         {
-            if(playerID == 1 || playerID == 2)
+
+            //Limit's The Rotation of arm so they can stay within the box
+            if ((rotationInput.x < 0 && curr_Rot > -rot_Max && transform.eulerAngles.y > initialRotation-rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max/* && transform.eulerAngles.y < initialRotation + rot_Max*/))
             {
-                //Limit's The Rotation of arm so they can stay within the box
-                if ((rotationInput.x < 0 && curr_Rot > -rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max))
+                //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
+                if(playerID == 1 || playerID == 2)
                 {
-                    //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
                     transform.Rotate(Vector3.up, -rotation);
-                    curr_Rot += rotation;//Updates Current Rotation for limit checkers
                 }
-            }
-            else
-            {
-                //Limit's The Rotation of arm so they can stay within the box
-                if ((rotationInput.x < 0 && curr_Rot > -rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max))
+                else
                 {
-                    //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
                     transform.Rotate(Vector3.up, rotation);
-                    curr_Rot += rotation;//Updates Current Rotation for limit checkers
                 }
+                curr_Rot += rotation;//Updates Current Rotation for limit checkers
             }
 
         }

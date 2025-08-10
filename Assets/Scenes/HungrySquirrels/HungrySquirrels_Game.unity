@@ -982,15 +982,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: -0.92387944
       objectReference: {fileID: 0}
     - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.38268343
+      value: 0.3826836
+      objectReference: {fileID: 0}
+    - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 442002233996944391, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45
+      value: 315
       objectReference: {fileID: 0}
     - target: {fileID: 1782957286959182073, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_IsActive
@@ -1050,15 +1054,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.38268343
+      value: -0.38268325
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.92387956
+      value: 0.9238796
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5477670923746143285, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -135
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 5897759619078734291, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_Name
@@ -1104,6 +1112,10 @@ PrefabInstance:
         Get the Acorns!
 
         Avoid Bombs!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701657868112812774, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
+      propertyPath: scoresUILayout
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6914206699603480369, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_LocalPosition.x
