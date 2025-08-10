@@ -38,63 +38,62 @@ public class BigNut_ComputerController : BigNut_Controller
             mainCamera = Camera.main;
         }
 
-        if (!isAlive) 
+        if (isAlive)
         {
-            transform.position = birbThatCaught.position;
-        }
-        else if (!isHiding)
-        {
-            if (!isStunned)
+            if (!isHiding)
             {
-                squirrelAnimator.speed = 1;
-                if (isBirdComing)
+                if (!isStunned)
                 {
-                    Vector3 destinationViewPort = mainCamera.WorldToViewportPoint(agent.destination);
-                    if (hidyHole != null)
+                    squirrelAnimator.speed = 1;
+                    if (isBirdComing)
                     {
-                        BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
-                        if (hidyHoleScript.NearbyPlayerCount >= 3)
+                        Vector3 destinationViewPort = mainCamera.WorldToViewportPoint(agent.destination);
+                        if (hidyHole != null)
                         {
-                            hidyHole = null;
-                        }
-                    }
-                    
-                    if (hidyHole == null || destinationViewPort.y <= 0.1 || destinationViewPort.y > 1)
-                    {
-                        Vector3 closestHole = Vector3.zero;
-                        float minDistance = float.MaxValue;
-                        BigNut_HidyHole[] hidyHoles = GameObject.FindObjectsByType<BigNut_HidyHole>(FindObjectsSortMode.None);
-                        foreach (BigNut_HidyHole hole in hidyHoles)
-                        {
-                            Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
-                            float distance = Vector3.Distance(hole.transform.position, transform.position);
-                            if (minDistance > distance && holeViewPort.y > 0.1 && holeViewPort.y < 1 && hole.NearbyPlayerCount < 3)
+                            BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
+                            if (hidyHoleScript.NearbyPlayerCount >= 3)
                             {
-                                minDistance = distance;
-                                hidyHole = hole.gameObject;
+                                hidyHole = null;
                             }
                         }
-                        if (hidyHole == null)
+
+                        if (hidyHole == null || destinationViewPort.y <= 0.1 || destinationViewPort.y > 1)
                         {
-                            hidyHole = acorn.gameObject;
+                            Vector3 closestHole = Vector3.zero;
+                            float minDistance = float.MaxValue;
+                            BigNut_HidyHole[] hidyHoles = GameObject.FindObjectsByType<BigNut_HidyHole>(FindObjectsSortMode.None);
+                            foreach (BigNut_HidyHole hole in hidyHoles)
+                            {
+                                Vector3 holeViewPort = mainCamera.WorldToViewportPoint(hole.transform.position);
+                                float distance = Vector3.Distance(hole.transform.position, transform.position);
+                                if (minDistance > distance && holeViewPort.y > 0.1 && holeViewPort.y < 1 && hole.NearbyPlayerCount < 3)
+                                {
+                                    minDistance = distance;
+                                    hidyHole = hole.gameObject;
+                                }
+                            }
+                            if (hidyHole == null)
+                            {
+                                hidyHole = acorn.gameObject;
+                            }
+                            agent.SetDestination(hidyHole.transform.position);
                         }
-                        agent.SetDestination(hidyHole.transform.position);
+                        if (hidyHole != null)
+                        {
+                            if (Vector3.Distance(hidyHole.transform.position, transform.position) < 2)
+                            {
+                                HideAndUnhide();
+                            }
+                        }
                     }
-                    if (hidyHole != null)
-                    {
-                        if (Vector3.Distance(hidyHole.transform.position, transform.position) < 2)
-                        {
-                            HideAndUnhide();
-                        }
-                    }                    
+                }
+                else
+                {
+                    HandleStunning();
                 }
             }
-            else
-            {
-                HandleStunning();
-            }
+            ConstraintPlayerInCamera();
         }
-        ConstraintPlayerInCamera();
     }
 
     public void BirdGone()
@@ -145,21 +144,29 @@ public class BigNut_ComputerController : BigNut_Controller
         }
     }
 
-    public override void AttemptCatch(Transform birb)
+    public override void Squish()
     {
         if (!isHiding)
         {
             isAlive = false;
-            birbThatCaught = birb;
             agent.enabled = false;
             squirrelAnimator.speed = 0;
+            transform.localScale = new Vector3(transform.localScale.x, 0.4f, transform.localScale.z);
+            MG_GameManager.Instance.UpdatePlayerQualified(this.playerID, false);
+            Invoke("DestroySquirrel", 3);            
         }
+    }
+
+    void DestroySquirrel()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Acorn")
         {
+            Debug.Log("ACORN");
             MG_GameManager.Instance.UpdatePlayerQualified(playerID, true);
         }
     }

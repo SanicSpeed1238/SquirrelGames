@@ -15,7 +15,6 @@ public abstract class BigNut_Controller : Base_PlayerController
     protected bool isAlive = true;
     protected bool isStunned = false;
     protected float pushDistance = 2.0f;
-    protected Transform birbThatCaught;
 
     protected float currentStunTime;
 
@@ -23,7 +22,7 @@ public abstract class BigNut_Controller : Base_PlayerController
 
     public abstract void HideAndUnhide();
 
-    public abstract void AttemptCatch(Transform birb);
+    public abstract void Squish();
 
     public void StunPlayer()
     {
