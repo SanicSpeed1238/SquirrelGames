@@ -17,7 +17,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
 
     //Rotation Controls
     private Vector2 rotationInput;//Check for keys/input for rotation
-    private float initialRotation;
+    private float initialRot;
     public float curr_Rot;//Checks for current rotation of the Player
     public float rot_Max;//Maximum rotation of Player/Limits
 
@@ -47,7 +47,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         mainBodyModel.GetComponentInChildren<Renderer>().material.color = playerColor;
         arm.GetComponentInChildren<Renderer>().material.color = playerColor;
         armNoodle.GetComponent<Renderer>().material.color = playerColor;
-        initialRotation = transform.eulerAngles.y;
+        initialRot = transform.eulerAngles.y;
     }
 
     // Update is called once per frame
@@ -82,19 +82,19 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         {
 
             //Limit's The Rotation of arm so they can stay within the box
-            if ((rotationInput.x < 0 && curr_Rot > -rot_Max && transform.eulerAngles.y > initialRotation-rot_Max) || (rotationInput.x > 0 && curr_Rot < rot_Max/* && transform.eulerAngles.y < initialRotation + rot_Max*/))
+            float newRotation = Mathf.Clamp(curr_Rot + rotation, -rot_Max, rot_Max);
+            float rotationChange = newRotation - curr_Rot;
+
+            //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
+            if (playerID == 1 || playerID == 2)
             {
-                //Moves the arm by using transforms instead of the actual rigidbody physics(removes problem of flinging by clipping)
-                if(playerID == 1 || playerID == 2)
-                {
-                    transform.Rotate(Vector3.up, -rotation);
-                }
-                else
-                {
-                    transform.Rotate(Vector3.up, rotation);
-                }
-                curr_Rot += rotation;//Updates Current Rotation for limit checkers
+                transform.Rotate(Vector3.up, -rotationChange);
             }
+            else
+            {
+                transform.Rotate(Vector3.up, rotationChange);
+            }
+            curr_Rot = newRotation;//Updates Current Rotation for limit checkers
 
         }
     }
