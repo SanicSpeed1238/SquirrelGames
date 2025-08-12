@@ -3,6 +3,7 @@ using UnityEngine;
 public class TreeClimb_AcornScript : MonoBehaviour
 {
     [Header("Attributes")]
+    [Range(1,3)]
     public int points;
     public GameObject collectEffect;
     public GameObject destroyEffect;

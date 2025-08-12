@@ -7,16 +7,24 @@ public class Roadkill_PlayerController : MonoBehaviour
     {
         Running,
         Rolling,
+        Squished,
     }
 
     [Header("Movement Values")]
     public float runSpeed;
+    public float rollSpeed;
+
+    [Header("Important References")]
+    public Animator animator;
+
+    // Other Variables Needed
 
     private float horizontalInput;
     private float verticalInput;
 
     private Rigidbody playerRB;
-    private Roadkill_PlayerState state;
+    private Coroutine currentStateRoutine;
+    private Roadkill_PlayerState state;  
 
     private void Start()
     {
@@ -29,9 +37,9 @@ public class Roadkill_PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && state == Roadkill_PlayerState.Running)
         {
-            StartCoroutine(RollSquirrel());
+            currentStateRoutine = StartCoroutine(RollSquirrel(transform.forward, 1f));
         }
     }
 
@@ -49,26 +57,61 @@ public class Roadkill_PlayerController : MonoBehaviour
     {
         Vector3 movement = new(horizontalInput, 0, verticalInput);
         playerRB.velocity = movement.normalized * runSpeed;
+        animator.SetFloat("Movement", movement.normalized.magnitude);
 
         if (movement == Vector3.zero) return;
         Quaternion facingDirection = Quaternion.LookRotation(movement, Vector3.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, facingDirection, Time.deltaTime * 10f);
     }
 
-    IEnumerator RollSquirrel()
+    IEnumerator RollSquirrel(Vector3 direction, float speedMultiplier)
     {
         state = Roadkill_PlayerState.Rolling;
-        Vector3 dashDirection = transform.forward;
-        playerRB.velocity = Vector3.zero;
-        playerRB.AddForce(dashDirection * 50f, ForceMode.Impulse);
 
-        float timepassed = 0f;
-        while (timepassed < 0.3f)
-        {
-            transform.Rotate(Vector3.right * 2000f * Time.deltaTime, Space.Self);
-            timepassed += Time.deltaTime;
-            yield return null;
-        }
+        Vector3 rollDirection = direction;
+        playerRB.velocity = Vector3.zero;
+        playerRB.AddForce(rollDirection * (rollSpeed * speedMultiplier * 10f), ForceMode.Impulse);
+        animator.SetBool("Rolling", true);
+
+        yield return new WaitForSeconds(0.3f);
+
+        animator.SetBool("Rolling", false);
+
         state = Roadkill_PlayerState.Running;
+    }
+
+    IEnumerator SquishSquirrel()
+    {
+        state = Roadkill_PlayerState.Squished;
+
+        playerRB.velocity = Vector3.zero;
+        animator.SetBool("Squished", true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        animator.SetBool("Squished", false);
+
+        state = Roadkill_PlayerState.Running;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Roadkill_AcornScript>(out var acorn))
+        {
+            acorn.CollectAcorn(transform.position);
+        }
+
+        if (other.TryGetComponent<Roadkill_CarCollider>(out var carCollider))
+        {
+            switch (carCollider.carColliderTag)
+            {
+                case Roadkill_CarCollider.CarColliderTag.FrontBack:
+                    if (state != Roadkill_PlayerState.Squished) currentStateRoutine = StartCoroutine(SquishSquirrel());
+                    break;
+                case Roadkill_CarCollider.CarColliderTag.Sides:
+                    if (state != Roadkill_PlayerState.Squished) currentStateRoutine = StartCoroutine(RollSquirrel(-transform.forward, 0.5f));
+                    break;
+            }
+        }
     }
 }

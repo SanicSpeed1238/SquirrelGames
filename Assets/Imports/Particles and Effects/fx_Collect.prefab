@@ -458,7 +458,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -922,7 +922,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 3
       mode: 0
       spread: 0
       speed:
