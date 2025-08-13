@@ -7,6 +7,7 @@ public class HungrySquirrels_Bomb : Pickup
 
     [SerializeField] public float bTimer = 10;
     [SerializeField] private float _launchFCE = 10f;
+    [SerializeField] private float _rollSpeed;
     [SerializeField] public float _expPower = 20f;
     [SerializeField] public float _expRadius = 10f;
     [SerializeField] public float _expLiftPower = 10f;

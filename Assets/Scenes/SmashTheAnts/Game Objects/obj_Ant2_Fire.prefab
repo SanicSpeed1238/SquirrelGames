@@ -10,12 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 291907533956918691, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: m_Name
-      value: char_Ant2_Fire
+      value: obj_Ant2_Fire
       objectReference: {fileID: 0}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: hitFX
       value: 
-      objectReference: {fileID: 7352423552081018823, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
+      objectReference: {fileID: 2092840243891268479, guid: c5259128a123b2a4b9e1b06d0614be9c, type: 3}
     - target: {fileID: 1216028521759408374, guid: 52473a85e86f74742ba50752cb311d57, type: 3}
       propertyPath: hitVFX
       value: 

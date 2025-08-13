@@ -4209,7 +4209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b53e5595b68a84da73e8c380dbb7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLength: 30
+  gameLength: 55
 --- !u!4 &2123322809
 Transform:
   m_ObjectHideFlags: 0
