@@ -25,8 +25,7 @@ public class BigNut_PlayerController : BigNut_Controller
         isNearHidyHole = false;
         controller = GetComponent<CharacterController>();
 
-        BigNut_SpawnBirb spawner = GameObject.FindFirstObjectByType<BigNut_SpawnBirb>();
-        spawner.SpawnBirb(gameObject);
+        BirdInitialization();
     }
 
     private void Awake()
@@ -131,10 +130,6 @@ public class BigNut_PlayerController : BigNut_Controller
         }
     }
 
-    void DestroySquirrel()
-    {
-        Destroy(gameObject);
-    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -148,8 +143,8 @@ public class BigNut_PlayerController : BigNut_Controller
         }
         if (collision.tag == "Acorn")
         {
-            Debug.Log("Finished");
             MG_GameManager.Instance.UpdatePlayerQualified(playerID, true);
+            hasWon = true;
         }
     }
 

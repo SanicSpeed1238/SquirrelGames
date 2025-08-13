@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BigNut_BirdDestinationScript : MonoBehaviour
 {
-    private float movementSpeed;
+    private float distanceFromCamera;
 
     void Start()
     {
-        movementSpeed = Camera.main.GetComponent<BigNut_CameraScript>().CameraMovementSpeed;
+        distanceFromCamera = transform.position.x - Camera.main.transform.position.x;
     }
 
     // Update is called once per frame
@@ -17,6 +17,6 @@ public class BigNut_BirdDestinationScript : MonoBehaviour
             return;
         }
 
-        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+        transform.position = new Vector3(Camera.main.transform.position.x + distanceFromCamera, transform.position.y, transform.position.z);
     }
 }

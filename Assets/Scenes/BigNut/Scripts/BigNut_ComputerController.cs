@@ -19,8 +19,7 @@ public class BigNut_ComputerController : BigNut_Controller
         agent.speed = 0;
         squirrelAnimator.speed = 0;
 
-        BigNut_SpawnBirb spawner = GameObject.FindFirstObjectByType<BigNut_SpawnBirb>();
-        spawner.SpawnBirb(gameObject);
+        BirdInitialization();
     }
 
     // Update is called once per frame
@@ -57,7 +56,7 @@ public class BigNut_ComputerController : BigNut_Controller
                             }
                         }
 
-                        if (hidyHole == null || destinationViewPort.y <= 0.1 || destinationViewPort.y > 1)
+                        if (hidyHole == null || destinationViewPort.y <= 0.3 || destinationViewPort.y > 1)
                         {
                             Vector3 closestHole = Vector3.zero;
                             float minDistance = float.MaxValue;
@@ -146,7 +145,11 @@ public class BigNut_ComputerController : BigNut_Controller
 
     public override void Squish()
     {
-        if (!isHiding)
+        if (isHiding) 
+        {
+            BirdGone();
+        }
+        else
         {
             isAlive = false;
             agent.enabled = false;
@@ -157,17 +160,12 @@ public class BigNut_ComputerController : BigNut_Controller
         }
     }
 
-    void DestroySquirrel()
-    {
-        Destroy(gameObject);
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Acorn")
         {
-            Debug.Log("ACORN");
             MG_GameManager.Instance.UpdatePlayerQualified(playerID, true);
+            hasWon = true;
         }
     }
 
@@ -202,6 +200,7 @@ public class BigNut_ComputerController : BigNut_Controller
         }
         else if (viewportPos.y > bufferFromForward)
         {
+            Debug.Log("here");
             Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
             clampPosition = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
         }

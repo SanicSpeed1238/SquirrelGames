@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789026868941501451, guid: b7b65081da647c249a390407580f6d46, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 789026868941501451, guid: b7b65081da647c249a390407580f6d46, type: 3}
       propertyPath: m_TagString
@@ -1218,7 +1218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174455897942323736, guid: b7b65081da647c249a390407580f6d46, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ecc16a508419439faf85058b18646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraMovementSpeed: 3.4
+  CameraMovementSpeed: 3.5
 --- !u!1 &1181839950
 GameObject:
   m_ObjectHideFlags: 0

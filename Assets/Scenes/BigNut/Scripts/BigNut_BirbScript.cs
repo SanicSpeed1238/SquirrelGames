@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BigNut_BirbScript : MonoBehaviour
@@ -17,6 +18,7 @@ public class BigNut_BirbScript : MonoBehaviour
     private bool reachedPlayer = false;
     private bool spawned = false;
     private bool isComputer = false;
+    private bool playerAlive = true;
     private float spawnTime;
 
     private Transform birbDestination;
@@ -27,7 +29,6 @@ public class BigNut_BirbScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shadow.localScale = Vector3.zero;
         spawnTime = Random.Range(spawnTimeLowerBound, spawnTimeUpperBound);
         transform.position = birbSource.position;
 
@@ -57,15 +58,10 @@ public class BigNut_BirbScript : MonoBehaviour
                 {
                     shadow.localScale = Vector3.zero;
                     spawned = false;
-                    BigNut_Controller playerController = player.GetComponent<BigNut_Controller>();
-                    if (!playerController.IsAlive)
+                    birbEnabled = playerAlive;
+                    if (birbEnabled) 
                     {
-                        Destroy(shadow.gameObject);
-                        Destroy(gameObject);
-                    }
-                    else if (isComputer)
-                    {
-                        computerController.BirdGone();
+                        birbEnabled = !player.GetComponent<BigNut_Controller>().HasWon;
                     }
                 }
                 if (!reachedPlayer)
@@ -97,14 +93,14 @@ public class BigNut_BirbScript : MonoBehaviour
                     }
                 }
             }
-        }        
+        }
     }
 
-    public void Initialize(GameObject player, Transform source)
+    public void Initialize(GameObject player, Transform source, Transform shadow)
     {
         this.player = player;
         birbSource = source;
-        shadow = player.transform.Find("BirbShadow");
+        this.shadow = shadow;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -113,6 +109,25 @@ public class BigNut_BirbScript : MonoBehaviour
         {
             reachedPlayer = true;
             player.GetComponent<BigNut_Controller>().Squish();
+            playerAlive = player.GetComponent<BigNut_Controller>().IsAlive;
         }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        BigNut_Controller playerController = player.GetComponent<BigNut_Controller>();
+        if (collision.gameObject == player && playerController.IsAlive)
+        {
+            if (isComputer)
+            {
+                StartCoroutine(CallInSeconds(2));                
+            }
+        }
+    }
+
+    IEnumerator CallInSeconds(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        player.GetComponent<BigNut_ComputerController>().BirdGone();
     }
 }

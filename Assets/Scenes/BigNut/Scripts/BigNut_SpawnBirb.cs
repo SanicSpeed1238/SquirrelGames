@@ -4,12 +4,12 @@ public class BigNut_SpawnBirb : MonoBehaviour
 {
     public GameObject birb;
 
-    private float movementSpeed;
+    private float distanceFromCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed = Camera.main.GetComponent<BigNut_CameraScript>().CameraMovementSpeed;
+        distanceFromCamera = transform.position.x - Camera.main.transform.position.x;
     }
 
     // Update is called once per frame
@@ -20,12 +20,12 @@ public class BigNut_SpawnBirb : MonoBehaviour
             return;
         }
 
-        transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+        transform.position = new Vector3(Camera.main.transform.position.x + distanceFromCamera, transform.position.y, transform.position.z);
     }
 
-    public void SpawnBirb(GameObject player)
+    public void SpawnBirb(GameObject player, Transform shadow)
     {
         GameObject birbObject = Instantiate(birb, transform.position, Quaternion.identity);
-        birbObject.GetComponent<BigNut_BirbScript>().Initialize(player, transform);
+        birbObject.GetComponent<BigNut_BirbScript>().Initialize(player, transform, shadow);
     }
 }
