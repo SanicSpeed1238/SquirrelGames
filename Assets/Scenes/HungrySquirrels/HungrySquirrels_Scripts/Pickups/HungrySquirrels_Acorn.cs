@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class HungrySquirrels_Acorn : Pickup
 {
-    [SerializeField] private int _pointVal = 1;
+    [SerializeField] private int _pointVal;
     [SerializeField] private float _launchFCE = 10f;
+    [SerializeField] private float _rollSpeed;
+    [SerializeField] private float _sChangeRate;
 
     private Rigidbody _rb;
     private bool doOnce = false;
+    private Coroutine _randMovement;
 
     private void Start()
     {
@@ -18,6 +21,12 @@ public class HungrySquirrels_Acorn : Pickup
             //Debug.Log("ACORN RELEASE");
             doOnce = false;
         }
+    }
+
+    private void Update()
+    {
+
+        _rb.AddForce(new Vector3(Random.Range(0, _rollSpeed), Random.Range(0, _rollSpeed), Random.Range(0, _rollSpeed)), ForceMode.Force);
     }
 
     protected override void Collect(HungrySquirrels_ArmCollision arm)

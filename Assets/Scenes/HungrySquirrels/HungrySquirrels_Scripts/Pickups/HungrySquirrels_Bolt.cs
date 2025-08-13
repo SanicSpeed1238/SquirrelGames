@@ -5,8 +5,9 @@ using UnityEngine;
 public class HungrySquirrels_Bolt : Pickup
 {
 
-    [SerializeField] private int _pointVal = 1;
+    [SerializeField] private int _pointVal;
     [SerializeField] private float _launchFCE = 10f;
+    [SerializeField] private float _rollSpeed;
 
     private Rigidbody _rb;
     private bool doOnce = false;

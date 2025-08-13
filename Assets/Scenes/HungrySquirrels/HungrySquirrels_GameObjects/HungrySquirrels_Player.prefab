@@ -756,13 +756,14 @@ MonoBehaviour:
   armNoodle: {fileID: 5980970839232292027}
   aBehav: {fileID: 7809967670337065717}
   hitBox: {fileID: 7558101476926558544}
+  curr_Rot: 0
   rot_Max: 45
   collectActive: 0
   collided: 0
   rebound: 0
   rot_Speed: 2
   ext_Speed: 0.4
-  _stunDur: 5
+  _stunDur: 3
   mainBodyModel: {fileID: 494007290299891816}
   _stunActive: 0
 --- !u!114 &7812743718428654764

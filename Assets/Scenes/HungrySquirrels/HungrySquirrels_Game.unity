@@ -381,7 +381,7 @@ MonoBehaviour:
   - {fileID: 6649251469042615717, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
   - {fileID: -1599648042142969385, guid: dd0f9abb52aa40043bc10c1eed502648, type: 3}
   - {fileID: 6520235159708751814, guid: 0f8180287242f6247821abeea8572d5c, type: 3}
-  _spawnRate: 1.5
+  _spawnRate: 1.2
   _spawnRadiusMax: 20
   _layerToTest:
     serializedVersion: 2
