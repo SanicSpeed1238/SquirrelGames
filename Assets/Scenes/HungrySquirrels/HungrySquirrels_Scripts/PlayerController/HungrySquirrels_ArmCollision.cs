@@ -11,7 +11,9 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
     public HungrySquirrels_Acorn acorn;
     public HungrySquirrels_Bomb bomb;
     public HungrySquirrels_Bolt bolt;
-    public int aOn;
+    public bool aOn;
+    public int aScore;
+    public bool boltOn;
     public bool bActive = false;
     public string WallLayerName;
     public string PlayerLayerName;
@@ -111,19 +113,20 @@ public class HungrySquirrels_ArmCollision : MonoBehaviour
         }
         else if(other.gameObject.layer == _playerLayer.value)
         {
-            if (aOn == 2)
+            if (aOn == true)
             {
                 HungrySquirrels_Acorn flungAcorn = Instantiate(acorn, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 flungAcorn.aInitialize();
                 acornModel.SetActive(false);
-                aOn = 0;
+                aScore = 0;
+                aOn = false;
             }
-            else if (aOn == 1)
+            else if (boltOn == true)
             {
                 HungrySquirrels_Bolt flungBolt = Instantiate(bolt, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 flungBolt.aInitialize();
                 screwModel.SetActive(false);
-                aOn = 0;
+                boltOn = false;
             }
             else if (bActive == true)
             {

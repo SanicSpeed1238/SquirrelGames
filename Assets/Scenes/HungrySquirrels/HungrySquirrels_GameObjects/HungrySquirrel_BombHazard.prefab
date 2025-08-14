@@ -51,11 +51,13 @@ MonoBehaviour:
   _pSound: {fileID: 0}
   bTimer: 5
   _launchFCE: 10
+  _rollSpeedMax: 5
   _expPower: 20
   _expRadius: 10
   _expLiftPower: 10
   _explostionFX: {fileID: 8589440707034120124, guid: 354a0d795af50444c8de27bc4d2aac85, type: 3}
   _fuseFX: {fileID: 1427540134237355883}
+  _sChangeRate: 2
   PlayerLayerName: Player
 --- !u!54 &-3224615807810219825
 Rigidbody:

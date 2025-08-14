@@ -107,7 +107,7 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
         if (moveInput == true && collided == false && rebound == false)
         {
             arm.transform.Translate(translate, 0, 0, Space.Self);
-            if (aBehav.aOn == 0 && aBehav.bActive == false)
+            if (aBehav.aOn == false && aBehav.bActive == false && aBehav.boltOn == false)
             {
                 collectActive = true;
             }
@@ -143,19 +143,18 @@ public class HungrySquirrels_PlayerController : Base_PlayerController
             rebound = false;
             pressed = false;
             arm.transform.localPosition = new Vector3(0, 0, 0);//Sets arm to original place
-            if(aBehav.aOn != 0)
+            if(aBehav.aOn == true)
             {
-                playerScore += aBehav.aOn;
-                MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aOn);
-                if(aBehav.aOn == 1)
-                {
-                    aBehav.screwModel.SetActive(false);
-                }
-                else if (aBehav.aOn == 2)
-                {
-                    aBehav.acornModel.SetActive(false);
-                }
-                aBehav.aOn = 0;
+                playerScore += aBehav.aScore;
+                MG_GameManager.Instance.UpdatePlayerScore(playerID, playerScore, aBehav.aScore);
+                aBehav.acornModel.SetActive(false);
+                aBehav.aScore = 0;
+                aBehav.aOn = false;
+            }
+            else if(aBehav.boltOn == true)
+            {
+                aBehav.screwModel.SetActive(false);
+                aBehav.boltOn = false;
             }
         }
     }

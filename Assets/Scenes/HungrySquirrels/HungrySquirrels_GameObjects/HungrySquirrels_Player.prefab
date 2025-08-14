@@ -221,6 +221,8 @@ MonoBehaviour:
   bomb: {fileID: 6649251469042615717, guid: 3a6611fe1db58604ead7d2add1c44430, type: 3}
   bolt: {fileID: 6520235159708751814, guid: 0f8180287242f6247821abeea8572d5c, type: 3}
   aOn: 0
+  aScore: 0
+  boltOn: 0
   bActive: 0
   WallLayerName: Wall
   PlayerLayerName: Player
@@ -763,7 +765,7 @@ MonoBehaviour:
   rebound: 0
   rot_Speed: 2
   ext_Speed: 0.4
-  _stunDur: 3
+  _stunDur: 2.5
   mainBodyModel: {fileID: 494007290299891816}
   _stunActive: 0
 --- !u!114 &7812743718428654764
