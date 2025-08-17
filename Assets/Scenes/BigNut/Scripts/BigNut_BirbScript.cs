@@ -59,11 +59,12 @@ public class BigNut_BirbScript : MonoBehaviour
                     shadow.localScale = Vector3.zero;
                     spawned = false;
                     birbEnabled = playerAlive;
-                    if (birbEnabled) 
-                    {
-                        birbEnabled = !player.GetComponent<BigNut_Controller>().HasWon;
-                    }
                 }
+                if (playerAlive && player.GetComponent<BigNut_Controller>().HasWon)
+                {
+                    reachedPlayer = true;
+                }
+
                 if (!reachedPlayer)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, player.transform.position, birbApproachSpeed);
@@ -80,6 +81,10 @@ public class BigNut_BirbScript : MonoBehaviour
             }
             else
             {
+                if (playerAlive && player.GetComponent<BigNut_Controller>().HasWon)
+                {
+                    birbEnabled = false;
+                }
                 spawnTime -= Time.deltaTime;
                 if (spawnTime <= 0)
                 {
