@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pSound: {fileID: 0}
-  _pointVal: 0
   _launchFCE: 10
+  _rollSpeedMax: 5
+  _sChangeRate: 2
 --- !u!54 &5311331154898820160
 Rigidbody:
   m_ObjectHideFlags: 0

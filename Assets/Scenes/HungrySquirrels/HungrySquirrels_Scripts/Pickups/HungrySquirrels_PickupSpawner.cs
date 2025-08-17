@@ -66,13 +66,13 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
             else
             {
                 int coinflip = Random.Range(0, 5);
-                if (coinflip >= 2)
+                if (coinflip >= 3)
                 {
                     Pickup bomb = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 }
                 else
                 {
-                    Pickup bolt = Instantiate(_possiblePickupsToSpawn[2], positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
+                    Pickup acorn = Instantiate(_possiblePickupsToSpawn[1], positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 }
             }
 
@@ -86,7 +86,7 @@ public class HungrySquirrels_PickupSpawner : MonoBehaviour
             else
             {
                 int coinflip = Random.Range(0, 5);
-                if (coinflip >= 2)
+                if (coinflip >= 4)
                 {
                     Pickup acorn = Instantiate(pickup, positon, Quaternion.FromToRotation(RandomRotation(), RandomRotation()));
                 }

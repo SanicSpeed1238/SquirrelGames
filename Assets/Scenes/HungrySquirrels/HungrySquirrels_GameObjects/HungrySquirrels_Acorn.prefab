@@ -50,6 +50,8 @@ MonoBehaviour:
   _pSound: {fileID: 0}
   _pointVal: 1
   _launchFCE: 10
+  _rollSpeedMax: 5
+  _sChangeRate: 2
 --- !u!54 &4961198239399463931
 Rigidbody:
   m_ObjectHideFlags: 0
