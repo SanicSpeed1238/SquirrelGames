@@ -125,7 +125,7 @@ public class BigNut_BirbScript : MonoBehaviour
         {
             if (isComputer)
             {
-                StartCoroutine(CallInSeconds(2));                
+                StartCoroutine(CallInSeconds(1));                
             }
         }
     }

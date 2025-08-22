@@ -145,11 +145,7 @@ public class BigNut_ComputerController : BigNut_Controller
 
     public override void Squish()
     {
-        if (isHiding) 
-        {
-            BirdGone();
-        }
-        else
+        if (!isHiding)
         {
             isAlive = false;
             agent.enabled = false;
