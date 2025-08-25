@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7142733350544086275, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
       propertyPath: m_Name
-      value: playerCPU_Hammer
+      value: playerCPU_AntAttacker
       objectReference: {fileID: 0}
     - target: {fileID: 7379629290639573706, guid: 0e42ac91ca230994aabfe4c2fdbe2a8f, type: 3}
       propertyPath: m_VersionIndex

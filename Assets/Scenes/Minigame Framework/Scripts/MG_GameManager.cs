@@ -273,6 +273,8 @@ public class MG_GameManager : MonoBehaviour
 
         // Play the Results Cutscene
         // -------------------------
+        foreach (GameObject playerObject in gameSetup.playersInGame) {
+            playerObject.SetActive(false);}
         if (resultsCutscene.GetComponent<PlayableDirector>().playableAsset != null)
         {
             PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
