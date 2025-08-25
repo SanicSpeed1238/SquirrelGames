@@ -111,6 +111,10 @@ public class BigNut_ComputerController : BigNut_Controller
 
     public override void HideAndUnhide()
     {
+        if (!isAlive) 
+        {
+            return;
+        }
         BigNut_HidyHole hidyHoleScript = hidyHole.GetComponent<BigNut_HidyHole>();
         Collider playerCollider = gameObject.GetComponent<Collider>();
         BoxCollider hidyHoleCollider = hidyHole.GetComponent<BoxCollider>();
