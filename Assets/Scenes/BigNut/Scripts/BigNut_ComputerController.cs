@@ -16,6 +16,7 @@ public class BigNut_ComputerController : BigNut_Controller
     {
         acorn = GameObject.FindGameObjectWithTag("Acorn").transform;
         agent.SetDestination(acorn.position);
+        Debug.Log(agent.destination);
         agent.speed = 0;
         squirrelAnimator.speed = 0;
 
@@ -192,11 +193,10 @@ public class BigNut_ComputerController : BigNut_Controller
         Vector3 clampPosition = transform.position;
         if (viewportPos.y <= 0)
         {
-            clampPosition = transform.position + Vector3.right;
+            clampPosition = transform.position + Vector3.right*2;
         }
         else if (viewportPos.y > bufferFromForward)
         {
-            Debug.Log("here");
             Vector3 clampedWorld = mainCamera.ViewportToWorldPoint(new Vector3(bufferFromForward, viewportPos.y, viewportPos.z));
             clampPosition = new Vector3(clampedWorld.x, transform.position.y, transform.position.z);
         }
