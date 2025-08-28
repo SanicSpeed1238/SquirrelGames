@@ -5,7 +5,7 @@ public class AntSmash_GameManager : MonoBehaviour
     public static AntSmash_GameManager Instance;
 
     [Header("Gameplay Attributes")]
-    [Range(30f, 60f)]
+    [Range(10f, 60f)]
     public float gameLength;
 
     // Variables Needed

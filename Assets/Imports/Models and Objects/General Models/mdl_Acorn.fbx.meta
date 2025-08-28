@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: AcornBase
-    second: {fileID: 2100000, guid: 40085a4a159af7d46bb1884f7042840e, type: 2}
+    second: {fileID: 2100000, guid: d2f9ff1a9fa224a4ea8ace101144c5ef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
