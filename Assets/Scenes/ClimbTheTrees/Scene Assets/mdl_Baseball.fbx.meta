@@ -3,7 +3,17 @@ guid: 7f3cf5f1a3a7a234cba81dbfd2308cc8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 6c7dc08b7a2eaba418d0b05407f6a576, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stitches
+    second: {fileID: 2100000, guid: 848ffded221368a47bc953c7eda9e6e4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

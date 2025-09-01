@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3935569837291100030}
     m_Modifications:
+    - target: {fileID: 2584492363175279989, guid: a209cbff6b6eb764ba33cdded0f8aed8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cd94f89f043c5848b6b7e90e40acd61, type: 2}
+    - target: {fileID: 4155807204251517759, guid: a209cbff6b6eb764ba33cdded0f8aed8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ccc4f40f5370e741b21997e49a584d4, type: 2}
     - target: {fileID: 8269427360115680350, guid: a209cbff6b6eb764ba33cdded0f8aed8, type: 3}
       propertyPath: m_Name
       value: Body Colors
@@ -53,7 +61,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5839913270582783524, guid: a209cbff6b6eb764ba33cdded0f8aed8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a209cbff6b6eb764ba33cdded0f8aed8, type: 3}

@@ -5,15 +5,15 @@ using EasyTransition;
 public static class CustomizationList
 {
     public static int numHatOptions = 3;
-    public static int numBodyOptions = 4;
+    public static int numBodyOptions = 3;
 
     public static string[] defaultPlayerNames = 
     { 
-      "Alan",
-      "Jeremy",
-      "Jacob",
+      "Allen",
+      "Jimmy",
+      "Jake",
       "Nayuki",
-      "Chase",
+      "Cheese",
       "Nutty",
       "Sammy",
       "Bonker",

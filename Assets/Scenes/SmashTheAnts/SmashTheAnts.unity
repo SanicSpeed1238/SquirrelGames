@@ -294,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 6710749470464069144, guid: e660b93ae1fd22747b7cdd5c1be2c2d1, type: 3}
     - target: {fileID: 3358803672209563557, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: skipStartupScreen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3606165331394888908, guid: e8540bcf69ca4e44aa1b865556e0c7b1, type: 3}
       propertyPath: m_VideoClip
