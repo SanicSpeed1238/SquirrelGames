@@ -55,7 +55,7 @@ MonoBehaviour:
   startLocation: {fileID: 0}
   moveUpSpeed: 20
   moveDownSpeed: 15
-  jumpSpeed: 23
+  jumpSpeed: 24
   bounceSpeed: 16
   jumpCooldown: 0.15
   stunHeightMultiplier: 0.09
