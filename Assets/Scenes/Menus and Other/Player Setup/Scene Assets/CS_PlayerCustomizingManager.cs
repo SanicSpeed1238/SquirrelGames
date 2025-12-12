@@ -17,7 +17,11 @@ public static class CustomizationList
       "Nutty",
       "Sammy",
       "Bonker",
-      "Ray"
+      "Ray",
+      "Waffle",
+      "Thomas",
+      "Gerald",
+      "Lucky"
     };
 }
 
