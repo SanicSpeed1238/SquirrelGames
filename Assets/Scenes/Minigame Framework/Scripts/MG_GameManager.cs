@@ -214,12 +214,12 @@ public class MG_GameManager : MonoBehaviour
         yield return new WaitForSeconds(countdownDelay);
         audioPlayer.PlayGameMusic();
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
+        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
         messageUI.text = ("READY...");
         yield return new WaitForSeconds(readyDisplayDuration);
         messageUI.fontSize += fontSizeIncrease;
         messageUI.text = ("GO !!!");
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, goDisappearSpeed).setDelay(goDisplayDuration).setEase(LeanTweenType.linear);
+        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, goDisappearSpeed).setDelay(goDisplayDuration).setEase(LeanTweenType.linear);
 
         // Finish Up StartMinigame Coroutine
         // ---------------------------------
@@ -248,10 +248,10 @@ public class MG_GameManager : MonoBehaviour
         // Display the "Finish!" Message
         // -----------------------------
         messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, finishAppearSpeed).setEase(LeanTweenType.easeOutExpo);
+        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, finishAppearSpeed).setEase(LeanTweenType.easeOutExpo);
         messageUI.fontSize += fontSizeIncrease;
         messageUI.text = ("FINISH!");
-        LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, finishDisappearSpeed).setDelay(finishDisplayDuration).setEase(LeanTweenType.linear);
+        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, finishDisappearSpeed).setDelay(finishDisplayDuration).setEase(LeanTweenType.linear);
 
         // Clear the "Finish!" Message
         // ---------------------------

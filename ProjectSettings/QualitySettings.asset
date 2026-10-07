@@ -104,7 +104,10 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - WebGL
+    - Android
+    - Server
   - serializedVersion: 3
     name: Medium
     pixelLightCount: 2
@@ -153,7 +156,10 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - WebGL
+    - Server
+    - Android
   - serializedVersion: 3
     name: High
     pixelLightCount: 3
@@ -203,8 +209,9 @@ QualitySettings:
     terrainFadeLength: 5
     terrainMaxTrees: 50
     excludedTargetPlatforms:
-    - Server
     - Android
+    - Server
+    - WebGL
   - serializedVersion: 3
     name: Super
     pixelLightCount: 4
@@ -256,6 +263,7 @@ QualitySettings:
     excludedTargetPlatforms:
     - Server
     - Android
+    - WebGL
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
     Android: 0
@@ -266,10 +274,10 @@ QualitySettings:
     Nintendo Switch: 4
     PS4: 4
     PS5: 4
-    Server: 1
+    Server: 0
     Stadia: 4
-    Standalone: 3
-    WebGL: 2
+    Standalone: 4
+    WebGL: 0
     Windows Store Apps: 4
     XboxOne: 4
     iPhone: 1
