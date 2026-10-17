@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using EasyTransition;
+using EZ.Transitions;
 
 public class MG_GameResults : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class MG_GameResults : MonoBehaviour
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;
     public AudioSource resultsMusic;
-    public TransitionSettings exitTransition;
+    public TransitionEffect exitTransition;
 
     [Header("Animated Squirrels Reference")]
     public GameObject[] animatedSquirrels;
@@ -43,73 +43,57 @@ public class MG_GameResults : MonoBehaviour
 
     public void GetWinners()
     {
-        #region Calculate Winners
-
+        // Check Player Scores
+        // -------------------
         int highestScore = 1;
-
         for (int i = 0; i < playerScores.Length; i++)
         {
             if (playerScores[i] > highestScore)
-            {
                 highestScore = playerScores[i];
-            }
         }
         for (int i = 0; i < playerScores.Length; i++)
         {
             if (playerScores[i] == highestScore)
-            {
                 playersWon[i] = true;
-            }
         }
 
-        #endregion
-
-        #region Display Winners
-
+        // Set Players Won Text
+        // --------------------
         string playersWonText = "";
         int playersWonNum = 0;
-
         for (int p = 0;  p < playersWon.Length; p++)
         {
             if (playersWon[p] == true)
             {
+                string player;
+
                 if (CS_PlayerJoinData.Instance != null)
-                {
-                    playersWonText += CS_PlayerJoinData.Instance.playerCustomizations[p].playerName + " ";
-                }
+                    player = CS_PlayerJoinData.Instance.playerCustomizations[p].playerName + " ";
                 else
-                {
-                    playersWonText += "P" + (p+1) + " ";
-                }  
+                    player = "P" + (p+1) + " ";
+
+                playersWonText += $"<size=110%>{player}</size> ";
                 playersWonNum++;
             }
         }
-
-        if (playersWonNum > 1) playersWonText += "WIN!";
-        else if (playersWonNum == 1) playersWonText += "WINS!";
+        if (playersWonNum > 1) playersWonText += "\nWIN!";
+        else if (playersWonNum == 1) playersWonText += "\nWINS!";
         else playersWonText = "TIE...";
-
         winnersText.text = playersWonText;
-
-        #endregion
     }
 
     public void PlayResultsSequence()
     {
-        resultsMusic.Play();
-
+        winnersText.gameObject.SetActive(true);
         for (int i = 0; i < animatedSquirrels.Length; i++)
         {
             if (playersWon[i])
-            {
                 animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Win");
-            }
             else
-            {
                 animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Lose");
-            }
         }
 
-        TransitionManager.Instance().Transition(minigameSelectSceneName, exitTransition, resultsMusic.clip.length);
+        resultsMusic.Play();
+        SceneTransitioner.Instance.LoadScene(minigameSelectSceneName, resultsMusic.clip.length, exitTransition);
     }
 }

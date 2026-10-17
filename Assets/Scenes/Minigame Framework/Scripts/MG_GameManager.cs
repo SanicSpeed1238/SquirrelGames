@@ -1,7 +1,9 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 using System.Collections;
+using TMPro;
+using DG.Tweening;
+using EZ.Transitions;
 
 public class MG_GameManager : MonoBehaviour
 {
@@ -33,39 +35,31 @@ public class MG_GameManager : MonoBehaviour
     private MG_GameSetup gameSetup;
     private MG_GameResults gameResults;
     private MG_AudioController audioPlayer;
-
-    // UI Animation Variables
-    private readonly float countdownDelay = 2.0f;
-    private readonly float readyAppearSpeed = 1.0f;
-    private readonly float readyDisplayDuration = 3f;
-    private readonly float goDisplayDuration = 1.5f;
-    private readonly float goDisappearSpeed = 0.2f;
-    private readonly float finishAppearSpeed = 1.0f;
-    private readonly float finishDisplayDuration = 2.0f;
-    private readonly float finishDisappearSpeed = 0.2f;
-    private readonly float resultsDelay = 2.0f;
-    private readonly float fontSizeIncrease = 100f;
+    private readonly float transitionTime = 1.5f;
 
     private void Awake()
     {     
         Instance = this;
 
-        openingCutscene.SetActive(false);
-        resultsCutscene.SetActive(false);
-        gameCamera.SetActive(true);
-     
-        transitionScreen.SetActive(true);
-        startScreen.SetActive(true);
-        resultsScreen.SetActive(false);
-        pauseScreen.SetActive(false);
-        gameUIScreen.SetActive(false);
-
-        timeUI.text = string.Empty;
-        messageUI.text = string.Empty;
-
         gameSetup = GetComponent<MG_GameSetup>();
         gameResults = GetComponent<MG_GameResults>();
         audioPlayer = FindAnyObjectByType<MG_AudioController>();
+
+        transitionScreen.SetActive(true);
+        GameObject transitionInstance = new("TransitionManager");
+        transitionInstance.AddComponent<SceneTransitioner>();
+
+        gameUIScreen.SetActive(false);    
+        messageUI.text = string.Empty;
+        timeUI.text = string.Empty;
+
+        startScreen.SetActive(true);
+        resultsScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+
+        gameCamera.SetActive(true);
+        openingCutscene.SetActive(false);
+        resultsCutscene.SetActive(false);
     }
     private void Start()
     {
@@ -173,23 +167,23 @@ public class MG_GameManager : MonoBehaviour
     #region Start Game Sequence
     public void StartGame()
     {
-        StartCoroutine(StartMinigame());
+        StartCoroutine(StartGameCoroutine());
     }
-    IEnumerator StartMinigame()
+    IEnumerator StartGameCoroutine()
     {
-        // Transitioning to the Opening Cutscene
-        // -------------------------------------
+        // Transition to Opening Cutscene
+        // ------------------------------
         gameStarted = true;
         audioPlayer.FadeOutMusic(1.5f);      
         if(!gameSetup.skipStartupScreen)
         {
             transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(transitionTime);
         }   
         startScreen.SetActive(false);
 
-        // Play the Opening Cutscene
-        // -------------------------
+        // Play Opening Cutscene
+        // ---------------------
         if (openingCutscene.GetComponent<PlayableDirector>().playableAsset != null && !gameSetup.skipStartupScreen)
         {
             openingCutscene.SetActive(true);
@@ -198,95 +192,183 @@ public class MG_GameManager : MonoBehaviour
 
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
             transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(transitionTime);
             playableDirector.gameObject.SetActive(false);
             openingCutscene.SetActive(false);
         }
 
-        // Transitioning to the Game Camera
-        // --------------------------------
+        // Transition to Game Camera
+        // -------------------------
         gameCamera.SetActive(true);
-        if(!gameSetup.skipStartupScreen) yield return new WaitForSeconds(1.5f);
+        if(!gameSetup.skipStartupScreen) yield return new WaitForSeconds(transitionTime);
         gameUIScreen.SetActive(true);
 
-        // Countdown to Start Gameplay
-        // ---------------------------
-        yield return new WaitForSeconds(countdownDelay);
+        // Countdown to Gameplay
+        // ---------------------
+        yield return new WaitForSeconds(2f);
         audioPlayer.PlayGameMusic();
-        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, readyAppearSpeed).setEase(LeanTweenType.easeOutExpo);
-        messageUI.text = ("READY...");
-        yield return new WaitForSeconds(readyDisplayDuration);
-        messageUI.fontSize += fontSizeIncrease;
-        messageUI.text = ("GO !!!");
-        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, goDisappearSpeed).setDelay(goDisplayDuration).setEase(LeanTweenType.linear);
+        StartGameCountdownDOTween();
+        yield return new WaitForSeconds(gameSetup.countdownDuration);
 
-        // Finish Up StartMinigame Coroutine
-        // ---------------------------------
+        // Finish Coroutine
+        // ----------------
         gamePlaying = true;
-        yield return new WaitForSeconds(goDisplayDuration + goDisappearSpeed);
-        messageUI.text = string.Empty;
-        messageUI.fontSize -= fontSizeIncrease;
-        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
+    }
+    private void StartGameCountdownDOTween()
+    {   
+        Sequence sequence = DOTween.Sequence();
+        float animTime = 0.3f;
+
+        // READY animation
+        // ---------------
+        sequence.AppendCallback(() =>
+        {
+            messageUI.text = "READY";
+            messageUI.transform.localScale = Vector3.zero;
+        });
+        sequence.Append(
+            messageUI.transform.DORotate(new Vector3(0f, 0f, 360f), animTime,
+            RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
+        );
+        sequence.Join(
+            messageUI.transform.DOScale(Vector3.one, animTime).SetEase(Ease.OutBack)
+        );
+        sequence.AppendInterval((gameSetup.countdownDuration/2f) - animTime);
+
+        // SET animation
+        // -------------
+        sequence.AppendCallback(() =>
+        {
+            messageUI.text = "SET";
+            messageUI.transform.localScale = Vector3.zero;
+        });
+        sequence.Append(
+            messageUI.transform.DORotate(new Vector3(0f, 0f, 360f), animTime,
+            RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
+        );
+        sequence.Join(
+            messageUI.transform.DOScale(Vector3.one, animTime).SetEase(Ease.OutBack)
+        );
+        sequence.AppendInterval((gameSetup.countdownDuration / 2f) - animTime);
+
+        // GO! animation
+        // -------------
+        float fontSizeIncrease = 150f;
+        sequence.AppendCallback(() =>
+        {
+            messageUI.fontSize += fontSizeIncrease;
+            messageUI.text = "GO!";
+        });
+        sequence.Append(
+            messageUI.transform.DORotate(new Vector3(0f, 0f, 375f), animTime/2f,
+            RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
+        );
+        for (int i = 0; i < 6; i++)
+        {
+            sequence.Append(
+                messageUI.transform.DOScale(Vector3.one * 1.1f, 0.05f).SetEase(Ease.OutQuad));
+            sequence.Append(
+                messageUI.transform.DOScale(Vector3.one, 0.05f).SetEase(Ease.InOutQuad));
+        }
+        sequence.AppendInterval(animTime);
+        sequence.Append(
+            messageUI.transform.DOScale(Vector3.zero, animTime).SetEase(Ease.InQuad)
+        );
+
+        // Complete DOTween
+        sequence.OnComplete(() =>
+        {
+            messageUI.text = string.Empty;
+            messageUI.fontSize -= fontSizeIncrease;
+            messageUI.transform.localScale = Vector3.one;
+            messageUI.transform.localEulerAngles = Vector3.zero;
+        });
     }
     #endregion
 
     #region End Game Sequence
     public void EndGame()
     {      
-        StartCoroutine(EndMinigame());
+        StartCoroutine(EndGameCoroutine());
     }
-    IEnumerator EndMinigame()
+    IEnumerator EndGameCoroutine()
     {
-        // Stop the Minigame
-        // -----------------
+        // Stop Minigame
+        // -------------
         gamePlaying = false;
-        gameResults.GetWinners();
         audioPlayer.PlayFinishSound();
-        audioPlayer.FadeOutMusic(0.5f);
+        audioPlayer.FadeOutMusic(0.2f);
 
-        // Display the "Finish!" Message
-        // -----------------------------
-        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.zero;
-        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.one, finishAppearSpeed).setEase(LeanTweenType.easeOutExpo);
-        messageUI.fontSize += fontSizeIncrease;
-        messageUI.text = ("FINISH!");
-        //LeanTween.scale(messageUI.gameObject.GetComponent<RectTransform>(), Vector3.zero, finishDisappearSpeed).setDelay(finishDisplayDuration).setEase(LeanTweenType.linear);
+        // Display "Finish!" Message
+        // -------------------------
+        EndGameFinishDOTween();
 
-        // Clear the "Finish!" Message
-        // ---------------------------
-        yield return new WaitForSeconds(finishDisplayDuration);
-        timeUI.text = string.Empty;
-        yield return new WaitForSeconds(finishDisappearSpeed);
-        messageUI.text = string.Empty;
-        messageUI.fontSize -= fontSizeIncrease;
-        messageUI.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
-
-        // Transitioning to the Results Cutscene
-        // -------------------------------------
-        yield return new WaitForSeconds(resultsDelay);
+        // Transition to Results Cutscene
+        // ------------------------------
+        yield return new WaitForSeconds(3f);
         transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(transitionTime);
         gameUIScreen.SetActive(false);
         gameCamera.SetActive(false);
         resultsCutscene.SetActive(true);
 
-        // Play the Results Cutscene
-        // -------------------------
-        foreach (GameObject playerObject in gameSetup.playersInGame) {
-            playerObject.SetActive(false);}
+        // Play Results Cutscene
+        // ---------------------
+        foreach (GameObject playerObject in gameSetup.playersInGame) {playerObject.SetActive(false);}
         if (resultsCutscene.GetComponent<PlayableDirector>().playableAsset != null)
         {
             PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
             playableDirector.Play();
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(transitionTime);
 
-        // Show Results then Transition out of Scene
-        // -----------------------------------------
+        // Show Results then Exit Game
+        // ---------------------------
         resultsScreen.SetActive(true);
+        gameResults.GetWinners();
         gameResults.PlayResultsSequence();
+    }
+    private void EndGameFinishDOTween()
+    {
+        Sequence sequence = DOTween.Sequence();
+        float animTime = 0.3f;
+        float endTime = 1.5f;
+        float fontSizeIncrease = 100f;
+
+        // Show "FINISH!"
+        // --------------
+        sequence.AppendCallback(() =>
+        {
+            messageUI.text = "FINISH!";
+            messageUI.fontSize += fontSizeIncrease;
+            messageUI.transform.localScale = Vector3.zero;
+        });
+        sequence.Append(
+            messageUI.transform.DORotate(new Vector3(0f, 0f, 365f), animTime / 2f,
+            RotateMode.FastBeyond360).SetEase(Ease.OutCubic)
+        );
+        for (int i = 0; i < 8; i++)
+        {
+            sequence.Append(
+                messageUI.transform.DOScale(Vector3.one * 1.1f, 0.05f).SetEase(Ease.OutQuad));
+            sequence.Append(
+                messageUI.transform.DOScale(Vector3.one, 0.05f).SetEase(Ease.InOutQuad));
+        }
+        sequence.AppendInterval(endTime);
+
+        // Hide "FINISH!"
+        // --------------
+        sequence.Append(
+            messageUI.transform.DOScale(Vector3.zero, animTime).SetEase(Ease.InQuad)
+        );
+        sequence.OnComplete(() =>
+        {
+            messageUI.text = string.Empty;
+            messageUI.fontSize -= fontSizeIncrease;
+            messageUI.transform.localScale = Vector3.one;
+            messageUI.transform.localEulerAngles = Vector3.zero;
+        });
     }
     #endregion
 }

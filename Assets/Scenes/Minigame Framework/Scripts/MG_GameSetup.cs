@@ -15,6 +15,8 @@ public class MG_GameSetup : MonoBehaviour
 
     [Header("Other Components")]
     public PlayerInputManager inputManager;
+    [Range(1f, 5f)]
+    public float countdownDuration = 3f;
     public bool skipStartupScreen;
 
     // Other Variables Needed

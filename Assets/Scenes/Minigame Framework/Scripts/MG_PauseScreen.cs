@@ -1,5 +1,5 @@
 using UnityEngine;
-using EasyTransition;
+//using EasyTransition;
 
 public class MG_PauseScreen : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class MG_PauseScreen : MonoBehaviour
     public GameObject quitButton;
 
     [Header("Important Components")]
-    public TransitionSettings quitTransition;
+    //public TransitionSettings quitTransition;
     public GameObject[] screenElements;
 
     // Other Variables Needed
@@ -48,6 +48,6 @@ public class MG_PauseScreen : MonoBehaviour
         {
             element.SetActive(false);
         }
-        TransitionManager.Instance().Transition(minigameSelectSceneName, quitTransition, 0f);
+        //TransitionManager.Instance().Transition(minigameSelectSceneName, quitTransition, 0f);
     }
 }

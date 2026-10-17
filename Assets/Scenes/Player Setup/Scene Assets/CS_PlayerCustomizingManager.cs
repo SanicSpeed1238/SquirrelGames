@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using EasyTransition;
+//using EasyTransition;
 
 public static class CustomizationList
 {
@@ -37,7 +37,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
     public GameObject[] customizationMenus;
 
     [Header("Other Components")]
-    public TransitionSettings transitionAnimation;
+    //public TransitionSettings transitionAnimation;
 
     // Other Variables Needed
     [HideInInspector] public bool[] playersReady = new bool[4];
@@ -70,7 +70,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
         CS_PlayerJoinData.Instance.SetComputerCustomization();
 
         transitioningScene = true;
-        TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 3f);
+        //TransitionManager.Instance().Transition(minigameSelectSceneName, transitionAnimation, 3f);
     }
 
     private void Update()
@@ -81,7 +81,7 @@ public class CS_PlayerCustomizingManager : MonoBehaviour
             if (backButtonTimer >= 2f)
             {
                 transitioningScene = true;
-                TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0f);
+                //TransitionManager.Instance().Transition(mainMenuSceneName, transitionAnimation, 0f);
             }
         }
         else backButtonTimer = 0f;
