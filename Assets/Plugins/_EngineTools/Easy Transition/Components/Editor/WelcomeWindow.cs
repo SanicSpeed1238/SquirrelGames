@@ -1,4 +1,4 @@
-﻿namespace EZ.Transitions.Editor
+﻿namespace PL.Transitions.Editor
 {
     using UnityEngine;
     using UnityEditor;

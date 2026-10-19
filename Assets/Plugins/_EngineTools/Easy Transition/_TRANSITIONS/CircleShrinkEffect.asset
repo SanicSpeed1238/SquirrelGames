@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionMaterial: {fileID: 2100000, guid: d1366fece584d4548986e1f1067ef4a6, type: 2}
   middleDelay: 0
-  duration: 1
+  duration: 1.5
   easingCurve:
     serializedVersion: 2
     m_Curve:

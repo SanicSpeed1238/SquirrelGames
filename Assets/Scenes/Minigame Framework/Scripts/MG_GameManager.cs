@@ -3,7 +3,6 @@ using UnityEngine.Playables;
 using System.Collections;
 using TMPro;
 using DG.Tweening;
-using EZ.Transitions;
 
 public class MG_GameManager : MonoBehaviour
 {
@@ -19,7 +18,6 @@ public class MG_GameManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject pauseScreen;
     public GameObject resultsScreen;
-    public GameObject transitionScreen;
 
     [Header("Camera Components")]
     public GameObject gameCamera;
@@ -35,7 +33,7 @@ public class MG_GameManager : MonoBehaviour
     private MG_GameSetup gameSetup;
     private MG_GameResults gameResults;
     private MG_AudioController audioPlayer;
-    private readonly float transitionTime = 1.5f;
+    private TransitionManager transitionManager;
 
     private void Awake()
     {     
@@ -44,10 +42,7 @@ public class MG_GameManager : MonoBehaviour
         gameSetup = GetComponent<MG_GameSetup>();
         gameResults = GetComponent<MG_GameResults>();
         audioPlayer = FindAnyObjectByType<MG_AudioController>();
-
-        transitionScreen.SetActive(true);
-        GameObject transitionInstance = new("TransitionManager");
-        transitionInstance.AddComponent<SceneTransitioner>();
+        transitionManager = FindAnyObjectByType<TransitionManager>();
 
         gameUIScreen.SetActive(false);    
         messageUI.text = string.Empty;
@@ -177,8 +172,8 @@ public class MG_GameManager : MonoBehaviour
         audioPlayer.FadeOutMusic(1.5f);      
         if(!gameSetup.skipStartupScreen)
         {
-            transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-            yield return new WaitForSeconds(transitionTime);
+            transitionManager.PlayTransition();
+            yield return new WaitForSeconds(transitionManager.midpoint);
         }   
         startScreen.SetActive(false);
 
@@ -191,8 +186,8 @@ public class MG_GameManager : MonoBehaviour
             playableDirector.Play();
 
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
-            transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-            yield return new WaitForSeconds(transitionTime);
+            transitionManager.PlayTransition();
+            yield return new WaitForSeconds(transitionManager.midpoint);
             playableDirector.gameObject.SetActive(false);
             openingCutscene.SetActive(false);
         }
@@ -200,7 +195,7 @@ public class MG_GameManager : MonoBehaviour
         // Transition to Game Camera
         // -------------------------
         gameCamera.SetActive(true);
-        if(!gameSetup.skipStartupScreen) yield return new WaitForSeconds(transitionTime);
+        if(!gameSetup.skipStartupScreen) yield return new WaitForSeconds(transitionManager.midpoint);
         gameUIScreen.SetActive(true);
 
         // Countdown to Gameplay
@@ -306,8 +301,8 @@ public class MG_GameManager : MonoBehaviour
         // Transition to Results Cutscene
         // ------------------------------
         yield return new WaitForSeconds(3f);
-        transitionScreen.GetComponentInChildren<Animator>().SetTrigger("Transition");
-        yield return new WaitForSeconds(transitionTime);
+        transitionManager.PlayTransition();
+        yield return new WaitForSeconds(transitionManager.midpoint);
         gameUIScreen.SetActive(false);
         gameCamera.SetActive(false);
         resultsCutscene.SetActive(true);
@@ -321,13 +316,14 @@ public class MG_GameManager : MonoBehaviour
             playableDirector.Play();
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
         }
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(transitionManager.midpoint);
 
         // Show Results then Exit Game
         // ---------------------------
         resultsScreen.SetActive(true);
         gameResults.GetWinners();
         gameResults.PlayResultsSequence();
+        transitionManager.ExitMinigame(5.5f);
     }
     private void EndGameFinishDOTween()
     {

@@ -1,4 +1,4 @@
-namespace EZ.Transitions
+namespace PL.Transitions
 {
     using System.Collections;
     using UnityEngine;

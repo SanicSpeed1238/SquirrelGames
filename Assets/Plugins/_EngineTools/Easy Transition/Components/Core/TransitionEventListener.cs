@@ -1,4 +1,4 @@
-namespace EZ.Transitions
+namespace PL.Transitions
 {
     using UnityEngine;
     using UnityEngine.Events;

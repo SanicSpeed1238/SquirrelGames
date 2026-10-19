@@ -1,4 +1,4 @@
-namespace EZ.Transitions.Effects
+namespace PL.Transitions.Effects
 {
     using System.Collections;
     using UnityEngine;

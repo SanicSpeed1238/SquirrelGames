@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using EZ.Transitions;
 
 public class MG_GameResults : MonoBehaviour
 {
@@ -21,7 +20,6 @@ public class MG_GameResults : MonoBehaviour
     [Header("Results Sequence Components")]
     public TextMeshProUGUI winnersText;
     public AudioSource resultsMusic;
-    public TransitionEffect exitTransition;
 
     [Header("Animated Squirrels Reference")]
     public GameObject[] animatedSquirrels;
@@ -84,16 +82,15 @@ public class MG_GameResults : MonoBehaviour
 
     public void PlayResultsSequence()
     {
-        winnersText.gameObject.SetActive(true);
+        resultsMusic.Play();
+        winnersText.gameObject.SetActive(true);      
+
         for (int i = 0; i < animatedSquirrels.Length; i++)
         {
             if (playersWon[i])
                 animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Win");
             else
                 animatedSquirrels[i].GetComponentInChildren<Animator>().SetTrigger("Lose");
-        }
-
-        resultsMusic.Play();
-        SceneTransitioner.Instance.LoadScene(minigameSelectSceneName, resultsMusic.clip.length, exitTransition);
+        }  
     }
 }
