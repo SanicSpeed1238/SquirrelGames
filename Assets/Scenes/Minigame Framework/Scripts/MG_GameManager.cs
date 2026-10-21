@@ -300,7 +300,7 @@ public class MG_GameManager : MonoBehaviour
 
         // Transition to Results Cutscene
         // ------------------------------
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         transitionManager.PlayTransition();
         yield return new WaitForSeconds(transitionManager.midpoint);
         gameUIScreen.SetActive(false);
@@ -315,15 +315,17 @@ public class MG_GameManager : MonoBehaviour
             PlayableDirector playableDirector = resultsCutscene.GetComponent<PlayableDirector>();
             playableDirector.Play();
             yield return new WaitUntil(() => playableDirector.state != PlayState.Playing);
+            yield return new WaitForSeconds(1f);
         }
-        yield return new WaitForSeconds(transitionManager.midpoint);
+        else yield return new WaitForSeconds(transitionManager.midpoint + 1f);
 
         // Show Results then Exit Game
         // ---------------------------
         resultsScreen.SetActive(true);
         gameResults.GetWinners();
         gameResults.PlayResultsSequence();
-        transitionManager.ExitMinigame(5.5f);
+        yield return new WaitForSeconds((transitionManager.midpoint*2f) + 3f);
+        transitionManager.ExitMinigame();
     }
     private void EndGameFinishDOTween()
     {

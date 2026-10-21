@@ -49,7 +49,7 @@ MonoBehaviour:
   targetCamera: {fileID: 0}
   canvasSortingOrder: 999
   blockUIInteraction: 1
-  defaultTransition: {fileID: 11400000, guid: 8b2b8c77949c1524e899eca0b78df947, type: 2}
+  defaultTransition: {fileID: 11400000, guid: f02657fe2004b3044b771f60e4e73152, type: 2}
   OnTransitionStart:
     m_PersistentCalls:
       m_Calls: []

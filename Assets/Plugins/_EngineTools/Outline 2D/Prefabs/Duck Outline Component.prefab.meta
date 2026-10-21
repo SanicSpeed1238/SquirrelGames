@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 446c9d2c7800c9fc8dd0d977ab4b519f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 408564
+  packageName: Simple Outline Shader 2D - Shader by Roam Moon
+  packageVersion: 1.1.0
+  assetPath: Assets/RoamMoon/SimpleOutline/Prefabs/Duck Outline Component.prefab
+  uploadId: 1010898

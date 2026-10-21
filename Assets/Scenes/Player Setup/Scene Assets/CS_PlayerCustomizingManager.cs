@@ -4,24 +4,24 @@ using UnityEngine.InputSystem;
 
 public static class CustomizationList
 {
-    public static int numHatOptions = 3;
-    public static int numBodyOptions = 3;
+    public static int numHatOptions = 8;
+    public static int numBodyOptions = 6;
 
     public static string[] defaultPlayerNames = 
     { 
       "Alan",
       "Jeremy",
-      "Jacob",
       "Nayuki",
-      "Cheese",
+      "Jacob",
+      "Chase",
       "Nutty",
+      "Waffle",     
       "Sammy",
-      "Bonker",
-      "Ray",
-      "Waffle",
       "Thomas",
       "Gerald",
-      "Lucky"
+      "Lucky",
+      "Bonker",
+      "Ray",
     };
 }
 

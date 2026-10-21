@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Minigames/AntAttackers/AntAttackers.unity
     guid: 29e6a69dc467bb347ad2205b668722a7
   - enabled: 1
-    path: Assets/Minigames/TreeTopTumble/ClimbTheTrees.unity
+    path: Assets/Minigames/TreeTopTumble/TreeTopTumble.unity
     guid: 1a13977e100a26c43a65cf4b1a5ef77d
   m_configObjects: {}

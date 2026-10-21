@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 435bcb08abed2ac41a21ab294af0f642
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - outlineShader: {fileID: -6465566751694194690, guid: 87c28c8864e6cbe941fa8e8de40decb6,
+      type: 3}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 2848f4445f289664a9015012d8ad4afe, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 408564
+  packageName: Simple Outline Shader 2D - Shader by Roam Moon
+  packageVersion: 1.1.0
+  assetPath: Assets/RoamMoon/SimpleOutline/Scripts/SpriteOutlineEffect.cs
+  uploadId: 1010898

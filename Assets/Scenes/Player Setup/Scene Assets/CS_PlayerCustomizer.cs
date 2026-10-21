@@ -68,7 +68,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
         SetPlayerCustomizations();
 
         customizationMenu = menu;
-        menuButtons = menu.transform.Find("Buttons").gameObject;
+        menuButtons = menu.transform.Find("OPTIONS").gameObject;
         hatOptions = menu.transform.Find("Hats").gameObject;
         bodyOptions = menu.transform.Find("Bodies").gameObject;
         nameOptions = menu.transform.Find("Name").gameObject;
@@ -295,7 +295,7 @@ public class CS_PlayerCustomizer : MonoBehaviour
     }
     private void DisplayArrows(GameObject currentCustomization, bool setActive)
     {
-        currentCustomization.transform.Find("Arrows").gameObject.SetActive(setActive);
+        //currentCustomization.transform.Find("Arrows").gameObject.SetActive(setActive);
     }
     #endregion
 }

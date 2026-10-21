@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FadeWhiteEffect
   m_EditorClassIdentifier: 
   transitionMaterial: {fileID: 2100000, guid: 5411a4359441c4f48aedf198feaedde1, type: 2}
-  middleDelay: 0.8
+  middleDelay: 1
   duration: 2
   easingCurve:
     serializedVersion: 2

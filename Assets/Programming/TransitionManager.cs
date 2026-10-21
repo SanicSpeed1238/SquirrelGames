@@ -15,7 +15,7 @@ public class TransitionManager : MonoBehaviour
     private void Start()
     {
         Instantiate(transitionManager);
-        midpoint = normalTransition.Duration;
+        midpoint = (normalTransition.Duration/2f) + (normalTransition.MiddleDelay/2f);
     }
 
     public void PlayTransition()
@@ -27,8 +27,8 @@ public class TransitionManager : MonoBehaviour
         Debug.Log("Transition at Midpoint.");
     }
 
-    public void ExitMinigame(float delay)
+    public void ExitMinigame()
     {
-        SceneTransitioner.Instance.LoadScene("Minigame Selection", delay, exitTransition);
+        SceneTransitioner.Instance.LoadScene("Minigame Selection", exitTransition);
     }
 }

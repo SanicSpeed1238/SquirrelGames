@@ -112,6 +112,13 @@
         }
 
         /// <summary>
+        /// Starts a transition and loads a new scene asynchronously by its string name.
+        /// </summary>
+        public void LoadScene(string sceneName, TransitionEffect effect = null)
+        {
+            StartTransitionRoutine(sceneName, -1, null, effect, 0f);
+        }
+        /// <summary>
         /// Starts a transition and loads a new scene asynchronously by its Build Index.
         /// </summary>
         public void LoadScene(int buildIndex, TransitionEffect effect = null)
@@ -120,33 +127,11 @@
         }
 
         /// <summary>
-        /// Starts a transition and loads a new scene asynchronously by its string name.
-        /// </summary>
-        public void LoadScene(string sceneName, TransitionEffect effect = null)
-        {
-            StartTransitionRoutine(sceneName, -1, null, effect, 0f);
-        }
-        /// <summary>
-        /// Starts a transition and loads a new scene asynchronously by its string name, with a start delay.
-        /// </summary>
-        public void LoadScene(string sceneName, float delay, TransitionEffect effect = null)
-        {
-            StartTransitionRoutine(sceneName, -1, null, effect, delay);
-        }
-
-        /// <summary>
         /// Plays a transition without loading a scene. Executes a custom C# Action (like teleportation) at the midpoint.
         /// </summary>
         public void PlayTransition(Action onMidPoint = null, TransitionEffect effect = null)
         {
             StartTransitionRoutine(null, -1, onMidPoint, effect, 0f);
-        }
-        /// <summary>
-        /// Plays a transition (with start delay) without loading a scene. Executes a custom C# Action (like teleportation) at the midpoint.
-        /// </summary>
-        public void PlayTransition(float delay, Action onMidPoint = null, TransitionEffect effect = null)
-        {
-            StartTransitionRoutine(null, -1, onMidPoint, effect, delay);
         }
 
         private void StartTransitionRoutine(string sceneName, int sceneIndex, Action midPointAction, TransitionEffect effect, float delay)
@@ -160,18 +145,16 @@
                 return;
             }
 
-            StartCoroutine(TransitionRoutine(sceneName, sceneIndex, midPointAction, usedEffect, delay));
+            StartCoroutine(TransitionRoutine(sceneName, sceneIndex, midPointAction, usedEffect));
         }
 
-        private IEnumerator TransitionRoutine(string sceneName, int sceneIndex, Action midPointAction, TransitionEffect effect, float delay)
+        private IEnumerator TransitionRoutine(string sceneName, int sceneIndex, Action midPointAction, TransitionEffect effect)
         {
             IsTransitioning = true;
             transitionImageInstance.gameObject.SetActive(true);
 
             if (canvasGroup != null && blockUIInteraction)
                 canvasGroup.blocksRaycasts = true;
-
-            yield return new WaitForSeconds(delay);
 
             // Reset image scale to standard screen size for accurate shader UV calculations
             transitionImageInstance.rectTransform.sizeDelta = new Vector2(600f, 600f);

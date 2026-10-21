@@ -4,9 +4,9 @@ AssetOrigin:
   serializedVersion: 1
   productId: 32416
   packageName: DOTween Pro
-  packageVersion: 1.0.430
-  assetPath: Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty03.png
-  uploadId: 939690
+  packageVersion: 1.0.435
+  assetPath: Assets/Plugins/_EngineTools/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty03.png
+  uploadId: 1018844
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e9038288b8cf9a147ad3309a46306860
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 408564
+  packageName: Simple Outline Shader 2D - Shader by Roam Moon
+  packageVersion: 1.1.0
+  assetPath: Assets/RoamMoon/SimpleOutline/Editor/RoamMoon.SimpleOutline.Editor.asmdef
+  uploadId: 1010898

@@ -1,0 +1,12 @@
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Kybernetik.Animancer.csproj" />
+  <Project Path="Kybernetik.Animancer.Editor.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Kybernetik.Animancer.FSM.csproj" />
+  <Project Path="RoamMoon.SimpleOutline.csproj" />
+  <Project Path="CFXREditor.csproj" />
+  <Project Path="Assembly-CSharp-Editor-firstpass.csproj" />
+  <Project Path="CFXRRuntime.csproj" />
+  <Project Path="RoamMoon.SimpleOutline.Editor.csproj" />
+</Solution>

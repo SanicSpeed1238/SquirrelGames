@@ -1,0 +1,14 @@
+{
+    "name": "RoamMoon.SimpleOutline",
+    "rootNamespace": "RoamMoon.SimpleOutline",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
