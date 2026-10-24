@@ -116,14 +116,14 @@
         /// </summary>
         public void LoadScene(string sceneName, TransitionEffect effect = null)
         {
-            StartTransitionRoutine(sceneName, -1, null, effect, 0f);
+            StartTransitionRoutine(sceneName, -1, null, effect);
         }
         /// <summary>
         /// Starts a transition and loads a new scene asynchronously by its Build Index.
         /// </summary>
         public void LoadScene(int buildIndex, TransitionEffect effect = null)
         {
-            StartTransitionRoutine(null, buildIndex, null, effect, 0f);
+            StartTransitionRoutine(null, buildIndex, null, effect);
         }
 
         /// <summary>
@@ -131,10 +131,10 @@
         /// </summary>
         public void PlayTransition(Action onMidPoint = null, TransitionEffect effect = null)
         {
-            StartTransitionRoutine(null, -1, onMidPoint, effect, 0f);
+            StartTransitionRoutine(null, -1, onMidPoint, effect);
         }
 
-        private void StartTransitionRoutine(string sceneName, int sceneIndex, Action midPointAction, TransitionEffect effect, float delay)
+        private void StartTransitionRoutine(string sceneName, int sceneIndex, Action midPointAction, TransitionEffect effect)
         {
             if (IsTransitioning) return;
 

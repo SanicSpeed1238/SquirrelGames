@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(CS_SquirrelCustomized))]
+[CustomEditor(typeof(CustomizedPlayer))]
 public class Editor_SquirrelCustomized : Editor
 {
     SerializedProperty customizationReference;
@@ -35,17 +35,17 @@ public class Editor_SquirrelCustomized : Editor
         EditorGUILayout.PropertyField(customizationReference);
         EditorGUILayout.Space(1);
 
-        switch ((CS_SquirrelCustomized.CustomizationReference)customizationReference.enumValueIndex)
+        switch ((CustomizedPlayer.CustomizationReference)customizationReference.enumValueIndex)
         {
-            case CS_SquirrelCustomized.CustomizationReference.Controller:
+            case CustomizedPlayer.CustomizationReference.Controller:
                 EditorGUILayout.PropertyField(computerPlayer);
                 break;
 
-            case CS_SquirrelCustomized.CustomizationReference.Player:
+            case CustomizedPlayer.CustomizationReference.Player:
                 EditorGUILayout.PropertyField(playerID);
                 break;
 
-            case CS_SquirrelCustomized.CustomizationReference.NPC:
+            case CustomizedPlayer.CustomizationReference.NPC:
                 EditorGUILayout.PropertyField(randomizeCustomizations);
                 EditorGUILayout.IntSlider(hatOption, 0, CustomizationList.numHatOptions - 1);
                 EditorGUILayout.IntSlider(bodyOption, 0, CustomizationList.numBodyOptions - 1);

@@ -65,8 +65,8 @@ public class MG_GameResults : MonoBehaviour
             {
                 string player;
 
-                if (CS_PlayerJoinData.Instance != null)
-                    player = CS_PlayerJoinData.Instance.playerCustomizations[p].playerName + " ";
+                if (PlayerJoinData.Instance != null)
+                    player = PlayerJoinData.Instance.playerCustomizations[p].playerName + " ";
                 else
                     player = "P" + (p+1) + " ";
 

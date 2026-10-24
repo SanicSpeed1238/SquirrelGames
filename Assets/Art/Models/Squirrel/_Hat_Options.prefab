@@ -185,8 +185,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9371b849e0c07b4da48ebff813a1ba5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4970007011446782565}
   m_SourcePrefab: {fileID: 100100000, guid: c9371b849e0c07b4da48ebff813a1ba5, type: 3}
+--- !u!1 &2454555186415437879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c9371b849e0c07b4da48ebff813a1ba5, type: 3}
+  m_PrefabInstance: {fileID: 3373544932574737766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4970007011446782565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454555186415437879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0.19607843, b: 0, a: 1}
+  player2: {r: 0, g: 0.21568628, b: 1, a: 1}
+  player3: {r: 1, g: 0.5294118, b: 0.039215688, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &2980121003701752461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9371b849e0c07b4da48ebff813a1ba5, type: 3}
@@ -271,8 +295,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd102cf0cab2a549843de7f7c92ccbc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8638411197453695078}
   m_SourcePrefab: {fileID: 100100000, guid: dcd102cf0cab2a549843de7f7c92ccbc, type: 3}
+--- !u!1 &4846326350726171461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd102cf0cab2a549843de7f7c92ccbc, type: 3}
+  m_PrefabInstance: {fileID: 5728849147837756948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8638411197453695078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846326350726171461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0, b: 0, a: 1}
+  player2: {r: 0, g: 0, b: 1, a: 1}
+  player3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &5191045697596969471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcd102cf0cab2a549843de7f7c92ccbc, type: 3}
@@ -353,13 +401,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 17e0a6a73ff007344bf9dcf1234cf079, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4636427865210950248}
   m_SourcePrefab: {fileID: 100100000, guid: 17e0a6a73ff007344bf9dcf1234cf079, type: 3}
 --- !u!4 &6321574072019524756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 17e0a6a73ff007344bf9dcf1234cf079, type: 3}
   m_PrefabInstance: {fileID: 5778126419652934527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6697255670644426286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17e0a6a73ff007344bf9dcf1234cf079, type: 3}
+  m_PrefabInstance: {fileID: 5778126419652934527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4636427865210950248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697255670644426286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0, b: 0, a: 1}
+  player2: {r: 0, g: 0, b: 1, a: 1}
+  player3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &6608277816910656547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,8 +515,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31d86430eca161346a1dd59a5c271f80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 691461374605287913}
   m_SourcePrefab: {fileID: 100100000, guid: 31d86430eca161346a1dd59a5c271f80, type: 3}
+--- !u!1 &6301723868423817586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31d86430eca161346a1dd59a5c271f80, type: 3}
+  m_PrefabInstance: {fileID: 6608277816910656547}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &691461374605287913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301723868423817586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0, b: 0, a: 1}
+  player2: {r: 0, g: 0, b: 1, a: 1}
+  player3: {r: 1, g: 0.09803922, b: 1, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &6647287576290972616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31d86430eca161346a1dd59a5c271f80, type: 3}
@@ -533,13 +629,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a97b8aa3390f9054bab751cfc068e1c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8255873989674103595}
   m_SourcePrefab: {fileID: 100100000, guid: a97b8aa3390f9054bab751cfc068e1c2, type: 3}
 --- !u!4 &7400285726136246681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a97b8aa3390f9054bab751cfc068e1c2, type: 3}
   m_PrefabInstance: {fileID: 7005808634370442866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7924303465139862307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a97b8aa3390f9054bab751cfc068e1c2, type: 3}
+  m_PrefabInstance: {fileID: 7005808634370442866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8255873989674103595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924303465139862307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0.05882353, b: 0.47058824, a: 1}
+  player2: {r: 0.47058824, g: 0, b: 1, a: 1}
+  player3: {r: 1, g: 1, b: 0.09803922, a: 1}
+  player4: {r: 0.39215687, g: 1, b: 0, a: 1}
 --- !u!1001 &7119211179346464280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,13 +739,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed2b2e340ecec7046849a02916a9f651, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 953376184642586673}
   m_SourcePrefab: {fileID: 100100000, guid: ed2b2e340ecec7046849a02916a9f651, type: 3}
 --- !u!4 &7297588022115232243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed2b2e340ecec7046849a02916a9f651, type: 3}
   m_PrefabInstance: {fileID: 7119211179346464280}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7930255141073236809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed2b2e340ecec7046849a02916a9f651, type: 3}
+  m_PrefabInstance: {fileID: 7119211179346464280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &953376184642586673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7930255141073236809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0, b: 0, a: 1}
+  player2: {r: 0, g: 0.39215687, b: 1, a: 1}
+  player3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &8804111124555509565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,8 +853,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 66c0e521c18a3054f9bb2064952266c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8873909495521287183}
   m_SourcePrefab: {fileID: 100100000, guid: 66c0e521c18a3054f9bb2064952266c6, type: 3}
+--- !u!1 &8570092504689349228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 66c0e521c18a3054f9bb2064952266c6, type: 3}
+  m_PrefabInstance: {fileID: 8804111124555509565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8873909495521287183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570092504689349228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8d60b7afd9ff24b92c986249d6e3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomizableHat
+  player1: {r: 1, g: 0, b: 0, a: 1}
+  player2: {r: 0, g: 0, b: 1, a: 1}
+  player3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  player4: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &9053577851626801366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 66c0e521c18a3054f9bb2064952266c6, type: 3}

@@ -27,7 +27,7 @@ public class MG_GameSetup : MonoBehaviour
     private void Awake()
     {
         playersInGame = new GameObject[4];
-        if (CS_PlayerJoinData.Instance == null && inputManager.playerPrefab != null)
+        if (PlayerJoinData.Instance == null && inputManager.playerPrefab != null)
         {
             // inputManager used when loading directly into Minigame Scene
             // use OnJoin() when Player Setup Scene is skipped
@@ -60,7 +60,7 @@ public class MG_GameSetup : MonoBehaviour
     }
     public void StartGame()
     {
-        if (CS_PlayerJoinData.Instance != null) SetUpPlayerObjects(CS_PlayerJoinData.Instance.joinedPlayers);
+        if (PlayerJoinData.Instance != null) SetUpPlayerObjects(PlayerJoinData.Instance.joinedPlayers);
         else SetUpPlayerObjects(new List<int>());
 
         inputManager.DisableJoining();

@@ -11,6 +11,7 @@ public class TransitionManager : MonoBehaviour
 
     // Other Variables
     [HideInInspector] public float midpoint;
+    private readonly string minigameSelectScene = "Minigame Selection";
 
     private void Start()
     {
@@ -24,11 +25,11 @@ public class TransitionManager : MonoBehaviour
     }
     private void DebugTransition()
     {
-        Debug.Log("Transition at Midpoint.");
+        //Debug.Log("Transition at Midpoint.");
     }
 
     public void ExitMinigame()
     {
-        SceneTransitioner.Instance.LoadScene("Minigame Selection", exitTransition);
+        SceneTransitioner.Instance.LoadScene(minigameSelectScene, exitTransition);
     }
 }
