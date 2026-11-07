@@ -119,6 +119,219 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &525153645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836e20b5b5895544d8aa0ccc305eec71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AllIn1TextShaderAssembly::AllIn1Assets.AllIn1TextShader.MeshEffectGroupConfig
+  displayName: 
+  groupDelay: 0.06666667
+  startWithRandomOffset: 0
+  isLooped: 0
+  groupType: 0
+  traversalOrder: 1
+  easingFunctions: {fileID: 11400000, guid: 885a0fe3ad7cdd54a96fa84d38853b92, type: 2}
+  effectConfigs:
+  - id: fade
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 7ee134a07429cc64fbba9290903953e7, type: 2}
+    easeFunctionID: linear_once
+    orderedProperties:
+    - propertyName: srcAlpha
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: 1
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstAlpha
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: scale
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: c3c4ee67c81d93847b8816758404fe45, type: 2}
+    easeFunctionID: linear_once
+    orderedProperties:
+    - propertyName: srcScale
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 1, y: 1}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstScale
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 0.5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: initial_rotation
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 3e15f82c769ee3445b960ed96b101646, type: 2}
+    easeFunctionID: linear_once
+    orderedProperties:
+    - propertyName: srcRotation
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 45
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstRotation
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 45
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 2
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: offset
+    enabled: 1
+    effectInfo: {fileID: 11400000, guid: 9dcd0caf2e89af44b9b2931b8945d68b, type: 2}
+    easeFunctionID: back_out_once
+    orderedProperties:
+    - propertyName: srcOffset
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 15}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstOffset
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 200}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 8
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  unfolded: 0
 --- !u!1 &938851466
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +358,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2006239641}
   - {fileID: 1615345183}
@@ -290,6 +503,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834907d752eb2e1459a8d06c5a5604cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minigameSelectScreen: {fileID: 938851466}
+  minigameTransition: {fileID: 11400000, guid: f02657fe2004b3044b771f60e4e73152, type: 2}
+  backTransition: {fileID: 11400000, guid: 8b2b8c77949c1524e899eca0b78df947, type: 2}
 --- !u!4 &1058474486
 Transform:
   m_ObjectHideFlags: 0
@@ -383,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -399,7 +615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177422210763139959, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: delay
-      value: 1.15
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4758695904631422874, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_Name
@@ -534,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -550,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177422210763139959, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: delay
-      value: 1.3
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4758695904631422874, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_Name
@@ -995,8 +1211,9 @@ GameObject:
   - component: {fileID: 2006239641}
   - component: {fileID: 2006239643}
   - component: {fileID: 2006239642}
-  - component: {fileID: 2006239645}
   - component: {fileID: 2006239644}
+  - component: {fileID: 2006239646}
+  - component: {fileID: 2006239645}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1018,11 +1235,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 938851467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 370}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -850, y: 430}
   m_SizeDelta: {x: 1200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &2006239642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,7 +1295,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -1130,6 +1347,53 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006239640}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becbdb39cb8d97348b134b843c546df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AllIn1TextShaderAssembly::AllIn1Assets.AllIn1TextShader.AllIn1TextTypewriter
+  effectCollection: {fileID: 11400000, guid: 910a1d11be841044ca2060b42688b520, type: 2}
+  easeFunctionCollectionLooped: {fileID: 11400000, guid: 46a516b1c0a26884d945dfbb91567b49, type: 2}
+  revealConfig: {fileID: 11400000, guid: a7cfc8bc1bf79ab4b8c2512d4da20202, type: 2}
+  loopedConfig: {fileID: 11400000, guid: 08ae8a10f7bd16f48a3f76b28e3bddfa, type: 2}
+  hideConfigRuntime: {fileID: 525153645}
+  textComponent: {fileID: 2006239642}
+  onStart: 1
+  useRevealAsHideConfig: 1
+  rawText: MINIGAME SELECT
+  hideConfigSelected: {fileID: 11400000, guid: c4af4af79b03f7c408956513443d9b5b, type: 2}
+  lastShowTags: 0
+  showTags: 0
+  textLayeredComponent: {fileID: 0}
+  onRevealStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onRevealCompletedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onCharacterRevealStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideCompletedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  revealConfigUnfolded: 1
+  loopedConfigUnfolded: 1
+  hideConfigUnfolded: 0
+  eventsUnfolded: 0
+  previewTime: 0
+  previewMode: 0
+  previewSliderValue: 0
+--- !u!114 &2006239645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006239640}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
@@ -1138,7 +1402,7 @@ MonoBehaviour:
   updateType: 0
   isSpeedBased: 0
   hasOnStart: 0
-  hasOnPlay: 0
+  hasOnPlay: 1
   hasOnUpdate: 0
   hasOnStepComplete: 0
   hasOnComplete: 0
@@ -1149,7 +1413,20 @@ MonoBehaviour:
       m_Calls: []
   onPlay:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2006239644}
+        m_TargetAssemblyTypeName: AllIn1Assets.AllIn1TextShader.AllIn1TextTypewriter,
+          AllIn1TextShaderAssembly
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -1168,9 +1445,9 @@ MonoBehaviour:
   targetIsSelf: 1
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
-  delay: 0.1
-  duration: 0.7
-  easeType: 27
+  delay: 1
+  duration: 0.1
+  easeType: 1
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1206,13 +1483,13 @@ MonoBehaviour:
   isActive: 1
   isValid: 1
   target: {fileID: 2006239641}
-  animationType: 2
-  targetType: 11
+  animationType: 1
+  targetType: 5
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 0, y: -1500, z: 0}
+  endValueV3: {x: 0, y: -300, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -1231,7 +1508,7 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
---- !u!114 &2006239645
+--- !u!114 &2006239646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1314,13 +1591,13 @@ MonoBehaviour:
   isActive: 1
   isValid: 1
   target: {fileID: 2006239641}
-  animationType: 2
-  targetType: 11
+  animationType: 1
+  targetType: 5
   forcedTargetType: 0
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 0, y: 1500, z: 0}
+  endValueV3: {x: 0, y: 300, z: 0}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -1520,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 1944233629090191383, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1536,7 +1813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177422210763139959, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: delay
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4758695904631422874, guid: 7ec032860cc89a6409bce185f12bd9b7, type: 3}
       propertyPath: m_Name

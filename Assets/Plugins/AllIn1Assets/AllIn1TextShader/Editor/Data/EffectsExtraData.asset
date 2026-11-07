@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32438765f2955064bae29bed18ec5263, type: 3}
+  m_Name: EffectsExtraData
+  m_EditorClassIdentifier: 
+  effectsExtraData:
+  - effectID: HUE_SHIFT
+    docURL: 
+    customMessages:
+    - message: "*Hue and Saturation do nothing on pure white text,\nonly Brightness. Tint the text or add a color effect first."
+      keywords: []
+  - effectID: POSTERIZE
+    docURL: 
+    customMessages:
+    - message: "*No visible change on pure white text.\nTint the text or add a color effect first."
+      keywords: []
+  - effectID: GREYSCALE
+    docURL: 
+    customMessages:
+    - message: "*White text is already greyscale. Only Greyscale Tint\nand a negative Luminosity change it."
+      keywords: []
+  - effectID: COLOR_RAMP
+    docURL: 
+    customMessages:
+    - message: "*Pure white text takes the ramp's end color.\nTint the text or add a color effect first for a gradient."
+      keywords: []
+  - effectID: COLOR_GRADING
+    docURL: 
+    customMessages:
+    - message: "*Pure white text only gets the Light Color Tint.\nTint the text or add a color effect first."
+      keywords: []

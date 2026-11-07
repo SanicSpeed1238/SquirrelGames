@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 93e96b34486da8c4bb9e90599433a9e9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Effects
+    Info/FadeEffectInfo.cs
+  uploadId: 1035268

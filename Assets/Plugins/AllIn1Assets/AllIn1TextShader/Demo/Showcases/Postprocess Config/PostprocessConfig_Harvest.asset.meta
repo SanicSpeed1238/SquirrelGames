@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cb5c4309a73e8c24aa159eb3d97520ef
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Postprocess
+    Config/PostprocessConfig_Harvest.asset
+  uploadId: 1035268

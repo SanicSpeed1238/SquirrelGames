@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b4fdd9f0fbc7c7842963ba2d9061bc0b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Effects
+    Info/Property Info/PropertyStringInfo.cs
+  uploadId: 1035268

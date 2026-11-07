@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2bc1569c0c914164c9a3933fba92b4b1
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Shaders/SH_Demo_UIAdditive.shader
+  uploadId: 1035268

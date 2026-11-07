@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 35ea7589ea54fd54fbc1720826ee434e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/States/PendulumState.cs
+  uploadId: 1035268

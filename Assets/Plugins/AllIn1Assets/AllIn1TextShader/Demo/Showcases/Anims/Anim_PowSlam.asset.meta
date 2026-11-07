@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6da971e1be69664784abcf7e59cd1b9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Anims/Anim_PowSlam.asset
+  uploadId: 1035268

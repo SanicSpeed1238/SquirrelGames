@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cd612e96d21bdec4d8586a0602a6ec94
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Scripts/DemoSplines.cs
+  uploadId: 1035268

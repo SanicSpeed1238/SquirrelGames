@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b164ef21fc6f97a4ba4e8bdf83d47245
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Fonts/Licenses/Kalam
+    - OFL.txt
+  uploadId: 1035268

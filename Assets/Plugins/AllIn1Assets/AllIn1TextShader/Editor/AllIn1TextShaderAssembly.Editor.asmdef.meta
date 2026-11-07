@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d52b4feee9c8b564391543844f8c2002
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/AllIn1TextShaderAssembly.Editor.asmdef
+  uploadId: 1035268

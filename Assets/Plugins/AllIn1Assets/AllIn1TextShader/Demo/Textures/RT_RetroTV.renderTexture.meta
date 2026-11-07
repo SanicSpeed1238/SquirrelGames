@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 678fc7c3a14b1ff48b238a44b1700809
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Textures/RT_RetroTV.renderTexture
+  uploadId: 1035268

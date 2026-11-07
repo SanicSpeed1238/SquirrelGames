@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dff6259619cd8d34ea875cdd381c3d2b
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/ShaderLibrary/AllIn1TextShader_URPHelper.hlsl
+  uploadId: 1035268

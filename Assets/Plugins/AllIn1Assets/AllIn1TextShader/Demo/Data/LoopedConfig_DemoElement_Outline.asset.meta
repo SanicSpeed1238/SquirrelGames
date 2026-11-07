@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1ccab7ac69699514c80c1ec80afe4d8a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Data/LoopedConfig_DemoElement_Outline.asset
+  uploadId: 1035268

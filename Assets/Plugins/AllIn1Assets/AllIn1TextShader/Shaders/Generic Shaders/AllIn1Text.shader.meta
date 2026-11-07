@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b0ad53c5f3e24db4eab28b6c1e05acbb
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _ColorRampTex: {fileID: 2800000, guid: c303351dc29a5e94ba8f5d4fff0601f7, type: 3}
+  - _MainTex: {instanceID: 0}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/Generic Shaders/AllIn1Text.shader
+  uploadId: 1035268

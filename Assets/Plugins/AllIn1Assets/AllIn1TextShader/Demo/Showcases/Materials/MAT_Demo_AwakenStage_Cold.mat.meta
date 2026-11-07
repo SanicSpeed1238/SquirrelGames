@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff98a31052e7b6e4db15a85c3f62b65a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/MAT_Demo_AwakenStage_Cold.mat
+  uploadId: 1035268

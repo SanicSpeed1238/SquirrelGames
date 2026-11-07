@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b5772ed57ad94db6246b80ff8041d, type: 3}
+  m_Name: EaseFunctionCollection_Once
+  m_EditorClassIdentifier: 
+  easeFunctions:
+  - {fileID: 11400000, guid: ad92609a97f12874da4708c1023a939f, type: 2}
+  - {fileID: 11400000, guid: cefeb6878e8c4314914ca2700036b591, type: 2}
+  - {fileID: 11400000, guid: 4aa7edd90fd148fbbbfea113e4b1a200, type: 2}
+  - {fileID: 11400000, guid: d318731fc6284e088d4b5146b7f55bfb, type: 2}
+  - {fileID: 11400000, guid: 9c127f1a460e49cea24231785152616d, type: 2}
+  - {fileID: 11400000, guid: 08246f7520c14168b0b2d6e8a1480c81, type: 2}
+  - {fileID: 11400000, guid: 4d57c6188cc247d3a0eaa99e598485b7, type: 2}
+  - {fileID: 11400000, guid: c7b69f98858c40b6add4e424768685c9, type: 2}
+  - {fileID: 11400000, guid: 709f07d9696844459bf6c6dc8199192a, type: 2}
+  - {fileID: 11400000, guid: e9738694ba5b4c2a8265799e9f1b9cb1, type: 2}

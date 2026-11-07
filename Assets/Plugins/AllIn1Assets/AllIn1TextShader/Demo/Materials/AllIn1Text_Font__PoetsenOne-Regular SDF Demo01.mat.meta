@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c255645e48b6e844e9ee070eb1484990
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Materials/AllIn1Text_Font__PoetsenOne-Regular
+    SDF Demo01.mat
+  uploadId: 1035268

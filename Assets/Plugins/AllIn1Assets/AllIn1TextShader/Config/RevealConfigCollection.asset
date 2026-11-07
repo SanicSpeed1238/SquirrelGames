@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2f4efb597528447a2c8f244da76b46, type: 3}
+  m_Name: RevealConfigCollection
+  m_EditorClassIdentifier: AllIn1TextShaderAssembly::AllIn1Assets.AllIn1TextShader.MeshEffectConfigCollection
+  configs:
+  - {fileID: 11400000, guid: bdc006de54e7ef147b69c32360ac737f, type: 2}
+  - {fileID: 11400000, guid: 51b48f80b2bb4de79d083ffd216d22ee, type: 2}
+  - {fileID: 11400000, guid: a7cfc8bc1bf79ab4b8c2512d4da20202, type: 2}

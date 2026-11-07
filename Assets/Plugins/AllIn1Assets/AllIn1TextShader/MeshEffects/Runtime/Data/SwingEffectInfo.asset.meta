@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5201aaa3ee622e449b83f7a3298a3887
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Data/SwingEffectInfo.asset
+  uploadId: 1035268

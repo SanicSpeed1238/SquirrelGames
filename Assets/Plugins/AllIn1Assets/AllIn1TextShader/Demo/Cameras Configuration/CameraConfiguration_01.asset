@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f434cf668717e64b86d4ad33510cdf3, type: 3}
+  m_Name: CameraConfiguration_01
+  m_EditorClassIdentifier: AllIn1TextShaderAssembly::AllIn1Assets.AllIn1TextShader.DemoCamerasConfiguration
+  backgroundCameraConfig:
+    renderType: 0
+    cameraID: 0
+    overlayStackConfig: 0200000001000000
+    postprocessingEnabled: 0
+  uiCameraConfig:
+    renderType: 1
+    cameraID: 1
+    overlayStackConfig: 
+    postprocessingEnabled: 0
+  demoElementsCameraConfig:
+    renderType: 1
+    cameraID: 2
+    overlayStackConfig: 
+    postprocessingEnabled: 1
+  environment3DCameraConfig:
+    renderType: 0
+    cameraID: 3
+    overlayStackConfig: 
+    postprocessingEnabled: 0

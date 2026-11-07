@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a35d4c99b75c3b147befd5945f8c3567
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Configs/LoopedConfig_GoShake.asset
+  uploadId: 1035268

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7bb5dd0196d434640b234304cb36495b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Data/LoopedConfig_DemoElement_Bevel.asset
+  uploadId: 1035268

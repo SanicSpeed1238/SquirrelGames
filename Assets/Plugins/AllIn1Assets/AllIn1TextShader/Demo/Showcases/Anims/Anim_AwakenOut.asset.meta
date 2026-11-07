@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6eb6b272998f85b4b8bc349e464aea56
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Anims/Anim_AwakenOut.asset
+  uploadId: 1035268

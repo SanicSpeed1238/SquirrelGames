@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e9738694ba5b4c2a8265799e9f1b9cb1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Easing
+    Functions/Data/EaseFunction_Flicker_Once.asset
+  uploadId: 1035268

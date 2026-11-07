@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2990ea1c09c3af142b8af1ba65e445b8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Configs/LoopedConfig_Jitter.asset
+  uploadId: 1035268

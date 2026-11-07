@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e784c75a9a0104a8e2e2bd6479da54, type: 3}
+  m_Name: RevealEffectDatabase
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 11400000, guid: 7ee134a07429cc64fbba9290903953e7, type: 2}
+  - {fileID: 11400000, guid: c3c4ee67c81d93847b8816758404fe45, type: 2}
+  - {fileID: 11400000, guid: 3e15f82c769ee3445b960ed96b101646, type: 2}
+  - {fileID: 11400000, guid: 9dcd0caf2e89af44b9b2931b8945d68b, type: 2}

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3fc19be0cb256304ba401186d1cbdbc1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/CustomEditors/AllIn1TextMaterialInspector.cs
+  uploadId: 1035268

@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836e20b5b5895544d8aa0ccc305eec71, type: 3}
+  m_Name: Anim_RubyTwist
+  m_EditorClassIdentifier: 
+  displayName: RubyTwist
+  groupDelay: 0.08
+  startWithRandomOffset: 0
+  isLooped: 0
+  groupType: 0
+  traversalOrder: 2
+  easingFunctions: {fileID: 11400000, guid: 885a0fe3ad7cdd54a96fa84d38853b92, type: 2}
+  effectConfigs:
+  - id: fade
+    enabled: 1
+    effectInfo: {fileID: 11400000, guid: 7ee134a07429cc64fbba9290903953e7, type: 2}
+    easeFunctionID: linear_once
+    orderedProperties:
+    - propertyName: srcAlpha
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstAlpha
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 1
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: scale
+    enabled: 1
+    effectInfo: {fileID: 11400000, guid: c3c4ee67c81d93847b8816758404fe45, type: 2}
+    easeFunctionID: back_out_once
+    orderedProperties:
+    - propertyName: srcScale
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstScale
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 1, y: 1}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: initial_rotation
+    enabled: 1
+    effectInfo: {fileID: 11400000, guid: 3e15f82c769ee3445b960ed96b101646, type: 2}
+    easeFunctionID: back_out_once
+    orderedProperties:
+    - propertyName: srcRotation
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: 45
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 45
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstRotation
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 2
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: offset
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 9dcd0caf2e89af44b9b2931b8945d68b, type: 2}
+    easeFunctionID: linear_once
+    orderedProperties:
+    - propertyName: srcOffset
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 15}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 15}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstOffset
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 1
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  unfolded: 0

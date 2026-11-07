@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 60b4b0db98a739e4281122764ceb5f4b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Postprocess
+    Config/PostprocessConfig_ColorRamp.asset
+  uploadId: 1035268

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2b5772ed57ad94db6246b80ff8041d, type: 3}
+  m_Name: EaseFunctionCollection_Looped
+  m_EditorClassIdentifier: 
+  easeFunctions:
+  - {fileID: 11400000, guid: 5b7f88fd3c7e505438f3d7ecd93cff68, type: 2}
+  - {fileID: 11400000, guid: 19f791e8f61511840af8d9103fe355b8, type: 2}
+  - {fileID: 11400000, guid: 6334f7a472ce78644847e0320fcd5d05, type: 2}

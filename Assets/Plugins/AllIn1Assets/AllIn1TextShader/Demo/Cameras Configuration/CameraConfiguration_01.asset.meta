@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 85d88584f784ea74496504b2bb2a74cd
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Cameras Configuration/CameraConfiguration_01.asset
+  uploadId: 1035268

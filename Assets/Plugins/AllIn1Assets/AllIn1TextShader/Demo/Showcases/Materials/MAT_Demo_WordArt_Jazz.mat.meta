@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: da976c3f6269fa04095f7e0a5cbacca4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/MAT_Demo_WordArt_Jazz.mat
+  uploadId: 1035268

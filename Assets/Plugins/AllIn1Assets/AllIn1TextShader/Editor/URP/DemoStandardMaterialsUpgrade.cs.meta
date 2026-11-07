@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d8f20ad0489944e4809a7d24841bf032
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/URP/DemoStandardMaterialsUpgrade.cs
+  uploadId: 1035268

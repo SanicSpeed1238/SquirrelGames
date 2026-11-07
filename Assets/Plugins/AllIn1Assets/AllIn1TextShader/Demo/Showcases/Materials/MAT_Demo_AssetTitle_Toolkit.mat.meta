@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 03adba93f5533984cb1497b0ba0b76ab
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/MAT_Demo_AssetTitle_Toolkit.mat
+  uploadId: 1035268

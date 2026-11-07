@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: acf61eb75b9444a45afc1466bb6d5295
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/MaterialPresets/MaterialPresetCollection.asset
+  uploadId: 1035268

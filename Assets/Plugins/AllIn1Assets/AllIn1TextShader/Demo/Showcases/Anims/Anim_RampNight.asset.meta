@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e5dda58183f7cea41b1381b665a6d786
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Anims/Anim_RampNight.asset
+  uploadId: 1035268

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4d57c6188cc247d3a0eaa99e598485b7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Easing
+    Functions/Data/EaseFunction_ElasticOut_Once.asset
+  uploadId: 1035268

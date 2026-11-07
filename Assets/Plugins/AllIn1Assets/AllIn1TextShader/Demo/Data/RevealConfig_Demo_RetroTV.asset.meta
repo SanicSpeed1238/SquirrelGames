@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3bc9daa71733e6848867dc81b2b87a5a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Data/RevealConfig_Demo_RetroTV.asset
+  uploadId: 1035268

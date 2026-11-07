@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 53ee0239e7116bb40b3d98b9645f6c52
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/MAT_Demo_Outlines_Fight.mat
+  uploadId: 1035268

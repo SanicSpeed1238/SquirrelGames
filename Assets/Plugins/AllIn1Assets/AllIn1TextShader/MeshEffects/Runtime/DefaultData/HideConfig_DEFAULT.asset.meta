@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c4af4af79b03f7c408956513443d9b5b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/DefaultData/HideConfig_DEFAULT.asset
+  uploadId: 1035268

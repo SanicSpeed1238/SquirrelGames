@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e1d7205693f44ea789881441cc043fab
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/LedPanel/AllIn1TextLedPanel.shader
+  uploadId: 1035268

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5030ac7e5f667a94bb367fbd28b02e65
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/MAT_Demo_Damage_Crit0.mat
+  uploadId: 1035268

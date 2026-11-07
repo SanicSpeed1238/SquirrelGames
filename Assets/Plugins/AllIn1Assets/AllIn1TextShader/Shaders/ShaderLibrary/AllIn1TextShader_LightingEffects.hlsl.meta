@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fc467cd10f1fbfb4c9a802a6a776dba2
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/ShaderLibrary/AllIn1TextShader_LightingEffects.hlsl
+  uploadId: 1035268

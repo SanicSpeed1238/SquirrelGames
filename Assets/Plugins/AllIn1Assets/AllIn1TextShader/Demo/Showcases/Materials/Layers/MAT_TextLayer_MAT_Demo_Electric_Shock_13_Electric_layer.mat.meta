@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9e57a4b973390234d9e64c534e797efc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Materials/Layers/MAT_TextLayer_MAT_Demo_Electric_Shock_13_Electric_layer.mat
+  uploadId: 1035268

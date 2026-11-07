@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f31b06612d04b7246bf3c35f7f5f8b6c
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/ShaderLibrary/AllIn1TextShader_ColorEffects.hlsl
+  uploadId: 1035268

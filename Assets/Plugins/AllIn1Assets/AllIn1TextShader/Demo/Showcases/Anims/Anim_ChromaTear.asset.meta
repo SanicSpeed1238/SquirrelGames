@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 675c67618fcef1e4bb5db0bab1c799d1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Anims/Anim_ChromaTear.asset
+  uploadId: 1035268

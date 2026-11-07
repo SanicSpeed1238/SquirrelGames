@@ -1,0 +1,425 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836e20b5b5895544d8aa0ccc305eec71, type: 3}
+  m_Name: LoopedConfig_CommsNext
+  m_EditorClassIdentifier: 
+  displayName: Loop_CommsNext
+  groupDelay: 0
+  startWithRandomOffset: 0
+  isLooped: 1
+  groupType: 0
+  traversalOrder: 0
+  easingFunctions: {fileID: 11400000, guid: 46a516b1c0a26884d945dfbb91567b49, type: 2}
+  effectConfigs:
+  - id: fade
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 7ee134a07429cc64fbba9290903953e7, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: srcAlpha
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstAlpha
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 1
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: scale
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: c3c4ee67c81d93847b8816758404fe45, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: srcScale
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstScale
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 1, y: 1}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 0.5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: offset
+    enabled: 1
+    effectInfo: {fileID: 11400000, guid: 9dcd0caf2e89af44b9b2931b8945d68b, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: srcOffset
+      tagBinding: from
+      displayName: From
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 15}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstOffset
+      tagBinding: to
+      displayName: To
+      propertyType: 1
+      floatValue: 0
+      vec2Value: {x: 7, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 1.6
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: pendulum
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 0403dae9c56ae15408ac84d5c4241fa3, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: srcRotation
+      tagBinding: from
+      displayName: From
+      propertyType: 0
+      floatValue: -30
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: -30
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: dstRotation
+      tagBinding: to
+      displayName: To
+      propertyType: 0
+      floatValue: 30
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 30
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 0.5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 0.5
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: shake
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 76442752a8bc09e46a772b722af8562b, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: shakeSpeed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 20
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 20
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: length
+      tagBinding: length
+      displayName: Length
+      propertyType: 0
+      floatValue: 5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 5
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: rainbow
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: f9b6fad433786c04ca7737d5c08aaa02, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 20
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 20
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: swing
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 5201aaa3ee622e449b83f7a3298a3887, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: swingAmount
+      tagBinding: amount
+      displayName: Amount
+      propertyType: 0
+      floatValue: 30
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 30
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: swingSpeed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 5
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: rotation
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 1e4eeaec30b5b9244a5e495b529e0a38, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 5
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: dangle
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: 9a430898d8909c6469e7805eba032a59, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: length
+      tagBinding: length
+      displayName: Length
+      propertyType: 0
+      floatValue: 20
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 20
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 2
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: slide
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: a39d79d759171d24bbaf1a4381a6ab14, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: length
+      tagBinding: length
+      displayName: Length
+      propertyType: 0
+      floatValue: 10
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 10
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2.5
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 2.5
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  - id: verticalMovement
+    enabled: 0
+    effectInfo: {fileID: 11400000, guid: ee0acd8f34399c54b92753f8d3125bb8, type: 2}
+    easeFunctionID: wave_01_looped
+    orderedProperties:
+    - propertyName: height
+      tagBinding: height
+      displayName: Height
+      propertyType: 0
+      floatValue: 15
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 15
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    - propertyName: speed
+      tagBinding: speed
+      displayName: Speed
+      propertyType: 0
+      floatValue: 2
+      vec2Value: {x: 0, y: 0}
+      vec3Value: {x: 0, y: 0, z: 0}
+      colValue: {r: 0, g: 0, b: 0, a: 0}
+      stringValue: 
+      floatValueDefault: 2
+      vec2ValueDefault: {x: 0, y: 0}
+      vec3ValueDefault: {x: 0, y: 0, z: 0}
+      colValueDefault: {r: 0, g: 0, b: 0, a: 0}
+      stringValueDefault: 
+    unfolded: 0
+  unfolded: 0

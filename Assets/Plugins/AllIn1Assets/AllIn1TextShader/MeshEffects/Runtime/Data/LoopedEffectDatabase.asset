@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e784c75a9a0104a8e2e2bd6479da54, type: 3}
+  m_Name: LoopedEffectDatabase
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 11400000, guid: 7ee134a07429cc64fbba9290903953e7, type: 2}
+  - {fileID: 11400000, guid: c3c4ee67c81d93847b8816758404fe45, type: 2}
+  - {fileID: 11400000, guid: 9dcd0caf2e89af44b9b2931b8945d68b, type: 2}
+  - {fileID: 11400000, guid: 0403dae9c56ae15408ac84d5c4241fa3, type: 2}
+  - {fileID: 11400000, guid: 76442752a8bc09e46a772b722af8562b, type: 2}
+  - {fileID: 11400000, guid: f9b6fad433786c04ca7737d5c08aaa02, type: 2}
+  - {fileID: 11400000, guid: 5201aaa3ee622e449b83f7a3298a3887, type: 2}
+  - {fileID: 11400000, guid: 1e4eeaec30b5b9244a5e495b529e0a38, type: 2}
+  - {fileID: 11400000, guid: 9a430898d8909c6469e7805eba032a59, type: 2}
+  - {fileID: 11400000, guid: a39d79d759171d24bbaf1a4381a6ab14, type: 2}
+  - {fileID: 11400000, guid: ee0acd8f34399c54b92753f8d3125bb8, type: 2}
+  easingFunctions: {fileID: 11400000, guid: 46a516b1c0a26884d945dfbb91567b49, type: 2}

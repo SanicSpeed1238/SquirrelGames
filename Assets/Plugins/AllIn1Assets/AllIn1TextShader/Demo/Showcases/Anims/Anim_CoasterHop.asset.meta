@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 00069c1bb749d634b8015566b5a65163
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Anims/Anim_CoasterHop.asset
+  uploadId: 1035268

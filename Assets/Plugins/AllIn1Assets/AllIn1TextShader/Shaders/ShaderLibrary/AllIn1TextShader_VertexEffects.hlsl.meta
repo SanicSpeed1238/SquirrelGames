@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 60282c60e58ca4e4bb0dd6c77060c990
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/ShaderLibrary/AllIn1TextShader_VertexEffects.hlsl
+  uploadId: 1035268

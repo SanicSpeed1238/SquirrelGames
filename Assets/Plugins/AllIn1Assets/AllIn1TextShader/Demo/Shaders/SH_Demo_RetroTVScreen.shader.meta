@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d88459240e39d964cad35b8877d2ab34
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Shaders/SH_Demo_RetroTVScreen.shader
+  uploadId: 1035268

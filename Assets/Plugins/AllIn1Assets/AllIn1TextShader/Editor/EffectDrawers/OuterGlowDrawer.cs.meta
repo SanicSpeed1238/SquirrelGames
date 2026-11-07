@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a2a28b1427526cb40b4b78d80b77cf87
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/EffectDrawers/OuterGlowDrawer.cs
+  uploadId: 1035268

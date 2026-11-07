@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3f4d02dbf72617f4e8c411a096035963
+ComputeShaderImporter:
+  externalObjects: {}
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/AllIn1TextBlur.compute
+  uploadId: 1035268

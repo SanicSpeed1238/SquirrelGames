@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b5f1c2a3b13c59e48a65f35f0328a575
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Fonts/Licenses/Bangers
+    - OFL.txt
+  uploadId: 1035268

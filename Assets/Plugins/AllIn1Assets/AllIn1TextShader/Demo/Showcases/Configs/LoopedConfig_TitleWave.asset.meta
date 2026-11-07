@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4c972086bdff700418564e5f6314be08
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Configs/LoopedConfig_TitleWave.asset
+  uploadId: 1035268

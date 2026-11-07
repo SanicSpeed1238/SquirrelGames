@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 89dc4d01d7a3cf140a0b3a986ec680fe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Materials/MAT_Demo_RetroTV_Screen.mat
+  uploadId: 1035268

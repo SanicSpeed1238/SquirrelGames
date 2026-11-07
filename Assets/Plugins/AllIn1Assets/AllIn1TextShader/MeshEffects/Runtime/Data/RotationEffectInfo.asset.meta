@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1e4eeaec30b5b9244a5e495b529e0a38
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/MeshEffects/Runtime/Data/RotationEffectInfo.asset
+  uploadId: 1035268

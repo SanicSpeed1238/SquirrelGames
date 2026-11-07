@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6a5c232c30b0c3343a8537ec5cc79bca
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Configs/Reveal_Fallen.asset
+  uploadId: 1035268

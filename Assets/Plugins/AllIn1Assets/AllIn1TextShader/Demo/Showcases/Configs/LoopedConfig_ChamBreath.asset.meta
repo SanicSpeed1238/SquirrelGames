@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f0ae90b4e3de39048bcfaad79ccb2123
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Configs/LoopedConfig_ChamBreath.asset
+  uploadId: 1035268

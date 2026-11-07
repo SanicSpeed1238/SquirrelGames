@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1a3b8beb1589f9a4eb7183b72d22680a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Editor/CustomEditors/AllIn1TextShaderComponentCustomEditor.cs
+  uploadId: 1035268

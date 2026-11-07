@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c2aa6b9f438ec1844b4e1e1057f17988
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Scripts/Postprocess/PostprocessConfigSO.cs
+  uploadId: 1035268

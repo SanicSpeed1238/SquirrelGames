@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3c341b42eec0446c95a364ffc52f1d3c
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Shaders/ShaderLibrary/AllIn1TextShader_LedCommon.hlsl
+  uploadId: 1035268

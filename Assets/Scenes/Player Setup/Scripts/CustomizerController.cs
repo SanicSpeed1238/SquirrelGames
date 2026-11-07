@@ -34,9 +34,9 @@ public class CustomizerController : MonoBehaviour
     // Menu References
     private MultiplayerEventSystem menuController;
     private GameObject menuButtons;
-    private GameObject hatOptions;
-    private GameObject bodyOptions;
     private GameObject nameOptions;
+    private GameObject hatOptions;
+    private GameObject bodyOptions; 
     private GameObject readyText;
 
     // Current Selections
@@ -44,13 +44,16 @@ public class CustomizerController : MonoBehaviour
     private int currentBodyOption;
     private string currentName;
 
-    // Variables for Name Customization
+    // Variables for Name Customization  
+    private TextMeshProUGUI nameComplete;
+    private TextMeshProUGUI nameCustomizing;
+    private GameObject customizingNameUI;
     private bool customizingName;
     private string newName;
     private int letterIndex;
-    private int charCode;
-    private readonly int underscoreCharCode = 95;
+    private int charCode;   
     private readonly int maxNameLength = 6;
+    private readonly int underscoreCharCode = 95;
 
     IEnumerator Start()
     {
@@ -60,20 +63,34 @@ public class CustomizerController : MonoBehaviour
 
     public void SpawnNewPlayer(int ID, Transform spawn, GameObject menu, PlayerSetupManager manager)
     {
+        // Player Reference
         playersetupManager = manager;
         playerID = ID;
         transform.position = spawn.position;
 
+        // Default Customization Set
         currentHatOption = 0;
         currentBodyOption = 0;
         currentName = playersetupManager.GetDefaultName();
         SetPlayerCustomizations();
 
+        // Get Menu References
+        // -------------------
+
         menuButtons = menu.transform.Find("OPTIONS").gameObject;
+        readyText = menu.transform.Find("Ready!").gameObject;
+
+        nameOptions = menu.transform.Find("Name").gameObject;
+        customizingNameUI = nameOptions.transform.Find("Customizing").gameObject;
+        nameComplete = nameOptions.transform.Find("Complete").GetComponent<TextMeshProUGUI>();
+        nameCustomizing = customizingNameUI.transform.Find("Characters").GetComponent <TextMeshProUGUI>();
+
         hatOptions = menu.transform.Find("Hats").gameObject;
         bodyOptions = menu.transform.Find("Bodies").gameObject;
-        nameOptions = menu.transform.Find("Name").gameObject;
-        readyText = menu.transform.Find("Ready!").gameObject;
+
+        // -------------------
+
+        // Enable Menu Interaction
         StartCustomizing();
     }
 
@@ -153,20 +170,20 @@ public class CustomizerController : MonoBehaviour
         {
             switch (currentlyCustomizing)
             {
+                case CurrentlyCustomizing.Name:
+                    if (input.y < 0 && !customizingName)
+                    {
+                        currentlyCustomizing = CurrentlyCustomizing.Hat;
+                    }
+                    break;
+
                 case CurrentlyCustomizing.Hat:
-                    if (input.y < 0) currentlyCustomizing = CurrentlyCustomizing.Body;
+                    if (input.y > 0) currentlyCustomizing = CurrentlyCustomizing.Name;
+                    else if (input.y < 0) currentlyCustomizing = CurrentlyCustomizing.Body;
                     break;
 
                 case CurrentlyCustomizing.Body:
                     if (input.y > 0) currentlyCustomizing = CurrentlyCustomizing.Hat;
-                    else if (input.y < 0) currentlyCustomizing = CurrentlyCustomizing.Name;
-                    break;
-
-                case CurrentlyCustomizing.Name:
-                    if (input.y > 0 && !customizingName)
-                    {
-                        currentlyCustomizing = CurrentlyCustomizing.Body;
-                    }
                     break;
             }
 
@@ -191,7 +208,7 @@ public class CustomizerController : MonoBehaviour
                 // Start Customizing Name
 
                 menuController.SetSelectedGameObject(null);
-                nameOptions.transform.Find("Inputs").gameObject.SetActive(true);             
+                customizingNameUI.SetActive(true);             
                 customizingName = true;
 
                 letterIndex = 0;
@@ -270,6 +287,7 @@ public class CustomizerController : MonoBehaviour
         if (context.started && !isFinished)
         {
             menuController.SetSelectedGameObject(null);
+            menuButtons.SetActive(false);
             hatOptions.SetActive(false);
             bodyOptions.SetActive(false);
             nameOptions.SetActive(false);
@@ -292,7 +310,10 @@ public class CustomizerController : MonoBehaviour
     {
         menuController = GetComponent<MultiplayerEventSystem>();
         menuController.playerRoot = menuButtons;
+
+        menuButtons.SetActive(true);
         menuController.SetSelectedGameObject(menuButtons.transform.Find("Name").gameObject);
+        
         UpdateNameCompleted(currentName);
         currentlyCustomizing = CurrentlyCustomizing.Name;
     }
@@ -309,7 +330,7 @@ public class CustomizerController : MonoBehaviour
     private void UpdateNameCustomizing(string name)
     {       
         string coloredText = name[..^1] + "<color=yellow>" + name[^1] + "</color>";
-        nameOptions.GetComponent<TextMeshProUGUI>().text = coloredText;
+        nameCustomizing.text = coloredText;
     }
     private void UpdateNameCompleted(string name)
     {
@@ -318,9 +339,9 @@ public class CustomizerController : MonoBehaviour
         SetPlayerCustomizations();
 
         customizingName = false;
-        nameOptions.transform.Find("Inputs").gameObject.SetActive(false);
+        customizingNameUI.SetActive(false);
         menuController.SetSelectedGameObject(menuButtons.transform.Find("Name").gameObject);
-        nameOptions.GetComponent<TextMeshProUGUI>().text = name;
+        nameComplete.text = name;
     }
 
     #endregion

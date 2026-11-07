@@ -1,0 +1,393 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9adb408486385f4db34ebf41514603e, type: 3}
+  m_Name: EffectsProfileCollection
+  m_EditorClassIdentifier: AllIn1SharedExtensionsAssembly.Editor::AllIn1Assets.SharedExtensions.EffectsProfileCollection
+  generalProfile:
+    id: 
+    profileName: 
+    shaderGUID: 
+    groups:
+    - effectGroupConfig: {fileID: 11400000, guid: 05a6bce58cfc83a4293b054fcfc62a81, type: 2}
+      entries:
+      - effectID: BEVEL
+        displayName: Bevel
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _BevelStyle
+          kwIndexEnabled: 0
+          displayNames:
+          - Classic
+          - Symmetric
+          keywords:
+          - _BEVELSTYLE_CLASSIC
+          - _BEVELSTYLE_SYMMETRIC
+        - propertyName: _BevelLightSource
+          kwIndexEnabled: 0
+          displayNames:
+          - Material
+          - Global
+          keywords:
+          - _BEVELLIGHTSOURCE_MATERIAL
+          - _BEVELLIGHTSOURCE_GLOBAL
+        - propertyName: _LightBlending
+          kwIndexEnabled: 0
+          displayNames:
+          - Multiply
+          - Additive
+          - Relplace
+          keywords:
+          - _LIGHTBLENDING_MULTIPLY
+          - _LIGHTBLENDING_ADDITIVE
+          - _LIGHTBLENDING_RELPLACE
+        - propertyName: _ShadowBlending
+          kwIndexEnabled: 0
+          displayNames:
+          - Multiply
+          - Additive
+          - Relplace
+          keywords:
+          - _SHADOWBLENDING_MULTIPLY
+          - _SHADOWBLENDING_ADDITIVE
+          - _SHADOWBLENDING_RELPLACE
+        subkeywordEntriesToggle:
+        - propertyName: 
+          isEnabled: 0
+          keyword: _NORMAL_MAP_ON
+          displayName: Normal Map
+        - propertyName: 
+          isEnabled: 0
+          keyword: _SPECULAR_ON
+          displayName: Specular
+        - propertyName: 
+          isEnabled: 0
+          keyword: _REFLECTIONS_ON
+          displayName: Reflections
+        - propertyName: 
+          isEnabled: 0
+          keyword: _BEVEL_AFFECT_OUTLINES_ON
+          displayName: Affect Outlines
+      - effectID: DROP_SHADOW
+        displayName: Drop Shadow
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle:
+        - propertyName: 
+          isEnabled: 0
+          keyword: _DROP_SHADOW_02_ON
+          displayName: Drop Shadow (02)
+      - effectID: EXTRUDE
+        displayName: Extrude
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _ExtrudeLightSource
+          kwIndexEnabled: 0
+          displayNames:
+          - Material
+          - Global
+          keywords:
+          - _EXTRUDELIGHTSOURCE_MATERIAL
+          - _EXTRUDELIGHTSOURCE_GLOBAL
+        subkeywordEntriesToggle: []
+    - effectGroupConfig: {fileID: 11400000, guid: fcdc7c904b0215f4aabfa8ced0068841, type: 2}
+      entries:
+      - effectID: COLOR_RAMP
+        displayName: Color Ramp
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _ColorRampStage
+          kwIndexEnabled: 0
+          displayNames:
+          - BeforeEffects
+          - AfterEffects
+          keywords:
+          - _COLORRAMPSTAGE_BEFOREEFFECTS
+          - _COLORRAMPSTAGE_AFTEREFFECTS
+        subkeywordEntriesToggle: []
+      - effectID: HUE_SHIFT
+        displayName: Hue Shift
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: GREYSCALE
+        displayName: Greyscale
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: POSTERIZE
+        displayName: Posterize
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: CONTRAST_BRIGHTNESS
+        displayName: Contrast and Brightness
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: SHINE
+        displayName: Shine
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: HOLOGRAM
+        displayName: Hologram
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: OVERLAY_TEXTURE
+        displayName: Overlay Texture
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: INNER_GLOW
+        displayName: Inner Glow
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _InnerGlowBlending
+          kwIndexEnabled: 0
+          displayNames:
+          - Additive
+          - Multiply
+          - Replace
+          keywords:
+          - _INNERGLOWBLENDING_ADDITIVE
+          - _INNERGLOWBLENDING_MULTIPLY
+          - _INNERGLOWBLENDING_REPLACE
+        subkeywordEntriesToggle: []
+      - effectID: OUTER_GLOW
+        displayName: Outer Glow
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: OUTLINE
+        displayName: Outline
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _Outline01Position
+          kwIndexEnabled: 0
+          displayNames:
+          - Inside
+          - Outside
+          keywords:
+          - _OUTLINE01POSITION_INSIDE
+          - _OUTLINE01POSITION_OUTSIDE
+        - propertyName: _Outline01SmoothnessMode
+          kwIndexEnabled: 0
+          displayNames:
+          - Classic
+          - Smooth
+          keywords:
+          - _OUTLINE01SMOOTHNESSMODE_CLASSIC
+          - _OUTLINE01SMOOTHNESSMODE_SMOOTH
+        - propertyName: _Outline02Position
+          kwIndexEnabled: 0
+          displayNames:
+          - Inside
+          - Outside
+          keywords:
+          - _OUTLINE02POSITION_INSIDE
+          - _OUTLINE02POSITION_OUTSIDE
+        - propertyName: _Outline02SmoothnessMode
+          kwIndexEnabled: 0
+          displayNames:
+          - Classic
+          - Smooth
+          keywords:
+          - _OUTLINE02SMOOTHNESSMODE_CLASSIC
+          - _OUTLINE02SMOOTHNESSMODE_SMOOTH
+        - propertyName: _Outline03Position
+          kwIndexEnabled: 0
+          displayNames:
+          - Inside
+          - Outside
+          keywords:
+          - _OUTLINE03POSITION_INSIDE
+          - _OUTLINE03POSITION_OUTSIDE
+        - propertyName: _Outline03SmoothnessMode
+          kwIndexEnabled: 0
+          displayNames:
+          - Classic
+          - Smooth
+          keywords:
+          - _OUTLINE03SMOOTHNESSMODE_CLASSIC
+          - _OUTLINE03SMOOTHNESSMODE_SMOOTH
+        subkeywordEntriesToggle:
+        - propertyName: 
+          isEnabled: 0
+          keyword: _OUTLINE_02_ON
+          displayName: Outline 02
+        - propertyName: 
+          isEnabled: 0
+          keyword: _OUTLINE_03_ON
+          displayName: Outline 03
+      - effectID: LEDS
+        displayName: Led
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _LedsGrid
+          kwIndexEnabled: 0
+          displayNames:
+          - Text
+          - Panel
+          keywords:
+          - _LEDSGRID_TEXT
+          - _LEDSGRID_PANEL
+        subkeywordEntriesToggle: []
+      - effectID: COLOR_GRADIENT
+        displayName: Color Gradient
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _GradientScope
+          kwIndexEnabled: 0
+          displayNames:
+          - Rect
+          - Character
+          keywords:
+          - _GRADIENTSCOPE_RECT
+          - _GRADIENTSCOPE_CHARACTER
+        - propertyName: _GradientBlendingMode
+          kwIndexEnabled: 0
+          displayNames:
+          - Additive
+          - Multiply
+          - Replace
+          keywords:
+          - _GRADIENTBLENDINGMODE_ADDITIVE
+          - _GRADIENTBLENDINGMODE_MULTIPLY
+          - _GRADIENTBLENDINGMODE_REPLACE
+        subkeywordEntriesToggle:
+        - propertyName: 
+          isEnabled: 0
+          keyword: _COLOR_GRADIENT_NOISE_ON
+          displayName: Use Noise?
+      - effectID: COLOR_GRADING
+        displayName: Color Grading
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+    - effectGroupConfig: {fileID: 11400000, guid: d45649322d809684a8f280736df5ebc7, type: 2}
+      entries:
+      - effectID: ALPHA_CUTOFF
+        displayName: Alpha Cutoff
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: FLICKER
+        displayName: Flicker
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: FADE
+        displayName: Fade
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle:
+        - propertyName: 
+          isEnabled: 0
+          keyword: _FADE_BURN_ON
+          displayName: Use Fade Burn Color?
+    - effectGroupConfig: {fileID: 11400000, guid: 987f969d8d3fec24bbb35df7779ba52b, type: 2}
+      entries:
+      - effectID: VERTEX_SHAKE
+        displayName: Vertex Shake
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: WIND
+        displayName: Wind
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+    - effectGroupConfig: {fileID: 11400000, guid: 2f3fcb0996a83b64599ce17553aa6b13, type: 2}
+      entries:
+      - effectID: GLITCH
+        displayName: Glitch
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: PIXELATE
+        displayName: Pixelate
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: HAND_DRAWN
+        displayName: Hand Drawn
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: WAVE
+        displayName: Wave
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: ROUND_WAVE
+        displayName: Round Wave
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: TWIST
+        displayName: Twist
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: WARP
+        displayName: Warp
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum: []
+        subkeywordEntriesToggle: []
+      - effectID: DISTORTION
+        displayName: Distortion
+        isEnabled: 1
+        kwEnabledIndex: 0
+        subkeywordEntriesEnum:
+        - propertyName: _DistortionMovementType
+          kwIndexEnabled: 0
+          displayNames:
+          - Continuous
+          - Stepped
+          keywords:
+          - _DISTORTIONMOVEMENTTYPE_CONTINUOUS
+          - _DISTORTIONMOVEMENTTYPE_STEPPED
+        subkeywordEntriesToggle: []
+    - effectGroupConfig: {fileID: 11400000, guid: d29aa9c55e3576d4bad55ec71545fe82, type: 2}
+      entries: []
+  profiles: []
+  pluginConfig: {fileID: 11400000, guid: 7a18b8f6fb7c38c4ba0426c9d4e0f5e5, type: 2}

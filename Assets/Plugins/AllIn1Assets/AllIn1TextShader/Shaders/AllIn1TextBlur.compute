@@ -1,0 +1,44 @@
+#pragma kernel BlurHorizontal
+#pragma kernel BlurVertical
+
+Texture2D<float4> InputTex;
+RWTexture2D<float4> OutputTex;
+StructuredBuffer<float> Weights;
+
+int Width;
+int Height;
+int Radius;
+
+[numthreads(32, 1, 1)]
+void BlurHorizontal(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= (uint)Width || id.y >= (uint)Height) return;
+
+	float sum = 0.0;
+	int cx = (int)id.x;
+	int cy = (int)id.y;
+	int wMax = Width - 1;
+	for (int t = -Radius; t <= Radius; ++t)
+	{
+		int sx = clamp(cx + t, 0, wMax);
+		sum += InputTex[int2(sx, cy)].a * Weights[t + Radius];
+	}
+	OutputTex[id.xy] = float4(sum, sum, sum, sum);
+}
+
+[numthreads(1, 32, 1)]
+void BlurVertical(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= (uint)Width || id.y >= (uint)Height) return;
+
+	float sum = 0.0;
+	int cx = (int)id.x;
+	int cy = (int)id.y;
+	int hMax = Height - 1;
+	for (int t = -Radius; t <= Radius; ++t)
+	{
+		int sy = clamp(cy + t, 0, hMax);
+		sum += InputTex[int2(cx, sy)].a * Weights[t + Radius];
+	}
+	OutputTex[id.xy] = float4(sum, sum, sum, sum);
+}

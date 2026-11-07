@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2ad0a792dd3870d49aa05ef29ce7d698
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Showcases/Postprocess
+    Config/PostprocessConfig_SplineTravel.asset
+  uploadId: 1035268

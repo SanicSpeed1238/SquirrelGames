@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a9494d223e092334c9ee6f878128073c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 423436
+  packageName: All In 1 Text Toolkit
+  packageVersion: 1.0
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn1TextShader/Demo/Materials/MAT_Demo_RetroTV_BackgroundScreen.mat
+  uploadId: 1035268
