@@ -278,7 +278,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 0.1
   duration: 0.3
-  easeType: 1
+  easeType: 27
   easeCurve:
     serializedVersion: 2
     m_Curve:

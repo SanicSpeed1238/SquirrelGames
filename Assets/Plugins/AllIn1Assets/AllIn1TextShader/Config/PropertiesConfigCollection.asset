@@ -34,7 +34,7 @@ MonoBehaviour:
         - _BEVEL_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 37
           propertyName: _BevelStyle
           displayName: Bevel Style
@@ -54,7 +54,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 38
           propertyName: _BevelSize
           displayName: Bevel Size
@@ -69,7 +69,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 39
           propertyName: _BevelLightSource
           displayName: Light Source
@@ -89,7 +89,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 40
           propertyName: _LightAngle
           displayName: Light Angle
@@ -104,7 +104,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 41
           propertyName: _LightElevation
           displayName: Light Elevation
@@ -119,7 +119,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 42
           propertyName: _LightBlending
           displayName: Light Blending
@@ -141,7 +141,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 43
           propertyName: _LightColor
           displayName: Light Color
@@ -156,7 +156,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 44
           propertyName: _LightCutoff
           displayName: Light Cutoff
@@ -171,7 +171,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 45
           propertyName: _LightSmoothness
           displayName: Light Smoothness
@@ -186,7 +186,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 46
           propertyName: _LightIntensity
           displayName: Light Intensity
@@ -201,7 +201,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 47
           propertyName: _ShadowBlending
           displayName: Shadow Blending
@@ -223,7 +223,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 48
           propertyName: _ShadowColor
           displayName: Shadow Color
@@ -238,7 +238,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 49
           propertyName: _ShadowCutoff
           displayName: Shadow Cutoff
@@ -253,7 +253,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 50
           propertyName: _ShadowSmoothness
           displayName: Shadow Smoothness
@@ -268,7 +268,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 51
           propertyName: _NormalMapOn
           displayName: Normal Map
@@ -285,7 +285,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 52
           propertyName: _NormalMap
           displayName: Normal Map
@@ -301,7 +301,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 53
           propertyName: _NormalStrength
           displayName: Normal Strength
@@ -317,7 +317,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 54
           propertyName: _NormalFaceAtten
           displayName: Face Atten
@@ -333,7 +333,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 55
           propertyName: _NormalOutlineAtten
           displayName: Outline Atten
@@ -349,7 +349,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 56
           propertyName: _SpecularOn
           displayName: Specular
@@ -366,7 +366,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 57
           propertyName: _SpecularColor
           displayName: Specular Color
@@ -382,7 +382,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 58
           propertyName: _Shininess
           displayName: Shininess
@@ -398,7 +398,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 59
           propertyName: _SpecularCutoff
           displayName: Specular Cutoff
@@ -414,7 +414,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 60
           propertyName: _SpecularSmoothness
           displayName: Specular Smoothness
@@ -430,7 +430,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 61
           propertyName: _SpecularIntensity
           displayName: Intensity
@@ -446,7 +446,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 62
           propertyName: _ReflectionsOn
           displayName: Reflections
@@ -463,7 +463,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 63
           propertyName: _ReflectionsMap
           displayName: Reflections Map
@@ -479,7 +479,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 64
           propertyName: _ReflectionsAtten
           displayName: Attenuation
@@ -495,7 +495,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 65
           propertyName: _BevelAffectOutlines
           displayName: Affect Outlines
@@ -532,7 +532,7 @@ MonoBehaviour:
         - _DROP_SHADOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 67
           propertyName: _DropShadowColor
           displayName: Shadow Color
@@ -547,7 +547,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 68
           propertyName: _DropShadowsSize
           displayName: Shadows Size
@@ -562,7 +562,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 69
           propertyName: _DropShadowsOffsetX
           displayName: Offset X
@@ -577,7 +577,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 70
           propertyName: _DropShadowsOffsetY
           displayName: Offset Y
@@ -592,7 +592,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 71
           propertyName: _DropShadowsSmoothness
           displayName: Smoothness
@@ -607,7 +607,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 72
           propertyName: _DropShadow02On
           displayName: Drop Shadow (02)
@@ -624,7 +624,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 73
           propertyName: _DropShadow02_Color
           displayName: Shadow Color
@@ -640,7 +640,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 74
           propertyName: _DropShadow02_Size
           displayName: Shadows Size
@@ -656,7 +656,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 75
           propertyName: _DropShadow02_OffsetX
           displayName: Offset X
@@ -672,7 +672,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 76
           propertyName: _DropShadow02_OffsetY
           displayName: Offset Y
@@ -688,7 +688,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 77
           propertyName: _DropShadow02_Smoothness
           displayName: Smoothness
@@ -724,7 +724,7 @@ MonoBehaviour:
         - _EXTRUDE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 79
           propertyName: _ExtrudeDepth
           displayName: Depth
@@ -739,7 +739,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 80
           propertyName: _ExtrudeAngle
           displayName: Angle
@@ -754,7 +754,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 81
           propertyName: _ExtrudeColor
           displayName: Side Color
@@ -769,7 +769,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 82
           propertyName: _ExtrudeLetterTint
           displayName: Letter Color Tint
@@ -784,7 +784,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 83
           propertyName: _ExtrudeDepthShade
           displayName: Depth Shade
@@ -799,7 +799,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 84
           propertyName: _ExtrudeLightSource
           displayName: Light Source
@@ -819,7 +819,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 85
           propertyName: _ExtrudeLightAngle
           displayName: Light Angle
@@ -834,7 +834,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 86
           propertyName: _ExtrudeLightElevation
           displayName: Light Elevation
@@ -849,7 +849,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 87
           propertyName: _ExtrudeLightColor
           displayName: Light Color
@@ -864,7 +864,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 88
           propertyName: _ExtrudeShadowColor
           displayName: Shadow Color
@@ -879,7 +879,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 89
           propertyName: _ExtrudeLightSmoothness
           displayName: Light Smoothness
@@ -894,7 +894,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 90
           propertyName: _ExtrudeOutlineWidth
           displayName: Outline Thickness
@@ -909,7 +909,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 91
           propertyName: _ExtrudeOutlineColor
           displayName: Outline Color
@@ -951,7 +951,7 @@ MonoBehaviour:
         - _COLOR_RAMP_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 93
           propertyName: _ColorRampStage
           displayName: Stage
@@ -971,7 +971,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 94
           propertyName: _ColorRampTex
           displayName: Color Ramp Tex
@@ -986,7 +986,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 95
           propertyName: _ColorRampLuminosity
           displayName: Color Ramp Luminosity
@@ -1001,7 +1001,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 96
           propertyName: _ColorRampBlend
           displayName: Color Ramp Blend
@@ -1016,7 +1016,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 97
           propertyName: _ColorRampTiling
           displayName: Tiling
@@ -1031,7 +1031,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 98
           propertyName: _ColorRampScrollSpeed
           displayName: Scroll Speed
@@ -1071,7 +1071,7 @@ MonoBehaviour:
         - _HUE_SHIFT_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 100
           propertyName: _HueShift
           displayName: Hue Shift
@@ -1086,7 +1086,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 101
           propertyName: _HueSaturation
           displayName: Saturation
@@ -1101,7 +1101,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 102
           propertyName: _HueBrightness
           displayName: Brightness
@@ -1141,7 +1141,7 @@ MonoBehaviour:
         - _GREYSCALE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 104
           propertyName: _GreyscaleLuminosity
           displayName: Luminosity
@@ -1156,7 +1156,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 105
           propertyName: _GreyscaleTintColor
           displayName: Greyscale Tint
@@ -1171,7 +1171,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 106
           propertyName: _GreyscaleBlend
           displayName: Blend
@@ -1211,7 +1211,7 @@ MonoBehaviour:
         - _POSTERIZE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691471
+            rid: 495407161347407878
           propertyIndex: 108
           propertyName: _PosterizeNumColors
           displayName: Number of Colors
@@ -1226,7 +1226,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691471
+            rid: 495407161347407878
           propertyIndex: 109
           propertyName: _PosterizeGamma
           displayName: Posterize Gamma
@@ -1261,7 +1261,7 @@ MonoBehaviour:
         - _CONTRAST_BRIGHTNESS_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691472
+            rid: 495407161347407879
           propertyIndex: 111
           propertyName: _Contrast
           displayName: Contrast
@@ -1276,7 +1276,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691472
+            rid: 495407161347407879
           propertyIndex: 112
           propertyName: _Brightness
           displayName: Brightness
@@ -1311,7 +1311,7 @@ MonoBehaviour:
         - _SHINE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 114
           propertyName: _ShineColor
           displayName: Shine Color
@@ -1326,7 +1326,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 115
           propertyName: _ShineSpeed
           displayName: Shine Speed
@@ -1341,7 +1341,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 116
           propertyName: _ShinePathLength
           displayName: Path Length
@@ -1356,7 +1356,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 117
           propertyName: _ShineLocation
           displayName: Shine Location
@@ -1371,7 +1371,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 118
           propertyName: _ShineRotate
           displayName: Rotate Angle(radians)
@@ -1386,7 +1386,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 119
           propertyName: _ShineWidth
           displayName: Shine Width
@@ -1401,7 +1401,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 120
           propertyName: _ShineGlow
           displayName: Shine Glow
@@ -1416,7 +1416,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 121
           propertyName: _ShineMask
           displayName: Shine Mask
@@ -1451,7 +1451,7 @@ MonoBehaviour:
         - _HOLOGRAM_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 123
           propertyName: _HologramColor
           displayName: Hologram Color
@@ -1466,7 +1466,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 124
           propertyName: _HologramTint
           displayName: Hologram Tint
@@ -1481,7 +1481,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 125
           propertyName: _HologramRotation
           displayName: Hologram Rotation
@@ -1496,7 +1496,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 126
           propertyName: _HologramBaseAlpha
           displayName: Hologram Base Alpha
@@ -1511,7 +1511,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 127
           propertyName: _HologramFrequency
           displayName: Hologram Lines Per Rect Height
@@ -1526,7 +1526,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 128
           propertyName: _HologramScrollSpeed
           displayName: Hologram Scroll Speed (lines/s)
@@ -1541,7 +1541,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 129
           propertyName: _HologramLineWidth
           displayName: Hologram Line Width
@@ -1556,7 +1556,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 130
           propertyName: _HologramLineSmoothness
           displayName: Hologram Line Smoothness
@@ -1571,7 +1571,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 131
           propertyName: _HologramLineGlow
           displayName: Hologram Line Glow
@@ -1586,7 +1586,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 132
           propertyName: _HologramAccentFrequency
           displayName: Hologram Accent Frequency
@@ -1601,7 +1601,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 133
           propertyName: _HologramAccentSpeed
           displayName: Hologram Accent Speed
@@ -1616,7 +1616,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 134
           propertyName: _HologramAccentWidth
           displayName: Hologram Accent Width
@@ -1631,7 +1631,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 135
           propertyName: _HologramAccentGlow
           displayName: Hologram Accent Glow
@@ -1666,7 +1666,7 @@ MonoBehaviour:
         - _OVERLAY_TEXTURE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 137
           propertyName: _OverlayTex
           displayName: Overlay Texture
@@ -1681,7 +1681,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 138
           propertyName: _OverlayTextureScrollXSpeed
           displayName: Speed X Axis
@@ -1696,7 +1696,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 139
           propertyName: _OverlayTextureScrollYSpeed
           displayName: Speed Y Axis
@@ -1711,7 +1711,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 140
           propertyName: _OverlayColor
           displayName: Overlay Color
@@ -1726,7 +1726,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 141
           propertyName: _OverlayGlow
           displayName: Overlay Glow
@@ -1741,7 +1741,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 142
           propertyName: _OverlayBlend
           displayName: Overlay Blend
@@ -1776,7 +1776,7 @@ MonoBehaviour:
         - _INNER_GLOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 144
           propertyName: _InnerGlowBlending
           displayName: Blending
@@ -1798,7 +1798,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 145
           propertyName: _InnerGlowColor
           displayName: Glow Color
@@ -1813,7 +1813,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 146
           propertyName: _InnerGlowSize
           displayName: Glow Size
@@ -1828,7 +1828,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 147
           propertyName: _InnerGlowSmoothness
           displayName: Smoothness
@@ -1843,7 +1843,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 148
           propertyName: _InnerGlowAtten
           displayName: Attenuation
@@ -1878,7 +1878,7 @@ MonoBehaviour:
         - _OUTER_GLOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 150
           propertyName: _OuterGlowColor
           displayName: Glow Color
@@ -1893,7 +1893,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 151
           propertyName: _OuterGlowSize
           displayName: Glow Size
@@ -1908,7 +1908,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 152
           propertyName: _OuterGlowSmoothness
           displayName: Smoothness
@@ -1923,7 +1923,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 153
           propertyName: _OuterGlowAttenuation
           displayName: Attenuation
@@ -1958,7 +1958,7 @@ MonoBehaviour:
         - _OUTLINE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 155
           propertyName: _Outline01Position
           displayName: Outline Position
@@ -1978,7 +1978,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 156
           propertyName: _Outline01SmoothnessMode
           displayName: Smoothness Mode
@@ -1998,7 +1998,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 157
           propertyName: _Outline01Color
           displayName: Outline Color
@@ -2013,7 +2013,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 158
           propertyName: _Outline01Width
           displayName: Outline Thickness
@@ -2028,7 +2028,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 159
           propertyName: _Outline01Smoothness
           displayName: Outline Smoothness
@@ -2043,7 +2043,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 160
           propertyName: _Outline02On
           displayName: Outline 02
@@ -2060,7 +2060,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 161
           propertyName: _Outline02Position
           displayName: Outline Position
@@ -2080,7 +2080,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 162
           propertyName: _Outline02SmoothnessMode
           displayName: Smoothness Mode
@@ -2100,7 +2100,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 163
           propertyName: _Outline02Color
           displayName: Outline Color
@@ -2116,7 +2116,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 164
           propertyName: _Outline02Width
           displayName: Outline Thickness
@@ -2132,7 +2132,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 165
           propertyName: _Outline02Smoothness
           displayName: Outline 02 Smoothness
@@ -2148,7 +2148,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 166
           propertyName: _Outline03On
           displayName: Outline 03
@@ -2166,7 +2166,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 167
           propertyName: _Outline03Position
           displayName: Outline Position
@@ -2186,7 +2186,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 168
           propertyName: _Outline03SmoothnessMode
           displayName: Smoothness Mode
@@ -2206,7 +2206,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 169
           propertyName: _Outline03Color
           displayName: Outline Color
@@ -2222,7 +2222,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 170
           propertyName: _Outline03Width
           displayName: Outline Thickness
@@ -2238,7 +2238,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 171
           propertyName: _Outline03Smoothness
           displayName: Outline 03 Smoothness
@@ -2274,7 +2274,7 @@ MonoBehaviour:
         - _LEDS_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 173
           propertyName: _LedsGrid
           displayName: Grid
@@ -2294,7 +2294,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 174
           propertyName: _LedsColor01
           displayName: Core Color
@@ -2309,7 +2309,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 175
           propertyName: _LedsColor02
           displayName: Rim Color
@@ -2324,7 +2324,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 176
           propertyName: _LedsColorTransition
           displayName: Core Size
@@ -2339,7 +2339,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 177
           propertyName: _LedsIntensity
           displayName: Leds Intensity
@@ -2354,7 +2354,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 178
           propertyName: _LedsEdgeDimming
           displayName: Edge Dimming
@@ -2369,7 +2369,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 179
           propertyName: _NumLeds
           displayName: Num Leds
@@ -2385,7 +2385,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 180
           propertyName: _LedSize
           displayName: Led Size
@@ -2401,7 +2401,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 181
           propertyName: _LedsRoundness
           displayName: Roundness
@@ -2417,7 +2417,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 182
           propertyName: _LedsSoftness
           displayName: Softness
@@ -2433,7 +2433,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 183
           propertyName: _LedsVariation
           displayName: Variation
@@ -2469,7 +2469,7 @@ MonoBehaviour:
         - _COLOR_GRADIENT_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 185
           propertyName: _GradientScope
           displayName: Scope
@@ -2489,7 +2489,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 186
           propertyName: _GradientBlendingMode
           displayName: Blending Mode
@@ -2511,7 +2511,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 187
           propertyName: _GradientBlend
           displayName: Blend
@@ -2526,7 +2526,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 188
           propertyName: _ColorGradientTex
           displayName: Gradient
@@ -2541,7 +2541,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 189
           propertyName: _GradientOrigin
           displayName: Gradient Origin
@@ -2556,7 +2556,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 190
           propertyName: _GradientSize
           displayName: Gradient Size
@@ -2571,7 +2571,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 191
           propertyName: _GradientAngle
           displayName: Angle
@@ -2586,7 +2586,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 192
           propertyName: _GradientSpeed
           displayName: Gradient Speed
@@ -2601,7 +2601,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 193
           propertyName: _ColorGradientNoiseOn
           displayName: Use Noise?
@@ -2618,7 +2618,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 194
           propertyName: _ColorGradientNoiseTex
           displayName: Noise Texture
@@ -2634,7 +2634,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 195
           propertyName: _ColorGradientNoiseXSpeed
           displayName: X Speed
@@ -2650,7 +2650,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 196
           propertyName: _ColorGradientNoiseYSpeed
           displayName: Y Speed
@@ -2666,7 +2666,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 197
           propertyName: _ColorGradientNoiseCutoff
           displayName: Cutoff
@@ -2682,7 +2682,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 198
           propertyName: _ColorGradientNoiseSmoothness
           displayName: Smoothness
@@ -2723,7 +2723,7 @@ MonoBehaviour:
         - _COLOR_GRADING_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 200
           propertyName: _ColorGradingLight
           displayName: Light Color Tint
@@ -2738,7 +2738,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 201
           propertyName: _ColorGradingMiddle
           displayName: Mid Tone Color Tint
@@ -2753,7 +2753,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 202
           propertyName: _ColorGradingDark
           displayName: Dark/Shadow Color Tint
@@ -2768,7 +2768,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 203
           propertyName: _ColorGradingMidPoint
           displayName: Mid Point
@@ -2805,7 +2805,7 @@ MonoBehaviour:
         - _ALPHA_CUTOFF_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691482
+            rid: 495407161347407889
           propertyIndex: 243
           propertyName: _AlphaCutoffValue
           displayName: Cutoff Value
@@ -2840,7 +2840,7 @@ MonoBehaviour:
         - _FLICKER_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 245
           propertyName: _FlickerPercent
           displayName: Flicker Percent
@@ -2855,7 +2855,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 246
           propertyName: _FlickerFreq
           displayName: Flicker Frequency
@@ -2870,7 +2870,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 247
           propertyName: _FlickerAlpha
           displayName: Flicker Alpha
@@ -2905,7 +2905,7 @@ MonoBehaviour:
         - _FADE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 249
           propertyName: _FadeTex
           displayName: Fade Tex
@@ -2920,7 +2920,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 250
           propertyName: _FadeAmount
           displayName: Fade Amount
@@ -2935,7 +2935,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 251
           propertyName: _FadePower
           displayName: Fade Power
@@ -2950,7 +2950,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 252
           propertyName: _FadeTransition
           displayName: Fade Transition
@@ -2965,7 +2965,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 253
           propertyName: _FadeBurnOn
           displayName: Use Fade Burn Color?
@@ -2982,7 +2982,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 254
           propertyName: _FadeBurnColor
           displayName: Fade Burn Color
@@ -2998,7 +2998,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 255
           propertyName: _FadeBurnWidth
           displayName: Fade Burn Width
@@ -3036,7 +3036,7 @@ MonoBehaviour:
         - _VERTEX_SHAKE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 24
           propertyName: _ShakeSpeed
           displayName: Speed
@@ -3051,7 +3051,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 25
           propertyName: _ShakeSpeedMult
           displayName: Shake Mult
@@ -3066,7 +3066,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 26
           propertyName: _ShakeMaxDisplacement
           displayName: Shake Max Displacement
@@ -3081,7 +3081,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 27
           propertyName: _ShakeBlend
           displayName: Shake Blend
@@ -3116,7 +3116,7 @@ MonoBehaviour:
         - _WIND_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 29
           propertyName: _WindBendAmount
           displayName: Bend Amount
@@ -3131,7 +3131,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 30
           propertyName: _WindLean
           displayName: Lean
@@ -3146,7 +3146,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 31
           propertyName: _WindSpeed
           displayName: Speed
@@ -3161,7 +3161,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 32
           propertyName: _WindWaveFrequency
           displayName: Wave Frequency
@@ -3176,7 +3176,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 33
           propertyName: _WindRandomness
           displayName: Randomness
@@ -3191,7 +3191,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 34
           propertyName: _WindGustStrength
           displayName: Gust Strength
@@ -3206,7 +3206,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 35
           propertyName: _WindAnchor
           displayName: Anchor
@@ -3243,7 +3243,7 @@ MonoBehaviour:
         - _GLITCH_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 205
           propertyName: _GlitchSize
           displayName: Glitch Size
@@ -3258,7 +3258,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 206
           propertyName: _GlitchAmount
           displayName: Glitch Amount
@@ -3273,7 +3273,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 207
           propertyName: _GlitchSpeed
           displayName: Glitch Speed
@@ -3308,7 +3308,7 @@ MonoBehaviour:
         - _PIXELATE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691488
+            rid: 495407161347407895
           propertyIndex: 209
           propertyName: _PixelateSize
           displayName: Pixels Per Em
@@ -3343,7 +3343,7 @@ MonoBehaviour:
         - _HAND_DRAWN_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 211
           propertyName: _HandDrawnNumSteps
           displayName: Num Steps
@@ -3358,7 +3358,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 212
           propertyName: _HandDrawnAmount
           displayName: Hand Drawn Amount
@@ -3373,7 +3373,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 213
           propertyName: _HandDrawnBlend
           displayName: Blend
@@ -3388,7 +3388,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 214
           propertyName: _HandDrawnSpeed
           displayName: Hand Drawn Speed
@@ -3423,7 +3423,7 @@ MonoBehaviour:
         - _WAVE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 216
           propertyName: _WaveAmount
           displayName: Wave Amount
@@ -3438,7 +3438,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 217
           propertyName: _WaveSpeed
           displayName: Wave Speed
@@ -3453,7 +3453,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 218
           propertyName: _WaveStrength
           displayName: Wave Strength
@@ -3468,7 +3468,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 219
           propertyName: _WaveX
           displayName: Wave X Axis
@@ -3483,7 +3483,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 220
           propertyName: _WaveY
           displayName: Wave Y Axis
@@ -3518,7 +3518,7 @@ MonoBehaviour:
         - _ROUND_WAVE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691491
+            rid: 495407161347407898
           propertyIndex: 222
           propertyName: _RoundWaveStrength
           displayName: Wave Strength
@@ -3533,7 +3533,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691491
+            rid: 495407161347407898
           propertyIndex: 223
           propertyName: _RoundWaveSpeed
           displayName: Wave Speed
@@ -3568,7 +3568,7 @@ MonoBehaviour:
         - _TWIST_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 225
           propertyName: _TwistUvAmount
           displayName: Twist Amount
@@ -3583,7 +3583,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 226
           propertyName: _TwistUvPosX
           displayName: Twist Pos X Axis
@@ -3598,7 +3598,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 227
           propertyName: _TwistUvPosY
           displayName: Twist Pos Y Axis
@@ -3613,7 +3613,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 228
           propertyName: _TwistUvRadius
           displayName: Twist Radius
@@ -3628,7 +3628,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 229
           propertyName: _TwistStretchX
           displayName: Stretch X
@@ -3643,7 +3643,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 230
           propertyName: _TwistStretchY
           displayName: Stretch Y
@@ -3678,7 +3678,7 @@ MonoBehaviour:
         - _WARP_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 232
           propertyName: _WarpStrength
           displayName: Warp Strength
@@ -3693,7 +3693,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 233
           propertyName: _WarpSpeed
           displayName: Warp Speed
@@ -3708,7 +3708,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 234
           propertyName: _WarpScale
           displayName: Warp Scale
@@ -3743,7 +3743,7 @@ MonoBehaviour:
         - _DISTORTION_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 236
           propertyName: _DistortTex
           displayName: Distortion Texture
@@ -3758,7 +3758,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 237
           propertyName: _DistortAmount
           displayName: Distortion Amount
@@ -3773,7 +3773,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 238
           propertyName: _DistortXSpeed
           displayName: Scroll speed X
@@ -3788,7 +3788,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 239
           propertyName: _DistortYSpeed
           displayName: Scroll speed Y
@@ -3803,7 +3803,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 240
           propertyName: _DistortionMovementType
           displayName: Movement Type
@@ -3822,7 +3822,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 241
           propertyName: _DistortionFrequency
           displayName: Frequency
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7986905417637691465
+    - rid: 495407161347407872
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: BEVEL
@@ -3875,7 +3875,7 @@ MonoBehaviour:
         - _BEVEL_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 37
           propertyName: _BevelStyle
           displayName: Bevel Style
@@ -3895,7 +3895,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 38
           propertyName: _BevelSize
           displayName: Bevel Size
@@ -3910,7 +3910,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 39
           propertyName: _BevelLightSource
           displayName: Light Source
@@ -3930,7 +3930,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 40
           propertyName: _LightAngle
           displayName: Light Angle
@@ -3945,7 +3945,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 41
           propertyName: _LightElevation
           displayName: Light Elevation
@@ -3960,7 +3960,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 42
           propertyName: _LightBlending
           displayName: Light Blending
@@ -3982,7 +3982,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 43
           propertyName: _LightColor
           displayName: Light Color
@@ -3997,7 +3997,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 44
           propertyName: _LightCutoff
           displayName: Light Cutoff
@@ -4012,7 +4012,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 45
           propertyName: _LightSmoothness
           displayName: Light Smoothness
@@ -4027,7 +4027,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 46
           propertyName: _LightIntensity
           displayName: Light Intensity
@@ -4042,7 +4042,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 47
           propertyName: _ShadowBlending
           displayName: Shadow Blending
@@ -4064,7 +4064,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 48
           propertyName: _ShadowColor
           displayName: Shadow Color
@@ -4079,7 +4079,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 49
           propertyName: _ShadowCutoff
           displayName: Shadow Cutoff
@@ -4094,7 +4094,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 50
           propertyName: _ShadowSmoothness
           displayName: Shadow Smoothness
@@ -4109,7 +4109,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 51
           propertyName: _NormalMapOn
           displayName: Normal Map
@@ -4126,7 +4126,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 52
           propertyName: _NormalMap
           displayName: Normal Map
@@ -4142,7 +4142,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 53
           propertyName: _NormalStrength
           displayName: Normal Strength
@@ -4158,7 +4158,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 54
           propertyName: _NormalFaceAtten
           displayName: Face Atten
@@ -4174,7 +4174,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 55
           propertyName: _NormalOutlineAtten
           displayName: Outline Atten
@@ -4190,7 +4190,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 56
           propertyName: _SpecularOn
           displayName: Specular
@@ -4207,7 +4207,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 57
           propertyName: _SpecularColor
           displayName: Specular Color
@@ -4223,7 +4223,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 58
           propertyName: _Shininess
           displayName: Shininess
@@ -4239,7 +4239,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 59
           propertyName: _SpecularCutoff
           displayName: Specular Cutoff
@@ -4255,7 +4255,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 60
           propertyName: _SpecularSmoothness
           displayName: Specular Smoothness
@@ -4271,7 +4271,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 61
           propertyName: _SpecularIntensity
           displayName: Intensity
@@ -4287,7 +4287,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 62
           propertyName: _ReflectionsOn
           displayName: Reflections
@@ -4304,7 +4304,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 63
           propertyName: _ReflectionsMap
           displayName: Reflections Map
@@ -4320,7 +4320,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 64
           propertyName: _ReflectionsAtten
           displayName: Attenuation
@@ -4336,7 +4336,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691465
+            rid: 495407161347407872
           propertyIndex: 65
           propertyName: _BevelAffectOutlines
           displayName: Affect Outlines
@@ -4356,7 +4356,7 @@ MonoBehaviour:
         displayIndex: 1
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691466
+    - rid: 495407161347407873
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: DROP_SHADOW
@@ -4376,7 +4376,7 @@ MonoBehaviour:
         - _DROP_SHADOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 67
           propertyName: _DropShadowColor
           displayName: Shadow Color
@@ -4391,7 +4391,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 68
           propertyName: _DropShadowsSize
           displayName: Shadows Size
@@ -4406,7 +4406,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 69
           propertyName: _DropShadowsOffsetX
           displayName: Offset X
@@ -4421,7 +4421,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 70
           propertyName: _DropShadowsOffsetY
           displayName: Offset Y
@@ -4436,7 +4436,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 71
           propertyName: _DropShadowsSmoothness
           displayName: Smoothness
@@ -4451,7 +4451,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 72
           propertyName: _DropShadow02On
           displayName: Drop Shadow (02)
@@ -4468,7 +4468,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 73
           propertyName: _DropShadow02_Color
           displayName: Shadow Color
@@ -4484,7 +4484,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 74
           propertyName: _DropShadow02_Size
           displayName: Shadows Size
@@ -4500,7 +4500,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 75
           propertyName: _DropShadow02_OffsetX
           displayName: Offset X
@@ -4516,7 +4516,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 76
           propertyName: _DropShadow02_OffsetY
           displayName: Offset Y
@@ -4532,7 +4532,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691466
+            rid: 495407161347407873
           propertyIndex: 77
           propertyName: _DropShadow02_Smoothness
           displayName: Smoothness
@@ -4551,7 +4551,7 @@ MonoBehaviour:
         displayIndex: 2
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691467
+    - rid: 495407161347407874
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: EXTRUDE
@@ -4571,7 +4571,7 @@ MonoBehaviour:
         - _EXTRUDE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 79
           propertyName: _ExtrudeDepth
           displayName: Depth
@@ -4586,7 +4586,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 80
           propertyName: _ExtrudeAngle
           displayName: Angle
@@ -4601,7 +4601,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 81
           propertyName: _ExtrudeColor
           displayName: Side Color
@@ -4616,7 +4616,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 82
           propertyName: _ExtrudeLetterTint
           displayName: Letter Color Tint
@@ -4631,7 +4631,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 83
           propertyName: _ExtrudeDepthShade
           displayName: Depth Shade
@@ -4646,7 +4646,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 84
           propertyName: _ExtrudeLightSource
           displayName: Light Source
@@ -4666,7 +4666,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 85
           propertyName: _ExtrudeLightAngle
           displayName: Light Angle
@@ -4681,7 +4681,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 86
           propertyName: _ExtrudeLightElevation
           displayName: Light Elevation
@@ -4696,7 +4696,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 87
           propertyName: _ExtrudeLightColor
           displayName: Light Color
@@ -4711,7 +4711,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 88
           propertyName: _ExtrudeShadowColor
           displayName: Shadow Color
@@ -4726,7 +4726,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 89
           propertyName: _ExtrudeLightSmoothness
           displayName: Light Smoothness
@@ -4741,7 +4741,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 90
           propertyName: _ExtrudeOutlineWidth
           displayName: Outline Thickness
@@ -4756,7 +4756,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691467
+            rid: 495407161347407874
           propertyIndex: 91
           propertyName: _ExtrudeOutlineColor
           displayName: Outline Color
@@ -4774,7 +4774,7 @@ MonoBehaviour:
         displayIndex: 3
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691468
+    - rid: 495407161347407875
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: COLOR_RAMP
@@ -4799,7 +4799,7 @@ MonoBehaviour:
         - _COLOR_RAMP_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 93
           propertyName: _ColorRampStage
           displayName: Stage
@@ -4819,7 +4819,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 94
           propertyName: _ColorRampTex
           displayName: Color Ramp Tex
@@ -4834,7 +4834,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 95
           propertyName: _ColorRampLuminosity
           displayName: Color Ramp Luminosity
@@ -4849,7 +4849,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 96
           propertyName: _ColorRampBlend
           displayName: Color Ramp Blend
@@ -4864,7 +4864,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 97
           propertyName: _ColorRampTiling
           displayName: Tiling
@@ -4879,7 +4879,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691468
+            rid: 495407161347407875
           propertyIndex: 98
           propertyName: _ColorRampScrollSpeed
           displayName: Scroll Speed
@@ -4897,7 +4897,7 @@ MonoBehaviour:
         displayIndex: 4
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691469
+    - rid: 495407161347407876
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: HUE_SHIFT
@@ -4922,7 +4922,7 @@ MonoBehaviour:
         - _HUE_SHIFT_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 100
           propertyName: _HueShift
           displayName: Hue Shift
@@ -4937,7 +4937,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 101
           propertyName: _HueSaturation
           displayName: Saturation
@@ -4952,7 +4952,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691469
+            rid: 495407161347407876
           propertyIndex: 102
           propertyName: _HueBrightness
           displayName: Brightness
@@ -4970,7 +4970,7 @@ MonoBehaviour:
         displayIndex: 5
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691470
+    - rid: 495407161347407877
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: GREYSCALE
@@ -4995,7 +4995,7 @@ MonoBehaviour:
         - _GREYSCALE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 104
           propertyName: _GreyscaleLuminosity
           displayName: Luminosity
@@ -5010,7 +5010,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 105
           propertyName: _GreyscaleTintColor
           displayName: Greyscale Tint
@@ -5025,7 +5025,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691470
+            rid: 495407161347407877
           propertyIndex: 106
           propertyName: _GreyscaleBlend
           displayName: Blend
@@ -5043,7 +5043,7 @@ MonoBehaviour:
         displayIndex: 6
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691471
+    - rid: 495407161347407878
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: POSTERIZE
@@ -5068,7 +5068,7 @@ MonoBehaviour:
         - _POSTERIZE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691471
+            rid: 495407161347407878
           propertyIndex: 108
           propertyName: _PosterizeNumColors
           displayName: Number of Colors
@@ -5083,7 +5083,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691471
+            rid: 495407161347407878
           propertyIndex: 109
           propertyName: _PosterizeGamma
           displayName: Posterize Gamma
@@ -5101,7 +5101,7 @@ MonoBehaviour:
         displayIndex: 7
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691472
+    - rid: 495407161347407879
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: CONTRAST_BRIGHTNESS
@@ -5121,7 +5121,7 @@ MonoBehaviour:
         - _CONTRAST_BRIGHTNESS_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691472
+            rid: 495407161347407879
           propertyIndex: 111
           propertyName: _Contrast
           displayName: Contrast
@@ -5136,7 +5136,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691472
+            rid: 495407161347407879
           propertyIndex: 112
           propertyName: _Brightness
           displayName: Brightness
@@ -5154,7 +5154,7 @@ MonoBehaviour:
         displayIndex: 8
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691473
+    - rid: 495407161347407880
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: SHINE
@@ -5174,7 +5174,7 @@ MonoBehaviour:
         - _SHINE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 114
           propertyName: _ShineColor
           displayName: Shine Color
@@ -5189,7 +5189,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 115
           propertyName: _ShineSpeed
           displayName: Shine Speed
@@ -5204,7 +5204,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 116
           propertyName: _ShinePathLength
           displayName: Path Length
@@ -5219,7 +5219,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 117
           propertyName: _ShineLocation
           displayName: Shine Location
@@ -5234,7 +5234,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 118
           propertyName: _ShineRotate
           displayName: Rotate Angle(radians)
@@ -5249,7 +5249,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 119
           propertyName: _ShineWidth
           displayName: Shine Width
@@ -5264,7 +5264,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 120
           propertyName: _ShineGlow
           displayName: Shine Glow
@@ -5279,7 +5279,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691473
+            rid: 495407161347407880
           propertyIndex: 121
           propertyName: _ShineMask
           displayName: Shine Mask
@@ -5297,7 +5297,7 @@ MonoBehaviour:
         displayIndex: 9
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691474
+    - rid: 495407161347407881
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: HOLOGRAM
@@ -5317,7 +5317,7 @@ MonoBehaviour:
         - _HOLOGRAM_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 123
           propertyName: _HologramColor
           displayName: Hologram Color
@@ -5332,7 +5332,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 124
           propertyName: _HologramTint
           displayName: Hologram Tint
@@ -5347,7 +5347,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 125
           propertyName: _HologramRotation
           displayName: Hologram Rotation
@@ -5362,7 +5362,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 126
           propertyName: _HologramBaseAlpha
           displayName: Hologram Base Alpha
@@ -5377,7 +5377,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 127
           propertyName: _HologramFrequency
           displayName: Hologram Lines Per Rect Height
@@ -5392,7 +5392,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 128
           propertyName: _HologramScrollSpeed
           displayName: Hologram Scroll Speed (lines/s)
@@ -5407,7 +5407,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 129
           propertyName: _HologramLineWidth
           displayName: Hologram Line Width
@@ -5422,7 +5422,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 130
           propertyName: _HologramLineSmoothness
           displayName: Hologram Line Smoothness
@@ -5437,7 +5437,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 131
           propertyName: _HologramLineGlow
           displayName: Hologram Line Glow
@@ -5452,7 +5452,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 132
           propertyName: _HologramAccentFrequency
           displayName: Hologram Accent Frequency
@@ -5467,7 +5467,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 133
           propertyName: _HologramAccentSpeed
           displayName: Hologram Accent Speed
@@ -5482,7 +5482,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 134
           propertyName: _HologramAccentWidth
           displayName: Hologram Accent Width
@@ -5497,7 +5497,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691474
+            rid: 495407161347407881
           propertyIndex: 135
           propertyName: _HologramAccentGlow
           displayName: Hologram Accent Glow
@@ -5515,7 +5515,7 @@ MonoBehaviour:
         displayIndex: 10
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691475
+    - rid: 495407161347407882
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: OVERLAY_TEXTURE
@@ -5535,7 +5535,7 @@ MonoBehaviour:
         - _OVERLAY_TEXTURE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 137
           propertyName: _OverlayTex
           displayName: Overlay Texture
@@ -5550,7 +5550,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 138
           propertyName: _OverlayTextureScrollXSpeed
           displayName: Speed X Axis
@@ -5565,7 +5565,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 139
           propertyName: _OverlayTextureScrollYSpeed
           displayName: Speed Y Axis
@@ -5580,7 +5580,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 140
           propertyName: _OverlayColor
           displayName: Overlay Color
@@ -5595,7 +5595,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 141
           propertyName: _OverlayGlow
           displayName: Overlay Glow
@@ -5610,7 +5610,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691475
+            rid: 495407161347407882
           propertyIndex: 142
           propertyName: _OverlayBlend
           displayName: Overlay Blend
@@ -5628,7 +5628,7 @@ MonoBehaviour:
         displayIndex: 11
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691476
+    - rid: 495407161347407883
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: INNER_GLOW
@@ -5648,7 +5648,7 @@ MonoBehaviour:
         - _INNER_GLOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 144
           propertyName: _InnerGlowBlending
           displayName: Blending
@@ -5670,7 +5670,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 145
           propertyName: _InnerGlowColor
           displayName: Glow Color
@@ -5685,7 +5685,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 146
           propertyName: _InnerGlowSize
           displayName: Glow Size
@@ -5700,7 +5700,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 147
           propertyName: _InnerGlowSmoothness
           displayName: Smoothness
@@ -5715,7 +5715,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691476
+            rid: 495407161347407883
           propertyIndex: 148
           propertyName: _InnerGlowAtten
           displayName: Attenuation
@@ -5733,7 +5733,7 @@ MonoBehaviour:
         displayIndex: 12
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691477
+    - rid: 495407161347407884
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: OUTER_GLOW
@@ -5753,7 +5753,7 @@ MonoBehaviour:
         - _OUTER_GLOW_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 150
           propertyName: _OuterGlowColor
           displayName: Glow Color
@@ -5768,7 +5768,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 151
           propertyName: _OuterGlowSize
           displayName: Glow Size
@@ -5783,7 +5783,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 152
           propertyName: _OuterGlowSmoothness
           displayName: Smoothness
@@ -5798,7 +5798,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691477
+            rid: 495407161347407884
           propertyIndex: 153
           propertyName: _OuterGlowAttenuation
           displayName: Attenuation
@@ -5816,7 +5816,7 @@ MonoBehaviour:
         displayIndex: 13
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691478
+    - rid: 495407161347407885
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: OUTLINE
@@ -5836,7 +5836,7 @@ MonoBehaviour:
         - _OUTLINE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 155
           propertyName: _Outline01Position
           displayName: Outline Position
@@ -5856,7 +5856,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 156
           propertyName: _Outline01SmoothnessMode
           displayName: Smoothness Mode
@@ -5876,7 +5876,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 157
           propertyName: _Outline01Color
           displayName: Outline Color
@@ -5891,7 +5891,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 158
           propertyName: _Outline01Width
           displayName: Outline Thickness
@@ -5906,7 +5906,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 159
           propertyName: _Outline01Smoothness
           displayName: Outline Smoothness
@@ -5921,7 +5921,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 160
           propertyName: _Outline02On
           displayName: Outline 02
@@ -5938,7 +5938,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 161
           propertyName: _Outline02Position
           displayName: Outline Position
@@ -5958,7 +5958,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 162
           propertyName: _Outline02SmoothnessMode
           displayName: Smoothness Mode
@@ -5978,7 +5978,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 163
           propertyName: _Outline02Color
           displayName: Outline Color
@@ -5994,7 +5994,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 164
           propertyName: _Outline02Width
           displayName: Outline Thickness
@@ -6010,7 +6010,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 165
           propertyName: _Outline02Smoothness
           displayName: Outline 02 Smoothness
@@ -6026,7 +6026,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 166
           propertyName: _Outline03On
           displayName: Outline 03
@@ -6044,7 +6044,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 167
           propertyName: _Outline03Position
           displayName: Outline Position
@@ -6064,7 +6064,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 168
           propertyName: _Outline03SmoothnessMode
           displayName: Smoothness Mode
@@ -6084,7 +6084,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 169
           propertyName: _Outline03Color
           displayName: Outline Color
@@ -6100,7 +6100,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 170
           propertyName: _Outline03Width
           displayName: Outline Thickness
@@ -6116,7 +6116,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691478
+            rid: 495407161347407885
           propertyIndex: 171
           propertyName: _Outline03Smoothness
           displayName: Outline 03 Smoothness
@@ -6135,7 +6135,7 @@ MonoBehaviour:
         displayIndex: 14
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691479
+    - rid: 495407161347407886
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: LEDS
@@ -6155,7 +6155,7 @@ MonoBehaviour:
         - _LEDS_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 173
           propertyName: _LedsGrid
           displayName: Grid
@@ -6175,7 +6175,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 174
           propertyName: _LedsColor01
           displayName: Core Color
@@ -6190,7 +6190,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 175
           propertyName: _LedsColor02
           displayName: Rim Color
@@ -6205,7 +6205,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 176
           propertyName: _LedsColorTransition
           displayName: Core Size
@@ -6220,7 +6220,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 177
           propertyName: _LedsIntensity
           displayName: Leds Intensity
@@ -6235,7 +6235,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 178
           propertyName: _LedsEdgeDimming
           displayName: Edge Dimming
@@ -6250,7 +6250,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 179
           propertyName: _NumLeds
           displayName: Num Leds
@@ -6266,7 +6266,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 180
           propertyName: _LedSize
           displayName: Led Size
@@ -6282,7 +6282,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 181
           propertyName: _LedsRoundness
           displayName: Roundness
@@ -6298,7 +6298,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 182
           propertyName: _LedsSoftness
           displayName: Softness
@@ -6314,7 +6314,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691479
+            rid: 495407161347407886
           propertyIndex: 183
           propertyName: _LedsVariation
           displayName: Variation
@@ -6333,7 +6333,7 @@ MonoBehaviour:
         displayIndex: 15
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691480
+    - rid: 495407161347407887
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: COLOR_GRADIENT
@@ -6353,7 +6353,7 @@ MonoBehaviour:
         - _COLOR_GRADIENT_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 185
           propertyName: _GradientScope
           displayName: Scope
@@ -6373,7 +6373,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 186
           propertyName: _GradientBlendingMode
           displayName: Blending Mode
@@ -6395,7 +6395,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 187
           propertyName: _GradientBlend
           displayName: Blend
@@ -6410,7 +6410,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 188
           propertyName: _ColorGradientTex
           displayName: Gradient
@@ -6425,7 +6425,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 189
           propertyName: _GradientOrigin
           displayName: Gradient Origin
@@ -6440,7 +6440,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 190
           propertyName: _GradientSize
           displayName: Gradient Size
@@ -6455,7 +6455,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 191
           propertyName: _GradientAngle
           displayName: Angle
@@ -6470,7 +6470,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 192
           propertyName: _GradientSpeed
           displayName: Gradient Speed
@@ -6485,7 +6485,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 193
           propertyName: _ColorGradientNoiseOn
           displayName: Use Noise?
@@ -6502,7 +6502,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 194
           propertyName: _ColorGradientNoiseTex
           displayName: Noise Texture
@@ -6518,7 +6518,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 195
           propertyName: _ColorGradientNoiseXSpeed
           displayName: X Speed
@@ -6534,7 +6534,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 196
           propertyName: _ColorGradientNoiseYSpeed
           displayName: Y Speed
@@ -6550,7 +6550,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 197
           propertyName: _ColorGradientNoiseCutoff
           displayName: Cutoff
@@ -6566,7 +6566,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691480
+            rid: 495407161347407887
           propertyIndex: 198
           propertyName: _ColorGradientNoiseSmoothness
           displayName: Smoothness
@@ -6585,7 +6585,7 @@ MonoBehaviour:
         displayIndex: 16
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691481
+    - rid: 495407161347407888
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: COLOR_GRADING
@@ -6610,7 +6610,7 @@ MonoBehaviour:
         - _COLOR_GRADING_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 200
           propertyName: _ColorGradingLight
           displayName: Light Color Tint
@@ -6625,7 +6625,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 201
           propertyName: _ColorGradingMiddle
           displayName: Mid Tone Color Tint
@@ -6640,7 +6640,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 202
           propertyName: _ColorGradingDark
           displayName: Dark/Shadow Color Tint
@@ -6655,7 +6655,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691481
+            rid: 495407161347407888
           propertyIndex: 203
           propertyName: _ColorGradingMidPoint
           displayName: Mid Point
@@ -6673,7 +6673,7 @@ MonoBehaviour:
         displayIndex: 17
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691482
+    - rid: 495407161347407889
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: ALPHA_CUTOFF
@@ -6693,7 +6693,7 @@ MonoBehaviour:
         - _ALPHA_CUTOFF_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691482
+            rid: 495407161347407889
           propertyIndex: 243
           propertyName: _AlphaCutoffValue
           displayName: Cutoff Value
@@ -6711,7 +6711,7 @@ MonoBehaviour:
         displayIndex: 18
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691483
+    - rid: 495407161347407890
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: FLICKER
@@ -6731,7 +6731,7 @@ MonoBehaviour:
         - _FLICKER_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 245
           propertyName: _FlickerPercent
           displayName: Flicker Percent
@@ -6746,7 +6746,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 246
           propertyName: _FlickerFreq
           displayName: Flicker Frequency
@@ -6761,7 +6761,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691483
+            rid: 495407161347407890
           propertyIndex: 247
           propertyName: _FlickerAlpha
           displayName: Flicker Alpha
@@ -6779,7 +6779,7 @@ MonoBehaviour:
         displayIndex: 19
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691484
+    - rid: 495407161347407891
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: FADE
@@ -6799,7 +6799,7 @@ MonoBehaviour:
         - _FADE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 249
           propertyName: _FadeTex
           displayName: Fade Tex
@@ -6814,7 +6814,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 250
           propertyName: _FadeAmount
           displayName: Fade Amount
@@ -6829,7 +6829,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 251
           propertyName: _FadePower
           displayName: Fade Power
@@ -6844,7 +6844,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 252
           propertyName: _FadeTransition
           displayName: Fade Transition
@@ -6859,7 +6859,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 253
           propertyName: _FadeBurnOn
           displayName: Use Fade Burn Color?
@@ -6876,7 +6876,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 254
           propertyName: _FadeBurnColor
           displayName: Fade Burn Color
@@ -6892,7 +6892,7 @@ MonoBehaviour:
           isHDR: 1
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691484
+            rid: 495407161347407891
           propertyIndex: 255
           propertyName: _FadeBurnWidth
           displayName: Fade Burn Width
@@ -6911,7 +6911,7 @@ MonoBehaviour:
         displayIndex: 20
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691485
+    - rid: 495407161347407892
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: VERTEX_SHAKE
@@ -6931,7 +6931,7 @@ MonoBehaviour:
         - _VERTEX_SHAKE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 24
           propertyName: _ShakeSpeed
           displayName: Speed
@@ -6946,7 +6946,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 25
           propertyName: _ShakeSpeedMult
           displayName: Shake Mult
@@ -6961,7 +6961,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 26
           propertyName: _ShakeMaxDisplacement
           displayName: Shake Max Displacement
@@ -6976,7 +6976,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691485
+            rid: 495407161347407892
           propertyIndex: 27
           propertyName: _ShakeBlend
           displayName: Shake Blend
@@ -6994,7 +6994,7 @@ MonoBehaviour:
         displayIndex: 21
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691486
+    - rid: 495407161347407893
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: WIND
@@ -7014,7 +7014,7 @@ MonoBehaviour:
         - _WIND_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 29
           propertyName: _WindBendAmount
           displayName: Bend Amount
@@ -7029,7 +7029,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 30
           propertyName: _WindLean
           displayName: Lean
@@ -7044,7 +7044,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 31
           propertyName: _WindSpeed
           displayName: Speed
@@ -7059,7 +7059,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 32
           propertyName: _WindWaveFrequency
           displayName: Wave Frequency
@@ -7074,7 +7074,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 33
           propertyName: _WindRandomness
           displayName: Randomness
@@ -7089,7 +7089,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 34
           propertyName: _WindGustStrength
           displayName: Gust Strength
@@ -7104,7 +7104,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691486
+            rid: 495407161347407893
           propertyIndex: 35
           propertyName: _WindAnchor
           displayName: Anchor
@@ -7122,7 +7122,7 @@ MonoBehaviour:
         displayIndex: 22
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691487
+    - rid: 495407161347407894
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: GLITCH
@@ -7142,7 +7142,7 @@ MonoBehaviour:
         - _GLITCH_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 205
           propertyName: _GlitchSize
           displayName: Glitch Size
@@ -7157,7 +7157,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 206
           propertyName: _GlitchAmount
           displayName: Glitch Amount
@@ -7172,7 +7172,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691487
+            rid: 495407161347407894
           propertyIndex: 207
           propertyName: _GlitchSpeed
           displayName: Glitch Speed
@@ -7190,7 +7190,7 @@ MonoBehaviour:
         displayIndex: 23
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691488
+    - rid: 495407161347407895
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: PIXELATE
@@ -7210,7 +7210,7 @@ MonoBehaviour:
         - _PIXELATE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691488
+            rid: 495407161347407895
           propertyIndex: 209
           propertyName: _PixelateSize
           displayName: Pixels Per Em
@@ -7228,7 +7228,7 @@ MonoBehaviour:
         displayIndex: 24
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691489
+    - rid: 495407161347407896
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: HAND_DRAWN
@@ -7248,7 +7248,7 @@ MonoBehaviour:
         - _HAND_DRAWN_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 211
           propertyName: _HandDrawnNumSteps
           displayName: Num Steps
@@ -7263,7 +7263,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 212
           propertyName: _HandDrawnAmount
           displayName: Hand Drawn Amount
@@ -7278,7 +7278,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 213
           propertyName: _HandDrawnBlend
           displayName: Blend
@@ -7293,7 +7293,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691489
+            rid: 495407161347407896
           propertyIndex: 214
           propertyName: _HandDrawnSpeed
           displayName: Hand Drawn Speed
@@ -7311,7 +7311,7 @@ MonoBehaviour:
         displayIndex: 25
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691490
+    - rid: 495407161347407897
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: WAVE
@@ -7331,7 +7331,7 @@ MonoBehaviour:
         - _WAVE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 216
           propertyName: _WaveAmount
           displayName: Wave Amount
@@ -7346,7 +7346,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 217
           propertyName: _WaveSpeed
           displayName: Wave Speed
@@ -7361,7 +7361,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 218
           propertyName: _WaveStrength
           displayName: Wave Strength
@@ -7376,7 +7376,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 219
           propertyName: _WaveX
           displayName: Wave X Axis
@@ -7391,7 +7391,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691490
+            rid: 495407161347407897
           propertyIndex: 220
           propertyName: _WaveY
           displayName: Wave Y Axis
@@ -7409,7 +7409,7 @@ MonoBehaviour:
         displayIndex: 26
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691491
+    - rid: 495407161347407898
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: ROUND_WAVE
@@ -7429,7 +7429,7 @@ MonoBehaviour:
         - _ROUND_WAVE_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691491
+            rid: 495407161347407898
           propertyIndex: 222
           propertyName: _RoundWaveStrength
           displayName: Wave Strength
@@ -7444,7 +7444,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691491
+            rid: 495407161347407898
           propertyIndex: 223
           propertyName: _RoundWaveSpeed
           displayName: Wave Speed
@@ -7462,7 +7462,7 @@ MonoBehaviour:
         displayIndex: 27
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691492
+    - rid: 495407161347407899
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: TWIST
@@ -7482,7 +7482,7 @@ MonoBehaviour:
         - _TWIST_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 225
           propertyName: _TwistUvAmount
           displayName: Twist Amount
@@ -7497,7 +7497,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 226
           propertyName: _TwistUvPosX
           displayName: Twist Pos X Axis
@@ -7512,7 +7512,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 227
           propertyName: _TwistUvPosY
           displayName: Twist Pos Y Axis
@@ -7527,7 +7527,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 228
           propertyName: _TwistUvRadius
           displayName: Twist Radius
@@ -7542,7 +7542,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 229
           propertyName: _TwistStretchX
           displayName: Stretch X
@@ -7557,7 +7557,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691492
+            rid: 495407161347407899
           propertyIndex: 230
           propertyName: _TwistStretchY
           displayName: Stretch Y
@@ -7575,7 +7575,7 @@ MonoBehaviour:
         displayIndex: 28
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691493
+    - rid: 495407161347407900
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: WARP
@@ -7595,7 +7595,7 @@ MonoBehaviour:
         - _WARP_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 232
           propertyName: _WarpStrength
           displayName: Warp Strength
@@ -7610,7 +7610,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 233
           propertyName: _WarpSpeed
           displayName: Warp Speed
@@ -7625,7 +7625,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691493
+            rid: 495407161347407900
           propertyIndex: 234
           propertyName: _WarpScale
           displayName: Warp Scale
@@ -7643,7 +7643,7 @@ MonoBehaviour:
         displayIndex: 29
         effectConfigType: 0
         extraPasses: 
-    - rid: 7986905417637691494
+    - rid: 495407161347407901
       type: {class: AllIn13DEffectConfig, ns: AllIn1Assets.SharedExtensions, asm: AllIn1SharedExtensionsAssembly.Editor}
       data:
         effectName: DISTORTION
@@ -7663,7 +7663,7 @@ MonoBehaviour:
         - _DISTORTION_ON
         effectProperties:
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 236
           propertyName: _DistortTex
           displayName: Distortion Texture
@@ -7678,7 +7678,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 1
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 237
           propertyName: _DistortAmount
           displayName: Distortion Amount
@@ -7693,7 +7693,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 238
           propertyName: _DistortXSpeed
           displayName: Scroll speed X
@@ -7708,7 +7708,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 239
           propertyName: _DistortYSpeed
           displayName: Scroll speed Y
@@ -7723,7 +7723,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 240
           propertyName: _DistortionMovementType
           displayName: Movement Type
@@ -7742,7 +7742,7 @@ MonoBehaviour:
           isHDR: 0
           hasTilingAndOffset: 0
         - parentEffect:
-            rid: 7986905417637691494
+            rid: 495407161347407901
           propertyIndex: 241
           propertyName: _DistortionFrequency
           displayName: Frequency

@@ -174,7 +174,7 @@ MonoBehaviour:
       displayName: From
       propertyType: 1
       floatValue: 0
-      vec2Value: {x: 0, y: 200}
+      vec2Value: {x: 0, y: 250}
       vec3Value: {x: 0, y: 0, z: 0}
       colValue: {r: 0, g: 0, b: 0, a: 0}
       stringValue: 
