@@ -77,6 +77,12 @@ namespace AllIn1Assets.SharedExtensions
 			bool customPresetChanged = EditorGUI.EndChangeCheck();
 			EditorGUI.EndDisabledGroup();
 
+			if (presetChanged || customPresetChanged)
+			{
+				EditorUtility.SetDirty(pluginConfig);
+				EditorUtility.SetDirty(pluginConfig.defaultPreset);
+			}
+
 			//if (projectTypeChanged)
 			//{
 			//	pluginConfig.RefreshDefaultMaterial();

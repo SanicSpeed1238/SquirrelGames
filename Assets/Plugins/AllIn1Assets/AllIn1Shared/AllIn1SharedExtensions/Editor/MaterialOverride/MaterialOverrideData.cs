@@ -162,7 +162,12 @@ namespace AllIn1Assets.SharedExtensions
 
 		public void CreateRendererOverride()
 		{
+			//Obsolete from Unity 6.6 on, where the new call is the only one without a warning
+#if UNITY_6000_6_OR_NEWER
+			Renderer[] renderers = FindObjectsByType<Renderer>(FindObjectsInactive.Exclude);
+#else
 			Renderer[] renderers = FindObjectsByType<Renderer>(FindObjectsSortMode.None);
+#endif
 			for (int i = 0; i < renderers.Length; i++)
 			{
 				if (renderers[i] is ParticleSystemRenderer) { continue; }

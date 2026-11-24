@@ -116,8 +116,16 @@ namespace AllIn1Assets.SharedExtensions
 				if (GUILayout.Button("Save Noise Texture", GUILayout.MaxWidth(CommonStyles.BUTTON_WIDTH)))
 				{
 					noiseCreatorTool.CreateNoiseTex();
-					EditorUtils.SaveTextureAsPNG(pluginConfig.NoiseSavePath, "Noise", "Noises", 
-						Values.finalNoiseTex, Values.noiseFiltering, TextureImporterType.Default, TextureWrapMode.Clamp);
+					Texture savedNoise = EditorUtils.SaveTextureAsPNG(pluginConfig.NoiseSavePath, "Noise", "Noises",
+						Values.finalNoiseTex, Values.noiseFiltering, TextureImporterType.Default, TextureWrapMode.Repeat);
+
+					//Noise is read as numbers, like the shipped noise library, so Linear projects must not decode it
+					TextureImporter noiseImporter = savedNoise != null ? AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(savedNoise)) as TextureImporter : null;
+					if (noiseImporter != null)
+					{
+						noiseImporter.sRGBTexture = false;
+						noiseImporter.SaveAndReimport();
+					}
 				}
 			}
 		}

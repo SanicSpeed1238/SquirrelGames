@@ -38,12 +38,12 @@ namespace AllIn1Assets.SharedExtensions
 		{
 			this.effectOverride = effectOverride;
 
-			string propDescription = shader.GetPropertyName(propertyIndex);	
+			string toggleKeyword = GetAdvancedToggleKeyword(shader.GetPropertyName(propertyIndex));
 
-			if(propDescription == "_FogOn")
+			if(toggleKeyword != null)
 			{
 				this.propertyOverrideType = PropertyOverrideType.TOGGLE;
-				this.keywords = new string[1] { "_FOG_ON" };
+				this.keywords = new string[1] { toggleKeyword };
 			}
 			else
 			{
@@ -81,6 +81,20 @@ namespace AllIn1Assets.SharedExtensions
 			Initialize(effectProperty, shader);
 		}
 
+		private static string GetAdvancedToggleKeyword(string propertyName)
+		{
+			switch (propertyName)
+			{
+				case "_FogOn":
+					return "_FOG_ON";
+				case "_SpherizeNormals":
+					return "_SPHERIZE_NORMALS_ON";
+				case "_UseCustomTime":
+					return "_USE_CUSTOM_TIME";
+				default:
+					return null;
+			}
+		}
 
 		private void Initialize(int propertyIndex, Shader shader)
 		{

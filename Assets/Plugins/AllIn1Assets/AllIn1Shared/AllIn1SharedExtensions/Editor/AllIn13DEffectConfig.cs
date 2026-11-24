@@ -396,6 +396,34 @@ namespace AllIn1Assets.SharedExtensions
 			}
 		}
 
+		//Option keywords of a switched off effect only split variants: off clears them, on brings back the ones the property values select
+		public static void SetOptionKeywords(AllIn13DEffectConfig effectConfig, AbstractMaterialInfo targetMatInfo, bool effectEnabled)
+		{
+			for (int i = 0; i < effectConfig.effectProperties.Count; i++)
+			{
+				EffectProperty effectProperty = effectConfig.effectProperties[i];
+				if (!effectProperty.IsPropertyWithKeywords()) { continue; }
+
+				string[] optionKeywords = effectProperty.fullKeywordNames;
+				for (int k = 0; k < optionKeywords.Length; k++)
+				{
+					targetMatInfo.DisableKeyword(optionKeywords[k]);
+				}
+
+				if (!effectEnabled || !targetMatInfo.mat.HasProperty(effectProperty.propertyName)) { continue; }
+
+				float value = targetMatInfo.mat.GetFloat(effectProperty.propertyName);
+				if (optionKeywords.Length > 1)
+				{
+					targetMatInfo.EnableKeyword(optionKeywords[Mathf.Clamp(Mathf.RoundToInt(value), 0, optionKeywords.Length - 1)]);
+				}
+				else if (value > 0.5f)
+				{
+					targetMatInfo.EnableKeyword(optionKeywords[0]);
+				}
+			}
+		}
+
 		public static bool ContainsKeyword(Material mat, string kw, LocalKeyword[] enabledKeywords)
 		{
 			bool res = false;
@@ -459,7 +487,7 @@ namespace AllIn1Assets.SharedExtensions
 		public GUIContent CreateGUIContent(int globalEffectIndex, int keywordSelectedIndex)
 		{
 			string label = $"{globalEffectIndex}. {displayName}";
-			string tooltip = keywords[keywordSelectedIndex].keyword + " (C#)";
+			string tooltip = PropertyNameCopyMenu.Tooltip(keywords[keywordSelectedIndex].keyword);
 			
 			GUIContent res = new GUIContent(label, tooltip);
 

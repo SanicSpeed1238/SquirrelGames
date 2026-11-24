@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d2b8d6cb09c7491aaea6075f4e6a5473
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316173
+  packageName: All In 1 3D-Shader
+  packageVersion: 2.81
+  assetPath: Assets/Plugins/AllIn1Assets/AllIn13DShader/Editor/Utilities/AllIn13DShaderResolver.cs
+  uploadId: 1045388

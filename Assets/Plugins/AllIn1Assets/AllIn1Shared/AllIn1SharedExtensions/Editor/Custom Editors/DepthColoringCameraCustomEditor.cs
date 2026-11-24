@@ -50,6 +50,7 @@ namespace AllIn1Assets.SharedExtensions
 			EditorGUI.BeginChangeCheck();
 			EditorGUILayout.PropertyField(spCam);
 			EditorGUILayout.PropertyField(spDepthColoringProperties);
+			bool changed = EditorGUI.EndChangeCheck();
 
 			serializedObject.ApplyModifiedProperties();
 
@@ -58,6 +59,11 @@ namespace AllIn1Assets.SharedExtensions
 				GUILayout.Space(25f);
 
 				depthColoringProperties = (AllIn1DepthColoringProperties)spDepthColoringProperties.objectReferenceValue;
+
+				if(changed)
+				{
+					depthColoringProperties.ApplyValues();
+				}
 
 				RefreshDepthColoringPropertiesDrawer();
 

@@ -112,6 +112,8 @@ namespace AllIn1Assets
 
 		public static void ShowNotification(string message, double fadeOutWait = 1.0)
 		{
+			// No Scene view open (or batch mode): the message is only a toast, and throwing here aborted the save that called it
+			if (SceneView.lastActiveSceneView == null) { return; }
 			SceneView.lastActiveSceneView.ShowNotification(new GUIContent(message), fadeOutWait);
 		}
 

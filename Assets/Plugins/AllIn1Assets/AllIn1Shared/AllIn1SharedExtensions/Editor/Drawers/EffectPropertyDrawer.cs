@@ -34,6 +34,7 @@ namespace AllIn1Assets.SharedExtensions
 
 				GUIContent guiContent = effectConfig.CreateGUIContent(globalEffectIndex, keywordSelectedIndex);
 				EditorGUILayout.LabelField(guiContent, GUILayout.Width(180f));
+				PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.KEYWORD, effectConfig.keywords[keywordSelectedIndex].keyword);
 				EditorGUILayout.LabelField("Disabled in Active Effects List");
 			}
 			
@@ -48,8 +49,8 @@ namespace AllIn1Assets.SharedExtensions
 			
 			EditorGUI.BeginChangeCheck();
 
-			string tooltip = effectConfig.keywords[0].keyword + " (C#)";
-			GUIContent guiContent = new GUIContent(label, tooltip);
+			string keyword = effectConfig.keywords[0].keyword;
+			GUIContent guiContent = new GUIContent(label, PropertyNameCopyMenu.Tooltip(keyword));
 
 			bool effectEnabledInAllMaterials = true;
 			bool effectDisabledInAllMaterials = true;
@@ -66,12 +67,13 @@ namespace AllIn1Assets.SharedExtensions
 			if (allMaterialsAreVariants)
 			{
 				GUILayout.Label(guiContent);
+				PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.KEYWORD, keyword);
 			}
 			else
 			{
 				bool mixedValue = (!(effectEnabledInAllMaterials || effectDisabledInAllMaterials)) && references.targetMatInfos.Length > 1;
 				string style = mixedValue ? "ToggleMixed" : "Toggle";
-				isEffectEnabled = GUILayout.Toggle(isEffectEnabled, guiContent, style);
+				isEffectEnabled = PropertyNameCopyMenu.Toggle(isEffectEnabled, guiContent, style, PropertyNameCopyMenu.KEYWORD, keyword);
 			}
 			if (EditorGUI.EndChangeCheck())
 			{
@@ -86,6 +88,11 @@ namespace AllIn1Assets.SharedExtensions
 					else
 					{
 						AllIn13DEffectConfig.DisableEffect(effectConfig, matInfo);
+					}
+
+					if (references.ClearsOptionKeywordsOfDisabledEffects)
+					{
+						AllIn13DEffectConfig.SetOptionKeywords(effectConfig, matInfo, isEffectEnabled);
 					}
 				}
 
@@ -127,8 +134,8 @@ namespace AllIn1Assets.SharedExtensions
 
 
 
-			string tooltip = effectConfig.keywords[selectedIndex].keyword + " (C#)";
-			GUIContent guiContent = new GUIContent(label, tooltip);
+			string keyword = effectConfig.keywords[selectedIndex].keyword;
+			GUIContent guiContent = new GUIContent(label, PropertyNameCopyMenu.Tooltip(keyword));
 
 
 			if (isShaderVariant)
@@ -137,6 +144,7 @@ namespace AllIn1Assets.SharedExtensions
 				{
 					EditorGUILayout.BeginHorizontal(references.propertiesStyle);
 					EditorGUILayout.LabelField(guiContent);
+					PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.KEYWORD, keyword);
 					EditorGUILayout.LabelField(effectConfig.keywordsDisplayNames[selectedIndex]);
 					EditorGUILayout.EndHorizontal();
 				}
@@ -144,6 +152,7 @@ namespace AllIn1Assets.SharedExtensions
 				{
 					EditorGUILayout.BeginHorizontal();
 					EditorGUILayout.LabelField(guiContent);
+					PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.KEYWORD, keyword);
 					EditorGUILayout.EndHorizontal();
 				}
 			}
@@ -151,7 +160,9 @@ namespace AllIn1Assets.SharedExtensions
 			{
 				EditorGUI.BeginChangeCheck();
 				EditorGUI.showMixedValue = !sameEnumValueInAllMaterials;
-				selectedIndex = EditorGUILayout.Popup(guiContent, selectedIndex, effectConfig.keywordsDisplayNames);
+				Rect popupRow = PropertyNameCopyMenu.PopupRow();
+				if (PropertyNameCopyMenu.IsMenuClick(PropertyNameCopyMenu.LabelRect(popupRow))) PropertyNameCopyMenu.ShowMenu(PropertyNameCopyMenu.KEYWORD, GetKeywordNames(effectConfig), selectedIndex);
+				selectedIndex = EditorGUI.Popup(popupRow, guiContent, selectedIndex, PropertyNameCopyMenu.PopupContents(effectConfig.keywordsDisplayNames));
 				EditorGUI.showMixedValue = false;
 
 				if (EditorGUI.EndChangeCheck())
@@ -283,7 +294,7 @@ namespace AllIn1Assets.SharedExtensions
 			Plugin3DMaterialInspectorReferences references)
 		{
 			string label = $"{labelPrefix} {displayName}";
-			string tooltip = materialProperty.name + "(C#)";
+			string tooltip = PropertyNameCopyMenu.Tooltip(materialProperty.name);
 
 			EditorGUILayout.BeginHorizontal();
 
@@ -291,7 +302,7 @@ namespace AllIn1Assets.SharedExtensions
 
 			if(isShaderVariant && isKeywordProperty)
 			{
-				DrawShaderPropertyCustomValue(label: label, tooltip: tooltip, customValue: customValue, isKeywordProperty: isKeywordProperty, propertyType: propertyType, references: references);
+				DrawShaderPropertyCustomValue(label: label, tooltip: tooltip, propertyName: materialProperty.name, customValue: customValue, isKeywordProperty: isKeywordProperty, propertyType: propertyType, references: references);
 			}
 			else
 			{
@@ -317,7 +328,7 @@ namespace AllIn1Assets.SharedExtensions
 			propertyLabel.tooltip = tooltip;
 
 			EditorGUI.BeginChangeCheck();
-			references.editorMat.ShaderProperty(materialProperty, propertyLabel);
+			PropertyNameCopyMenu.ShaderProperty(references.editorMat, materialProperty, propertyLabel);
 			if (EditorGUI.EndChangeCheck())
 			{
 				if (isKeywordProperty)
@@ -330,6 +341,7 @@ namespace AllIn1Assets.SharedExtensions
 		private static void DrawShaderPropertyCustomValue(
 			string label,
 			string tooltip,
+			string propertyName,
 			string customValue,
 			bool isKeywordProperty,
 			EffectProperty.PropertyType propertyType,
@@ -343,14 +355,23 @@ namespace AllIn1Assets.SharedExtensions
 			if(propertyType == EffectProperty.PropertyType.TOGGLE)
 			{
 				EditorGUILayout.Toggle(propertyLabel, true);
+				PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.PROPERTY, propertyName);
 			}
 			else
 			{
 				EditorGUILayout.LabelField(propertyLabel);
+				PropertyNameCopyMenu.HandleLast(PropertyNameCopyMenu.PROPERTY, propertyName);
 				EditorGUILayout.LabelField(customValue);
 			}
 
 			EditorGUILayout.EndHorizontal();
+		}
+
+		private static string[] GetKeywordNames(AllIn13DEffectConfig effectConfig)
+		{
+			string[] names = new string[effectConfig.keywords.Count];
+			for (int i = 0; i < names.Length; i++) names[i] = effectConfig.keywords[i].keyword;
+			return names;
 		}
 
 		public static void DrawResetButton(MaterialProperty targetProperty, Plugin3DMaterialInspectorReferences references)

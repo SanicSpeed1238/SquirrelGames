@@ -39,7 +39,12 @@ namespace AllIn1Assets.SharedExtensions
 
 			if(depthColoringCamera == null)
 			{
+				//Obsolete from Unity 6.6 on, where the new call is the only one without a warning
+#if UNITY_6000_6_OR_NEWER
+				depthColoringCamera = GameObject.FindAnyObjectByType<DepthColoringCamera>();
+#else
 				depthColoringCamera = GameObject.FindFirstObjectByType<DepthColoringCamera>();
+#endif
 			}
 		}
 

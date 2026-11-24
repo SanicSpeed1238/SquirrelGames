@@ -34,7 +34,7 @@ namespace AllIn1Assets.SharedExtensions
 
 			File.WriteAllText(dstPath, txtGeneratedFile);
 
-			/*AssetDatabase.Refresh();*/
+			AssetDatabase.ImportAsset(dstPath);
 		}
 
 		private static string ProcessEffectConfig(string input, EffectsProfileEntry entry)

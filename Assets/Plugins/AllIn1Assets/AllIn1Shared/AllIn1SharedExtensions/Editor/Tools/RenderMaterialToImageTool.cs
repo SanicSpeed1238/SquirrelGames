@@ -28,6 +28,11 @@ namespace AllIn1Assets.SharedExtensions
 			string correctedFileName = fullPath.Replace(folderPath, string.Empty);
 			
 			fullPath = EditorUtility.SaveFilePanel("Save Render Image", folderPath, fileName, "png");
+			if (string.IsNullOrEmpty(fullPath))
+			{
+				GameObject.DestroyImmediate(resultTex);
+				return;
+			}
 
 			byte[] bytes = resultTex.EncodeToPNG();
 			File.WriteAllBytes(fullPath, bytes);

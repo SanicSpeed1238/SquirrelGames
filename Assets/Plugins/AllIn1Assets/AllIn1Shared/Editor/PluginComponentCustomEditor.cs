@@ -226,7 +226,31 @@ namespace AllIn1Assets
 
 				Material defaultMaterial = pluginConfigGeneric.GetDefaultMaterial();
 				pluginComponent.NewCleanMaterial(defaultMaterial);
+				SaveMaterialIfInPrefabMode(pluginComponent);
 			}
+		}
+
+		//A prefab only keeps a saved material, so one made in Prefab Mode is saved with the others. Otherwise saving the prefab dropped it
+		//and the object came back without its material
+		protected void SaveMaterialIfInPrefabMode(PluginComponent comp)
+		{
+			PrefabStage stage = comp != null ? PrefabStageUtility.GetPrefabStage(comp.gameObject) : null;
+			if (stage == null) { return; }
+
+			Material mat = comp.GetCurrentMaterial();
+			if (mat == null || AssetDatabase.Contains(mat)) { return; }
+
+			string folderPath = pluginConfigGeneric.GetMaterialSavePath();
+			if (!EditorUtils.EnsureAssetFolderExists(folderPath))
+			{
+				Debug.LogWarning($"[AllIn1] {comp.name}'s new material could not be saved to '{folderPath}', so the prefab will not keep it. " +
+					"Set a valid folder in the Save Paths tab of the plugin window, then use Save Material To Folder.");
+				return;
+			}
+
+			string fullPath = AssetDatabase.GenerateUniqueAssetPath(EditorUtils.CombineAssetPath(folderPath, $"MAT_{pluginConfigGeneric.GetPluginName()}.mat"));
+			AssetDatabase.CreateAsset(mat, fullPath);
+			EditorSceneManager.MarkSceneDirty(stage.scene);
 		}
 
 		private void SaveMaterialToFolder()
@@ -269,6 +293,10 @@ namespace AllIn1Assets
 
 				AssetDatabase.CreateAsset(matToSave, fullPath);
 				/*AssetDatabase.Refresh();*/
+				if (isAlreadySaved)
+				{
+					comp.SetCurrentMaterial(matToSave);
+				}
 
 				EditorGUIUtility.PingObject(matToSave);
 			}
@@ -285,6 +313,7 @@ namespace AllIn1Assets
 				{
 					Material defaultMaterial = pluginConfigGeneric.GetDefaultMaterial();
 					pluginComponent.NewCleanMaterial(defaultMaterial);
+					SaveMaterialIfInPrefabMode(pluginComponent);
 
 					AllIn1Logger.LogWarning(TAG, "Creating new material");
 				}
@@ -364,7 +393,7 @@ namespace AllIn1Assets
 			{
 				action();
 			}
-			else
+			else if (SceneView.lastActiveSceneView != null)
 			{
 				SceneView.lastActiveSceneView.ShowNotification(new GUIContent("Some of the selected components are not valid"));
 			}

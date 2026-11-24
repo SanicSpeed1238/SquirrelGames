@@ -30,6 +30,8 @@ namespace AllIn1Assets.SharedExtensions
 		//Plugin Config
 		private Plugin3DConfig pluginConfig;
 
+		public bool ClearsOptionKeywordsOfDisabledEffects => pluginConfig != null && pluginConfig.ClearsOptionKeywordsOfDisabledEffects;
+
 		public Plugin3DMaterialInspectorReferences(Plugin3DConfig pluginConfig)
 		{
 			propertiesStyle = new GUIStyle(EditorStyles.helpBox);

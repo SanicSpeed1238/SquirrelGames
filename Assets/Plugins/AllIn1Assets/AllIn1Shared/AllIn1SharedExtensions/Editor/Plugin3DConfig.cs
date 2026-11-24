@@ -418,6 +418,8 @@ namespace AllIn1Assets.SharedExtensions
 
 		public abstract bool IsDerivedFromAllIn13DShader();
 
+		public virtual bool ClearsOptionKeywordsOfDisabledEffects => false;
+
 		public override void Init()
 		{
 			base.Init();
